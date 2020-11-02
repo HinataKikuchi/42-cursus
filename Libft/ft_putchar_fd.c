@@ -6,9 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 15:14:56 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/02 15:29:49 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/02 16:19:54 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void ft_putchar_fd(char c, int fd)
 {
