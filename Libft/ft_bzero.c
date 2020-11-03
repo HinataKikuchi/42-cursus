@@ -6,15 +6,15 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 16:11:33 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/02 16:13:35 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/03 16:39:39 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void bzero(void *s, size_t n)
+void ft_bzero(void *s, size_t n)
 {
-	int i;
+	unsigned int i;
 
 	i=0;
 	while (i < n)
