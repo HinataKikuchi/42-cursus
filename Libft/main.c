@@ -1,5 +1,6 @@
-#include "libft.h"
 #include <stdio.h>
+#include "libft.h"
+
 int main(void)
 {
 //	char str1[] = "0123456789";
