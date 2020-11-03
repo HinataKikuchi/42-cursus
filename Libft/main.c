@@ -9,11 +9,20 @@ int main(void)
 //	printf("%s\n",str1);
 //	return 0;
 
-	char str[] = "abcdefghijklmnopqrstu";
-        
-    printf("before;%s\n",str);
+//	char str[] = "abcdefghijklmnopqrstu";
+//        
+//    printf("before;%s\n",str);
+//    
+//    ft_memmove(str+5, str, 10);
+//    printf("after：%s\n",str);
+//    return 0;
+
+    char str[] = "abcdef\0ghij";    /* 途中に空文字のある文字列 */
+    char *p;
     
-    ft_memmove(str+5, str, 10);
-    printf("after：%s\n",str);
+    p = ft_memchr(str, 'h', 12);
+    printf("検索文字は文字列の%d番目\n",p - str);
+    
     return 0;
+
 }

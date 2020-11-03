@@ -6,21 +6,22 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 16:11:33 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/03 16:39:39 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/03 19:25:53 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned int i;
+	unsigned int	i;
+	char			*tmp;
 
-	i=0;
+	i = 0;
+	tmp = s;
 	while (i < n)
 	{
-		char *tmp = s;
-		*(tmp + i)='\0';
+		*(tmp + i) = '\0';
 		i++;
 	}
 }
