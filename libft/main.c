@@ -51,6 +51,17 @@ int main(void)
 //        else
 //                printf("buf1 != buf3\n");
 //
-    return 0;
 
+//		char s[] = "abcd";
+//        printf("%ld\n",ft_strlen(s));
+//        printf("%ld\n",strlen(s));
+//        return 0;	
+
+	//char s[] = "abcde";
+	char s1[] = "abcde";
+	char s2[] = "12";
+	printf("%ld, %s\n", ft_strlcpy(s1, s2, 2) ,s1);
+//	strlcpy(s, s2, 1);
+//	printf("%s\n",s);
+	return 0;
 }
