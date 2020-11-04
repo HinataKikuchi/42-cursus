@@ -60,7 +60,7 @@ int main(void)
 	//char s[] = "abcde";
 	char s1[] = "abcde";
 	char s2[] = "12";
-	printf("%ld, %s\n", ft_strlcpy(s1, s2, 2) ,s1);
+	printf("%ld, %s\n", ft_strlcpy(s1, s2, 1) ,s1);
 //	strlcpy(s, s2, 1);
 //	printf("%s\n",s);
 	return 0;
