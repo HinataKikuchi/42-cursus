@@ -28,7 +28,7 @@ int main(void)
 //    printf("before;%s\n",str);
 //    
 //    ft_memmove(str+5, str, 10);
-//    printf("after：%s\n",str);
+//    printf("after:%s\n",str);
 //    return 0;
 
     //char str[] = "abcdef\0ghij";
@@ -38,7 +38,7 @@ int main(void)
     //printf("number = %ld\n",p - str);
     //
 
-//    char buf1[] = "\0abc\0de";      /* 途中に空文字のある文字列 */
+//    char buf1[] = "\0abc\0de";
 //        char buf2[] = "\0abc\0de";
 //        char buf3[] = "\0abcdef";
 //        
