@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 15:15:01 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/03 22:57:18 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/04 10:54:50 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 void	*ft_memset(void *bun, int ch, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *buf1, const void *buf2, size_t n);
+void	*ft_memccpy(void *buf1, const void *buf2, int c, size_t n);
 void	*ft_memmove(void *buf1, const void *buf2, size_t n);
 void	*ft_memchr(const void *buf, int ch, size_t n);
 int		ft_memcmp(const void *buf1, const void *buf2, size_t n);
