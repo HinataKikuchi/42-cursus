@@ -66,6 +66,6 @@ int main(void)
 
     printf("%ld, %s\n", ft_strlcat(s1, s2, sizeof(s1)), s1);
 	char s3[] = "abcde";
-//    printf("%d, %s\n", strlcat(s3, s2, sizeof(s3)), s3);
+    printf("%d, %s\n", strlcat(s3, s2, sizeof(s3)), s3);
 	return 0;
 }
