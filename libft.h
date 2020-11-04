@@ -6,13 +6,13 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 15:15:01 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/04 12:07:16 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/04 18:22:06 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <stdio.h>
+# include <stdlib.h>
 
 void	*ft_memset(void *bun, int ch, size_t n);
 void	ft_bzero(void *s, size_t n);
