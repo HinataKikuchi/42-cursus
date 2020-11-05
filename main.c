@@ -58,14 +58,28 @@ int main(void)
 //        return 0;	
 
 //	//char s[] = "abcde";
-	char s1[] = "abcde";
-	char s2[] = "123456";
+//	char s1[] = "abcde";
+//	char s2[] = "123456";
 //	printf("%ld, %s\n", ft_strlcpy(s1, s2, 1) ,s1);
 //	strlcpy(s, s2, 1);
 //	printf("%s\n",s);
-
-    printf("%ld, %s\n", ft_strlcat(s1, s2, 0), s1);
+//
+  //  printf("%ld, %s\n", ft_strlcat(s1, s2, 0), s1);
 //	char s3[] = "abcde";
 //    printf("%d, %s\n", strlcat(s1, s2, 11), s1);
+
+    char str[] = "abcdefghijklmnabcdefghijklmn", *p;
+	int c;
+
+	printf("検索文字のasciiコードを10進数で入力してください。");
+	scanf("%d", &c);
+	
+	p = strchr(str, c);
+	if (p != NULL) {
+		printf("%cは文字列の%ld番目にあります。\n", c, p-str);
+		printf("以降の文字列は%sです。\n", p);
+	}
+	else
+		printf("%cは見つかりませんでした\n", c);
 	return 0;
 }
