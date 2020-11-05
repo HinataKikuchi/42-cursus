@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h>
+#include <bsd/string.h>
 #include "libft.h"
 
 int main(void)
@@ -59,13 +59,13 @@ int main(void)
 
 //	//char s[] = "abcde";
 	char s1[] = "abcde";
-	char s2[] = "12";
+	char s2[] = "123456";
 //	printf("%ld, %s\n", ft_strlcpy(s1, s2, 1) ,s1);
 //	strlcpy(s, s2, 1);
 //	printf("%s\n",s);
 
-    printf("%ld, %s\n", ft_strlcat(s1, s2, sizeof(s1)), s1);
-	char s3[] = "abcde";
-    printf("%d, %s\n", strlcat(s3, s2, sizeof(s3)), s3);
+    printf("%ld, %s\n", ft_strlcat(s1, s2, 0), s1);
+//	char s3[] = "abcde";
+//    printf("%d, %s\n", strlcat(s1, s2, 11), s1);
 	return 0;
 }
