@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:42:59 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/05 16:05:43 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/05 16:36:06 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ char	*ft_strchr(const char *s, int c)
 			return (char *)s;
 	}
 	if (*s++ == (char)c)
-			return (char *)s;
+		return (char *)s;
 	return (NULL);
 }
