@@ -68,14 +68,35 @@ int main(void)
 //	char s3[] = "abcde";
 //    printf("%d, %s\n", strlcat(s1, s2, 11), s1);
 
+//    char str[] = "abcdefghijklmnabcdefghijklmn", *p;
+//	int c;
+//
+//	printf("検索文字のasciiコードを10進数で入力してください。");
+//	scanf("%d", &c);
+//	
+//	p = ft_strchr(str, c);
+//	if (p != NULL) {
+//		printf("%cは文字列の%ld番目にあります。\n", c, p-str);
+//		printf("以降の文字列は%sです。\n", p);
+//	}
+//	else
+//		printf("%cは見つかりませんでした\n", c);
+
     char str[] = "abcdefghijklmnabcdefghijklmn", *p;
 	int c;
-
 	printf("検索文字のasciiコードを10進数で入力してください。");
 	scanf("%d", &c);
 	
-	p = strchr(str, c);
-	if (p != NULL) {
+	p = ft_strrchr(str, c);
+    if (p != NULL) {
+		printf("%cは文字列の%ld番目にあります。\n", c, p-str);
+		printf("以降の文字列は%sです。\n", p);
+	}
+	else
+		printf("%cは見つかりませんでした\n", c);
+
+    p = strrchr(str, c);
+    if (p != NULL) {
 		printf("%cは文字列の%ld番目にあります。\n", c, p-str);
 		printf("以降の文字列は%sです。\n", p);
 	}
