@@ -87,7 +87,7 @@ int main(void)
 	printf("検索文字のasciiコードを10進数で入力してください。");
 	scanf("%d", &c);
 	
-	p = ft_strnchr(str, 16 ,c);
+	p = ft_strrchr(str, c);
     if (p != NULL) {
 		printf("%cは文字列の%ld番目にあります。\n", c, p-str);
 		printf("以降の文字列は%sです。\n", p);
