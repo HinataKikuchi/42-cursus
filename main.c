@@ -161,23 +161,63 @@ int main(void)
 //    printf( "%d\n", ft_atoi( "abc" ) );
 //    printf( "%d\n", atoi( "abc" ) );
 
-    char *ascii = "AB?#\n\r12ab";
-    unsigned int i;
+//    char *ascii = "AB?#\n\r12ab";
+//    unsigned int i;
+//
+//    for (i=0; i<strlen(ascii); i++) {
+//        if (ft_isalpha(ascii[i])) {
+//            printf("ascii[%d] = %c is alphabet.\n", i, ascii[i]);
+//        } else {
+//            printf("ascii[%d] = %c is *not* alphabet.\n", i, ascii[i]);
+//        }
+//    }
+//
+//    for (i=0; i<strlen(ascii); i++) {
+//        if (isalpha(ascii[i])) {
+//            printf("ascii[%d] = %c is alphabet.\n", i, ascii[i]);
+//        } else {
+//            printf("ascii[%d] = %c is *not* alphabet.\n", i, ascii[i]);
+//        }
+//    }
 
-    for (i=0; i<strlen(ascii); i++) {
-        if (ft_isalpha(ascii[i])) {
-            printf("ascii[%d] = %c is alphabet.\n", i, ascii[i]);
-        } else {
-            printf("ascii[%d] = %c is *not* alphabet.\n", i, ascii[i]);
-        }
+ /* 9を判定 */
+    if ( ft_isdigit('9') ) {
+        puts("10進数の数字です．");
+    } else {
+        puts("10進数の数字ではありません．");
+    }
+ /* 9を判定 */
+    if ( isdigit('9') ) {
+        puts("10進数の数字です．");
+    } else {
+        puts("10進数の数字ではありません．");
     }
 
-    for (i=0; i<strlen(ascii); i++) {
-        if (isalpha(ascii[i])) {
-            printf("ascii[%d] = %c is alphabet.\n", i, ascii[i]);
-        } else {
-            printf("ascii[%d] = %c is *not* alphabet.\n", i, ascii[i]);
-        }
+    /* zを判定 */
+    if ( ft_isdigit('z') ) {
+        puts("10進数の数字です．");
+    } else {
+        puts("10進数の数字ではありません．");
+    }
+    /* zを判定 */
+    if ( isdigit('z') ) {
+        puts("10進数の数字です．");
+    } else {
+        puts("10進数の数字ではありません．");
+    }
+
+    /* _を判定 */
+    if ( ft_isdigit('_') ) {
+        puts("10進数の数字です．");
+    } else {
+        puts("10進数の数字ではありません．");
+    }
+
+    /* _を判定 */
+    if ( isdigit('_') ) {
+        puts("10進数の数字です．");
+    } else {
+        puts("10進数の数字ではありません．");
     }
 	return 0;
 }
