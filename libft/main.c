@@ -259,71 +259,132 @@ int main(void)
 //        puts("アルファベットでも数字でもありません．");
 //    }
 
-// 文字がASCIIコードかどうかを確認
-    int c;
-    int ret;
-    // --------------------------------------------------------------
-    printf("0x41：");
-    c = 'A';
-    ret = isascii(c);
-    if (ret != 0) {
-        printf("ASCIIコードです\n");
-    }
-    else if (ret == 0) {
-        printf("ASCIIコードではありません\n");
-    }
-     
-    printf("0x41：");
-    c = 'A';
-    ret = isascii(c);
-    if (ret != 0) {
-        printf("ASCIIコードです\n");
-    }
-    else if (ret == 0) {
-        printf("ASCIIコードではありません\n");
-    }
-     
-    // --------------------------------------------------------------
-    // --------------------------------------------------------------
-    printf("0x7f：");
-    c = 0x7f;
-    ret = isascii(c);
-    if (ret != 0) {
-        printf("ASCIIコードです\n");
-    }
-    else if (ret == 0) {
-        printf("ASCIIコードではありません\n");
-    }
-     
-    printf("0x7f：");
-    c = 0x7f;
-    ret = isascii(c);
-    if (ret != 0) {
-        printf("ASCIIコードです\n");
-    }
-    else if (ret == 0) {
-        printf("ASCIIコードではありません\n");
-    }
-     
-    // --------------------------------------------------------------
-    printf("0x80：");
-    c = 0x80;
-    ret = isascii(c);
-    if (ret != 0) {
-        printf("ASCIIコードです\n");
-    }
-    else if (ret == 0) {
-        printf("ASCIIコードではありません\n");
-    }
-    printf("0x80：");
-    c = 0x80;
-    ret = isascii(c);
-    if (ret != 0) {
-        printf("ASCIIコードです\n");
-    }
-    else if (ret == 0) {
-        printf("ASCIIコードではありません\n");
-    }
-    // --------------------------------------------------------------
+//// 文字がASCIIコードかどうかを確認
+//    int c;
+//    int ret;
+//    // --------------------------------------------------------------
+//    printf("0x41：");
+//    c = 'A';
+//    ret = isascii(c);
+//    if (ret != 0) {
+//        printf("ASCIIコードです\n");
+//    }
+//    else if (ret == 0) {
+//        printf("ASCIIコードではありません\n");
+//    }
+//     
+//    printf("0x41：");
+//    c = 'A';
+//    ret = isascii(c);
+//    if (ret != 0) {
+//        printf("ASCIIコードです\n");
+//    }
+//    else if (ret == 0) {
+//        printf("ASCIIコードではありません\n");
+//    }
+//     
+//    // --------------------------------------------------------------
+//    // --------------------------------------------------------------
+//    printf("0x7f：");
+//    c = 0x7f;
+//    ret = isascii(c);
+//    if (ret != 0) {
+//        printf("ASCIIコードです\n");
+//    }
+//    else if (ret == 0) {
+//        printf("ASCIIコードではありません\n");
+//    }
+//     
+//    printf("0x7f：");
+//    c = 0x7f;
+//    ret = isascii(c);
+//    if (ret != 0) {
+//        printf("ASCIIコードです\n");
+//    }
+//    else if (ret == 0) {
+//        printf("ASCIIコードではありません\n");
+//    }
+//     
+//    // --------------------------------------------------------------
+//    printf("0x80：");
+//    c = 0x80;
+//    ret = isascii(c);
+//    if (ret != 0) {
+//        printf("ASCIIコードです\n");
+//    }
+//    else if (ret == 0) {
+//        printf("ASCIIコードではありません\n");
+//    }
+//    printf("0x80：");
+//    c = 0x80;
+//    ret = isascii(c);
+//    if (ret != 0) {
+//        printf("ASCIIコードです\n");
+//    }
+//    else if (ret == 0) {
+//        printf("ASCIIコードではありません\n");
+//    }
+//    // --------------------------------------------------------------
+
+
+//    /* 9を判定 */
+//    if ( ft_isprint('9') ) {
+//        puts("表示文字です．");
+//    } else {
+//        puts("表示文字ではありません．");
+//    }
+//    if ( isprint('9') ) {
+//        puts("表示文字です．");
+//    } else {
+//        puts("表示文字ではありません．");
+//    }
+//
+//    /* 改行コードを判定 */
+//    if ( ft_isprint('\t') ) {
+//        puts("表示文字です．");
+//    } else {
+//        puts("表示文字ではありません．");
+//    }
+//    if ( isprint('\t') ) {
+//        puts("表示文字です．");
+//    } else {
+//        puts("表示文字ではありません．");
+//    }
+
+
+
+//    int ch1, ch2;
+//    /* aを大文字に変換する */
+//    ch1 = ft_toupper('a');
+//    printf("aを大文字に変換: %c\n", ch1);
+//
+//    ch1 = toupper('a');
+//    printf("aを大文字に変換: %c\n", ch1);
+//
+//    /* Zを大文字に変換する */
+//    ch2 = ft_toupper('Z');
+//    printf("Zを大文字に変換: %c\n", ch2);
+//
+//    ch2 = toupper('Z');
+//    printf("Zを大文字に変換: %c\n", ch2);
+//
+// /*1を大文字に変換する */
+//    ch2 = toupper('1');
+//    printf("Zを大文字に変換: %c\n", ch2);
+//    ch2 = toupper('1');
+//    printf("Zを大文字に変換: %c\n", ch2);
+int ch1, ch2;
+/* Aを小文字に変換する */
+    ch1 = ft_tolower('A');
+    printf("Aを小文字に変換: %c\n", ch1);
+
+    /* zを小文字に変換する */
+    ch2 = ft_tolower('z');
+    printf("zを小文字に変換: %c\n", ch2);
+
+    /* 1を小文字に変換する */
+    ch1 = tolower('1');
+    printf("Aを小文字に変換: %c\n", ch1);
+
 	return 0;
 }
