@@ -104,24 +104,61 @@ int main(void)
 //		printf("%cは見つかりませんでした\n", c);
 
 
-    char str[] = "ABC";
-	printf("ft_strncmp\n\n");
-    printf("ABC: ABD   = %d\n", ft_strncmp(str, "ABD", 2));
-    printf("ABC: ABC   = %d\n", ft_strncmp(str, "ABC", 2));
-    printf("ABC: AAA   = %d\n", ft_strncmp(str, "AAA", 2));
-    printf("ABC: ABCD  = %d\n", ft_strncmp(str, "ABCD", 2));
-    printf("ABC: AB    = %d\n", ft_strncmp(str, "AB", 2));
-    printf("ABC: B     = %d\n", ft_strncmp(str, "B", 2));
-    printf("ABC: A     = %d\n", ft_strncmp(str, "A", 2));
+//    char str[] = "ABC";
+//	printf("ft_strncmp\n\n");
+//    printf("ABC: ABD   = %d\n", ft_strncmp(str, "ABD", 2));
+//    printf("ABC: ABC   = %d\n", ft_strncmp(str, "ABC", 2));
+//    printf("ABC: AAA   = %d\n", ft_strncmp(str, "AAA", 2));
+//    printf("ABC: ABCD  = %d\n", ft_strncmp(str, "ABCD", 2));
+//    printf("ABC: AB    = %d\n", ft_strncmp(str, "AB", 2));
+//    printf("ABC: B     = %d\n", ft_strncmp(str, "B", 2));
+//    printf("ABC: A     = %d\n", ft_strncmp(str, "A", 2));
+//
+//	printf("strncmp\n\n");
+//    printf("ABC: ABD   = %d\n", strncmp(str, "ABD", 2));
+//    printf("ABC: ABC   = %d\n", strncmp(str, "ABC", 2));
+//    printf("ABC: AAA   = %d\n", strncmp(str, "AAA", 2));
+//    printf("ABC: ABCD  = %d\n", strncmp(str, "ABCD", 2));
+//    printf("ABC: AB    = %d\n", strncmp(str, "AB", 2));
+//    printf("ABC: B     = %d\n", strncmp(str, "B", 2));
+//    printf("ABC: A     = %d\n", strncmp(str, "A", 2));
 
-	printf("strncmp\n\n");
-    printf("ABC: ABD   = %d\n", strncmp(str, "ABD", 2));
-    printf("ABC: ABC   = %d\n", strncmp(str, "ABC", 2));
-    printf("ABC: AAA   = %d\n", strncmp(str, "AAA", 2));
-    printf("ABC: ABCD  = %d\n", strncmp(str, "ABCD", 2));
-    printf("ABC: AB    = %d\n", strncmp(str, "AB", 2));
-    printf("ABC: B     = %d\n", strncmp(str, "B", 2));
-    printf("ABC: A     = %d\n", strncmp(str, "A", 2));
+    printf("123456\n");
+    printf("ft_atoi: %d\n", ft_atoi("123456"));
+    printf("atoi   : %d\n", atoi("123456"));
+    printf("12Three45678\n");
+    printf("ft_atoi: %d\n", ft_atoi("12Three45678"));
+    printf("atoi   : %d\n", atoi("12Three45678"));
+    printf("Hello World!\n");
+    printf("ft_atoi: %d\n", ft_atoi("Hello World!"));
+    printf("atoi   : %d\n", atoi("Hello World!"));
+    printf("+42 BLAH!\n");
+    printf("ft_atoi: %d\n", ft_atoi("+42 BLAH!"));
+    printf("atoi   : %d\n", atoi("+42 BLAH!"));
+    printf("-42\n");
+    printf("ft_atoi: %d\n", ft_atoi("-42"));
+    printf("atoi   : %d\n", atoi("-42"));
+    printf("     +42\n");
+    printf("ft_atoi: %d\n", ft_atoi("     +42"));
+    printf("atoi   : %d\n", atoi("     +42"));
+    printf("\t\n\v\f\r 42\n");
+    printf("ft_atoi: %d\n", ft_atoi("\t\n\v\f\r 42"));
+    printf("atoi   : %d\n", atoi("\t\n\v\f\r 42"));
+    printf("00042\n");
+    printf("ft_atoi: %d\n", ft_atoi("00042"));
+    printf("atoi   : %d\n", atoi("00042"));
+
+
+    printf( "%d\n", ft_atoi( "500.5abc" ) );
+    printf( "%d\n", atoi( "500.5abc" ) );
+    printf( "%d\n", ft_atoi( "    2468" ) );
+    printf( "%d\n", atoi( "    2468" ) );
+    printf( "%d\n", ft_atoi( "-1234" ) );
+    printf( "%d\n", atoi( "-1234" ) );
+    printf( "%d\n", ft_atoi( "+1234" ) );
+    printf( "%d\n", atoi( "+1234" ) );
+    printf( "%d\n", ft_atoi( "abc" ) );
+    printf( "%d\n", atoi( "abc" ) );
 
 	return 0;
 }
