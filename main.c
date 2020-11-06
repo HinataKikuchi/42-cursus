@@ -373,18 +373,25 @@ int main(void)
 //    printf("Zを大文字に変換: %c\n", ch2);
 //    ch2 = toupper('1');
 //    printf("Zを大文字に変換: %c\n", ch2);
-int ch1, ch2;
-/* Aを小文字に変換する */
-    ch1 = ft_tolower('A');
-    printf("Aを小文字に変換: %c\n", ch1);
+// int ch1, ch2;
+// /* Aを小文字に変換する */
+    // ch1 = ft_tolower('A');
+    // printf("Aを小文字に変換: %c\n", ch1);
 
-    /* zを小文字に変換する */
-    ch2 = ft_tolower('z');
-    printf("zを小文字に変換: %c\n", ch2);
+    // /* zを小文字に変換する */
+    // ch2 = ft_tolower('z');
+    // printf("zを小文字に変換: %c\n", ch2);
 
-    /* 1を小文字に変換する */
-    ch1 = tolower('1');
-    printf("Aを小文字に変換: %c\n", ch1);
+    // /* 1を小文字に変換する */
+    // ch1 = tolower('1');
+    // printf("Aを小文字に変換: %c\n", ch1);
+
+  int *s;
+  int i;
+
+  s=ft_calloc(5, sizeof(int));
+  for(i=0;i<5;i++)
+    printf("%d", *s++);
 
 	return 0;
 }
