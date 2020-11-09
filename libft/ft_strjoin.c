@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/09 10:42:49 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/09 12:45:47 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/09 12:22:55 by hkikuchi          #+#    #+#             */
+/*   Updated: 2020/11/09 12:47:27 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char			*ans;
 	unsigned int	i;
-	unsigned int	j;
 
-	ans = (char *)malloc(len * sizeof(char));
+	ans = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (ans == NULL)
 		return (NULL);
-	i = start;
-	j = 0;
-	while (i <= (len))
+	i = 0;
+	while (*(s1 + i) != '\0')
 	{
-		*(ans + j) = *(s + i);
+		*(ans + i) = *(s1 + i);
 		i++;
-		j++;
 	}
+	while (*s2 != '\0')
+	{
+		*(ans + i) = *s2;
+		s2++;
+		i++;
+	}
+	*(ans + i) = '\0';
 	return (ans);
 }

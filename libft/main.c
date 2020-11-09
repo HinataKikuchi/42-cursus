@@ -420,12 +420,20 @@ int main(void)
  // printf("%p\noriginal : %s\n", &s, s);
  // printf("%p\ncloned : %s\n" , &a, a);
 
-char *s;
-char *a;
-s = "the others"; 
-a =ft_substr(s, 3, strlen(s));
-printf("maxlength : %ld\n", strlen(s));
-printf("%p : %s\n",&s, s);
-printf("%p : %s\n",&a ,a);
+//  char *s;
+//  char *a;
+//  s = "the others"; 
+//  a =ft_substr(s, 3, strlen(s));
+//  printf("maxlength : %ld\n", strlen(s));
+//  printf("%p : %s\n",&s, s);
+//  printf("%p : %s\n",&a ,a);
+
+    char *s1;
+    char *s2;
+    char *a;
+    s1 = "Hello ";
+    s2 = "World";
+    a = ft_strjoin(s1,s2);
+    printf("s1(%p) : %s\ns2(%p) : %s\njoined string(%p) : %s \n", &s1, s1, &s2, s2, &a, a);
 	return 0;
 }
