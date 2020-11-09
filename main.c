@@ -428,12 +428,18 @@ int main(void)
 //  printf("%p : %s\n",&s, s);
 //  printf("%p : %s\n",&a ,a);
 
-    char *s1;
-    char *s2;
+//    char *s1;
+//    char *s2;
+//    char *a;
+//    s1 = "Hello ";
+//    s2 = "World";
+//    a = ft_strjoin(s1,s2);
+//    printf("s1(%p) : %s\ns2(%p) : %s\njoined string(%p) : %s \n", &s1, s1, &s2, s2, &a, a);
+
+    char *s1="abcdecdefg";
+    char *s2="ec";
     char *a;
-    s1 = "Hello ";
-    s2 = "World";
-    a = ft_strjoin(s1,s2);
-    printf("s1(%p) : %s\ns2(%p) : %s\njoined string(%p) : %s \n", &s1, s1, &s2, s2, &a, a);
+    a = ft_strtrim(s1, s2);
+    printf("%s\n",a);
 	return 0;
 }
