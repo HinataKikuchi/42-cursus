@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 12:48:30 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/09 22:28:43 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/09 22:33:43 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (ans == NULL)
 		return (NULL);
 	i = 0;
-	while(*(set + i) != '\0')
+	while(*(set + i) != '\0'&&*s1 != '\0')
 	{
 		printf("*(set + i) = %c\n *s1 = %c\n", *(set+i), *s1);
 		if((*(set + i) - *s1) == 0)
