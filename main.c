@@ -5,6 +5,20 @@
 
 int main(void)
 {
+//int i;
+//int *s;
+//s=(int *)malloc(12*sizeof(int));
+//for(i=0;i<3;i++)
+//{
+//  *s=i;
+//  printf("%d\n", *s);
+//  s++;
+//}
+//s-=3;
+//ft_bzero(s, 12);
+//for(i=0;i<3;i++)
+//  printf("%d", *s++);
+
 //	char str1[] = "0123456789";
 //	char str2[] = "6789";
 //        char str3[] = "0123456789";
@@ -386,12 +400,16 @@ int main(void)
     // ch1 = tolower('1');
     // printf("Aを小文字に変換: %c\n", ch1);
 
-  int *s;
-  int i;
-
-  s=ft_calloc(5, sizeof(int));
-  for(i=0;i<5;i++)
-    printf("%d", *s++);
-
+//  int *s;
+//  int i;
+//
+//  s=ft_calloc(5, sizeof(int));
+//  for(i=0;i<5;i++)
+//  {
+//    printf("s[%d]:%p \n ",i,s);
+//    printf("%d : %d\n", i,*s++);
+//    
+//  }
+//
 	return 0;
 }
