@@ -14,6 +14,18 @@
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
             "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "c_divide_build",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "${fileDirname}/*.c",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "group": "build"
         }
     ]
 }

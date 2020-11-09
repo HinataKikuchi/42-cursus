@@ -412,13 +412,20 @@ int main(void)
 //  }
 //
 
-  char *s;
-  char *a;
-  s = "ABC";
-  a = ft_strdup(s);
-  *a = '*';
-  printf("%p\noriginal : %s\n", &s, s);
-  printf("%p\ncloned : %s\n" , &a, a);
+ // char *s;
+ // char *a;
+ // s = "ABC";
+ // a = ft_strdup(s);
+ // /* a = '*';
+ // printf("%p\noriginal : %s\n", &s, s);
+ // printf("%p\ncloned : %s\n" , &a, a);
 
+char *s;
+char *a;
+s = "the others"; 
+a =ft_substr(s, 3, strlen(s));
+printf("maxlength : %ld\n", strlen(s));
+printf("%p : %s\n",&s, s);
+printf("%p : %s\n",&a ,a);
 	return 0;
 }

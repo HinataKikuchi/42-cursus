@@ -12,6 +12,15 @@
             "args": [],
             "cwd": "${fileDirname}",
             "preLaunchTask": "c_build"
-        }
+        },
+        {
+            "name": "c_divide_debug",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "cwd": "${fileDirname}",
+            "preLaunchTask": "c_divide_build"
+        },
     ]
 }
