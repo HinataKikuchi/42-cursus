@@ -411,5 +411,14 @@ int main(void)
 //    
 //  }
 //
+
+  char *s;
+  char *a;
+  s = "ABC";
+  a = ft_strdup(s);
+  *a = '*';
+  printf("%p\noriginal : %s\n", &s, s);
+  printf("%p\ncloned : %s\n" , &a, a);
+
 	return 0;
 }
