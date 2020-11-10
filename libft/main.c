@@ -446,5 +446,7 @@ int main(void)
 //    char *s = "abf";
 //   ft_putstr_fd(s,open("./test.txt", O_WRONLY));
 //    ft_putendl_fd(s, open("./test.txt", O_WRONLY));
+
+    ft_putnbr_fd(2147483647, open("./test.txt", O_WRONLY));
 	return 0;
 }

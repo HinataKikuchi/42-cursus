@@ -6,14 +6,14 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 15:14:56 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/10 13:06:03 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/10 13:54:45 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-void ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
