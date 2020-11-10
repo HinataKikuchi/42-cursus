@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 15:14:56 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/03 16:50:54 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/10 12:42:06 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 #include <unistd.h>
 void ft_putchar_fd(char c, int fd)
 {
-write(fd, &c, 1);
+	write(fd, &c, 1);
 }
