@@ -436,7 +436,7 @@ int main(void)
 //    a = ft_strjoin(s1,s2);
 //    printf("s1(%p) : %s\ns2(%p) : %s\njoined string(%p) : %s \n", &s1, s1, &s2, s2, &a, a);
 
-    char *s1="abbcdecdefg";
+    char *s1="abbcdecdefgab";
     char *s2="ab";
     char *a;
     a = ft_strtrim(s1, s2);

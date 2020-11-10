@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 12:48:30 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/09 22:33:43 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/10 12:19:23 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,27 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*ans;
-	int		i;
+	char		*ans;
+	size_t		i;
+	size_t		j;
 
-	ans = (char *)ft_calloc((ft_strlen(s1) + 1),sizeof(char));
+	i = 0;
+	j = ft_strlen(s1);
+	while (*(s1 + i) != '\0')
+	{
+		if (ft_strchr(set, *(s1 + i)) == NULL)
+			break ;
+		i++;
+	}
+	while (j > 0)
+	{
+		if (ft_strchr(set, *(s1 + j)) == NULL)
+			break ;
+		j--;
+	}
+	ans = (char *)malloc(((j - i) + 1) * sizeof(char));
 	if (ans == NULL)
 		return (NULL);
-	i = 0;
-	while(*(set + i) != '\0'&&*s1 != '\0')
-	{
-		printf("*(set + i) = %c\n *s1 = %c\n", *(set+i), *s1);
-		if((*(set + i) - *s1) == 0)
-			i++;
-		if(i == 0)
-			break ;
-		s1++;
-	}
-	
-	ans = (char *)s1;
-
+	ft_memcpy(ans, s1 + i, (j - i + 1));
 	return (ans);
 }
