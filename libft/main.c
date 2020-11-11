@@ -22,7 +22,7 @@ int main(void)
 
 //	char str1[] = "0123456789";
 //	char str2[] = "6789";
-//        char str3[] = "0123456789";
+      //  char str3[] = "0123456789";
 //	ft_memcpy(str1+2,str2,3);
 //	printf("%s\n",str1);
 //        ft_memcpy(str3+2,str2,3);
@@ -30,14 +30,18 @@ int main(void)
 //	return 0;
 
 
-//        char str1[] = "0123456789";
-//        char str2[] = "6789";
-//        ft_memccpy(str1+2,str2, '4',3);
-//        printf("%s\n",str1);
-//        memccpy(str3+2,str2, '4',3);
-//        printf("%s\n",str3);
-//        return 0;
-//
+      //  char str1[] = "0123456789";
+      //  char str2[] = "6789";
+      //  ft_memccpy(str1+2,str2, '4',3);
+      //  printf("%s\n",str1);
+      //  memccpy(str3+2,str2, '4',3);
+      //  printf("%s\n",str3);
+      //  char *tmp;
+      //  tmp = (char *)malloc(ft_strlen("Hello World") * sizeof(char));
+      //  ft_memccpy(tmp,"Hello World",' ',ft_strlen("Hello World"));
+      //  printf("%sEOF\n",tmp);
+      //  return 0;
+
 
 //	char str[] = "abcdefghijklmnopqrstu";
 //        
@@ -84,19 +88,19 @@ int main(void)
 //	char s3[] = "abcde";
 //    printf("%d, %s\n", strlcat(s1, s2, 11), s1);
 
-//    char str[] = "abcdefghijklmnabcdefghijklmn", *p;
-//	int c;
-//
-//	printf("検索文字のasciiコードを10進数で入力してください。");
-//	scanf("%d", &c);
-//	
-//	p = ft_strchr(str, c);
-//	if (p != NULL) {
-//		printf("%cは文字列の%ld番目にあります。\n", c, p-str);
-//		printf("以降の文字列は%sです。\n", p);
-//	}
-//	else
-//		printf("%cは見つかりませんでした\n", c);
+  //  char str[] = "abcdefghijklmnabcdefghijklmn", *p;
+	// int c;
+
+	// printf("検索文字のasciiコードを10進数で入力してください。");
+	// scanf("%d", &c);
+	
+	// p = ft_strchr(str, c);
+	// if (p != NULL) {
+	// 	printf("%cは文字列の%ld番目にあります。\n", c, p-str);
+	// 	printf("以降の文字列は%sです。\n", p);
+	// }
+	// else
+	// 	printf("%cは見つかりませんでした\n", c);
 
 //    char str[] = "abcdefghijklmnabcdefghijklmn", *p;
 //	int c;
@@ -447,6 +451,13 @@ int main(void)
 //   ft_putstr_fd(s,open("./test.txt", O_WRONLY));
 //    ft_putendl_fd(s, open("./test.txt", O_WRONLY));
 
-    ft_putnbr_fd(2147483647, open("./test.txt", O_WRONLY));
-	return 0;
+  //ft_putnbr_fd( 0, open("./test.txt", O_WRONLY));
+	char *s = "Today is my birthday ";
+	char **ans;
+  int i ;
+	ans = ft_split(s, ' ');
+  for (i=0;i<5;i++)
+	  printf("ans[%d] : %s←\n", i,*(ans + i));
+
+    return 0;
 }

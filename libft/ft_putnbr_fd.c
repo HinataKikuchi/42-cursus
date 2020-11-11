@@ -6,14 +6,13 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 13:09:23 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/10 14:26:56 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/10 14:46:25 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 #include <stdio.h>
-#include <limits.h>
 
 void	ft_putnbr_fd(int n, int fd)
 {
@@ -22,7 +21,7 @@ void	ft_putnbr_fd(int n, int fd)
 	int				tmp1;
 	int				tmp2;
 	i = n;
-	if(n < 0)
+	if (n < 0)
 	{
 		i = (-1) * i;
 		write(fd, "-", 1);
@@ -30,9 +29,7 @@ void	ft_putnbr_fd(int n, int fd)
 	tmp1 = i / 10;
 	tmp2 = i % 10;
 	c = tmp2 + '0';
-	if(tmp2)
+	if (tmp1)
 		ft_putnbr_fd(tmp1, fd);
-	else
-		return ;
 	ft_putchar_fd(c, fd);
 }
