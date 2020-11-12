@@ -4,12 +4,12 @@
 #include "libft.h"
 #include "ctype.h"
 
-/*FOR FT_STRMAPI.C*/
-char func(unsigned int n, char c)
-{
-	(void)n;
-	return (char)ft_toupper((int)c);
-}
+// /*FOR FT_STRMAPI.C*/
+// char func(unsigned int n, char c)
+// {
+// 	(void)n;
+// 	return (char)ft_toupper((int)c);
+// }
 
 int main(void)
 {
@@ -468,7 +468,10 @@ int main(void)
 
 //  printf("%s\n", ft_itoa(-200));
 
-    printf("%s<-\n",ft_strmapi("Hello", *func));
+//    printf("%s<-\n",ft_strmapi("Hello", *func));
+
+    printf("\n%d\n", atoi("9223372036854775808"));
+    printf("\n%d\n", ft_atoi("9223372036854775808"));
 
     return 0;
 }
