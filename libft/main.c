@@ -468,7 +468,7 @@ int main(void)
 
 //  printf("%s\n", ft_itoa(-200));
 
-//	ft_strmapi("Hello")
+    printf("%s<-\n",ft_strmapi("Hello", *func));
 
     return 0;
 }
