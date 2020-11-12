@@ -16,4 +16,4 @@ $(PROGRAM):	$(OBJS)
 
 clean:
 	$(RM) *.o
-	$(RM) main# DO NOT DELETE
+	$(RM) main
