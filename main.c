@@ -4,6 +4,13 @@
 #include "libft.h"
 #include "ctype.h"
 
+/*FOR FT_STRMAPI.C*/
+char func(unsigned int n, char c)
+{
+	(void)n;
+	return (char)ft_toupper((int)c);
+}
+
 int main(void)
 {
 //int i;
@@ -459,7 +466,9 @@ int main(void)
   // for (i=0;i<5;i++)
 	//   printf("ans[%d] : %s←\n", i,*(ans + i));
 
-  printf("%s\n", ft_itoa(-200));
+//  printf("%s\n", ft_itoa(-200));
+
+//	ft_strmapi("Hello")
 
     return 0;
 }
