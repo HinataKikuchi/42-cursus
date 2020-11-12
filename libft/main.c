@@ -451,13 +451,15 @@ int main(void)
 //   ft_putstr_fd(s,open("./test.txt", O_WRONLY));
 //    ft_putendl_fd(s, open("./test.txt", O_WRONLY));
 
-  //ft_putnbr_fd( 0, open("./test.txt", O_WRONLY));
-	char *s = "Today is my birthday ";
-	char **ans;
-  int i ;
-	ans = ft_split(s, ' ');
-  for (i=0;i<5;i++)
-	  printf("ans[%d] : %s←\n", i,*(ans + i));
+  // //ft_putnbr_fd( 0, open("./test.txt", O_WRONLY));
+	// char *s = "Today is my birthday ";
+	// char **ans;
+  // int i ;
+	// ans = ft_split(s, ' ');
+  // for (i=0;i<5;i++)
+	//   printf("ans[%d] : %s←\n", i,*(ans + i));
+
+  printf("%s\n", ft_itoa(-200));
 
     return 0;
 }
