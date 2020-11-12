@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 18:51:40 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/05 12:40:07 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/12 19:55:22 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,24 @@
 
 size_t	ft_strlcat(char *buf1, const char *buf2, size_t n)
 {
-	char *b1;
-	const char *b2;
-	unsigned int i;
-	unsigned int j;
+	size_t			b1_size;
+	size_t			b2_size;
+	unsigned int	i;
 
-	b1=buf1;
-	b2=(char *)buf2;
-	i = n;
-	j = ft_strlen(buf1);
-
-	/*get the length*/
-	while(i-- != 0 && *b1 != '\0')
-		b1++;
-	j = b1 - buf1;
-	i = i - j;
-
-	if (i == 0)
-		return (j + ft_strlen(b2));
-	while (*b2 != '\0')
+	b1_size = ft_strlen(buf1);
+	b2_size = ft_strlen(buf2);
+	if (b1_size > n)
+		return (b2_size + n);
+	else if (b1_size == n)
+		return (b1_size + b2_size);
+	else
 	{
-		if (i != 1)
+		while (*(buf2 + i) != '\0' && b1_size + i < n)
 		{
-			*b1++ = *b2;
-			i--;
+			*(buf1 + (b1_size + i)) = *(buf2 + i);
+			i++;
 		}
-		b2++;
+		*(buf1 +(b1_size + i)) = '\0';
 	}
-	*b1 = '\0';
-
-	return (j + (b2 - buf2));
+	return (b1_size + n);
 }

@@ -6,12 +6,13 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 13:03:06 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/06 16:50:23 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/12 23:14:29 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+// #include <stdio.h>
+// #include "main.c"
 
 int	ft_atoi(const char *nptr)
 {
@@ -36,4 +37,14 @@ int	ft_atoi(const char *nptr)
 		nptr++;
 	}
 	return (ans * sign);
+}
+
+int	judge(const char *n)
+{
+	
+}
+
+int ft_count(const char *n)
+{
+	
 }
