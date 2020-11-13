@@ -85,15 +85,15 @@ int main(void)
 //        return 0;	
 
 //	//char s[] = "abcde";
-//	char s1[] = "abcde";
-//	char s2[] = "123456";
+	char s1[20] = "abcde";
+	char s2[] = "123456";
 //	printf("%ld, %s\n", ft_strlcpy(s1, s2, 1) ,s1);
 //	strlcpy(s, s2, 1);
 //	printf("%s\n",s);
 //
-  //  printf("%ld, %s\n", ft_strlcat(s1, s2, 0), s1);
+   printf("%ld, %s\n", ft_strlcat(s1, s2, 1), s1);
 //	char s3[] = "abcde";
-//    printf("%d, %s\n", strlcat(s1, s2, 11), s1);
+  //  printf("%ld, %s\n", strlcat(s1, s2, 11), s1);
 
   //  char str[] = "abcdefghijklmnabcdefghijklmn", *p;
 	// int c;
@@ -470,8 +470,8 @@ int main(void)
 
 //    printf("%s<-\n",ft_strmapi("Hello", *func));
 
-     printf("\n%d\n", atoi("9223372036854775806990"));
-     printf("\n%d\n", ft_atoi("922337203685477580869428"));
+    //  printf("\n%d\n", atoi("9223372036854775806990"));
+    //  printf("\n%d\n", ft_atoi("922337203685477580869428"));
 
   // printf("\n%s\n", "9223372036854775807"+2);
     return 0;
