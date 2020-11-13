@@ -28,7 +28,7 @@ $(NAME): $(OBJS)
 run: libft.so
 
 libft.so: $(OBJS)
-	$(CC) -shared -o $(OBJS) libft.so
+	$(CC) -shared -o libft.so $(OBJS)
 
 clean:;         $(RM) *.o *~ 
 
