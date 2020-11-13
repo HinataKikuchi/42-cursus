@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:08:24 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/11 17:46:55 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/13 16:23:05 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ char	**ft_split(char const *s, char c)
 {
 	char			**ans;
 	unsigned int	i;
+
 	i = 0;
 	ans = (char **)malloc((ft_count(s, c) + 1) * sizeof(char*));
 	if (ans == NULL)

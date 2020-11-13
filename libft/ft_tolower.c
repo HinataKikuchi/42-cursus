@@ -6,15 +6,15 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 18:12:43 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/06 18:15:02 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/13 14:45:15 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-	if('A' <= c && c <= 'Z')
+	if ('A' <= c && c <= 'Z')
 		c = c + ('a' - 'A');
 	return (c);
 }

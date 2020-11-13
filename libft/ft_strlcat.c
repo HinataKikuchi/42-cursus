@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 18:51:40 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/13 14:31:56 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/13 14:44:38 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,18 @@ size_t	ft_strlcat(char *buf1, const char *buf2, size_t n)
 
 	b1_size = ft_strlen(buf1);
 	b2_size = ft_strlen(buf2);
-	/*IF N IS LESS THAN SIZE OF BUF1, */
-	/*THEN IT MEANS CAT THE PART OF BUF1 AND FULL OF BUF2*/
 	if (b1_size > n)
 		return (b2_size + n);
 	if (b1_size == n)
 		return (b1_size + b2_size);
 	else
 	{
-		while (*(buf2 + i) != '\0' &&  i < n - b1_size - 1)
+		while (*(buf2 + i) != '\0' && i < n - b1_size - 1)
 		{
 			*(buf1 + (b1_size + i)) = *(buf2 + i);
 			i++;
 		}
-		*(buf1 +(b1_size + i)) = '\0';
+		*(buf1 + (b1_size + i)) = '\0';
 	}
 	return (b1_size + b2_size);
 }
