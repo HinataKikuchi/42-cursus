@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 13:09:23 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/10 14:46:25 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/13 14:37:01 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_putnbr_fd(int n, int fd)
 	char			c;
 	int				tmp1;
 	int				tmp2;
+
 	i = n;
 	if (n < 0)
 	{
