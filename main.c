@@ -470,8 +470,9 @@ int main(void)
 
 //    printf("%s<-\n",ft_strmapi("Hello", *func));
 
-    printf("\n%d\n", atoi("9223372036854775808"));
-    printf("\n%d\n", ft_atoi("9223372036854775808"));
+     printf("\n%d\n", atoi("9223372036854775806990"));
+     printf("\n%d\n", ft_atoi("922337203685477580869428"));
 
+  // printf("\n%s\n", "9223372036854775807"+2);
     return 0;
 }
