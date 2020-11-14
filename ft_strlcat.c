@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 18:51:40 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/13 14:44:38 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/13 18:34:03 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ size_t	ft_strlcat(char *buf1, const char *buf2, size_t n)
 	size_t			b2_size;
 	unsigned int	i;
 
+	i = 0;
 	b1_size = ft_strlen(buf1);
 	b2_size = ft_strlen(buf2);
 	if (b1_size > n)
