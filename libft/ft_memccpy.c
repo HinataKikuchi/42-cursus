@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:55:02 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/05 15:40:04 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/13 18:14:13 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memccpy(void *buf1, const void *buf2, int c, size_t n)
 	unsigned char	*b1;
 	unsigned char	*b2;
 
+	if(buf1 == NULL || buf2 == NULL)
+		return (NULL);
 	i = 0;
 	b1 = buf1;
 	b2 = (unsigned char *)buf2;

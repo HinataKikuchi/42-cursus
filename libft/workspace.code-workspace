@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../libft-unit-tests"
 		}
 	],
 	"settings": {}

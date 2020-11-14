@@ -1,6 +1,6 @@
 NAME	= libft.a
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -fPIC
 LDFLAGS	= -L/usr/local/lib
 LIBS	= 
 OBJS	= ft_atoi.o ft_isascii.o  ft_memchr.o ft_putchar_fd.o \
@@ -23,18 +23,18 @@ SRC		= ft_atoi.c ft_isascii.c ft_memchr.c ft_putchar_fd.c ft_strchr.c\
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) $(LDFLAGS) $(LIBS) -o $(NAME)
+	ar rcs $(NAME) $(OBJS)
 
-run: libft.so
+so: libft.so
 
 libft.so: $(OBJS)
-	$(CC) -shared -o libft.so $(OBJS)
+	$(CC) -shared -fPIC -o libft.so $(OBJS)
 
 clean:;         $(RM) *.o *~ 
 
-fclean:;		$(RM) $(NAME)
+fclean:clean;		$(RM) $(NAME)
 
-rclean:;		$(RM) $(TARGET)
+rclean:;		$(RM) libft.so
 
 
 re:;			fclean all
