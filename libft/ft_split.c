@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:08:24 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/13 16:23:05 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/14 16:48:45 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,16 @@ char	**ft_splitcpy(char const *s, char c, char **ans)
 	return (ans);
 }
 
+void	ft_free_col(char **ans, unsigned int i)
+{
+	while (i >= 0)
+	{
+		free(*(ans + i));
+		i--;
+	}
+	free(ans);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char			**ans;
@@ -66,10 +76,14 @@ char	**ft_split(char const *s, char c)
 	while (i < ft_strlen(s))
 	{
 		*(ans + i) = (char *)malloc(ft_strlen(s) * sizeof(char));
-		if (*ans == NULL)
+		if (*(ans + i) == NULL)
+		{
+			ft_free_col(ans, i);
 			return (NULL);
+		}
 		i++;
 	}
 	ans = ft_splitcpy(s, c, ans);
 	return (ans);
 }
+
