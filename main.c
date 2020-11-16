@@ -37,10 +37,11 @@ int main(void)
 //	return 0;
 
 
-      //  char str1[] = "0123456789";
-      //  char str2[] = "6789";
-      //  ft_memccpy(str1+2,str2, '4',3);
-      //  printf("%s\n",str1);
+			char	src[] = "test basic du memccpy !";
+			char	buff1[22];
+
+      ft_memccpy(buff1,src, 'm',22);
+      printf("%p:%s\n",ft_memccpy(buff1,src, 'm',22),buff1);
       //  memccpy(str3+2,str2, '4',3);
       //  printf("%s\n",str3);
       //  char *tmp;
@@ -85,13 +86,13 @@ int main(void)
 //        return 0;	
 
 //	//char s[] = "abcde";
-	char s1[20] = "abcde";
-	char s2[] = "123456";
+	// char s1[20] = "abcde";
+	// char s2[] = "123456";
 //	printf("%ld, %s\n", ft_strlcpy(s1, s2, 1) ,s1);
 //	strlcpy(s, s2, 1);
 //	printf("%s\n",s);
 //
-   printf("%ld, %s\n", ft_strlcat(s1, s2, 1), s1);
+  //  printf("%ld, %s\n", ft_strlcat(s1, s2, 1), s1);
 //	char s3[] = "abcde";
   //  printf("%ld, %s\n", strlcat(s1, s2, 11), s1);
 
