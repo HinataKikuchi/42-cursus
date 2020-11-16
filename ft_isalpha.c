@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 16:55:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/06 17:33:26 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/16 11:54:52 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isalpha(int c)
 {
-	if (('A' <= c && c <= 'Z') || ('a' <= (char)c && (char)c <= 'z'))
+	if (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z'))
 		return (1);
 	return (0);
 }

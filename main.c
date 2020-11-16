@@ -37,27 +37,29 @@ int main(void)
 //	return 0;
 
 
-			char	src[] = "test basic du memccpy !";
-			char	buff1[22];
+		// 	char	src[] = "test basic du memccpy !";
+		// 	char	buff1[22] = "";
 
-      ft_memccpy(buff1,src, 'm',22);
-      printf("%p:%s\n",ft_memccpy(buff1,src, 'm',22),buff1);
-      //  memccpy(str3+2,str2, '4',3);
-      //  printf("%s\n",str3);
-      //  char *tmp;
-      //  tmp = (char *)malloc(ft_strlen("Hello World") * sizeof(char));
-      //  ft_memccpy(tmp,"Hello World",' ',ft_strlen("Hello World"));
-      //  printf("%sEOF\n",tmp);
-      //  return 0;
+    // //  ft_memccpy(buff1,src, 'm',22);
+    //   printf("%p:%s\n",ft_memccpy(buff1,src, 'm',0),buff1);
+    //    memccpy(str3+2,str2, '4',3);
+    //    printf("%s\n",str3);
+    //    char *tmp;
+    //    tmp = (char *)malloc(ft_strlen("Hello World") * sizeof(char));
+    //    ft_memccpy(tmp,"Hello World",' ',ft_strlen("Hello World"));
+    //    printf("%sEOF\n",tmp);
+    //    return 0;
 
 
-//	char str[] = "abcdefghijklmnopqrstu";
-//        
-//    printf("before;%s\n",str);
-//    
-//    ft_memmove(str+5, str, 10);
-//    printf("after:%s\n",str);
-//    return 0;
+	// char	*src = "this is a good nyancat !\r\n";
+  // 			char	dst1[0xF0];
+	// 		char	dst2[0xF0];
+	// 		int		size = strlen(src);
+
+	// 		ft_memmove(dst2, src, size);
+  //     printf("%p\n",memmove(dst1, src, size));
+      
+  //  return 0;
 
     //char str[] = "abcdef\0ghij";
     //char *p;
