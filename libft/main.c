@@ -93,6 +93,15 @@ int main(void)
 //	strlcpy(s, s2, 1);
 //	printf("%s\n",s);
 //
+
+			char	*str = "";
+		//	char	buff1[20] = "A";
+			char	buff2[20] = "A";
+
+    // printf("strlcpy : %d , %s",strlcpy(buff1, str, 20),buff1);
+    printf("ft_strlcpy : %ld , %s",ft_strlcpy(buff2, str, 20),buff2);
+
+
   //  printf("%ld, %s\n", ft_strlcat(s1, s2, 1), s1);
 //	char s3[] = "abcde";
   //  printf("%ld, %s\n", strlcat(s1, s2, 11), s1);
@@ -152,11 +161,11 @@ int main(void)
 //    printf("ABC: B     = %d\n", strncmp(str, "B", 2));
 //    printf("ABC: A     = %d\n", strncmp(str, "A", 2));
 
-			char	*s1 = "\200";
-			char	*s2 = "\0";
+			// char	*s1 = "\200";
+			// char	*s2 = "\0";
 
-      printf("%d\n",strncmp(s1, s2,1));
-      printf("%d\n", ft_strncmp(s1, s2,1));
+      // printf("%d\n",strncmp(s1, s2,1));
+      // printf("%d\n", ft_strncmp(s1, s2,1));
 
 
 //    printf("123456\n");

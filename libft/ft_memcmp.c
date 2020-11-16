@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:57:23 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/04 10:43:39 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/16 18:25:23 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_memcmp(const void *buf1, const void *buf2, size_t n)
 	while (i < n)
 	{
 		if (*(b1 + i) - *(b2 + i))
-			ans += *(b1 + i) - *(b2 + i);
+			ans += (unsigned char)*(b1 + i) - (unsigned char)*(b2 + i);
 		i++;
 	}
 	if (ans != 0)
