@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 15:15:01 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/13 20:05:06 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/16 19:12:32 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n);
 size_t	ft_strlcat(char *buf1, const char *buf2, size_t n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
-char	*ft_strnchr(const char *s, size_t count, int c);
+char	*ft_strnstr(const char *s1, const char *s2, size_t len);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(const char *nptr);
 int		ft_isalpha(int c);
