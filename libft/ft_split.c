@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:08:24 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/14 16:48:45 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/14 16:51:12 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,13 @@ char	**ft_splitcpy(char const *s, char c, char **ans)
 
 void	ft_free_col(char **ans, unsigned int i)
 {
-	while (i >= 0)
+	unsigned int n;
+
+	n = i;
+	while (n > 0)
 	{
 		free(*(ans + i));
-		i--;
+		n--;
 	}
 	free(ans);
 }
