@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <bsd/string.h>
 #include <fcntl.h>
 #include "libft.h"
 #include "ctype.h"
