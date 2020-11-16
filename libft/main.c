@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <fcntl.h>
 #include "libft.h"
 #include "ctype.h"
@@ -55,17 +56,16 @@ int main(void)
 	// 		char	dst2[0xF0];
 	// 		int		size = strlen(src);
 
-	// 		ft_memmove(dst2, src, size);
-  //     printf("%p\n",memmove(dst1, src, size));
-      
+  //     printf("memmove : %p : %s\n",memmove(dst1, src, size), dst1);
+  //     printf("ft_memmove : %p : %s\n",ft_memmove(dst2, src, size), dst2);
+
   //  return 0;
 
-    //char str[] = "abcdef\0ghij";
-    //char *p;
-    //
-    //p = ft_memchr(str, 'h', 12);
-    //printf("number = %ld\n",p - str);
-    //
+  char			*src = "/|\x12\xff\x09\x42\2002\42|\\";
+	int				size = 10;    
+  printf("memchr :%p \n", memchr(src, '\200',size));
+  printf("ft_memchr :%p \n", ft_memchr(src, '\200',size));
+ 
 
 //    char buf1[] = "\0abc\0de";
 //        char buf2[] = "\0abc\0de";
