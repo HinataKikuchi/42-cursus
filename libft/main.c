@@ -61,10 +61,10 @@ int main(void)
 
   //  return 0;
 
-  char			*src = "/|\x12\xff\x09\x42\2002\42|\\";
-	int				size = 10;    
-  printf("memchr :%p \n", memchr(src, '\200',size));
-  printf("ft_memchr :%p \n", ft_memchr(src, '\200',size));
+  // char			*src = "/|\x12\xff\x09\x42\2002\42|\\";
+	// int				size = 10;    
+  // printf("memchr :%p \n", memchr(src, '\200',size));
+  // printf("ft_memchr :%p \n", ft_memchr(src, '\200',size));
  
 
 //    char buf1[] = "\0abc\0de";
@@ -151,6 +151,13 @@ int main(void)
 //    printf("ABC: AB    = %d\n", strncmp(str, "AB", 2));
 //    printf("ABC: B     = %d\n", strncmp(str, "B", 2));
 //    printf("ABC: A     = %d\n", strncmp(str, "A", 2));
+
+			char	*s1 = "\200";
+			char	*s2 = "\0";
+
+      printf("%d\n",strncmp(s1, s2,1));
+      printf("%d\n", ft_strncmp(s1, s2,1));
+
 
 //    printf("123456\n");
 //    printf("ft_atoi: %d\n", ft_atoi("123456"));
