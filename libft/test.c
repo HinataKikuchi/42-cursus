@@ -4,6 +4,7 @@
 
 int main(void)
 {
-	printf("%s",ft_strnstr("abcabcabc", "ab", 2));
+//	printf("strlcpy: %u\n",strlcpy("","",0));
+printf("ft_strlcpy: %ld\n",ft_strlcpy("", "", 0));
 	return 0;
 }
