@@ -18,7 +18,7 @@ int main(void)
 //s=(int *)malloc(12*sizeof(int));
 //for(i=0;i<3;i++)
 //{
-//  *s=i;
+//  /*s=i;
 //  printf("%d\n", *s);
 //  s++;
 //}
@@ -94,12 +94,12 @@ int main(void)
 //	printf("%s\n",s);
 //
 
-			char	*str = "";
-		//	char	buff1[20] = "A";
-			char	buff2[20] = "A";
+		// 	char	*str = "";
+		// //	char	buff1[20] = "A";
+		// 	char	buff2[20] = "A";
 
-    // printf("strlcpy : %d , %s",strlcpy(buff1, str, 20),buff1);
-    printf("ft_strlcpy : %ld , %s",ft_strlcpy(buff2, str, 20),buff2);
+    // // printf("strlcpy : %d , %s",strlcpy(buff1, str, 20),buff1);
+    // printf("ft_strlcpy : %ld , %s",ft_strlcpy(buff2, str, 20),buff2);
 
 
   //  printf("%ld, %s\n", ft_strlcat(s1, s2, 1), s1);
@@ -492,5 +492,25 @@ int main(void)
     //  printf("\n%d\n", ft_atoi("922337203685477580869428"));
 
   // printf("\n%s\n", "9223372036854775807"+2);
+
+//   char *s1 = "abcdabbccdaba";
+//   char *s2 = "bcda";
+
+// //printf("%p\n",NULL);
+//   printf("%p : %s\n", ft_strnstr(s1,s2,6),ft_strnstr(s1,s2,6));
+	// 	char	*str = "";
+ 	// 	char	buff1[0xF00];
+	// 	char	buff2[0xF00];
+	// //printf("strlcpy : %d : %s\n", strlcpy(buff1, str, sizeof(buff1)), buff1);
+	// 	printf("ft_strlcpy : %ld : %s \n",ft_strlcpy(buff2, str, sizeof(buff2)), buff2);
+
+char*s1 = "atoms\0\0\0\0";
+char*s2 = "atoms\0abc";
+size_t size = 8;
+
+printf("%d\n",memcmp(s1,s2,size));
+printf("%d\n", ft_memcmp(s1,s2,size));
+
+  
     return 0;
 }
