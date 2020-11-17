@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 18:56:30 by ktakami           #+#    #+#             */
-/*   Updated: 2020/11/16 18:45:54 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/17 16:23:14 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1751,7 +1751,7 @@ void	test_lstiter_case()
 */
 int		main(void)
 {
-	for(int i = 0; i < 100; i++) {
+	for(int i = 0; i < 1; i++) {
 		
 		test_strlen_case();
 		test_memset_case();
@@ -1761,8 +1761,8 @@ int		main(void)
 		test_memmove_case();
 		test_memchr_case();
 		test_memcmp_case();
-		// test_ft_strlcpy_case();
-		// test_strlcat_case();
+		test_ft_strlcpy_case();
+		test_strlcat_case();
 		test_strchr_case();
 		test_strrchr_case();
 		test_strncmp_case();

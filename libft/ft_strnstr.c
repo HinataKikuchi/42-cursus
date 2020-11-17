@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 17:35:57 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/17 14:48:49 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/17 16:31:29 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 	i = 0;
 	tmp = ft_memchr(s1, *s2, len); 
 	if (tmp)
-		while (*(s2 + i) != '\0' && (tmp + ft_strlen(s2) < s1 + len))
+		while (*(s2 + i) != '\0' && (tmp + ft_strlen(s2) <= s1 + len))
 		{
 			if (*(tmp + i) != *(s2 + i))
 				break ;
