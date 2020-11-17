@@ -6,30 +6,29 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 17:35:57 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/16 20:01:25 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/17 14:48:49 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnchr(const char *s1, const char *s2, size_t len)
+char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
 	size_t i;
-	size_t j;
+	char *tmp;
 
 	if (s2 == NULL)
-		return (s1);
+		return ((char*)s1);
 	i = 0;
-	j = 0;
-
-	if ((char *)ft_memchr(s1, *s2, len))
-		while (*(s2 + i) != '\0' && i < len)
+	tmp = ft_memchr(s1, *s2, len); 
+	if (tmp)
+		while (*(s2 + i) != '\0' && (tmp + ft_strlen(s2) < s1 + len))
 		{
-			if ()
-				j++;
+			if (*(tmp + i) != *(s2 + i))
+				break ;
+			i++;
 		}
-		
-
-
+	if(*(s2 + i) == '\0')
+		return (tmp);
 	return (NULL);
 }
