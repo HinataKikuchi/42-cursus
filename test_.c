@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 18:56:30 by ktakami           #+#    #+#             */
-/*   Updated: 2020/11/17 18:45:27 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/17 19:52:58 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1758,7 +1758,6 @@ int		main(void)
 		test_bzero_case();
 		test_memcpy_case();
 		test_memccpy_case();
-		test_memmove_case();
 		test_memchr_case();
 		test_memcmp_case();
 		test_ft_strlcpy_case();
@@ -1771,6 +1770,7 @@ int		main(void)
 		test_ascii_case();
 		test_calloc_case();
 		test_strdup_case();
+		test_memmove_case();
 		
 		test_substr_case();
 		test_strjoin_case();
