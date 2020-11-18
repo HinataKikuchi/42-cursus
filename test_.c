@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_.c                                            :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: ktakami <ktakami@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 18:56:30 by ktakami           #+#    #+#             */
-/*   Updated: 2020/11/17 16:23:14 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/18 13:21:38 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1751,27 +1751,27 @@ void	test_lstiter_case()
 */
 int		main(void)
 {
-	for(int i = 0; i < 1; i++) {
+	for(int i = 0; i < 100; i++) {
 		
-		test_strlen_case();
+/*		test_strlen_case();
 		test_memset_case();
 		test_bzero_case();
 		test_memcpy_case();
 		test_memccpy_case();
-		test_memmove_case();
 		test_memchr_case();
 		test_memcmp_case();
-		test_ft_strlcpy_case();
+//		test_ft_strlcpy_case();
 		test_strlcat_case();
 		test_strchr_case();
 		test_strrchr_case();
 		test_strncmp_case();
-		test_strnstr_case();
+		test_strnstr_case();*/
 		test_atoi_case();
-		test_ascii_case();
+/*		test_ascii_case();
 		test_calloc_case();
 		test_strdup_case();
-		
+		test_memmove_case();
+
 		test_substr_case();
 		test_strjoin_case();
 		test_strtrim_case();
@@ -1782,7 +1782,7 @@ int		main(void)
 		test_ft_putchar_fd();
 		test_ft_putstr_fd();
 		test_ft_putendl_fd();
-		test_ft_putnbr_fd();
+		test_ft_putnbr_fd();*/
 	}
 	return (0);
 }
