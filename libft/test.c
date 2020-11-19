@@ -4,14 +4,29 @@
 
 int main( void )
 {
-    char *s2 = "";
-    char *s3 = "";
-    printf("man=%lu\n",strlcat(s2,"",0));
-    printf("man=%s\n",s2);
-    write(1,s2,1);
-    write(1,"\n",1);
-    printf("ft=%lu\n",ft_strlcat(s3,"",0));
-    printf("ft=%s\n",s3);
-    write(1,s3,1);
-    write(1,"\n",1);
+    char **ans;
+    int i;
+
+    ans = (char **)malloc(3 * sizeof(char*));
+    if(!ans)
+        return 0;
+    for (i = 0 ; i < 3 ; i++)
+    {
+        *(ans + i) = (char *)malloc(4 * sizeof(char));
+		if (*(ans + i) == NULL)
+		{
+            while (i > 0)
+            {
+                free(*(ans +i));
+                i--;
+            }
+			return (0);
+		}
+    }
+    ans = ft_split("abc,def,ghi", ',');
+    for (i = 0 ; i < 3 ; i++)
+    {
+        printf("%s\n",ans[i]);
+    }
+    return 0;
 }

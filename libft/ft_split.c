@@ -6,17 +6,23 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:08:24 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/14 16:51:12 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/19 12:03:11 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+#include <stdio.h>
+// #include "test_.c"
+// #include "ft_strlen.c"
+// int		ft_count(char const *s, char c);
+// char	**ft_splitcpy(char const *s, char c, char **ans);
+// void	ft_free_col(char **ans, unsigned int i);
 
-int		ft_count(char const *s, char c)
+unsigned int		ft_count(char const *s, char c)
 {
 	int i;
-	int ans;
+	unsigned int ans;
 
 	i = 0;
 	ans = 0;
@@ -51,6 +57,7 @@ char	**ft_splitcpy(char const *s, char c, char **ans)
 		j++;
 		s++;
 	}
+	ans[j] = NULL;
 	return (ans);
 }
 
@@ -61,9 +68,12 @@ void	ft_free_col(char **ans, unsigned int i)
 	n = i;
 	while (n > 0)
 	{
-		free(*(ans + i));
+		free(*(ans + n));
+		*(ans + n) = NULL;
 		n--;
 	}
+	free(*(ans + n));
+	*(ans + n) = NULL;
 	free(ans);
 }
 
@@ -72,13 +82,15 @@ char	**ft_split(char const *s, char c)
 	char			**ans;
 	unsigned int	i;
 
+	if (!s)
+		return (NULL);
 	i = 0;
-	ans = (char **)malloc((ft_count(s, c) + 1) * sizeof(char*));
+	ans = (char **)malloc((ft_count(s, c) + 2) * sizeof(char*));
 	if (ans == NULL)
 		return (NULL);
-	while (i < ft_strlen(s))
+	while (i < (ft_count(s, c) + 1))
 	{
-		*(ans + i) = (char *)malloc(ft_strlen(s) * sizeof(char));
+		*(ans + i) = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
 		if (*(ans + i) == NULL)
 		{
 			ft_free_col(ans, i);
