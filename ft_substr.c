@@ -6,14 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 10:42:49 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/21 16:56:45 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/22 00:17:42 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-// #include "test.c"
-// #include "ft_strlen.c"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

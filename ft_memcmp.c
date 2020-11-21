@@ -6,23 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:57:23 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/19 17:22:04 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/21 18:46:27 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include "test_.c"
-// #include "ft_memcpy.c"
-// #include "ft_strdup.c"
-// #include "ft_strlen.c"
-// #include "ft_atoi.c"
-// #include "ft_strchr.c"
-// #include "ft_strrchr.c"
-// #include "ft_strncmp.c"
-// #include "ft_memset.c"
-// #include "ft_isdigit.c"
-// #include "ft_memccpy.c"
-// #include "ft_bzero.c"
 
 int	ft_memcmp(const void *buf1, const void *buf2, size_t n)
 {
@@ -36,7 +24,7 @@ int	ft_memcmp(const void *buf1, const void *buf2, size_t n)
 	while (i < n)
 	{
 		if (*(b1 + i) != *(b2 + i))
-			return((unsigned char)*(b1 + i) - (unsigned char)*(b2 + i));
+			return ((unsigned char)*(b1 + i) - (unsigned char)*(b2 + i));
 		i++;
 	}
 	return (0);

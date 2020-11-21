@@ -6,49 +6,16 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:08:24 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/21 13:31:46 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/22 00:16:09 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
-// #include "test_.c"
-// #include "ft_strlen.c"
-// #include "ft_strdup.c"
-// #include "ft_memset.c"
-// #include "ft_memcmp.c"
-// #include "ft_bzero.c"
-// #include "ft_memchr.c"
-// #include "ft_strchr.c"
-// #include "ft_strrchr.c"
-// #include "ft_strncmp.c"
-// #include "ft_atoi.c"
-// #include "ft_itoa.c"
-// #include "ft_isalpha.c"
-// #include "ft_memcpy.c"
-// #include "ft_memccpy.c"
-// #include "ft_isdigit.c"
-// #include "ft_isalnum.c"
-// #include "ft_isascii.c"
-// #include "ft_isprint.c"
-// #include "ft_toupper.c"
-// #include "ft_tolower.c"
-// #include "ft_calloc.c"
-// #include "ft_substr.c"
-// #include "ft_strjoin.c"
-// #include "ft_strtrim.c"
-// //#include "ft_strdup.c"
-// #include "ft_strmapi.c"
-// #include "ft_putchar_fd.c"
-// #include "ft_putstr_fd.c"
-// #include "ft_putnbr_fd.c"
-// #include "ft_putendl_fd.c"
 
-unsigned int		ft_count(char const *s, char c)
+unsigned int	ft_count(char const *s, char c)
 {
-	int i;
-	unsigned int ans;
+	int				i;
+	unsigned int	ans;
 
 	i = 0;
 	ans = 0;
@@ -64,7 +31,7 @@ unsigned int		ft_count(char const *s, char c)
 	return (ans);
 }
 
-char	**ft_splitcpy(char const *s, char c, char **ans)
+char			**ft_splitcpy(char const *s, char c, char **ans)
 {
 	unsigned int	i;
 	int				j;
@@ -92,7 +59,7 @@ char	**ft_splitcpy(char const *s, char c, char **ans)
 	return (ans);
 }
 
-void	ft_free_col(char **ans, unsigned int i)
+void			ft_free_col(char **ans, unsigned int i)
 {
 	unsigned int n;
 
@@ -108,11 +75,11 @@ void	ft_free_col(char **ans, unsigned int i)
 	free(ans);
 }
 
-char **ft_single_string(char const *s, char c)
+char			**ft_single_string(char const *s, char c)
 {
 	char		**ans;
 	char		*str;
-	const char	c_string[2] = { c,'\0'};
+	const char	c_string[2] = { c, '\0'};
 
 	str = ft_strtrim(s, c_string);
 	if (!str)
@@ -132,7 +99,7 @@ char **ft_single_string(char const *s, char c)
 	return (ans);
 }
 
-char	**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char			**ans;
 	unsigned int	i;
