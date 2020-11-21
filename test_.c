@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 18:56:30 by ktakami           #+#    #+#             */
-/*   Updated: 2020/11/20 07:37:12 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/21 14:19:13 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,80 +62,80 @@ void	test_strlen_case(void)
 	test_strlen("hoge");
 }
 
-// void	test_memset(char *str, int c, int len)
-// {
-// 	void*	(*lib)(void*, int, unsigned long);
-// 	void*	(*my)(void*, int, size_t);
-// 	char*	copied_lib;
-// 	char*	copied_my;
-// 	int		str_len;
-// 	char*	res_lib;
-// 	char*	res_my;
+void	test_memset(char *str, int c, int len)
+{
+	void*	(*lib)(void*, int, unsigned long);
+	void*	(*my)(void*, int, size_t);
+	char*	copied_lib;
+	char*	copied_my;
+	int		str_len;
+	char*	res_lib;
+	char*	res_my;
 
-// 	str_len = strlen(str);
-// 	copied_lib = ft_strdup(str);
-// 	copied_my = ft_strdup(str);
-// 	lib = memset;
-// 	my = ft_memset;
-// 	res_lib = memset((void*)copied_lib, c, len);
-// 	res_my = ft_memset((void*)copied_my, c, len);
-// 	assert(0, ft_memcmp(res_lib, res_my, len));
-// 	free(copied_lib);
-// 	free(copied_my);
-// }
+	str_len = strlen(str);
+	copied_lib = ft_strdup(str);
+	copied_my = ft_strdup(str);
+	lib = memset;
+	my = ft_memset;
+	res_lib = memset((void*)copied_lib, c, len);
+	res_my = ft_memset((void*)copied_my, c, len);
+	assert(0, ft_memcmp(res_lib, res_my, len));
+	free(copied_lib);
+	free(copied_my);
+}
 
-// void	test_memset_case(void)
-// {
-// 	printf("memset test...\n");
-// 	test_memset("", 'a', 4);
-// 	test_memset("hogefuga", 'a', 4);
-// 	test_memset("uga", 'a', 10);
-// 	test_memset("hogefuga", '\n', 1);
-// 	test_memset("hogefuga", '\n', 8);
-// 	test_memset("hogefuga", 'a', 0);
-// 	test_memset("hogefuga", '\0', 0);
-// 	test_memset("hogefuga", '\0', 8);
-// }
+void	test_memset_case(void)
+{
+	printf("memset test...\n");
+	test_memset("", 'a', 4);
+	test_memset("hogefuga", 'a', 4);
+	test_memset("uga", 'a', 10);
+	test_memset("hogefuga", '\n', 1);
+	test_memset("hogefuga", '\n', 8);
+	test_memset("hogefuga", 'a', 0);
+	test_memset("hogefuga", '\0', 0);
+	test_memset("hogefuga", '\0', 8);
+}
 
-// void	test_bzero(char *str, int n)
-// {
-// 	int		i;
-// 	int		str_len;
-// 	void	(*lib)(void*, unsigned long);
-// 	void	(*my)(void*, size_t);
-// 	char*	copied_lib;
-// 	char*	copied_my;
+void	test_bzero(char *str, int n)
+{
+	int		i;
+	int		str_len;
+	void	(*lib)(void*, unsigned long);
+	void	(*my)(void*, size_t);
+	char*	copied_lib;
+	char*	copied_my;
 
-// 	str_len = strlen(str);
-// 	copied_lib = ft_strdup(str);//malloc((str_len + 1) * sizeof(char));
-// 	copied_my = ft_strdup(str);//malloc((str_len + 1) * sizeof(char));
+	str_len = strlen(str);
+	copied_lib = ft_strdup(str);//malloc((str_len + 1) * sizeof(char));
+	copied_my = ft_strdup(str);//malloc((str_len + 1) * sizeof(char));
 
-// 	printf("%s, %d\n", str, n);
-// 	lib = bzero;
-// 	my = ft_bzero;
-// 	printf("bzero\n");
-// 	bzero((void*)copied_lib, n);
-// 	printf("ft_bzero\n");
-// 	ft_bzero((void*)copied_my, n);
-// 	i = 0;
-// 	while (i <= str_len)
-// 	{
-// 		assert(copied_lib[i], copied_my[i]);
-// 		i++;
-// 	}
-// 	free(copied_lib);
-// 	free(copied_my);
-// }
+	printf("%s, %d\n", str, n);
+	lib = bzero;
+	my = ft_bzero;
+	printf("bzero\n");
+	bzero((void*)copied_lib, n);
+	printf("ft_bzero\n");
+	ft_bzero((void*)copied_my, n);
+	i = 0;
+	while (i <= str_len)
+	{
+		assert(copied_lib[i], copied_my[i]);
+		i++;
+	}
+	free(copied_lib);
+	free(copied_my);
+}
 
-// void	test_bzero_case()
-// {
-// 	printf("bzero test...\n");
-// 	test_bzero("hoge", 2);
-// 	test_bzero("hoge", 0);
-// 	//test_bzero("hoge", -1); segv
-// 	//test_bzero("hoge", -2);
-// 	test_bzero("fugafuga", 8);
-// }
+void	test_bzero_case()
+{
+	printf("bzero test...\n");
+	test_bzero("hoge", 2);
+	test_bzero("hoge", 0);
+	//test_bzero("hoge", -1); segv
+	//test_bzero("hoge", -2);
+	test_bzero("fugafuga", 8);
+}
 
 void	test_memcpy(char *dst, char *src, int n)
 {
@@ -1445,7 +1445,7 @@ void	test_ft_putchar_fd()
 {
 	char	c;
 
-	c = 0x80;
+	c = 0x20;
 
 	while ((unsigned char)c < 0x7F)
 	{
@@ -1485,36 +1485,36 @@ int		main(void)
 {
 	for(int i = 0; i < 1; i++) {
 		
-		// test_strlen_case();
-		// test_memset_case();
-		// test_bzero_case();
-		// test_memcpy_case();
-		// test_memccpy_case();
-		// test_memchr_case();
-	//	test_memcmp_case();
-	//	test_ft_strlcpy_case();
-	//	test_strlcat_case();
+	// 	test_strlen_case();
+	// 	test_memset_case();
+	// 	test_bzero_case();
+	// 	test_memcpy_case();
+	// 	test_memccpy_case();
+	// 	test_memchr_case();
+	// //	test_memcmp_case();
+		// // test_ft_strlcpy_case();
+	// //	test_strlcat_case();
 	// 	test_strchr_case();
 	// 	test_strrchr_case();
-	// //	test_strncmp_case();
-	// //	test_strnstr_case();
+		// test_strncmp_case();
+		test_strnstr_case();
 	// 	test_atoi_case();
-	//	test_ascii_case();
-		// test_calloc_case();
-		// test_strdup_case();
-		// //test_memmove_case();
+	// //	test_ascii_case();
+	// 	test_calloc_case();
+	// 	test_strdup_case();
+	// 	// //test_memmove_case();
 		
-		// test_substr_case();
-	//	test_strjoin_case();
-		//test_strtrim_case();
+	// 	test_substr_case();
+	// 	test_strjoin_case();
+	// 	//test_strtrim_case();
 		
-		//test_ft_split_case();
-		//test_itoa_case();
-		// //test_ft_strmapi_case();
-		//test_ft_putchar_fd();
-		// test_ft_putstr_fd();
-		//test_ft_putendl_fd();
-		//test_ft_putnbr_fd();
+	// 	test_ft_split_case();
+	// 	test_itoa_case();
+	// 	test_ft_strmapi_case();
+	// 	test_ft_putchar_fd();
+	// 	test_ft_putstr_fd();
+	// 	test_ft_putendl_fd();
+	// 	test_ft_putnbr_fd();
 	}
 	return (0);
 }

@@ -7,11 +7,16 @@
 
 int main( void )
 {
-    char **ans = ft_split(",,,,", ',');
-    int i;
-    for (i = 0; i < 3; i++)
-    {
-        printf("%s\n", ans[i]);
-    }
+	char	c;
+
+	c = 0x20;
+
+	while ((unsigned char)c < 0x7F)
+	{
+		if ((unsigned char)c != 0x07)
+			ft_putchar_fd(c, 1);
+		c++;
+	}
+	ft_putchar_fd(c, 1);
     return 0;
 }
