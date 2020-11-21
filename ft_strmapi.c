@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 12:30:40 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/21 14:09:48 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/21 17:47:41 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s)
 		return (NULL);
-	ans = (char *)ft_calloc(ft_strlen(s),sizeof(char));
+	ans = (char *)ft_calloc((ft_strlen(s) + 1),sizeof(char));
 	if (ans == NULL)
 		return (NULL);
 	i = 0;
