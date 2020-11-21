@@ -6,11 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:08:24 by hkikuchi          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2020/11/20 14:22:38 by hkikuchi         ###   ########.fr       */
-=======
-/*   Updated: 2020/11/20 07:35:24 by hkikuchi         ###   ########.fr       */
->>>>>>> 019598d84b20b4021aa0883f407e0f9827fe8d3c
+/*   Updated: 2020/11/21 13:31:46 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,11 +100,7 @@ void	ft_free_col(char **ans, unsigned int i)
 	while (n > 0)
 	{
 		free(*(ans + n));
-<<<<<<< HEAD
-		*(ans + i) = NULL;
-=======
 		*(ans + n) = NULL;
->>>>>>> 019598d84b20b4021aa0883f407e0f9827fe8d3c
 		n--;
 	}
 	free(*(ans + n));
@@ -153,11 +145,7 @@ char	**ft_split(char const *s, char c)
 	ans = (char **)malloc((ft_count(s, c) + 2) * sizeof(char*));
 	if (ans == NULL)
 		return (NULL);
-<<<<<<< HEAD
-	while (i < (unsigned int)(ft_count(s, c) + 1))
-=======
 	while (i < (ft_count(s, c) + 1))
->>>>>>> 019598d84b20b4021aa0883f407e0f9827fe8d3c
 	{
 		*(ans + i) = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
 		if (*(ans + i) == NULL)

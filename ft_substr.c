@@ -6,11 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 10:42:49 by hkikuchi          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2020/11/18 19:10:31 by hkikuchi         ###   ########.fr       */
-=======
-/*   Updated: 2020/11/18 19:30:45 by hkikuchi         ###   ########.fr       */
->>>>>>> 019598d84b20b4021aa0883f407e0f9827fe8d3c
+/*   Updated: 2020/11/21 16:56:45 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +30,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		*ans = '\0';
 		return (ans);
 	}
-<<<<<<< HEAD
 	if (!(ans = (char *)malloc((len + 1) * sizeof(char))))
-=======
-	if (!(ans = (char *)malloc((len + 1)* sizeof(char))))
->>>>>>> 019598d84b20b4021aa0883f407e0f9827fe8d3c
 		return (NULL);
 	i = start;
 	j = 0;
@@ -48,5 +40,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		i++;
 		j++;
 	}
+	*(ans + j) = '\0';
 	return (ans);
 }

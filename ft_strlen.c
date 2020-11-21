@@ -6,11 +6,8 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 11:33:40 by hkikuchi          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2020/11/19 10:40:21 by hkikuchi         ###   ########.fr       */
-=======
+/*   Updated: 2020/11/21 15:04:46 by hkikuchi         ###   ########.fr       */
 /*   Updated: 2020/11/19 10:01:04 by hkikuchi         ###   ########.fr       */
->>>>>>> 019598d84b20b4021aa0883f407e0f9827fe8d3c
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +18,6 @@ size_t	ft_strlen(const char *s)
 	size_t i;
 
 	i = 0;
-<<<<<<< HEAD
-	if (!s)
-		return (i);
-=======
-	if (s == NULL)
-		return (0);
->>>>>>> 019598d84b20b4021aa0883f407e0f9827fe8d3c
 	while (*(s + i) != '\0')
 		i++;
 	return (i);

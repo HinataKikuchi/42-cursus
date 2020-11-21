@@ -6,12 +6,7 @@
 /*   By: ktakami <ktakami@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 18:56:30 by ktakami           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2020/11/20 14:05:12 by hkikuchi         ###   ########.fr       */
-/*   Updated: 2020/11/17 19:52:58 by hkikuchi         ###   ########.fr       */
-=======
-/*   Updated: 2020/11/21 14:19:13 by hkikuchi         ###   ########.fr       */
->>>>>>> 019598d84b20b4021aa0883f407e0f9827fe8d3c
+/*   Updated: 2020/11/21 14:57:41 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +21,7 @@ void	assert(unsigned long expected, unsigned long actual)
 	if (expected == actual) {
 		printf("[ok]\n");
 	} else {
-		if (expected <= 127 /*&& expected >= 0*/) {
+		if (expected <= 127 && expected >= 0) {
 			printf("[ng]expected: %ld(%c), but: %ld(%c)\n", expected, (char)expected, actual, (char)actual);
 		} else {
 			printf("[ng]expected: %ld, but: %ld\n", expected, actual);
@@ -48,7 +43,7 @@ void	ptr_assert(void *expected, void *actual)
 	}
 }
 
-/*void	test_strlen(char *str)
+void	test_strlen(char *str)
 {
 	unsigned long		(*lib)(const char*);
 	size_t				(*my)(const char*);
@@ -250,107 +245,107 @@ void	test_memccpy_case()
 	test_memccpy("h\0oge", "fuga\0", '\0', 4);
 }
 
-// void	test_memmove(char *original, int n, int dst_offset, int src_offset)
-// {
-// 	void* (*lib)(void*, const void*, unsigned long);
-// 	void* (*my)(void*, const void*, size_t);
-// 	char	*copied_original_lib;
-// 	char	*copied_original_my;
-// 	char	*dst_addr_lib;
-// 	char	*dst_addr_my;
-// 	char	*src_addr_lib;
-// 	char	*src_addr_my;
-// 	void	*res_lib;
-// 	void	*res_my;
+void	test_memmove(char *original, int n, int dst_offset, int src_offset)
+{
+	void* (*lib)(void*, const void*, unsigned long);
+	void* (*my)(void*, const void*, size_t);
+	char	*copied_original_lib;
+	char	*copied_original_my;
+	char	*dst_addr_lib;
+	char	*dst_addr_my;
+	char	*src_addr_lib;
+	char	*src_addr_my;
+	void	*res_lib;
+	void	*res_my;
 
-// 	copied_original_lib = ft_strdup(original);
-// 	copied_original_my = ft_strdup(original);
-// 	dst_addr_lib = copied_original_lib + dst_offset;
-// 	dst_addr_my = copied_original_my + dst_offset;
-// 	src_addr_lib = copied_original_lib + src_offset;
-// 	src_addr_my = copied_original_my + src_offset;
+	copied_original_lib = ft_strdup(original);
+	copied_original_my = ft_strdup(original);
+	dst_addr_lib = copied_original_lib + dst_offset;
+	dst_addr_my = copied_original_my + dst_offset;
+	src_addr_lib = copied_original_lib + src_offset;
+	src_addr_my = copied_original_my + src_offset;
 
-// 	lib = memmove;
-// 	my = ft_memmove;
-// 	res_lib = lib(dst_addr_lib, src_addr_my, n);
-// 	res_my = my(dst_addr_my, src_addr_my, n);
-// 	assert(0, strcmp(res_lib, res_my));
-// 	free(copied_original_lib);
-// 	free(copied_original_my);
-// }
+	lib = memmove;
+	my = ft_memmove;
+	res_lib = lib(dst_addr_lib, src_addr_my, n);
+	res_my = my(dst_addr_my, src_addr_my, n);
+	assert(0, strcmp(res_lib, res_my));
+	free(copied_original_lib);
+	free(copied_original_my);
+}
 
-// void	test_memmove_null()
-// {
-// 	ptr_assert(memmove(NULL, NULL, 0), ft_memmove(NULL, NULL, 0));
-// 	ptr_assert(memmove(NULL, NULL, 1), ft_memmove(NULL, NULL, 1));
-// }
+void	test_memmove_null()
+{
+	ptr_assert(memmove(NULL, NULL, 0), ft_memmove(NULL, NULL, 0));
+	ptr_assert(memmove(NULL, NULL, 1), ft_memmove(NULL, NULL, 1));
+}
 
-// void	test_memmove_normal(char* dst, char *src, int n)
-// {
-// 	char	*copied_dst_lib;
-// 	char	*copied_dst_my;
-// 	void	*res_lib;
-// 	void	*res_my;
+void	test_memmove_normal(char* dst, char *src, int n)
+{
+	char	*copied_dst_lib;
+	char	*copied_dst_my;
+	void	*res_lib;
+	void	*res_my;
 
-// 	copied_dst_lib = ft_strdup(dst);
-// 	copied_dst_my = ft_strdup(dst);
-// 	res_lib = memmove(copied_dst_lib, src, n);
-// 	res_my = ft_memmove(copied_dst_my, src, n);
-// 	assert(0, ft_memcmp(res_lib, res_my, n));
-// 	free(copied_dst_lib);
-// 	free(copied_dst_my);
-// }
+	copied_dst_lib = ft_strdup(dst);
+	copied_dst_my = ft_strdup(dst);
+	res_lib = memmove(copied_dst_lib, src, n);
+	res_my = ft_memmove(copied_dst_my, src, n);
+	assert(0, ft_memcmp(res_lib, res_my, n));
+	free(copied_dst_lib);
+	free(copied_dst_my);
+}
 
-// void	test_memmove_case()
-// {
-// 	printf("memmove...\n");
-// 	test_memmove("0123456789", 0, 0, 0);
-// 	test_memmove("0123456789", 1, 0, 0);
-// 	test_memmove("0123456789", 1, 0, 1);
-// 	test_memmove("0123456789", 1, 1, 0);
-// 	test_memmove("0123456789", 2, 0, 1);
-// 	test_memmove("0123456789", 2, 0, 2);
-// 	test_memmove("0123456789", 2, 0, 3);
-// 	test_memmove("0123456789", 2, 3, 0);
-// 	test_memmove("0123456789", 2, 3, 1);
-// 	test_memmove("0123456789", 2, 3, 2);
-// 	test_memmove("0123456789", 4, 0, 5);
-// 	test_memmove("0123456789", 4, 0, 4);
-// 	test_memmove("0123456789", 4, 0, 3);
-// 	test_memmove("0123456789", 4, 0, 2);
-// 	test_memmove("0123456789", 4, 0, 1);
-// 	test_memmove("0123456789", 4, 5, 0);
-// 	test_memmove("0123456789", 4, 5, 1);
-// 	test_memmove("0123456789", 4, 5, 2);
-// 	test_memmove("0123456789", 4, 5, 3);
-// 	test_memmove("0123456789", 4, 5, 4);
-// 	test_memmove("0123456789", 4, 5, 5);
-// 	test_memmove_normal("abcdef", "ghi", 0);
-// 	test_memmove_normal("abcdef", "ghi", 1);
-// 	test_memmove_normal("abcdef", "ghi", 2);
-// 	test_memmove_normal("abcdef", "ghi", 3);
-// 	test_memmove_normal("abcdef", "ghi", 4);
-// 	test_memmove_normal("abcdef", "ghi", 5);
-// 	test_memmove_normal("abcdef", "ghijkl", 0);
-// 	test_memmove_normal("abcdef", "ghijkl", 1);
-// 	test_memmove_normal("abcdef", "ghijkl", 2);
-// 	test_memmove_normal("abcdef", "ghijkl", 3);
-// 	test_memmove_normal("abcdef", "ghijkl", 4);
-// 	test_memmove_normal("abcdef", "ghijkl", 5);
-// 	test_memmove_normal("abcdef", "ghijkl", 6);
-// 	test_memmove_normal("abcdef", "ghijklmno", 0);
-// 	test_memmove_normal("abcdef", "ghijklmno", 1);
-// 	test_memmove_normal("abcdef", "ghijklmno", 2);
-// 	test_memmove_normal("abcdef", "ghijklmno", 3);
-// 	test_memmove_normal("abcdef", "ghijklmno", 4);
-// 	test_memmove_normal("abcdef", "ghijklmno", 5);
-// 	test_memmove_normal("abcdef", "ghijklmno", 6);
-// 	test_memmove_normal("abcdef", "ghijklmno", 7);
-// 	test_memmove_normal("abcdef", "ghijklmno", 8);
-// 	test_memmove_normal("abcdef", "ghijklmno", 9);
-// 	test_memmove_normal("abcdef", "ghijklmno", 10);
-// 	test_memmove_null();
-// }
+void	test_memmove_case()
+{
+	printf("memmove...\n");
+	test_memmove("0123456789", 0, 0, 0);
+	test_memmove("0123456789", 1, 0, 0);
+	test_memmove("0123456789", 1, 0, 1);
+	test_memmove("0123456789", 1, 1, 0);
+	test_memmove("0123456789", 2, 0, 1);
+	test_memmove("0123456789", 2, 0, 2);
+	test_memmove("0123456789", 2, 0, 3);
+	test_memmove("0123456789", 2, 3, 0);
+	test_memmove("0123456789", 2, 3, 1);
+	test_memmove("0123456789", 2, 3, 2);
+	test_memmove("0123456789", 4, 0, 5);
+	test_memmove("0123456789", 4, 0, 4);
+	test_memmove("0123456789", 4, 0, 3);
+	test_memmove("0123456789", 4, 0, 2);
+	test_memmove("0123456789", 4, 0, 1);
+	test_memmove("0123456789", 4, 5, 0);
+	test_memmove("0123456789", 4, 5, 1);
+	test_memmove("0123456789", 4, 5, 2);
+	test_memmove("0123456789", 4, 5, 3);
+	test_memmove("0123456789", 4, 5, 4);
+	test_memmove("0123456789", 4, 5, 5);
+	test_memmove_normal("abcdef", "ghi", 0);
+	test_memmove_normal("abcdef", "ghi", 1);
+	test_memmove_normal("abcdef", "ghi", 2);
+	test_memmove_normal("abcdef", "ghi", 3);
+	test_memmove_normal("abcdef", "ghi", 4);
+	test_memmove_normal("abcdef", "ghi", 5);
+	test_memmove_normal("abcdef", "ghijkl", 0);
+	test_memmove_normal("abcdef", "ghijkl", 1);
+	test_memmove_normal("abcdef", "ghijkl", 2);
+	test_memmove_normal("abcdef", "ghijkl", 3);
+	test_memmove_normal("abcdef", "ghijkl", 4);
+	test_memmove_normal("abcdef", "ghijkl", 5);
+	test_memmove_normal("abcdef", "ghijkl", 6);
+	test_memmove_normal("abcdef", "ghijklmno", 0);
+	test_memmove_normal("abcdef", "ghijklmno", 1);
+	test_memmove_normal("abcdef", "ghijklmno", 2);
+	test_memmove_normal("abcdef", "ghijklmno", 3);
+	test_memmove_normal("abcdef", "ghijklmno", 4);
+	test_memmove_normal("abcdef", "ghijklmno", 5);
+	test_memmove_normal("abcdef", "ghijklmno", 6);
+	test_memmove_normal("abcdef", "ghijklmno", 7);
+	test_memmove_normal("abcdef", "ghijklmno", 8);
+	test_memmove_normal("abcdef", "ghijklmno", 9);
+	test_memmove_normal("abcdef", "ghijklmno", 10);
+	test_memmove_null();
+}
 
 void	test_memchr(char *s, int c, int n)
 {
@@ -364,7 +359,7 @@ void	test_memchr(char *s, int c, int n)
 		if (res_my == NULL)
 			printf("[ok]\n");
 		else
-			printf("expected: NULL but %p\n", res_my);
+			printf("expected: NULL but %s\n", res_my);
 	}
 	else
 	{
@@ -391,7 +386,7 @@ void	test_memchr_case()
 	test_memchr("01234567\089", '\0', 7);
 	test_memchr("01234567\089", '\0', 8);
 	test_memchr("01234567\089", '\0', 9);
-}*/
+}
 
 void	test_memcmp(char *s1, char *s2, int n)
 {
@@ -435,292 +430,292 @@ void	test_memcmp_case()
 	test_memcmp("abcd\0\0\0", "", 0);
 }
 
-// void	test_ft_strlcpy(char *dst, char *src, size_t dstsize)
-// {
-// 	char	*copied_dst_lib;
-// 	char	*copied_src_lib;
-// 	char	*copied_dst_my;
-// 	char	*copied_src_my;
-// 	int		res_lib;
-// 	int		res_my;
-// 	size_t	length;
-// 	size_t	i;
+void	test_ft_strlcpy(char *dst, char *src, size_t dstsize)
+{
+	char	*copied_dst_lib;
+	char	*copied_src_lib;
+	char	*copied_dst_my;
+	char	*copied_src_my;
+	int		res_lib;
+	int		res_my;
+	size_t	length;
+	size_t	i;
 
-// 	printf("dst: %s, src: %s, dstsize: %ld\n", dst, src, dstsize);
-// 	copied_dst_lib = ft_strdup(dst);
-// 	copied_dst_my = ft_strdup(dst);
-// 	copied_src_lib = ft_strdup(src);
-// 	copied_src_my = ft_strdup(src);
-// 	length = strlen(copied_dst_lib);
-// 	res_lib = strlcpy(copied_dst_lib, copied_src_lib, dstsize);
-// 	res_my = ft_strlcpy(copied_dst_my, copied_src_my, dstsize);
-// 	i = 0;
-// 	while(i < length){
-// 		assert(copied_dst_lib[i], copied_dst_my[i]);
-// 		i++;
-// 	}
+	printf("dst: %s, src: %s, dstsize: %ld\n", dst, src, dstsize);
+	copied_dst_lib = ft_strdup(dst);
+	copied_dst_my = ft_strdup(dst);
+	copied_src_lib = ft_strdup(src);
+	copied_src_my = ft_strdup(src);
+	length = strlen(copied_dst_lib);
+	res_lib = strlcpy(copied_dst_lib, copied_src_lib, dstsize);
+	res_my = ft_strlcpy(copied_dst_my, copied_src_my, dstsize);
+	i = 0;
+	while(i < length){
+		assert(copied_dst_lib[i], copied_dst_my[i]);
+		i++;
+	}
 
-// 	// NULL check
-// 	if (dstsize > 0 && length >= dstsize && ft_strlen(src) >= length)
-// 		assert('\0', copied_dst_my[dstsize - 1]);
-// 	assert(res_lib, res_my);
-// }
+	// NULL check
+	if (dstsize > 0 && length >= dstsize && ft_strlen(src) >= length)
+		assert('\0', copied_dst_my[dstsize - 1]);
+	assert(res_lib, res_my);
+}
 
-// void	test_ft_strlcpy_null()
-// {
-// 	assert(strlcpy(NULL, NULL, 0), ft_strlcpy(NULL, NULL, 0));
-// 	assert(strlcpy(NULL, NULL, 1), ft_strlcpy(NULL, NULL, 1));
-// 	assert(strlcpy(NULL, NULL, 2), ft_strlcpy(NULL, NULL, 2));
-// }
+void	test_ft_strlcpy_null()
+{
+	assert(strlcpy(NULL, NULL, 0), ft_strlcpy(NULL, NULL, 0));
+	assert(strlcpy(NULL, NULL, 1), ft_strlcpy(NULL, NULL, 1));
+	assert(strlcpy(NULL, NULL, 2), ft_strlcpy(NULL, NULL, 2));
+}
 
-// void	test_ft_strlcpy_case()
-// {
-// 	printf("ft_strlcpy...\n");
-// 	// 大きさ dst = src = dstsize
-// 	test_ft_strlcpy("", "", 0);
-// 	test_ft_strlcpy("hoge", "fuga", 4);
-// 	// 大きさ dst < src = dstsize
-// 	test_ft_strlcpy("", "fuga", 4);
-// 	test_ft_strlcpy("hog", "fuga", 4);
-// 	// 大きさ dst = src < dstsize
-// 	test_ft_strlcpy("", "", 4);
-// 	test_ft_strlcpy("hog", "fui", 4);
-// 	test_ft_strlcpy("hog", "fui", 6);
-// 	// 大きさ dst < src < dstsize
-// 	test_ft_strlcpy("", "f", 2);
-// 	test_ft_strlcpy("ho", "fui", 4);
-// 	test_ft_strlcpy("ho", "fuijfdsa", 10);
-// 	//
-// 	// 大きさ dst < dstsize = src(同じのある）
-// 	// 大きさ dst = dstsize < src
-// 	test_ft_strlcpy("", "fuij", 0);
-// 	test_ft_strlcpy("hog", "fuij", 3);
-// 	test_ft_strlcpy("hog", "fuijxafdsaii", 3);
-// 	// 大きさ dst < dstsize < src
-// 	test_ft_strlcpy("ho", "fuij", 3);
-// 	test_ft_strlcpy("ho", "fuijabc", 5);
-// 	test_ft_strlcpy("", "fuij", 2);
-// 	//
-// 	// 大きさ src < dstsize = dst
-// 	test_ft_strlcpy("hoge", "", 4);
-// 	test_ft_strlcpy("hoge", "fu", 4);
-// 	// 大きさ src = dstsize < dst
-// 	test_ft_strlcpy("hoge", "", 0);
-// 	test_ft_strlcpy("hoge", "fu", 2);
-// 	// 大きさ src < dstsize < dst
-// 	test_ft_strlcpy("hoge", "", 1);
-// 	test_ft_strlcpy("hogeab", "", 2);
-// 	test_ft_strlcpy("hoge", "fu", 3);
-// 	test_ft_strlcpy("hogeadsabds", "fu", 5);
-// 	//
-// 	// 大きさ src < dst = dstsize(同じのある)
-// 	// 大きさ src = dst < dstsize
-// 	test_ft_strlcpy("", "", 5);
-// 	test_ft_strlcpy("hoge", "fuja", 5);
-// 	test_ft_strlcpy("hoge", "fuja", 8);
-// 	// 大きさ src < dst < dstsize
-// 	test_ft_strlcpy("ho", "", 5);
-// 	test_ft_strlcpy("hoge", "fuj", 5);
-// 	test_ft_strlcpy("hogeabd", "fuj", 10);
-// 	//
-// 	// 大きさ dstsize = src < dst
-// 	test_ft_strlcpy("hoge", "", 0);
-// 	test_ft_strlcpy("hoge", "fuj", 3);
-// 	test_ft_strlcpy("hogeabd", "fuj", 3);
-// 	// 大きさ dstsize < src = dst
-// 	test_ft_strlcpy("hog", "f", 0);
-// 	test_ft_strlcpy("hogdsa", "f4", 0);
-// 	test_ft_strlcpy("hog", "fuj", 2);
-// 	test_ft_strlcpy("hogadb", "fujklj", 2);
-// 	// 大きさ dstsize < src < dst
-// 	test_ft_strlcpy("hoge", "fu", 0);
-// 	test_ft_strlcpy("hoge61", "fu", 0);
-// 	test_ft_strlcpy("hoge", "fuj", 2);
-// 	test_ft_strlcpy("hogefdsfdsafsad", "fujfdsa", 2);
-// 	//
-// 	// 大きさ dstsize = dst < src
-// 	test_ft_strlcpy("", "fuj", 0);
-// 	test_ft_strlcpy("", "fujdsa", 0);
-// 	test_ft_strlcpy("ho", "fuj", 2);
-// 	test_ft_strlcpy("ho", "fufdsaj", 2);
-// 	// 大きさ dstsize < dst = src(同じのある)
-// 	// 大きさ dstsize < dst < src
-// 	test_ft_strlcpy("hog", "fuje", 0);
-// 	test_ft_strlcpy("hogfdsa", "fujefdsqerqa", 0);
-// 	test_ft_strlcpy("hog", "fuje", 2);
-// 	test_ft_strlcpy("hoguiq", "fujeeqafgsrd", 2);
+void	test_ft_strlcpy_case()
+{
+	printf("ft_strlcpy...\n");
+	// 大きさ dst = src = dstsize
+	test_ft_strlcpy("", "", 0);
+	test_ft_strlcpy("hoge", "fuga", 4);
+	// 大きさ dst < src = dstsize
+	test_ft_strlcpy("", "fuga", 4);
+	test_ft_strlcpy("hog", "fuga", 4);
+	// 大きさ dst = src < dstsize
+	test_ft_strlcpy("", "", 4);
+	test_ft_strlcpy("hog", "fui", 4);
+	test_ft_strlcpy("hog", "fui", 6);
+	// 大きさ dst < src < dstsize
+	test_ft_strlcpy("", "f", 2);
+	test_ft_strlcpy("ho", "fui", 4);
+	test_ft_strlcpy("ho", "fuijfdsa", 10);
+	//
+	// 大きさ dst < dstsize = src(同じのある）
+	// 大きさ dst = dstsize < src
+	test_ft_strlcpy("", "fuij", 0);
+	test_ft_strlcpy("hog", "fuij", 3);
+	test_ft_strlcpy("hog", "fuijxafdsaii", 3);
+	// 大きさ dst < dstsize < src
+	test_ft_strlcpy("ho", "fuij", 3);
+	test_ft_strlcpy("ho", "fuijabc", 5);
+	test_ft_strlcpy("", "fuij", 2);
+	//
+	// 大きさ src < dstsize = dst
+	test_ft_strlcpy("hoge", "", 4);
+	test_ft_strlcpy("hoge", "fu", 4);
+	// 大きさ src = dstsize < dst
+	test_ft_strlcpy("hoge", "", 0);
+	test_ft_strlcpy("hoge", "fu", 2);
+	// 大きさ src < dstsize < dst
+	test_ft_strlcpy("hoge", "", 1);
+	test_ft_strlcpy("hogeab", "", 2);
+	test_ft_strlcpy("hoge", "fu", 3);
+	test_ft_strlcpy("hogeadsabds", "fu", 5);
+	//
+	// 大きさ src < dst = dstsize(同じのある)
+	// 大きさ src = dst < dstsize
+	test_ft_strlcpy("", "", 5);
+	test_ft_strlcpy("hoge", "fuja", 5);
+	test_ft_strlcpy("hoge", "fuja", 8);
+	// 大きさ src < dst < dstsize
+	test_ft_strlcpy("ho", "", 5);
+	test_ft_strlcpy("hoge", "fuj", 5);
+	test_ft_strlcpy("hogeabd", "fuj", 10);
+	//
+	// 大きさ dstsize = src < dst
+	test_ft_strlcpy("hoge", "", 0);
+	test_ft_strlcpy("hoge", "fuj", 3);
+	test_ft_strlcpy("hogeabd", "fuj", 3);
+	// 大きさ dstsize < src = dst
+	test_ft_strlcpy("hog", "f", 0);
+	test_ft_strlcpy("hogdsa", "f4", 0);
+	test_ft_strlcpy("hog", "fuj", 2);
+	test_ft_strlcpy("hogadb", "fujklj", 2);
+	// 大きさ dstsize < src < dst
+	test_ft_strlcpy("hoge", "fu", 0);
+	test_ft_strlcpy("hoge61", "fu", 0);
+	test_ft_strlcpy("hoge", "fuj", 2);
+	test_ft_strlcpy("hogefdsfdsafsad", "fujfdsa", 2);
+	//
+	// 大きさ dstsize = dst < src
+	test_ft_strlcpy("", "fuj", 0);
+	test_ft_strlcpy("", "fujdsa", 0);
+	test_ft_strlcpy("ho", "fuj", 2);
+	test_ft_strlcpy("ho", "fufdsaj", 2);
+	// 大きさ dstsize < dst = src(同じのある)
+	// 大きさ dstsize < dst < src
+	test_ft_strlcpy("hog", "fuje", 0);
+	test_ft_strlcpy("hogfdsa", "fujefdsqerqa", 0);
+	test_ft_strlcpy("hog", "fuje", 2);
+	test_ft_strlcpy("hoguiq", "fujeeqafgsrd", 2);
 
-// 	test_ft_strlcpy("hoge", "fuga", 1);
-// 	test_ft_strlcpy("hoge", "fuga", 2);
-// 	test_ft_strlcpy("hoge", "fuga", 3);
-// 	test_ft_strlcpy("hoge", "fuo", 0);
-// 	test_ft_strlcpy("hoge", "fuo", 1);
-// 	test_ft_strlcpy("hoge", "fuo", 2);
-// 	test_ft_strlcpy("hoge", "fuo", 3);
-// 	test_ft_strlcpy("hoge", "fuo", 4);
-// 	test_ft_strlcpy("hog", "fuoi", 0);
-// 	test_ft_strlcpy("hog", "fuoi", 1);
-// 	test_ft_strlcpy("hog", "fuoi", 2);
-// 	test_ft_strlcpy("hog", "fuoi", 3);
-// 	test_ft_strlcpy("hog", "fuoi", 4);
-// 	test_ft_strlcpy("hoge", "fugafugafuga", 0);
-// 	test_ft_strlcpy("hoge", "fugafugafuga", 1);
-// 	test_ft_strlcpy("hoge", "fugafugafuga", 2);
-// 	test_ft_strlcpy("hoge", "fugafugafuga", 3);
-// 	test_ft_strlcpy("hoge", "fugafugafuga", 4);
-// 	test_ft_strlcpy("hoge", "fugafugafuga", 5);
-// 	test_ft_strlcpy("hogehogehoge", "fuga", 0);
-// 	test_ft_strlcpy("hogehogehoge", "fuga", 1);
-// 	test_ft_strlcpy("hogehogehoge", "fuga", 2);
-// 	test_ft_strlcpy("hogehogehoge", "fuga", 3);
-// 	test_ft_strlcpy("hogehogehoge", "fuga", 4);
-// 	test_ft_strlcpy("hogehogehoge", "fuga", 12);
-// 	test_ft_strlcpy("hogehogehoge", "fuga", 13);
-// 	test_ft_strlcpy("", "fuga", 0);
-// 	test_ft_strlcpy("", "fuga", 1);
-// 	test_ft_strlcpy("", "fuga", 2);
-// 	test_ft_strlcpy("", "fuga", 3);
-// 	test_ft_strlcpy("", "fuga", 4);
-// 	test_ft_strlcpy("", "", 0);
-// 	test_ft_strlcpy("01234567890", "-2147483648", 11);
-// 	//test_ft_strlcpy_null();
-// }
+	test_ft_strlcpy("hoge", "fuga", 1);
+	test_ft_strlcpy("hoge", "fuga", 2);
+	test_ft_strlcpy("hoge", "fuga", 3);
+	test_ft_strlcpy("hoge", "fuo", 0);
+	test_ft_strlcpy("hoge", "fuo", 1);
+	test_ft_strlcpy("hoge", "fuo", 2);
+	test_ft_strlcpy("hoge", "fuo", 3);
+	test_ft_strlcpy("hoge", "fuo", 4);
+	test_ft_strlcpy("hog", "fuoi", 0);
+	test_ft_strlcpy("hog", "fuoi", 1);
+	test_ft_strlcpy("hog", "fuoi", 2);
+	test_ft_strlcpy("hog", "fuoi", 3);
+	test_ft_strlcpy("hog", "fuoi", 4);
+	test_ft_strlcpy("hoge", "fugafugafuga", 0);
+	test_ft_strlcpy("hoge", "fugafugafuga", 1);
+	test_ft_strlcpy("hoge", "fugafugafuga", 2);
+	test_ft_strlcpy("hoge", "fugafugafuga", 3);
+	test_ft_strlcpy("hoge", "fugafugafuga", 4);
+	test_ft_strlcpy("hoge", "fugafugafuga", 5);
+	test_ft_strlcpy("hogehogehoge", "fuga", 0);
+	test_ft_strlcpy("hogehogehoge", "fuga", 1);
+	test_ft_strlcpy("hogehogehoge", "fuga", 2);
+	test_ft_strlcpy("hogehogehoge", "fuga", 3);
+	test_ft_strlcpy("hogehogehoge", "fuga", 4);
+	test_ft_strlcpy("hogehogehoge", "fuga", 12);
+	test_ft_strlcpy("hogehogehoge", "fuga", 13);
+	test_ft_strlcpy("", "fuga", 0);
+	test_ft_strlcpy("", "fuga", 1);
+	test_ft_strlcpy("", "fuga", 2);
+	test_ft_strlcpy("", "fuga", 3);
+	test_ft_strlcpy("", "fuga", 4);
+	test_ft_strlcpy("", "", 0);
+	test_ft_strlcpy("01234567890", "-2147483648", 11);
+	//test_ft_strlcpy_null();
+}
 
-// void	test_ft_strlcat_dup(char *dst, char *src, int dstsize)
-// {
-// 	char	*copied_dst_lib;
-// 	char	*copied_src_lib;
-// 	char	*copied_dst_my;
-// 	char	*copied_src_my;
-// 	int		res_lib;
-// 	int		res_my;
-// 	int		length;
-// 	copied_dst_lib = ft_strdup(dst);
-// 	copied_dst_my = ft_strdup(dst);
-// 	copied_src_lib = ft_strdup(src);
-// 	copied_src_my = ft_strdup(src);
+void	test_ft_strlcat_dup(char *dst, char *src, int dstsize)
+{
+	char	*copied_dst_lib;
+	char	*copied_src_lib;
+	char	*copied_dst_my;
+	char	*copied_src_my;
+	int		res_lib;
+	int		res_my;
+	int		length;
+	copied_dst_lib = ft_strdup(dst);
+	copied_dst_my = ft_strdup(dst);
+	copied_src_lib = ft_strdup(src);
+	copied_src_my = ft_strdup(src);
 
-// 	printf("dst: %s,  src: %s size: %d\n", dst, src, dstsize);
-// 	length = strlen(copied_dst_lib);
-// 	res_lib = strlcat(copied_dst_lib, copied_src_lib, dstsize);
-// 	res_my = ft_strlcat(copied_dst_my, copied_src_my, dstsize);
-// 	assert(res_lib, res_my);
-// }
+	printf("dst: %s,  src: %s size: %d\n", dst, src, dstsize);
+	length = strlen(copied_dst_lib);
+	res_lib = strlcat(copied_dst_lib, copied_src_lib, dstsize);
+	res_my = ft_strlcat(copied_dst_my, copied_src_my, dstsize);
+	assert(res_lib, res_my);
+}
 
-// void	test_ft_strlcat(char *dst, char *src, int dstsize, int bufsize)
-// {
-// 	char	*copied_dst_lib;
-// 	char	*copied_src_lib;
-// 	char	*copied_dst_my;
-// 	char	*copied_src_my;
-// 	int		res_lib;
-// 	int		res_my;
-// 	int		length;
-// 	int		i;
-// 	int		ng_count;
+void	test_ft_strlcat(char *dst, char *src, int dstsize, int bufsize)
+{
+	char	*copied_dst_lib;
+	char	*copied_src_lib;
+	char	*copied_dst_my;
+	char	*copied_src_my;
+	int		res_lib;
+	int		res_my;
+	int		length;
+	int		i;
+	int		ng_count;
 
-// 	printf("dst: %s, src: %s, dstsize: %d\n", dst, src, dstsize);
-// 	copied_dst_lib = calloc(1, sizeof(char) * bufsize);
-// 	strcpy(copied_dst_lib, dst);
-// 	copied_dst_my = calloc(1, sizeof(char) * bufsize);
-// 	strcpy(copied_dst_my, dst);
-// 	copied_src_lib = ft_strdup(src);
-// 	copied_src_my = ft_strdup(src);
-// 	length = strlen(copied_dst_lib);
-// 	res_lib = strlcat(copied_dst_lib, copied_src_lib, dstsize);
-// 	res_my = ft_strlcat(copied_dst_my, copied_src_my, dstsize);
-// 	i = 0;
-// 	ng_count = 0;
-// 	while(i < bufsize){
-// 		ng_count += copied_dst_lib[i] != copied_dst_my[i];
-// 		i++;
-// 	}
-// 	assert(0, ng_count);
-// 	assert(res_lib, res_my);
-// 	test_ft_strlcat_dup(dst, src, dstsize);
-// }
+	printf("dst: %s, src: %s, dstsize: %d\n", dst, src, dstsize);
+	copied_dst_lib = calloc(1, sizeof(char) * bufsize);
+	strcpy(copied_dst_lib, dst);
+	copied_dst_my = calloc(1, sizeof(char) * bufsize);
+	strcpy(copied_dst_my, dst);
+	copied_src_lib = ft_strdup(src);
+	copied_src_my = ft_strdup(src);
+	length = strlen(copied_dst_lib);
+	res_lib = strlcat(copied_dst_lib, copied_src_lib, dstsize);
+	res_my = ft_strlcat(copied_dst_my, copied_src_my, dstsize);
+	i = 0;
+	ng_count = 0;
+	while(i < bufsize){
+		ng_count += copied_dst_lib[i] != copied_dst_my[i];
+		i++;
+	}
+	assert(0, ng_count);
+	assert(res_lib, res_my);
+	test_ft_strlcat_dup(dst, src, dstsize);
+}
 
-// void	test_strlcat_case()
-// {
-// 	printf("strlcat...\n");
-// 	printf("ft_strlcat...\n");
-// 	test_ft_strlcat("hoge", "fuga", 0, 100);
-// 	test_ft_strlcat("hoge", "fuga", 1, 100);
-// 	test_ft_strlcat("hoge", "fuga", 2, 100);
-// 	test_ft_strlcat("hoge", "fuga", 3, 100);
-// 	test_ft_strlcat("hoge", "fuga", 4, 100);
-// 	test_ft_strlcat("hoge", "fuga", 5, 100);
-// 	test_ft_strlcat("hoge", "fuga", 6, 100);
-// 	test_ft_strlcat("hoge", "fuga", 7, 100);
-// 	test_ft_strlcat("hoge", "fuga", 8, 100);
-// 	test_ft_strlcat("hoge", "fuga", 9, 100);
-// 	test_ft_strlcat("hoge", "fuga", 10, 100);
-// 	test_ft_strlcat("hoge", "fuga", 11, 100);
-// 	test_ft_strlcat("hoge", "fuo", 0, 100);
-// 	test_ft_strlcat("hoge", "fuo", 1, 100);
-// 	test_ft_strlcat("hoge", "fuo", 2, 100);
-// 	test_ft_strlcat("hoge", "fuo", 3, 100);
-// 	test_ft_strlcat("hoge", "fuo", 4, 100);
-// 	test_ft_strlcat("hoge", "fuo", 5, 100);
-// 	test_ft_strlcat("hoge", "fuo", 6, 100);
-// 	test_ft_strlcat("hoge", "fuo", 7, 100);
-// 	test_ft_strlcat("hoge", "fuo", 8, 100);
-// 	test_ft_strlcat("hoge", "fuo", 9, 100);
-// 	test_ft_strlcat("hoge", "fuo", 10, 100);
-// 	test_ft_strlcat("hog", "fuoi", 0, 100);
-// 	test_ft_strlcat("hog", "fuoi", 1, 100);
-// 	test_ft_strlcat("hog", "fuoi", 2, 100);
-// 	test_ft_strlcat("hog", "fuoi", 3, 100);
-// 	test_ft_strlcat("hog", "fuoi", 4, 100);
-// 	test_ft_strlcat("hog", "fuoi", 5, 100);
-// 	test_ft_strlcat("hog", "fuoi", 6, 100);
-// 	test_ft_strlcat("hog", "fuoi", 7, 100);
-// 	test_ft_strlcat("hog", "fuoi", 8, 100);
-// 	test_ft_strlcat("hog", "fuoi", 9, 100);
-// 	test_ft_strlcat("hog", "fuoi", 10, 100);
-// 	test_ft_strlcat("hoge", "fugafugafuga", 0, 100);
-// 	test_ft_strlcat("hoge", "fugafugafuga", 1, 100);
-// 	test_ft_strlcat("hoge", "fugafugafuga", 2, 100);
-// 	test_ft_strlcat("hoge", "fugafugafuga", 3, 100);
-// 	test_ft_strlcat("hoge", "fugafugafuga", 4, 100);
-// 	test_ft_strlcat("hoge", "fugafugafuga", 5, 100);
-// 	test_ft_strlcat("hoge", "fugafugafuga", 6, 100);
-// 	test_ft_strlcat("hoge", "fugafugafuga", 7, 100);
-// 	test_ft_strlcat("hoge", "fugafugafuga", 8, 100);
-// 	test_ft_strlcat("hoge", "fugafugafuga", 9, 100);
-// 	test_ft_strlcat("hoge", "fugafugafuga", 10, 100);
-// 	test_ft_strlcat("hoge", "fugafugafuga", 11, 100);
-// 	test_ft_strlcat("hoge", "fugafugafuga", 12, 100);
-// 	test_ft_strlcat("hoge", "fugafugafuga", 13, 100);
-// 	test_ft_strlcat("hogehogehoge", "fuga", 0, 100);
-// 	test_ft_strlcat("hogehogehoge", "fuga", 1, 100);
-// 	test_ft_strlcat("hogehogehoge", "fuga", 2, 100);
-// 	test_ft_strlcat("hogehogehoge", "fuga", 3, 100);
-// 	test_ft_strlcat("hogehogehoge", "fuga", 4, 100);
-// 	test_ft_strlcat("hogehogehoge", "fuga", 12, 100);
-// 	test_ft_strlcat("hogehogehoge", "fuga", 13, 100);
-// 	test_ft_strlcat("", "fuga", 0, 100);
-// 	test_ft_strlcat("", "fuga", 1, 100);
-// 	test_ft_strlcat("", "fuga", 2, 100);
-// 	test_ft_strlcat("", "fuga", 3, 100);
-// 	test_ft_strlcat("", "fuga", 4, 100);
-// 	test_ft_strlcat("", "fuga", 5, 100);
-// 	test_ft_strlcat("", "fuga", 6, 100);
-// 	test_ft_strlcat("", "fuga", 7, 100);
-// 	test_ft_strlcat("fuga", "", 0, 100);
-// 	test_ft_strlcat("fuga", "", 1, 100);
-// 	test_ft_strlcat("fuga", "", 2, 100);
-// 	test_ft_strlcat("fuga", "", 3, 100);
-// 	test_ft_strlcat("fuga", "", 4, 100);
-// 	test_ft_strlcat("fuga", "", 5, 100);
-// 	test_ft_strlcat("fuga", "", 6, 100);
-// 	test_ft_strlcat("fuga", "", 7, 100);
-// 	test_ft_strlcat("", "", 0, 100);
-// 	test_ft_strlcat("", "", 1, 100);
-// 	test_ft_strlcat("", "", 2, 100);
-// 	test_ft_strlcat("", "", 3, 100);
-// 	test_ft_strlcat("", "", 4, 100);
-// }
+void	test_strlcat_case()
+{
+	printf("strlcat...\n");
+	printf("ft_strlcat...\n");
+	test_ft_strlcat("hoge", "fuga", 0, 100);
+	test_ft_strlcat("hoge", "fuga", 1, 100);
+	test_ft_strlcat("hoge", "fuga", 2, 100);
+	test_ft_strlcat("hoge", "fuga", 3, 100);
+	test_ft_strlcat("hoge", "fuga", 4, 100);
+	test_ft_strlcat("hoge", "fuga", 5, 100);
+	test_ft_strlcat("hoge", "fuga", 6, 100);
+	test_ft_strlcat("hoge", "fuga", 7, 100);
+	test_ft_strlcat("hoge", "fuga", 8, 100);
+	test_ft_strlcat("hoge", "fuga", 9, 100);
+	test_ft_strlcat("hoge", "fuga", 10, 100);
+	test_ft_strlcat("hoge", "fuga", 11, 100);
+	test_ft_strlcat("hoge", "fuo", 0, 100);
+	test_ft_strlcat("hoge", "fuo", 1, 100);
+	test_ft_strlcat("hoge", "fuo", 2, 100);
+	test_ft_strlcat("hoge", "fuo", 3, 100);
+	test_ft_strlcat("hoge", "fuo", 4, 100);
+	test_ft_strlcat("hoge", "fuo", 5, 100);
+	test_ft_strlcat("hoge", "fuo", 6, 100);
+	test_ft_strlcat("hoge", "fuo", 7, 100);
+	test_ft_strlcat("hoge", "fuo", 8, 100);
+	test_ft_strlcat("hoge", "fuo", 9, 100);
+	test_ft_strlcat("hoge", "fuo", 10, 100);
+	test_ft_strlcat("hog", "fuoi", 0, 100);
+	test_ft_strlcat("hog", "fuoi", 1, 100);
+	test_ft_strlcat("hog", "fuoi", 2, 100);
+	test_ft_strlcat("hog", "fuoi", 3, 100);
+	test_ft_strlcat("hog", "fuoi", 4, 100);
+	test_ft_strlcat("hog", "fuoi", 5, 100);
+	test_ft_strlcat("hog", "fuoi", 6, 100);
+	test_ft_strlcat("hog", "fuoi", 7, 100);
+	test_ft_strlcat("hog", "fuoi", 8, 100);
+	test_ft_strlcat("hog", "fuoi", 9, 100);
+	test_ft_strlcat("hog", "fuoi", 10, 100);
+	test_ft_strlcat("hoge", "fugafugafuga", 0, 100);
+	test_ft_strlcat("hoge", "fugafugafuga", 1, 100);
+	test_ft_strlcat("hoge", "fugafugafuga", 2, 100);
+	test_ft_strlcat("hoge", "fugafugafuga", 3, 100);
+	test_ft_strlcat("hoge", "fugafugafuga", 4, 100);
+	test_ft_strlcat("hoge", "fugafugafuga", 5, 100);
+	test_ft_strlcat("hoge", "fugafugafuga", 6, 100);
+	test_ft_strlcat("hoge", "fugafugafuga", 7, 100);
+	test_ft_strlcat("hoge", "fugafugafuga", 8, 100);
+	test_ft_strlcat("hoge", "fugafugafuga", 9, 100);
+	test_ft_strlcat("hoge", "fugafugafuga", 10, 100);
+	test_ft_strlcat("hoge", "fugafugafuga", 11, 100);
+	test_ft_strlcat("hoge", "fugafugafuga", 12, 100);
+	test_ft_strlcat("hoge", "fugafugafuga", 13, 100);
+	test_ft_strlcat("hogehogehoge", "fuga", 0, 100);
+	test_ft_strlcat("hogehogehoge", "fuga", 1, 100);
+	test_ft_strlcat("hogehogehoge", "fuga", 2, 100);
+	test_ft_strlcat("hogehogehoge", "fuga", 3, 100);
+	test_ft_strlcat("hogehogehoge", "fuga", 4, 100);
+	test_ft_strlcat("hogehogehoge", "fuga", 12, 100);
+	test_ft_strlcat("hogehogehoge", "fuga", 13, 100);
+	test_ft_strlcat("", "fuga", 0, 100);
+	test_ft_strlcat("", "fuga", 1, 100);
+	test_ft_strlcat("", "fuga", 2, 100);
+	test_ft_strlcat("", "fuga", 3, 100);
+	test_ft_strlcat("", "fuga", 4, 100);
+	test_ft_strlcat("", "fuga", 5, 100);
+	test_ft_strlcat("", "fuga", 6, 100);
+	test_ft_strlcat("", "fuga", 7, 100);
+	test_ft_strlcat("fuga", "", 0, 100);
+	test_ft_strlcat("fuga", "", 1, 100);
+	test_ft_strlcat("fuga", "", 2, 100);
+	test_ft_strlcat("fuga", "", 3, 100);
+	test_ft_strlcat("fuga", "", 4, 100);
+	test_ft_strlcat("fuga", "", 5, 100);
+	test_ft_strlcat("fuga", "", 6, 100);
+	test_ft_strlcat("fuga", "", 7, 100);
+	test_ft_strlcat("", "", 0, 100);
+	test_ft_strlcat("", "", 1, 100);
+	test_ft_strlcat("", "", 2, 100);
+	test_ft_strlcat("", "", 3, 100);
+	test_ft_strlcat("", "", 4, 100);
+}
 
 void	test_strchr(const char *s, int c)
 {
@@ -892,35 +887,35 @@ void	test_strncmp_case()
 	test_strncmp("\200\179", "ab", 4);
 }
 
-// void	test_strnstr(const char *haystack, const char *needle, int len)
-// {
-// 	char	*res_lib;
-// 	char	*res_my;
+void	test_strnstr(const char *haystack, const char *needle, int len)
+{
+	char	*res_lib;
+	char	*res_my;
 
-// 	//printf("haystack: %s, needle: %s, len: %d\n", haystack, needle, len);
-// 	res_lib = strnstr(haystack, needle, len);
-// 	res_my = ft_strnstr(haystack, needle, len);
-// 	if(res_lib == res_my)
-// 		printf("[ok]: expect: %p, actual: %p\n", res_lib, res_my);
-// 	else {
-// 		printf("haystack: %s, needle: %s, len: %d\n", haystack, needle, len);
-// 		printf("[ng!!!!!!]: expect: %p, actual: %p\n", res_lib, res_my);
-// 		exit(1);
-// 	}
-// }
+	//printf("haystack: %s, needle: %s, len: %d\n", haystack, needle, len);
+	res_lib = strnstr(haystack, needle, len);
+	res_my = ft_strnstr(haystack, needle, len);
+	if(res_lib == res_my)
+		printf("[ok]: expect: %p, actual: %p\n", res_lib, res_my);
+	else {
+		printf("haystack: %s, needle: %s, len: %d\n", haystack, needle, len);
+		printf("[ng!!!!!!]: expect: %p, actual: %p\n", res_lib, res_my);
+		exit(1);
+	}
+}
 
-// void	test_strnstr_case()
-// {
-// 	printf("ft_strnstr...\n");
-// 	for (int i = 0; i < 20; i++) {
-// 		test_strnstr("Foo Bar Hoge", "Bar", i);
-// 		test_strnstr("Foo Bar Hoge", "Foo Hoge", i);
-// 		test_strnstr("abcabcabc", "abc", i);
-// 		test_strnstr("abcabcabc", "abcd", i);
-// 		test_strnstr("abcabcabc", "ab\0cd", i);
-// 		test_strnstr("abca\0bcabc", "ab\0cd", i);
-// 	}
-// }
+void	test_strnstr_case()
+{
+	printf("ft_strnstr...\n");
+	for (int i = 0; i < 20; i++) {
+		test_strnstr("Foo Bar Hoge", "Bar", i);
+		test_strnstr("Foo Bar Hoge", "Foo Hoge", i);
+		test_strnstr("abcabcabc", "abc", i);
+		test_strnstr("abcabcabc", "abcd", i);
+		test_strnstr("abcabcabc", "ab\0cd", i);
+		test_strnstr("abca\0bcabc", "ab\0cd", i);
+	}
+}
 
 void	test_atoi(const char *str)
 {
@@ -991,24 +986,15 @@ void	test_ascii_case()
 	int c;
 
 	c = 0;
-	printf("ft_isascii...\n");
 	while (c >= 0 && c <= 255)
 	{
-		printf("c = %d\n",c);
-		printf("isalpha\n");
 		test_ascii(isalpha, ft_isalpha, c);
-		printf("isdigit\n");
 		test_ascii(isdigit, ft_isdigit, c);
 		//test_ascii(isspace, ft_isspace, c);
-		printf("isalnum\n");
 		test_ascii(isalnum, ft_isalnum, c);
-		printf("isascii\n");
 		test_ascii(isascii, ft_isascii, c);
-		printf("isprint\n");
 		test_ascii(isprint, ft_isprint, c);
-		printf("toupper\n");
 		test_ascii(toupper, ft_toupper, c);
-		printf("tolower\n");
 		test_ascii(tolower, ft_tolower, c);
 		c++;
 	}
@@ -1186,8 +1172,8 @@ void	test_strjoin_case()
 	test_strjoin("abc", "def", "abcdef");
 	test_strjoin("ab", "cdef", "abcdef");
 	test_strjoin("abcd", "ef", "abcdef");
-	test_strjoin("abcd", NULL, "abcd");
-	test_strjoin(NULL, "abcd", "abcd");
+	//test_strjoin("abcd", NULL, "abcd");
+	//test_strjoin(NULL, "abcd", "abcd");
 }
 
 void	test_strtrim(char const *s1, char const *set, char *result)
@@ -1227,7 +1213,7 @@ void	test_strtrim_case()
 	test_strtrim("abcdefghijkabcdefghijkabc", "abc", "defghijkabcdefghijk");
 	test_strtrim("", "", "");
 	test_strtrim("abc", "abc", "");
-	test_strtrim("abc", "abcded", "abc");
+	//test_strtrim("abc", "abcded", "abc");
 	test_strtrim("abc", "a", "bc");
 	test_strtrim("abc", "b", "abc");
 	test_strtrim("abc", "c", "ab");
@@ -1242,7 +1228,7 @@ void	test_strtrim_case()
 	test_strtrim("abcdef", "abcde", "f");
 	test_strtrim("abcdef", "abdef", "c");
 	test_strtrim("", "abdef", "");
-	test_strtrim("", NULL, "");
+	//test_strtrim("", NULL, "");
 	test_strtrim("abc", NULL, "abc");
 	test_strtrim(",abc,,,abc,bc", ",a", "bc,,,abc,bc");
 	test_strtrim("\0abc,,,abc,bc\0", "\0", "");
@@ -1262,7 +1248,7 @@ void	test_strtrim_case()
 	test_strtrim(",,abc,,,def,,,ghi,,,", set, "abc,,,def,,,ghi");
 	test_strtrim(",,abc,,,def,,,ghi,,,,", set, "abc,,,def,,,ghi");
 	free(set);
-	 test_strtrim(",,,,,,", ",", "");
+	test_strtrim(",,,,,,", ",", "");
 	test_strtrim_null();
 }
 
@@ -1313,7 +1299,7 @@ void	test_ft_split(char const *s, char c, char **result)
 		printf("result: %s my: %s\n", result[i], my[i]);
 		assert(ft_strlen(result[i]), ft_strlen(my[i]));
 		assert(0, ft_strncmp(result[i], my[i], n));
-		//NULL terminate check
+		// NULL terminate check
 		assert(result[i][n], my[i][n]);
 		i++;
 	}
@@ -1450,7 +1436,7 @@ void	test_ft_putchar_fd()
 {
 	char	c;
 
-	c = 0x20;
+	c = 0x80;
 
 	while ((unsigned char)c < 0x7F)
 	{
@@ -1485,74 +1471,318 @@ void	test_ft_putnbr_fd()
 	ft_putchar_fd('\n', 1);
 }
 
+/*
+typedef	struct Number {
+	int		num;
+	char	*dummy;
+} Number;
 
+void	show_lst(t_list *lst)
+{
+	while(lst)
+	{
+		if (lst->content)
+			printf("%d, ", ((Number*)lst->content)->num);
+		else
+			printf("NULL,");
+		lst = lst->next;
+	}
+	printf("\n");
+}
+
+t_list	*create_list_from_str(char *str)
+{
+	int		i;
+	Number	*number;
+	char	*dummy;
+	char	**splitted;
+	t_list	*lst;
+	t_list	**init;
+
+	splitted = ft_split(str, ',');
+	i = 0;
+	init = malloc(sizeof(t_list*));
+	dummy = "dummyyyyyy";
+	while (splitted[i])
+	{
+		number = malloc(sizeof(Number));
+		number->num =ft_atoi(splitted[i]);
+		number->dummy = strdup(dummy);
+		lst = ft_lstnew(number);
+		if (i == 0)
+			*init = lst;
+		else
+			ft_lstadd_front(init, lst);
+		i++;
+	}
+	if (i == 0)
+		return (NULL);
+	return (*init);
+}
+
+void	test_addfront_test(char *str, int result[], int size)
+{
+	int		i;
+	t_list	*itr;
+	t_list	*init;
+
+	init = create_list_from_str(str);
+	itr = init;
+	i = 0;
+	//show_lst(itr);
+	while(itr)
+	{
+		assert(result[i++], ((Number*)(itr->content))->num);
+		itr = itr->next;
+	}
+
+	// lstsize
+	assert(size, ft_lstsize(init));
+}
+
+void	test_addfront_case()
+{
+	printf("ft_addfront...\n");
+	test_addfront_test("1, 2, 3, 4, 5, 6, 7, 8, 9", ({ int result[] = {9, 8, 7, 6, 5, 4, 3, 2, 1}; result; }), 9);
+	test_addfront_test("1", ({ int result[] = {1}; result; }), 1);
+}
+
+void	test_lstsize_null()
+{
+	assert(0, ft_lstsize(NULL));
+}
+
+void	test_lstsize(char *str, int size)
+{
+	t_list	*lst;
+
+	lst = create_list_from_str(str);
+	assert(size, ft_lstsize(lst));
+}
+
+void	test_lstsize_case()
+{
+	printf("ft_lstsize...\n");
+	test_lstsize("1, 2, 3, 4", 4);
+	test_lstsize("1", 1);
+	test_lstsize("", 0);
+	test_lstsize_null();
+}
+
+void	test_lstlast(char *str)
+{
+	t_list	*lst;
+	t_list	*last;
+	int		n;
+
+	n = 42;
+	printf("1\n");
+	lst = create_list_from_str(str);
+	printf("2\n");
+	last = ft_lstnew(&n);
+	printf("3\n");
+	ft_lstadd_back(&lst, last);
+	printf("4\n");
+	show_lst(lst);
+	printf("5\n");
+	ptr_assert(last, ft_lstlast(lst));
+}
+
+void	test_lstadd_back_null()
+{
+	t_list	**init;
+	t_list	*lst;
+	int		n;
+
+	n = 42;
+	printf("lstadd_back_null...\n");
+	init = calloc(1, sizeof(t_list*));
+	lst = ft_lstnew(&n);
+	ft_lstadd_back(init, lst);
+	ptr_assert(lst, ft_lstlast(*init));
+}
+
+void	test_lstlast_null()
+{
+	t_list	**init;
+	t_list	*last;
+	int		n;
+
+	n = 42;
+	printf("lstlast_null..\n");
+	init = malloc(sizeof(t_list*));
+	last = ft_lstnew(&n);
+	init = &last;
+	ft_lstadd_back(NULL, last);
+	ft_lstadd_back(init, NULL);
+	printf("ft_lstlast null...\n");
+	ptr_assert(*init, ft_lstlast(*init));
+}
+
+void	test_lstlast_case()
+{
+	printf("ft_lstlast...\n");
+	test_lstlast("1, 2, 3, 4, 5, 7 , 6, 9");
+	test_lstlast_null();
+	test_lstadd_back_null();
+}
+
+void	delete_element_number(void *content)
+{
+	printf("delete\n");
+	free(((Number*)content)->dummy);
+	((Number*)content)->dummy = NULL;
+	free(content);
+}
+
+void	test_lstdelone(char *str, int i)
+{
+	t_list	*init;
+	t_list	*lst;
+	t_list	*target;
+	void	*content;
+	int		j;
+
+	lst = create_list_from_str(str);
+	j = 0;
+	init = lst;
+	while(lst)
+	{
+		if (j == i)
+		{
+			target = lst;
+			content = target->content;
+		}
+		lst = lst->next;
+		j++;
+	}
+	ft_lstdelone(target, delete_element_number);
+	//printf("target->content\n");
+	//ptr_assert(NULL, target->content);
+	//printf("content\n");
+	//ptr_assert(NULL, ((Number*)content)->dummy);
+	//show_lst(init);
+}
+
+void	test_lstdelone_case()
+{
+	printf("ft_lstdelone...\n");
+	test_lstdelone("1, 2, 3, 4, 5", 0);
+	test_lstdelone("1, 2, 3, 4, 5", 2);
+	test_lstdelone("1, 2, 3, 4, 5", 4);
+}
+
+void	test_lstclear(char *str, int size)
+{
+	t_list	*lst;
+
+	lst = create_list_from_str(str);
+	assert(size, ft_lstsize(lst));
+	ft_lstclear(&lst, delete_element_number);
+	assert(0, ft_lstsize(lst));
+}
+
+void	test_lstclear_case()
+{
+	printf("ft_lstclear...\n");
+	test_lstclear("1,2,3,4,5,6", 6);
+	test_lstclear("0", 1);;
+	test_lstclear("", 0);;
+}
+
+void	show_element(void *content)
+{
+	printf("%d(%s), ", ((Number*)content)->num, ((Number*)content)->dummy);
+}
+
+void	test_lstiter(char *str)
+{
+	t_list	*lst;
+
+	lst = create_list_from_str(str);
+	ft_lstiter(lst, show_element);
+	show_lst(lst);
+	printf("\n");
+}
+
+void	*applied_function(void *content)
+{
+	Number	*new;
+	new = malloc(sizeof(Number));
+	new->num = ((Number*)content)->num + 1;
+	new->dummy = ft_strdup(((Number*)content)->dummy);
+	return new;
+}
+
+void	test_lstmap(char *str, int result[])
+{
+	t_list	*lst;
+	t_list	*itr;
+	t_list	*created;
+	int		i;
+
+	lst = create_list_from_str(str);
+	created = ft_lstmap(lst, applied_function, delete_element_number);
+	show_lst(created);
+	i = 0;
+	itr = created;
+	while (itr)
+	{
+		assert(result[i], ((Number*)itr->content)->num);
+		itr = itr->next;
+		i++;
+	}
+}
+
+void	test_lstmap_case()
+{
+	printf("ft_lstmap...\n");
+	test_lstmap("1,2,3,4,5,6,7,8,9", ({int result[] = {10,9,8,7,6,5,4,3,2}; result; }));
+	test_lstmap("", ({int result[] = {}; result; }));
+}
+
+void	test_lstiter_case()
+{
+	printf("ft_lstiter...\n");
+	test_lstiter("1, 2, 3, 4");
+	test_lstiter("1,");
+	test_lstiter("");
+}
+*/
 int		main(void)
 {
 	for(int i = 0; i < 100; i++) {
 		
-<<<<<<< HEAD
-/*		test_strlen_case();
+		test_strlen_case();
 		test_memset_case();
 		test_bzero_case();
 		test_memcpy_case();
 		test_memccpy_case();
-		test_memchr_case();*/
-//		test_memcmp_case();
-//		test_ft_strlcpy_case();
-/*		test_strlcat_case();
+		test_memmove_case();
+		test_memchr_case();
+		test_memcmp_case();
+		test_ft_strlcpy_case();
+		test_strlcat_case();
 		test_strchr_case();
 		test_strrchr_case();
 		test_strncmp_case();
 		test_strnstr_case();
-		test_atoi_case();*/
-//		test_ascii_case();
-/*		test_calloc_case();
+		test_atoi_case();
+		test_ascii_case();
+		test_calloc_case();
 		test_strdup_case();
-		test_memmove_case();
-
+		
 		test_substr_case();
 		test_strjoin_case();
-		test_strtrim_case();*/
+		test_strtrim_case();
 		
 		test_ft_split_case();
-/*		test_itoa_case();
+		test_itoa_case();
 		test_ft_strmapi_case();
 		test_ft_putchar_fd();
 		test_ft_putstr_fd();
 		test_ft_putendl_fd();
-		test_ft_putnbr_fd();*/
-=======
-	// 	test_strlen_case();
-	// 	test_memset_case();
-	// 	test_bzero_case();
-	// 	test_memcpy_case();
-	// 	test_memccpy_case();
-	// 	test_memchr_case();
-	// //	test_memcmp_case();
-		// // test_ft_strlcpy_case();
-	// //	test_strlcat_case();
-	// 	test_strchr_case();
-	// 	test_strrchr_case();
-		// test_strncmp_case();
-		test_strnstr_case();
-	// 	test_atoi_case();
-	// //	test_ascii_case();
-	// 	test_calloc_case();
-	// 	test_strdup_case();
-	// 	// //test_memmove_case();
-		
-	// 	test_substr_case();
-	// 	test_strjoin_case();
-	// 	//test_strtrim_case();
-		
-	// 	test_ft_split_case();
-	// 	test_itoa_case();
-	// 	test_ft_strmapi_case();
-	// 	test_ft_putchar_fd();
-	// 	test_ft_putstr_fd();
-	// 	test_ft_putendl_fd();
-	// 	test_ft_putnbr_fd();
->>>>>>> 019598d84b20b4021aa0883f407e0f9827fe8d3c
+		test_ft_putnbr_fd();
 	}
 	return (0);
 }
