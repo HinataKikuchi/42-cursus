@@ -6,7 +6,8 @@
 /*   By: ktakami <ktakami@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 18:56:30 by ktakami           #+#    #+#             */
-/*   Updated: 2020/11/18 13:21:38 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/20 14:05:12 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/17 19:52:58 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +44,7 @@ void	ptr_assert(void *expected, void *actual)
 	}
 }
 
-void	test_strlen(char *str)
+/*void	test_strlen(char *str)
 {
 	unsigned long		(*lib)(const char*);
 	size_t				(*my)(const char*);
@@ -386,7 +387,7 @@ void	test_memchr_case()
 	test_memchr("01234567\089", '\0', 7);
 	test_memchr("01234567\089", '\0', 8);
 	test_memchr("01234567\089", '\0', 9);
-}
+}*/
 
 void	test_memcmp(char *s1, char *s2, int n)
 {
@@ -1758,26 +1759,26 @@ int		main(void)
 		test_bzero_case();
 		test_memcpy_case();
 		test_memccpy_case();
-		test_memchr_case();
-		test_memcmp_case();
+		test_memchr_case();*/
+//		test_memcmp_case();
 //		test_ft_strlcpy_case();
-		test_strlcat_case();
+/*		test_strlcat_case();
 		test_strchr_case();
 		test_strrchr_case();
 		test_strncmp_case();
-		test_strnstr_case();*/
-		test_atoi_case();
-/*		test_ascii_case();
-		test_calloc_case();
+		test_strnstr_case();
+		test_atoi_case();*/
+//		test_ascii_case();
+/*		test_calloc_case();
 		test_strdup_case();
 		test_memmove_case();
 
 		test_substr_case();
 		test_strjoin_case();
-		test_strtrim_case();
+		test_strtrim_case();*/
 		
 		test_ft_split_case();
-		test_itoa_case();
+/*		test_itoa_case();
 		test_ft_strmapi_case();
 		test_ft_putchar_fd();
 		test_ft_putstr_fd();

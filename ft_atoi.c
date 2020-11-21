@@ -6,26 +6,34 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 19:53:22 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/18 13:23:16 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/18 16:44:26 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/18 16:16:44 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int	ft_atoi(const char *nptr)
+char*	ft_skip_blank(const char *nptr)
 {
-	unsigned long ans;
-	int sign;
-	char *tmp;
+	while (('\t' <= *nptr && *nptr <= '\r') || *nptr == ' ')
+		nptr++;
+	return (char *)(nptr);
+}
+
+int		ft_atoi(const char *nptr)
+{
+	unsigned long	ans;
+	int				sign;
+	char			*tmp;
 
 	sign = 1;
 	ans = 0;
-	while (('\t' <= *nptr && *nptr <= '\r') || *nptr == ' ')
-		nptr++;
-	if (*nptr == '-')
+	nptr = (const char *)ft_skip_blank(nptr);
+	if (*nptr == '-' || *nptr == '+')
 	{
-		sign = -1;
+		if (*nptr == '-')
+			sign = -1;
 		nptr++;
 	}
 	else if (*nptr == '+')
@@ -40,6 +48,10 @@ int	ft_atoi(const char *nptr)
 			return (-1);
 		else if (ans > 9223372036854775807)
 			return (0);	
+		if (((nptr - tmp) > 19 || ans >= 9223372036854775807) && sign == 1)
+			return (-1);
+		else if (ans > 9223372036854775807)
+			return (0);
 	}
-	return (ans * sign);
+	return ((int)(ans * sign));
 }

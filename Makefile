@@ -37,5 +37,5 @@ fclean:clean;		$(RM) $(NAME)
 rclean:;		$(RM) libft.so
 
 
-re:;			fclean all
+re:			fclean $(NAME)
 
