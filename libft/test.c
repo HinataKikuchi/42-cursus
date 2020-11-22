@@ -7,16 +7,16 @@
 
 int main( void )
 {
-	char	c;
+    printf("%ld", strlen(NULL));
+}
 
-	c = 0x20;
-
-	while ((unsigned char)c < 0x7F)
-	{
-		if ((unsigned char)c != 0x07)
-			ft_putchar_fd(c, 1);
-		c++;
-	}
-	ft_putchar_fd(c, 1);
-    return 0;
+int ft_skip_simbol(const char *nptr)
+{
+    if (*nptr == '-' || *nptr == '+')
+    {
+        if (*nptr == '-')
+            return (-1);
+        nptr++;
+    }
+    return (1);
 }

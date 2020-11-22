@@ -30,7 +30,7 @@ so: libft.so
 libft.so: $(OBJS)
 	$(CC) -shared -fPIC -o libft.so $(OBJS)
 
-clean:;         $(RM) *.o *~ 
+clean:;         $(RM) *.o *~ libft.so a.out
 
 fclean:clean;		$(RM) $(NAME)
 

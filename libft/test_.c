@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 18:56:30 by ktakami           #+#    #+#             */
-/*   Updated: 2020/11/21 14:19:13 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/21 15:09:03 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -473,7 +473,7 @@ void	test_memcmp_case()
 // 	printf("ft_strlcpy...\n");
 // 	// 大きさ dst = src = dstsize
 // 	test_ft_strlcpy("", "", 0);
-// 	test_ft_strlcpy("hoge", "fuga", 4);
+	// test_ft_strlcpy("hoge", "fuga", 4);
 // 	// 大きさ dst < src = dstsize
 // 	test_ft_strlcpy("", "fuga", 4);
 // 	test_ft_strlcpy("hog", "fuga", 4);
