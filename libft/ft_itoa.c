@@ -6,13 +6,13 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 19:08:02 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/12 11:35:10 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/24 16:21:12 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_countdigits(int n)
+static int		ft_countdigits(int n)
 {
 	int j;
 
@@ -25,14 +25,14 @@ int		ft_countdigits(int n)
 	return (j);
 }
 
-int		ft_judge_minimam(int n)
+static int		ft_judge_minimam(int n)
 {
 	if (n == -2147483648)
 		return (1);
 	return (0);
 }
 
-void	ft_intoa(char *ans, int tmp1, int j)
+static void		ft_intoa(char *ans, int tmp1, int j)
 {
 	int		tmp2;
 	char	tmp;

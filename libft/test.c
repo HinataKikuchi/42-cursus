@@ -5,18 +5,16 @@
 #include "ft_memcmp.c"
 #include "ctype.h"
 
-int main( void )
+int     main(void)
 {
-    printf("%ld", strlen(NULL));
-}
-
-int ft_skip_simbol(const char *nptr)
-{
-    if (*nptr == '-' || *nptr == '+')
-    {
-        if (*nptr == '-')
-            return (-1);
-        nptr++;
+    printf("ft_strnstr\n");
+	for (int i = 0; i < 20; i++) {
+        printf("%d\n",i);
+		printf("%p\n",ft_strnstr("Foo Bar Hoge", "Bar", i));
+	    printf("%p\n",ft_strnstr("Foo Bar Hoge", "Foo Hoge", i));
+		printf("%p\n",ft_strnstr("abcabcabc", "abc", i));
+		printf("%p\n",ft_strnstr("abcabcabc", "abcd", i));
+		printf("%p\n",ft_strnstr("abcabcabc", "ab\0cd", i));
+		printf("%p\n",ft_strnstr("abca\0bcabc", "ab\0cd", i));
     }
-    return (1);
 }

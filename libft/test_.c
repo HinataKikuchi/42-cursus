@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 18:56:30 by ktakami           #+#    #+#             */
-/*   Updated: 2020/11/21 15:09:03 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/24 13:28:40 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -776,7 +776,7 @@ void	test_strrchr_case()
 	test_strrchr("abcdefghijklmn", 'f');
 	test_strrchr("abcdefghijklmn", 'o');
 	test_strrchr("abcdefghijklmn", '\0');
-	test_strrchr("abcdefghijklmn", (1 << 10) + 'f');
+	test_strrchr("abcdefghijklmn", (1 << 10) +'f');
 	test_strrchr("abcdefghijklmn", (1 << 10) + 'o');
 	test_strrchr("abcdefghijklmn", (1 << 31) + 'f');
 	test_strrchr("abcdefghijklmn", 2145);
@@ -1486,25 +1486,25 @@ int		main(void)
 	for(int i = 0; i < 1; i++) {
 		
 	// 	test_strlen_case();
-	// 	test_memset_case();
+	 //	test_memset_case();
 	// 	test_bzero_case();
 	// 	test_memcpy_case();
 	// 	test_memccpy_case();
 	// 	test_memchr_case();
 	// //	test_memcmp_case();
 		// // test_ft_strlcpy_case();
-	// //	test_strlcat_case();
+	//	test_strlcat_case();
 	// 	test_strchr_case();
 	// 	test_strrchr_case();
 		// test_strncmp_case();
-		test_strnstr_case();
+	//	test_strnstr_case();
 	// 	test_atoi_case();
 	// //	test_ascii_case();
 	// 	test_calloc_case();
 	// 	test_strdup_case();
 	// 	// //test_memmove_case();
 		
-	// 	test_substr_case();
+	 	test_substr_case();
 	// 	test_strjoin_case();
 	// 	//test_strtrim_case();
 		
