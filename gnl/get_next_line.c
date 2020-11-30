@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:43:27 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/30 19:52:24 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/30 23:14:02 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int	get_next_line(int fd, char **line)
 {
+	static **ans;
 	
 }

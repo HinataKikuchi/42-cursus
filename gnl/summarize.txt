@@ -1,0 +1,11 @@
+<GNLでやりたいこと。>
+
+<引数>
+int fd(ファイルディスクリプタ)
+char **line()
+
+<戻り値>int型
+1:ok
+0:EOF
+-1:error(ex.read)
+
