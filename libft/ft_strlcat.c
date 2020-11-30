@@ -6,13 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 18:51:40 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/23 15:32:05 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/26 17:06:21 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include "ft_strlen.c"
-// #include "test.c"
 
 size_t	ft_strlcat(char *buf1, const char *buf2, size_t n)
 {

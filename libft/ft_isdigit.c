@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 17:12:52 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/06 17:40:42 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/24 14:27:26 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int	ft_isdigit(int c)
 {
-	if ('0' <= c && c <= '9')
-		return (1);
-	return (0);
+	return ('0' <= c && c <= '9');
 }

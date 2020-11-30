@@ -6,22 +6,21 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 19:53:22 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/24 13:29:47 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/26 19:27:46 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 #include <limits.h>
 
-static char	*ft_skip_blank(const char *nptr)
+static char		*ft_skip_blank(const char *nptr)
 {
 	while (('\t' <= *nptr && *nptr <= '\r') || *nptr == ' ')
 		nptr++;
 	return (char *)(nptr);
 }
 
-int			ft_atoi(const char *nptr)
+int				ft_atoi(const char *nptr)
 {
 	unsigned long	ans;
 	int				sign;

@@ -2,8 +2,7 @@ NAME	= libft.a
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror -fPIC
 LDFLAGS	= -L/usr/local/lib
-LIBS	=
-
+LIBS	= 
 SRC		= ft_atoi.c ft_isascii.c ft_memchr.c ft_putchar_fd.c ft_strchr.c\
 	ft_strlen.c ft_strtrim.c ft_bzero.c ft_isdigit.c ft_memcmp.c\
 	ft_putendl_fd.c ft_strdup.c ft_strmapi.c ft_substr.c ft_calloc.c\
@@ -11,29 +10,20 @@ SRC		= ft_atoi.c ft_isascii.c ft_memchr.c ft_putchar_fd.c ft_strchr.c\
 	ft_tolower.c ft_isalnum.c ft_itoa.c ft_memmove.c ft_putstr_fd.c\
 	ft_strlcat.c ft_strncmp.c ft_toupper.c ft_isalpha.c ft_memccpy.c\
 	ft_memset.c ft_split.c ft_strlcpy.c ft_strrchr.c
-
-OBJS = $(SRC:.c=.o)
+OBJS	= $(SRC:.c=.o)
 
 %.o:%.c
-	$(CC) $(CFLAGS) -o $@ -c $<
+		$(CC) $(CFLAGS) -o $@ -c $<
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-so: libft.so
-
-libft.so: $(OBJS)
-	$(CC) -shared -fPIC -o libft.so $(OBJS)
-
-clean:;         $(RM) *.o *~ libft.so a.out
+clean:;         $(RM) *.o
 
 fclean:clean;		$(RM) $(NAME)
 
-rclean:;		$(RM) libft.so
-
-
 re:			fclean $(NAME)
 
-.PHONY: re clean fclean
+.PHONY: re clean fclean all

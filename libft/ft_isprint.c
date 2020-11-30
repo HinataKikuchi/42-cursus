@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 18:02:57 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/06 18:09:15 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/24 14:28:12 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int	ft_isprint(int c)
 {
-	if (' ' <= c && c <= '~')
-		return (1);
-	return (0);
+	return (' ' <= c && c <= '~');
 }

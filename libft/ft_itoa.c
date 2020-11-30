@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 19:08:02 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/24 16:21:12 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/26 19:26:58 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,27 @@ static void		ft_intoa(char *ans, int tmp1, int j)
 	}
 }
 
-char	*ft_itoa(int n)
+static char		*ft_min(char *ans)
+{
+	ft_memcpy(ans, "-2147483648", 11);
+	ans[11] = '\0';
+	return (ans);
+}
+
+char			*ft_itoa(int n)
 {
 	char	*ans;
 	int		j;
 	int		tmp1;
 
-	ans = calloc(ft_strlen("-2147483648"), sizeof(char));
-	if (ans == NULL)
+	if (n > 0)
+		ans = ft_calloc((ft_countdigits(n) + 1), sizeof(char));
+	else
+		ans = ft_calloc((ft_countdigits(n) + 2), sizeof(char));
+	if (!ans)
 		return (NULL);
 	if (ft_judge_minimam(n))
-		return ("-2147483648");
+		return (ft_min(ans));
 	j = 0;
 	*ans = '0';
 	if (n < 0)
