@@ -6,12 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:43:27 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/01 05:58:47 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/01 06:49:29 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#define BUFFER_SIZE 32
 
 size_t ft_read(int fd, char **line, char *ans)
 {
