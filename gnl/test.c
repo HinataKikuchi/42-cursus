@@ -19,7 +19,7 @@ int main(void)
 
 	while (test = read(fd, buf1,10) > 0)
 	{
-		if(!(buf2 = ft_memchr(buf1, '\n',BUFFER_SIZE)))
+		if(!(tmp = ft_memchr(buf1, '\n',BUFFER_SIZE)))
 			ft_strlcat(buf2,buf1,buf2 - buf1 + 1);
 	}
 	// while (test && !ft_memchr(buf1,'\n',10))
