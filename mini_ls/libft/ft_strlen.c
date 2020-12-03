@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mini_ls.h                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 15:36:49 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/03 17:02:27 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/04 11:33:40 by hkikuchi          #+#    #+#             */
+/*   Updated: 2020/11/26 16:13:18 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_LS
-# define MINI_LS
-# include <dirent.h>
-# include <sys/stat.h>
-# include <stdio.h>
-# include <unistd.h>
-# include "../libft/libft.h"
+#include "libft.h"
 
-typedef struct	s_dir
+size_t	ft_strlen(const char *s)
 {
-	int time;
-	char *name;
-}				t_dir;
+	size_t i;
 
-
-
-
-#endif
+	i = 0;
+	while (*(s + i) != '\0')
+		i++;
+	return (i);
+}

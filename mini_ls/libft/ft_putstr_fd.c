@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mini_ls.h                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 15:36:49 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/03 17:02:27 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/10 12:48:58 by hkikuchi          #+#    #+#             */
+/*   Updated: 2020/11/26 19:38:47 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_LS
-# define MINI_LS
-# include <dirent.h>
-# include <sys/stat.h>
-# include <stdio.h>
-# include <unistd.h>
-# include "../libft/libft.h"
+#include "libft.h"
 
-typedef struct	s_dir
+void	ft_putstr_fd(char *s, int fd)
 {
-	int time;
-	char *name;
-}				t_dir;
+	size_t	s_len;
 
-
-
-
-#endif
+	if (!s)
+		return ;
+	s_len = ft_strlen(s);
+	write(fd, s, s_len);
+}

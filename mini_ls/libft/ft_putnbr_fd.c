@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mini_ls.h                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 15:36:49 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/03 17:02:27 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/10 13:09:23 by hkikuchi          #+#    #+#             */
+/*   Updated: 2020/11/26 19:39:19 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_LS
-# define MINI_LS
-# include <dirent.h>
-# include <sys/stat.h>
-# include <stdio.h>
-# include <unistd.h>
-# include "../libft/libft.h"
+#include "libft.h"
 
-typedef struct	s_dir
+void	ft_putnbr_fd(int n, int fd)
 {
-	int time;
-	char *name;
-}				t_dir;
+	unsigned int	i;
+	char			c;
+	int				tmp;
 
-
-
-
-#endif
+	i = n;
+	if (n < 0)
+	{
+		i = (-1) * i;
+		write(fd, "-", 1);
+	}
+	tmp = i % 10;
+	i /= 10;
+	c = tmp + '0';
+	if (i)
+		ft_putnbr_fd(i, fd);
+	ft_putchar_fd(c, fd);
+}

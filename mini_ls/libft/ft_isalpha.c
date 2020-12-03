@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mini_ls.h                                       :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 15:36:49 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/03 17:02:27 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/06 16:55:18 by hkikuchi          #+#    #+#             */
+/*   Updated: 2020/11/24 14:24:29 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_LS
-# define MINI_LS
-# include <dirent.h>
-# include <sys/stat.h>
-# include <stdio.h>
-# include <unistd.h>
-# include "../libft/libft.h"
+#include "libft.h"
 
-typedef struct	s_dir
+int	ft_isalpha(int c)
 {
-	int time;
-	char *name;
-}				t_dir;
-
-
-
-
-#endif
+	return (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z'));
+}

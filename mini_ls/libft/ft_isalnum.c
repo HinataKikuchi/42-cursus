@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mini_ls.h                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 15:36:49 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/03 17:02:27 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/06 17:24:05 by hkikuchi          #+#    #+#             */
+/*   Updated: 2020/11/24 14:27:39 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_LS
-# define MINI_LS
-# include <dirent.h>
-# include <sys/stat.h>
-# include <stdio.h>
-# include <unistd.h>
-# include "../libft/libft.h"
+#include "libft.h"
 
-typedef struct	s_dir
+int	ft_isalnum(int c)
 {
-	int time;
-	char *name;
-}				t_dir;
-
-
-
-
-#endif
+	return (ft_isalpha(c) || ft_isdigit(c));
+}

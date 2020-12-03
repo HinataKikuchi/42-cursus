@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mini_ls.h                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 15:36:49 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/03 17:02:27 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/06 11:04:05 by hkikuchi          #+#    #+#             */
+/*   Updated: 2020/11/26 18:39:31 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_LS
-# define MINI_LS
-# include <dirent.h>
-# include <sys/stat.h>
-# include <stdio.h>
-# include <unistd.h>
-# include "../libft/libft.h"
+#include "libft.h"
 
-typedef struct	s_dir
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int time;
-	char *name;
-}				t_dir;
+	unsigned int	i;
+	unsigned char	*s1_t;
+	unsigned char	*s2_t;
 
-
-
-
-#endif
+	i = 0;
+	s1_t = (unsigned char*)s1;
+	s2_t = (unsigned char*)s2;
+	while ((*s1_t != '\0' || *s2_t != '\0') && (i < n))
+	{
+		if (*s1_t != *s2_t)
+			return (*s1_t - *s2_t);
+		s1_t++;
+		s2_t++;
+		i++;
+	}
+	return (0);
+}

@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mini_ls.h                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 15:36:49 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/03 17:02:27 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/04 10:55:02 by hkikuchi          #+#    #+#             */
+/*   Updated: 2020/11/28 13:43:15 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_LS
-# define MINI_LS
-# include <dirent.h>
-# include <sys/stat.h>
-# include <stdio.h>
-# include <unistd.h>
-# include "../libft/libft.h"
+#include "libft.h"
 
-typedef struct	s_dir
+void	*ft_memccpy(void *buf1, const void *buf2, int c, size_t n)
 {
-	int time;
-	char *name;
-}				t_dir;
+	unsigned int	i;
+	unsigned char	*b1;
+	unsigned char	*b2;
 
-
-
-
-#endif
+	if (buf1 == NULL && buf2 == NULL)
+		return (NULL);
+	i = 0;
+	b1 = (unsigned char *)buf1;
+	b2 = (unsigned char *)buf2;
+	while (i < n)
+	{
+		*(b1 + i) = *(b2 + i);
+		if (*(b1 + i) == (unsigned char)c)
+			return ((void*)b1 + i + 1);
+		i++;
+	}
+	return (NULL);
+}

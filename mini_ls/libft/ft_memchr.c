@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mini_ls.h                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 15:36:49 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/03 17:02:27 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/03 19:08:51 by hkikuchi          #+#    #+#             */
+/*   Updated: 2020/11/26 16:24:02 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_LS
-# define MINI_LS
-# include <dirent.h>
-# include <sys/stat.h>
-# include <stdio.h>
-# include <unistd.h>
-# include "../libft/libft.h"
+#include "libft.h"
 
-typedef struct	s_dir
+void	*ft_memchr(const void *buf, int ch, size_t n)
 {
-	int time;
-	char *name;
-}				t_dir;
+	size_t			i;
+	unsigned char	*b;
+	unsigned char	c;
 
-
-
-
-#endif
+	i = 0;
+	b = (unsigned char*)buf;
+	c = (unsigned char)ch;
+	while (i < n)
+	{
+		if (*(b + i) == c)
+			return ((void *)(b + i));
+		i++;
+	}
+	return (NULL);
+}

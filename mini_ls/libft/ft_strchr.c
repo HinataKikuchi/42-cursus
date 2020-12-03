@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mini_ls.h                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 15:36:49 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/03 17:02:27 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/05 15:42:59 by hkikuchi          #+#    #+#             */
+/*   Updated: 2020/11/26 17:15:07 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_LS
-# define MINI_LS
-# include <dirent.h>
-# include <sys/stat.h>
-# include <stdio.h>
-# include <unistd.h>
-# include "../libft/libft.h"
+#include "libft.h"
 
-typedef struct	s_dir
+char	*ft_strchr(const char *s, int c)
 {
-	int time;
-	char *name;
-}				t_dir;
+	int i;
 
-
-
-
-#endif
+	i = 0;
+	while (*(s + i) != '\0')
+	{
+		if (*(s + i) == (char)c)
+			return (char *)(s + i);
+		i++;
+	}
+	if (*(s + i) == (char)c)
+		return (char *)(s + i);
+	return (NULL);
+}

@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mini_ls.h                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 15:36:49 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/03 17:02:27 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/12 12:30:40 by hkikuchi          #+#    #+#             */
+/*   Updated: 2020/11/24 13:53:32 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_LS
-# define MINI_LS
-# include <dirent.h>
-# include <sys/stat.h>
-# include <stdio.h>
-# include <unistd.h>
-# include "../libft/libft.h"
+#include "libft.h"
 
-typedef struct	s_dir
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int time;
-	char *name;
-}				t_dir;
+	char	*ans;
+	int		i;
 
-
-
-
-#endif
+	if (!s || !f)
+		return (NULL);
+	ans = (char *)ft_calloc((ft_strlen(s) + 1), sizeof(char));
+	if (ans == NULL)
+		return (NULL);
+	i = 0;
+	while (*(s + i) != '\0')
+	{
+		*(ans + i) = f(i, *(s + i));
+		i++;
+	}
+	*(ans + i) = '\0';
+	return (ans);
+}

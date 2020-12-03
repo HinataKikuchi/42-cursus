@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mini_ls.h                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 15:36:49 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/03 17:02:27 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/02 15:50:04 by hkikuchi          #+#    #+#             */
+/*   Updated: 2020/11/26 16:20:14 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_LS
-# define MINI_LS
-# include <dirent.h>
-# include <sys/stat.h>
-# include <stdio.h>
-# include <unistd.h>
-# include "../libft/libft.h"
+#include "libft.h"
 
-typedef struct	s_dir
+void	*ft_memset(void *buf, int ch, size_t n)
 {
-	int time;
-	char *name;
-}				t_dir;
+	unsigned int	i;
+	unsigned char	*tmp;
 
-
-
-
-#endif
+	i = 0;
+	tmp = buf;
+	while (i < n)
+	{
+		*(tmp + i) = (unsigned char)ch;
+		i++;
+	}
+	return (buf);
+}
