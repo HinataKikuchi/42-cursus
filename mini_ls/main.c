@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mini_ls.h                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 15:36:49 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/04 01:46:37 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/12/04 01:12:07 by hkikuchi          #+#    #+#             */
+/*   Updated: 2020/12/04 01:12:56 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_LS
-# define MINI_LS
-# include <dirent.h>
-# include <sys/stat.h>
-# include <stdio.h>
-# include <unistd.h>
-# include "../libft/libft.h"
+#include "ft_mini_ls.h"
 
-typedef struct	s_dir
+int main (void)
 {
-	int time;
-	char *name;
-}				t_dir;
-
-int		ft_strcmp(const char *s1, const char *s2);
-void	ft_swap(t_dir *a, t_dir *b);
-t_dir	*ft_bubble(t_dir *ans, int size);
-void	ft_mini_ls(void);
-
-#endif
+	ft_mini_ls();
+	return (0);
+}
