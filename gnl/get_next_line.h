@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:39 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/01 06:49:20 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/08 19:08:56 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # define BUFFER_SIZE 32
+# define ERROR_NO -1
 
 size_t	ft_strlen(const char *s);
 int		get_next_line(int fd, char **line);
