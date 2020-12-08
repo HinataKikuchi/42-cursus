@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 01:34:00 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/04 01:38:59 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/08 14:49:15 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,19 @@ t_dir *ft_bubble(t_dir *ans, int size)
 	int j;
 
 	i = 0;
-	j = size - 1;
-	while(i < size - 1)
+	while (i < size - 1)
 	{
-		while(j >= i + 1)
+		j = size - 1;
+		while (j >= i + 1)
 		{
-			if(ans[j].time < ans[j - 1].time )
-				ft_swap(&ans[j],&ans[j - 1]);
-			else if ((ans[j].time == ans[j - 1].time) 
-								&& (ft_strcmp(ans[j].name, ans[j-1].name) < 0))
-				ft_swap(&ans[j],&ans[j - 1]);
+			if (ans[j].time < ans[j - 1].time)
+				ft_swap(&ans[j], &ans[j - 1]);
+			else if ((ans[j].time == ans[j - 1].time) && (ans[j].n_time < ans[j - 1].n_time))
+				ft_swap(&ans[j], &ans[j - 1]);
+			else if ((ans[j].n_time == ans[j - 1].n_time) && (ft_strcmp(ans[j].name, ans[j - 1].name) < 0))
+				ft_swap(&ans[j], &ans[j - 1]);
 			j--;
 		}
-		j = size - 1;
 		i++;
 	}
 	return (ans);

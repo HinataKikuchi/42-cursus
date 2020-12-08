@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 15:36:52 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/04 01:46:22 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/08 14:47:31 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,26 +35,22 @@ static int ft_count_file(const char *pathname)
 	return (res);
 }
 
-static t_dir *ft_read( int f_count)
+static t_dir*ft_set_array(DIR *dir, struct dirent *dp, int f_count)
 {
-	DIR *dir;
-	struct dirent *dp;
-	struct stat buf;
-	t_dir *array;
+	t_dir		*array;
+	struct stat	buf;
 
 	array = malloc(sizeof(t_dir) * f_count);
-	if(!(dir = opendir("./")))
-		return (NULL);
-	if(!(dp = readdir(dir)))
-		return (NULL);
-	while (dp)
+	(void)buf;
+	while (dp && dir)
 	{
 		if (*dp->d_name != '.')
 		{
-			if(!(lstat(dp->d_name,&buf)) && --f_count>=0)
+			if (!(lstat(dp->d_name, &buf)) && --f_count >= 0)
 			{
-				array[f_count].name=dp->d_name;
-				array[f_count].time=buf.st_mtime;
+				array[f_count].name = dp->d_name;
+				array[f_count].time = buf.st_mtime;
+				array[f_count].n_time = buf.st_mtimespec.tv_nsec;
 			}
 			else
 				perror("STAT ERROR");
@@ -62,6 +58,21 @@ static t_dir *ft_read( int f_count)
 		dp = readdir(dir);
 	}
 	closedir(dir);
+	return (array);
+}
+
+static t_dir*ft_read(int f_count)
+{
+	DIR *dir;
+	struct dirent *dp;
+	t_dir *array;
+
+	if (!(dir = opendir("./")))
+		return (NULL);
+	if (!(dp = readdir(dir)))
+		return (NULL);
+	array = malloc(sizeof(t_dir) * f_count);
+	array = ft_set_array(dir, dp, f_count);
 	return (array);
 }
 
@@ -78,18 +89,18 @@ static void ft_print(t_dir *array, int a_size)
 	}
 }
 
-void ft_mini_ls(void)
+voidft_mini_ls(void)
 {
- 	t_dir *array;
-	int i;
+	t_dir	*array;
+	int		i;
 
 	if ((i = ft_count_file("./")) == -1)
 	{
 		perror("CANNOT OPEN OR READ DIR");
-		return ;
+		return;
 	}
 	array = malloc(sizeof(t_dir) * i);
-	if(!(array = ft_read(i)))
+	if (!(array = ft_read(i)))
 		perror("CANNOT OPEN OR READ DIR");
 	array = ft_bubble(array, i);
 	ft_print(array, i);
