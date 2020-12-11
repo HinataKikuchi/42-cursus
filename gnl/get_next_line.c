@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:43:27 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/09 17:42:41 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/11 18:47:53 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	get_next_line(int fd, char **line)
 	size_t	save_len;
 	int		res;
 
-	line = malloc(sizeof(char *) * 1);
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	save = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!line || !buf || !save)
@@ -63,7 +62,6 @@ int	get_next_line(int fd, char **line)
 		}
 		ft_strjoin(line[0],buf);
 	}
-	printf("%s\n",line[0]);
 	if (res == 0)
 		return (res);
 	else
