@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/09 17:06:38 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/14 11:35:29 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,4 +163,33 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	while (j < len && i < s_len)
 		*(ans + j++) = *(s + i++);
 	return (ans);
+}
+
+size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n)
+{
+	size_t			i;
+	unsigned char	*b1;
+	unsigned char	*b2;
+
+	i = 0;
+	b1 = (unsigned char *)buf1;
+	b2 = (unsigned char *)buf2;
+	if (!buf2)
+		return (0);
+	if (n == 0)
+		return (ft_strlen(buf2));
+	while (i < n - 1)
+	{
+		*(b1 + i) = *(b2 + i);
+		if (*(b2 + i) == '\0')
+			break ;
+		i++;
+	}
+	*(b1 + i) = '\0';
+	return (ft_strlen(buf2));
+}
+
+int	ft_isprint(int c)
+{
+	return (' ' <= c && c <= '~');
 }

@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:39 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/09 17:26:55 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/14 14:37:36 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include	<stdlib.h>
 # include	<stdio.h>
 #include	<fcntl.h>
-# define	BUFFER_SIZE 32
+# define	BUFFER_SIZE 20
 # define	ERROR_NO -1
 
 size_t	ft_strlen(const char *s);
@@ -28,6 +28,7 @@ char	*ft_strdup(const char *s);
 void	ft_bzero(void *s, size_t n);
 size_t	ft_strlcat(char *buf1, const char *buf2, size_t n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-
+size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n);
+int		ft_isprint(int c);
 
 #endif
