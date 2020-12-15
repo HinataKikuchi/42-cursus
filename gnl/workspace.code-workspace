@@ -4,7 +4,7 @@
 			"path": "."
 		},
 		{
-			"path": "../libft"
+			"path": "Get_Next_Line_Tester"
 		}
 	],
 	"remoteAuthority": "wsl+Ubuntu",
