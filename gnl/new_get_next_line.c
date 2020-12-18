@@ -6,41 +6,49 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 17:40:28 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/15 18:23:37 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/18 14:43:14 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	get_next_line(int fd, char **line)
-{	
+int		get_next_line(int fd, char **line)
+{
 	char		*buf;
-	char		*tmp;
-	static char	save[256];
+	static char	*save[256];
 	int			res;
 	int			i;
+	int			count;
 
-	buf = ft_calloc(sizeof(char), (BUFFER_SIZE + 1));
+	buf = malloc(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
 	if ((!line || !buf) || fd == (-1))
 		return (-1);
 	//read. till the text can be read.
 	i = 0;
-	while(res = read(fd, buf, BUFFER_SIZE) && (ft_memchr(buf, '\n',BUFFER_SIZE) || ft_memchr(buf, '\0', BUFFER_SIZE)))
+	res = 1;
+	count = 0;
+	ft_bzero(line[0], ft_strlen(line[0]));
+	while(!save[fd] || (!ft_memchr(save[fd], '\n', ft_strlen(save[fd]))))
 	{
-		*line = ft_strjoin(*line, buf);
+		res = read(fd, buf, BUFFER_SIZE);
+		if (!res)
+			break ;
+		else if(res == -1)
+			return (res);
+		save[fd] = ft_strjoin(save[fd], buf, count);
+		count++;
 	}
-	if (ft_memchr(buf, '\n',BUFFER_SIZE))
+	if (!res)
 	{
-		while (buf[i] != '\n')
-			i++;
-		ft_strlcat(*line, buf,ft_strlen(*line) + i);
-		ft_bzero(save,ft_strlen(save));
-		ft_strlcpy(save,ft_memchr(buf,'\n',BUFFER_SIZE), BUFFER_SIZE);
+		*line = ft_strjoin(save[fd], buf, count);
+		return (res);
 	}
-	else if (ft_memchr(buf, '\0', BUFFER_SIZE))
-	{
-		ft_strlcat(*line, buf, ft_strlen(buf));
-		res = 0;
-	}
-	return (res);
+	while (save[fd][i] != '\n')
+		i++;
+	ft_strlcpy(*line, save[fd], i);
+	save[fd] = &save[fd][i + 1];
+//	ft_bzero(&save[fd][i + 1], ft_strlen(&save[fd][i + 1]));
+	res = 1;
+		//save + buf = line
+	return(res);
 }

@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/15 15:45:41 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/18 14:40:40 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	*ft_calloc(size_t n, size_t size)
 	return (mem);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2, int count)
 {
 	char			*ans;
 	unsigned int	i;
@@ -77,6 +77,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	*(ans + i) = '\0';
+	if (count > 0)
+		free(s1);
 	return (ans);
 }
 
@@ -178,7 +180,7 @@ size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n)
 		return (0);
 	if (n == 0)
 		return (ft_strlen(buf2));
-	while (i < n - 1)
+	while (i <= n - 1)
 	{
 		*(b1 + i) = *(b2 + i);
 		if (*(b2 + i) == '\0')
@@ -192,4 +194,32 @@ size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n)
 int	ft_isprint(int c)
 {
 	return (' ' <= c && c <= '~');
+}
+
+void	*ft_memmove(void *buf1, const void *buf2, size_t n)
+{
+	unsigned int	i;
+	unsigned char	*b1;
+	unsigned char	*b2;
+
+	if (buf1 == buf2)
+		return (buf1);
+	b1 = (unsigned char *)buf1;
+	b2 = (unsigned char *)buf2;
+	if (buf1 > buf2)
+	{
+		i = n;
+		while (0 < i--)
+			*(b1 + i) = *(b2 + i);
+	}
+	else
+	{
+		i = 0;
+		while (i < n)
+		{
+			*(b1 + i) = *(b2 + i);
+			i++;
+		}
+	}
+	return (b1);
 }
