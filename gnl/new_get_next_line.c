@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 17:40:28 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/18 14:43:14 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/18 15:51:26 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int		get_next_line(int fd, char **line)
 {
 	char		*buf;
 	static char	*save[256];
+	int			buf_len;
 	int			res;
 	int			i;
 	int			count;
@@ -28,6 +29,7 @@ int		get_next_line(int fd, char **line)
 	res = 1;
 	count = 0;
 	ft_bzero(line[0], ft_strlen(line[0]));
+	ft_bzero(buf, (BUFFER_SIZE + 1));
 	while(!save[fd] || (!ft_memchr(save[fd], '\n', ft_strlen(save[fd]))))
 	{
 		res = read(fd, buf, BUFFER_SIZE);

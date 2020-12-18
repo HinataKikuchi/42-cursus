@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:39 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/18 14:40:38 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/18 16:16:01 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include	<stdio.h>
 #include	<fcntl.h>
 #include	<limits.h>
-// # define	BUFFER_SIZE 32
+// # define	BUFFER_SIZE 1
 # define	MAX_ASIZE 256
 # define	ERROR_NO -1
 

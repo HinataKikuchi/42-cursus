@@ -6,13 +6,13 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 17:25:42 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/18 14:39:53 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/18 16:18:03 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"get_next_line.h"
-// // #include	"get_next_line.c"
-// #include	"new_get_next_line.c"
+// #include	"get_next_line.c"
+// // #include	"new_get_next_line.c"
 // #include	"get_next_line_utils.c"
 
 int main (void)
