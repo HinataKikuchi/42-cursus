@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 17:40:28 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/18 20:19:42 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/21 17:19:14 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ int		get_next_line(int fd, char **line)
 	int			i;
 	int			count;
 
+	if (!line || (fd < 0 || 256 <= fd) || BUFFER_SIZE < 0)
+		return (-1);
 	buf = malloc(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
-	if ((!line || !buf) || fd == (-1))
+	if (!buf)
 		return (-1);
 	//read. till the text can be read.
 	i = 0;
@@ -32,14 +34,14 @@ int		get_next_line(int fd, char **line)
 	while(!save[fd] || (!ft_memchr(save[fd], '\n', ft_strlen(save[fd]))))
 	{
 		res = read(fd, buf, BUFFER_SIZE);
-		buf[res] = '\0';
-		if (!res)
-			break ;
-		else if(res == -1)
+		if(res == -1)
 		{
 			free(buf);
 			return (res);
 		}
+		buf[res] = '\0';
+		if (!res)
+			break ;
 		save[fd] = ft_strjoin(save[fd], buf, count);
 		count++;
 	}
@@ -53,9 +55,11 @@ int		get_next_line(int fd, char **line)
 		i++;
 	ft_strlcpy(*line, save[fd], i);
 	// *line = save[fd];
-	save[fd] = &save[fd][i + 1];
-//	ft_bzero(&save[fd][i + 1], ft_strlen(&save[fd][i + 1]));
 	res = 1;
+	save[fd] = &save[fd][i + 1];
+	// if (save[fd][0] == '\0' &&)
+	// 	res = 0;
+//	ft_bzero(&save[fd][i + 1], ft_strlen(&save[fd][i + 1]));
 		//save + buf = line
 	free(buf);
 	return(res);
