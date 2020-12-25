@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 17:40:28 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/21 17:19:14 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/22 19:45:45 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int		get_next_line(int fd, char **line)
 	}
 	while (save[fd][i] != '\n')
 		i++;
+	*line = malloc(i * sizeof(char));
 	ft_strlcpy(*line, save[fd], i);
 	// *line = save[fd];
 	res = 1;
