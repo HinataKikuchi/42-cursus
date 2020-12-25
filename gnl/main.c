@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 17:25:42 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/21 17:29:59 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/26 00:49:25 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int main (void)
 	char	*line;
 	int		res;
 
-	int fd = 0;
-	// int fd = open("test.txt",O_RDONLY);
+	// int fd = 0;
+	int fd = open("test.txt",O_RDONLY);
 	res = get_next_line(fd, &line);
 	while (res > 0)
 	{

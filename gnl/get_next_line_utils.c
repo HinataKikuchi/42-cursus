@@ -6,13 +6,13 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/18 19:52:50 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/26 01:21:35 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_tft_strlen(const char *s)
 {
 	size_t i;
 
@@ -22,15 +22,14 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-
-void	*ft_memchr(const void *buf, int ch, size_t n)
+void *ft_memchr(const void *buf, int ch, size_t n)
 {
 	size_t			i;
 	unsigned char	*b;
 	unsigned char	c;
 
 	i = 0;
-	b = (unsigned char*)buf;
+	b = (unsigned char *)buf;
 	c = (unsigned char)ch;
 	while (i < n)
 	{
@@ -41,9 +40,9 @@ void	*ft_memchr(const void *buf, int ch, size_t n)
 	return (NULL);
 }
 
-void	*ft_calloc(size_t n, size_t size)
+void *ft_calloc(size_t n, size_t size)
 {
-	void			*mem;
+	void *mem;
 
 	mem = malloc(n * size);
 	if (mem == NULL)
@@ -52,7 +51,7 @@ void	*ft_calloc(size_t n, size_t size)
 	return (mem);
 }
 
-char	*ft_strjoin(char *s1, char *s2, int count)
+char *ft_strjoin(char *s1, char *s2, int count)
 {
 	char			*ans;
 	unsigned int	i;
@@ -82,11 +81,11 @@ char	*ft_strjoin(char *s1, char *s2, int count)
 	return (ans);
 }
 
-char	*ft_strdup(const char *s)
+char *ft_strdup(const char *s)
 {
-	char		*ans;
-	size_t		i;
-	size_t		s_size;
+	char	*ans;
+	size_t	i;
+	size_t	s_size;
 
 	s_size = ft_strlen(s);
 	ans = (char *)malloc((s_size + 1) * sizeof(char));
@@ -102,7 +101,7 @@ char	*ft_strdup(const char *s)
 	return (ans);
 }
 
-void	ft_bzero(void *s, size_t n)
+voidft_bzero(void *s, size_t n)
 {
 	unsigned char	*tmp;
 	size_t			i;
@@ -116,7 +115,7 @@ void	ft_bzero(void *s, size_t n)
 	}
 }
 
-size_t	ft_strlcat(char *buf1, const char *buf2, size_t n)
+size_tft_strlcat(char *buf1, const char *buf2, size_t n)
 {
 	size_t			b1_size;
 	size_t			b2_size;
@@ -139,7 +138,7 @@ size_t	ft_strlcat(char *buf1, const char *buf2, size_t n)
 	return (b1_size + b2_size);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char *ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*ans;
 	unsigned int	i;
@@ -152,7 +151,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	s_len = ft_strlen(s);
 	if (s_len <= start || len == 0)
 	{
-		if (!(ans = (char *)malloc(1 * sizeof(char ))))
+		if (!(ans = (char *)malloc(1 * sizeof(char))))
 			return (NULL);
 		*ans = '\0';
 		return (ans);
@@ -167,7 +166,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (ans);
 }
 
-size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n)
+size_tft_strlcpy(char *buf1, const char *buf2, size_t n)
 {
 	size_t			i;
 	unsigned char	*b1;
@@ -182,21 +181,21 @@ size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n)
 		return (ft_strlen(buf2));
 	while (i <= n - 1)
 	{
-		*(b1 + i) = *(b2 + i);
-		if (*(b2 + i) == '\0')
-			break ;
+		b1[i] = b2[i];
+		if (b2[i] == '\0')
+			break;
 		i++;
 	}
-	*(b1 + i) = '\0';
+	b1[i] = '\0';
 	return (ft_strlen(buf2));
 }
 
-int	ft_isprint(int c)
+intft_isprint(int c)
 {
 	return (' ' <= c && c <= '~');
 }
 
-void	*ft_memmove(void *buf1, const void *buf2, size_t n)
+void *ft_memmove(void *buf1, const void *buf2, size_t n)
 {
 	unsigned int	i;
 	unsigned char	*b1;

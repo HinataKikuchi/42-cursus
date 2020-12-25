@@ -4,9 +4,6 @@
 			"path": "."
 		},
 		{
-			"path": "Get_Next_Line_Tester"
-		},
-		{
 			"path": "../libft"
 		}
 	],
