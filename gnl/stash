@@ -1,0 +1,23 @@
+// // char *ft_read(int fd, )
+
+// // int		ft_return(char *buf, int fd, char *line, int res, char *save[256], int count)
+// // {
+// // 	int i;
+
+// // 	i = 0;
+// // 	if (!res)
+// // 	{
+// // 		*line = ft_strjoin(save[fd], buf, count);
+// // 		free(buf);
+// // 		return (res);
+// // 	}
+// // 	while (save[fd][i] != '\n')
+// // 		i++;
+// // 	*line = malloc((i + 1) * sizeof(char));
+// // 	printf("%d\n", i);
+// // 	ft_strlcpy(*line, save[fd], i);
+// // 	res = 1;
+// // 	save[fd] = &save[fd][i + 1];
+// // 	free(buf);
+// // 	return (res);
+// // }

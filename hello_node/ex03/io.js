@@ -12,5 +12,4 @@ while(text[i])
 		res++
 	i++
 }
-res++
 console.log(res)

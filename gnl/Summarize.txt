@@ -1,0 +1,34 @@
+<GNLでやりたいこと。>
+
+<引数>
+int fd(ファイルディスクリプタ)
+char **line(格納先のバッファ)
+
+<戻り値>int型
+1:ok
+0:EOF
+-1:error(ex.read)
+
+<やりたいこと>
+while(*buf++ != '\0')
+	read(fd,buf,BUFF_SIZE);
+	strlcat(*line, buf);
+*line = malloc(文字数*sizeof(char));
+
+<必要な関数>
+1.read(bufに読み出して改行かEOFまで読んだら終わる)
+2.lineに保存
+
+<注意>
+EOFに当たったら、free(static)
+
+<libft関数>
+strdup複製
+char	*ft_strchr(const char *s, int c);
+strlen
+char	*ft_strjoin(char const *s1, char const *s2)
+size_t	ft_strlcat(char *buf1, const char *buf2, size_t n)
+size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n);
+
+
+void	*ft_memchr(const void *buf, int ch, size_t n);

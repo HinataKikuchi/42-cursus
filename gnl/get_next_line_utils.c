@@ -6,16 +6,18 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/26 01:21:35 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2020/12/30 19:38:25 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_tft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (*(s + i) != '\0')
 		i++;
@@ -51,7 +53,7 @@ void *ft_calloc(size_t n, size_t size)
 	return (mem);
 }
 
-char *ft_strjoin(char *s1, char *s2, int count)
+char	*ft_strjoin(char *s1, char *s2/*, int count*/)
 {
 	char			*ans;
 	unsigned int	i;
@@ -76,12 +78,11 @@ char *ft_strjoin(char *s1, char *s2, int count)
 		i++;
 	}
 	*(ans + i) = '\0';
-	if (count > 0)
-		free(s1);
+	free(s1);
 	return (ans);
 }
 
-char *ft_strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
 	char	*ans;
 	size_t	i;
@@ -101,7 +102,7 @@ char *ft_strdup(const char *s)
 	return (ans);
 }
 
-voidft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*tmp;
 	size_t			i;
@@ -115,7 +116,7 @@ voidft_bzero(void *s, size_t n)
 	}
 }
 
-size_tft_strlcat(char *buf1, const char *buf2, size_t n)
+size_t	ft_strlcat(char *buf1, const char *buf2, size_t n)
 {
 	size_t			b1_size;
 	size_t			b2_size;
@@ -166,7 +167,7 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	return (ans);
 }
 
-size_tft_strlcpy(char *buf1, const char *buf2, size_t n)
+size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n)
 {
 	size_t			i;
 	unsigned char	*b1;
@@ -190,7 +191,7 @@ size_tft_strlcpy(char *buf1, const char *buf2, size_t n)
 	return (ft_strlen(buf2));
 }
 
-intft_isprint(int c)
+int	ft_isprint(int c)
 {
 	return (' ' <= c && c <= '~');
 }
