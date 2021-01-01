@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:39 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/30 19:44:11 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/01 18:09:12 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include	<stdio.h>
 #include	<fcntl.h>
 #include	<limits.h>
-# define	BUFFER_SIZE 32
+// # define	BUFFER_SIZE 32
 # define	MAX_ASIZE 256
 # define	ERROR_NO -1
 
@@ -34,7 +34,8 @@ size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n);
 int		ft_isprint(int c);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memmove(void *buf1, const void *buf2, size_t n);
-char	*ft_read(int fd, char *save, int *res/*, int *count*/);
+char	*ft_read(int fd, int *res, char **line);
+char	*ft_return(int *res, char *line, char *save, char *buf);
 
 
 

@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/12/30 19:38:25 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/01 17:28:06 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void *ft_memchr(const void *buf, int ch, size_t n)
+void	*ft_memchr(const void *buf, int ch, size_t n)
 {
 	size_t			i;
 	unsigned char	*b;
@@ -42,7 +42,7 @@ void *ft_memchr(const void *buf, int ch, size_t n)
 	return (NULL);
 }
 
-void *ft_calloc(size_t n, size_t size)
+void	*ft_calloc(size_t n, size_t size)
 {
 	void *mem;
 
@@ -139,7 +139,7 @@ size_t	ft_strlcat(char *buf1, const char *buf2, size_t n)
 	return (b1_size + b2_size);
 }
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*ans;
 	unsigned int	i;
@@ -184,7 +184,7 @@ size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n)
 	{
 		b1[i] = b2[i];
 		if (b2[i] == '\0')
-			break;
+			break ;
 		i++;
 	}
 	b1[i] = '\0';
@@ -196,7 +196,7 @@ int	ft_isprint(int c)
 	return (' ' <= c && c <= '~');
 }
 
-void *ft_memmove(void *buf1, const void *buf2, size_t n)
+void	*ft_memmove(void *buf1, const void *buf2, size_t n)
 {
 	unsigned int	i;
 	unsigned char	*b1;
