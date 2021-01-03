@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/01 17:28:06 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/03 14:11:07 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ char	*ft_strjoin(char *s1, char *s2/*, int count*/)
 		i++;
 	}
 	*(ans + i) = '\0';
-	free(s1);
+	// free(s1);
 	return (ans);
 }
 

@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:39 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/01 18:09:12 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/03 14:12:38 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n);
 int		ft_isprint(int c);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memmove(void *buf1, const void *buf2, size_t n);
-char	*ft_read(int fd, int *res, char **line);
-char	*ft_return(int *res, char *line, char *save, char *buf);
+char	*ft_read(int fd, int *res, char *save);
+char	*ft_line(int *res, char *line, char *save, int *i);
 
 
 
