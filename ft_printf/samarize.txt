@@ -1,0 +1,19 @@
+<引数>
+可変長引数、char型のポインタ
+
+
+<動作>
+#書式指定子一覧
+https://www.k-cube.co.jp/wakaba/server/format.html
+%c
+%s
+%d
+%u
+%o
+
+
+#bonus
+l, ll, h, hh
+
+
+<戻り値>
