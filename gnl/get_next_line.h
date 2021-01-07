@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:39 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/07 18:02:09 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/07 18:17:28 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int		get_next_line(int fd, char **line);
 size_t	ft_strlen(const char *s);
 void	*ft_memchr(const void *buf, int ch, size_t n);
 char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strdup(const char *s);                                                                                                  
-size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n);                                                                                                  
-                                                                                                  
+char	*ft_strdup(const char *s);
+size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n);
+char *ft_line(int *res, char *line, char *save, int *i);
+char	*ft_read(int fd, int *res, char *save);
+
 #endif

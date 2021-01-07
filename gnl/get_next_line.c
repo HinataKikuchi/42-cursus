@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 17:40:28 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/07 18:16:20 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/07 18:17:21 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		get_next_line(int fd, char **line)
 	return (res);
 }
 
-static char	*ft_read(int fd, int *res, char *save)
+char	*ft_read(int fd, int *res, char *save)
 {
 	char	*buf;
 
@@ -60,7 +60,7 @@ static char	*ft_read(int fd, int *res, char *save)
 	return (save);
 }
 
-static char *ft_line(int *res, char *line, char *save, int *i)
+char *ft_line(int *res, char *line, char *save, int *i)
 {
 	if (!(*res))
 		return (ft_strdup(save));
