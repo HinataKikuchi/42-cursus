@@ -6,11 +6,13 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 17:40:28 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/07 18:01:38 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/07 18:16:20 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+static char	*ft_read(int fd, int *res, char *save);
+static char *ft_line(int *res, char *line, char *save, int *i);
 
 int		get_next_line(int fd, char **line)
 {
@@ -30,7 +32,7 @@ int		get_next_line(int fd, char **line)
 	return (res);
 }
 
-char	*ft_read(int fd, int *res, char *save)
+static char	*ft_read(int fd, int *res, char *save)
 {
 	char	*buf;
 
@@ -58,7 +60,7 @@ char	*ft_read(int fd, int *res, char *save)
 	return (save);
 }
 
-char *ft_line(int *res, char *line, char *save, int *i)
+static char *ft_line(int *res, char *line, char *save, int *i)
 {
 	if (!(*res))
 		return (ft_strdup(save));
