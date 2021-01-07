@@ -6,43 +6,32 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 17:25:42 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/03 17:32:52 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/07 15:22:16 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"get_next_line.h"
-// #include	"get_next_line.c"
-// // #include	"new_get_next_line.c"
-// #include	"get_next_line_utils.c"
+#include"get_next_line.h"
+#include"get_next_line.c"
+// #include"new_get_next_line.c"
+#include"get_next_line_utils.c"
 
-int main(void)
+int main (void)
 {
     char    *line;
-    int     fd;
-    int     ret;
+    int        res;
 
-    fd = open("64bit_line.txt", O_RDONLY);
-
-    while ((ret = get_next_line(fd, &line)) == 1)
+    // int fd = 0;
+    int fd = open("test.txt",O_RDONLY);
+    res = get_next_line(fd, &line);
+    while (res > 0)
     {
-        printf("%s\n", line);
+        printf("res = %d : string is = \"%s\"\n", res, line);
         free(line);
+        res = get_next_line(fd, &line);
     }
-
-    
-    if (ret == 0)
-    {
-        printf("GNL == 0\n");
-        printf("%s\n", line);
-        free(line);
-    }
-    if (ret == -1)
-    {
-        printf("error");
-    }
+    printf("res = %d : string is = \"%s\"\n", res, line);
+    free(line);
     close(fd);
+    return 0;
 
-    printf("[end]\n");
-
-    return (0);
 }

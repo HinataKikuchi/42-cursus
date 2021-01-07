@@ -6,18 +6,17 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/03 17:22:34 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/07 18:05:41 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "stdio.h"
 #include "get_next_line.h"
 
 size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t		i;
 
-	if (!s)
-		return (0);
 	i = 0;
 	while (*(s + i) != '\0')
 		i++;
@@ -73,12 +72,10 @@ char	*ft_strjoin(char *s1, char *s2)
 
 char	*ft_strdup(const char *s)
 {
-	char	*ans;
-	size_t	i;
-	size_t	s_size;
+	char		*ans;
+	size_t		i;
+	size_t		s_size;
 
-	if (!s)
-		return ("\0");
 	s_size = ft_strlen(s);
 	ans = (char *)malloc((s_size + 1) * sizeof(char));
 	if (ans == NULL)
@@ -113,7 +110,7 @@ size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n)
 	{
 		b1[i] = b2[i];
 		if (b2[i] == '\0')
-			break ;
+			break;
 		i++;
 	}
 	b1[i] = '\0';
