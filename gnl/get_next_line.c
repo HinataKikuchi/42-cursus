@@ -6,13 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 17:40:28 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/07 18:17:21 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/08 15:43:13 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-static char	*ft_read(int fd, int *res, char *save);
-static char *ft_line(int *res, char *line, char *save, int *i);
 
 int		get_next_line(int fd, char **line)
 {
@@ -22,7 +20,7 @@ int		get_next_line(int fd, char **line)
 
 	i = 0;
 	res = 1;
-	if (!line || (fd < 0 || 256 <= fd) || BUFFER_SIZE <= 0 || !(*line))
+	if (!line || (fd < 0 || 256 <= fd) || BUFFER_SIZE <= 0)
 		return (ERROR_NO);
 	save[fd] = ft_read(fd, &res, save[fd]);
 	if (res == -1)
@@ -41,7 +39,6 @@ char	*ft_read(int fd, int *res, char *save)
 	{
 		(*res) = -1;
 		return (NULL);
-		= 12
 	}
 	while ((!save || !ft_memchr(save, '\n', ft_strlen(save))) && (*res) != (-1))
 	{
@@ -53,14 +50,14 @@ char	*ft_read(int fd, int *res, char *save)
 		}
 		buf[(*res)] = '\0';
 		if (!(*res))
-			break;
+			break ;
 		save = ft_strjoin(save, buf);
 	}
 	free(buf);
 	return (save);
 }
 
-char *ft_line(int *res, char *line, char *save, int *i)
+char	*ft_line(int *res, char *line, char *save, int *i)
 {
 	if (!(*res))
 		return (ft_strdup(save));

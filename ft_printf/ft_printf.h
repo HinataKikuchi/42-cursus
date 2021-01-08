@@ -6,13 +6,14 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:12:29 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/07 19:15:23 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/07 20:01:24 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF
 # define FT_PRINTF
-#include <stdarg.h>
+# include <stdarg.h>
+# include <unistd.h>
 
 int		ft_printf(const char *, ...);
 
