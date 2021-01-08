@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 17:25:42 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/08 17:04:34 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/08 17:28:11 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 // // #include"new_get_next_line.c"
 // #include"get_next_line_utils.c"
 
-int main (/*int argc, char **argv*/void)
+int main (int argc, char **argv/*void*/)
 {
     char    *line;
     int        res;
 
     // int fd = 0;
-    int fd = open("test.txt",O_RDONLY);
-    // int fd = open(argv[1], O_RDONLY);
-    // (void)argc;
+    // int fd = open("test.txt",O_RDONLY);
+    int fd = open(argv[1], O_RDONLY);
+    (void)argc;
     res = get_next_line(fd, &line);
     while (res > 0)
     {

@@ -6,14 +6,14 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/08 15:57:33 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/08 17:20:39 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdio.h"
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen_nonull(const char *s)
 {
 	size_t		i;
 
@@ -43,7 +43,7 @@ void	*ft_memchr(const void *buf, int ch, size_t n)
 	return (NULL);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_free(char *s1, char *s2)
 {
 	char			*ans;
 	unsigned int	i;
@@ -52,7 +52,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (ft_strdup(s2));
 	if (!s2)
 		return (ft_strdup(s1));
-	ans = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	ans = (char *)malloc((ft_strlen_nonull(s1) + ft_strlen_nonull(s2) + 1) * sizeof(char));
 	if (ans == NULL)
 		return (NULL);
 	i = 0;
@@ -78,7 +78,7 @@ char	*ft_strdup(const char *s)
 	size_t		i;
 	size_t		s_size;
 
-	s_size = ft_strlen(s);
+	s_size = ft_strlen_nonull(s);
 	ans = (char *)malloc((s_size + 1) * sizeof(char));
 	if (ans == NULL)
 		return (NULL);
@@ -106,7 +106,7 @@ size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n)
 	if (n == 0)
 	{
 		buf1[0] = '\0';
-		return (ft_strlen(buf2));
+		return (ft_strlen_nonull(buf2));
 	}
 	while (i <= n - 1)
 	{
@@ -116,5 +116,5 @@ size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n)
 		i++;
 	}
 	b1[i] = '\0';
-	return (ft_strlen(buf2));
+	return (ft_strlen_nonull(buf2));
 }

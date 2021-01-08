@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 17:40:28 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/08 17:02:23 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/08 17:27:04 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ int		get_next_line(int fd, char **line)
 	res = 1;
 	if (!line || (fd < 0 || 256 <= fd) || BUFFER_SIZE <= 0)
 		return (ERROR_NO);
-	save[fd] = ft_read(fd, &res, save[fd]);
+	save[fd] = ft_read_line(fd, &res, save[fd]);
 	if (res == -1)
 		return (res);
-	line[0] = ft_line(&res, line[0], save[fd], &i);
+	line[0] = ft_cat_line(&res, line[0], save[fd], &i);
 	if (!save[fd])
 		return (res);
-	ft_strlcpy(save[fd], &save[fd][i + 1], ft_strlen(&save[fd][i + 1]));
+	ft_strlcpy(save[fd], &save[fd][i + 1], ft_strlen_nonull(&save[fd][i + 1]));
 	return (res);
 }
 
-char	*ft_read(int fd, int *res, char *save)
+char	*ft_read_line(int fd, int *res, char *save)
 {
 	char	*buf;
 
@@ -42,7 +42,7 @@ char	*ft_read(int fd, int *res, char *save)
 		(*res) = -1;
 		return (NULL);
 	}
-	while ((!save || !ft_memchr(save, '\n', ft_strlen(save))) && (*res) != (-1))
+	while ((!save || !ft_memchr(save, '\n', ft_strlen_nonull(save))) && (*res) != (-1))
 	{
 		(*res) = read(fd, buf, BUFFER_SIZE);
 		if ((*res) == -1)
@@ -53,13 +53,13 @@ char	*ft_read(int fd, int *res, char *save)
 		buf[(*res)] = '\0';
 		if (!(*res))
 			break ;
-		save = ft_strjoin(save, buf);
+		save = ft_strjoin_free(save, buf);
 	}
 	free(buf);
 	return (save);
 }
 
-char	*ft_line(int *res, char *line, char *save, int *i)
+char	*ft_cat_line(int *res, char *line, char *save, int *i)
 {
 	if (!(*res))
 		return (ft_strdup(save));
