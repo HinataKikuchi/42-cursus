@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 17:40:28 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/08 15:43:13 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/08 17:02:23 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int		get_next_line(int fd, char **line)
 	if (res == -1)
 		return (res);
 	line[0] = ft_line(&res, line[0], save[fd], &i);
+	if (!save[fd])
+		return (res);
 	ft_strlcpy(save[fd], &save[fd][i + 1], ft_strlen(&save[fd][i + 1]));
 	return (res);
 }

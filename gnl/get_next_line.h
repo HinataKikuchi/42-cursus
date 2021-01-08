@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:39 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/08 15:46:44 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/08 17:04:37 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <limits.h>
 # define MAX_ASIZE 256
 # define ERROR_NO -1
-# define BUFFER_SIZE 32
+// # define BUFFER_SIZE 32
 
 int		get_next_line(int fd, char **line);
 size_t	ft_strlen(const char *s);

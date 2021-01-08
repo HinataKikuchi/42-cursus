@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/07 18:05:41 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/08 15:57:33 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *s)
 {
 	size_t		i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (*(s + i) != '\0')
 		i++;
