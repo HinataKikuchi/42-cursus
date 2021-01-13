@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/13 20:06:38 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/13 20:11:16 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ int		judge_format(char c)
 {
 	s_format flag;
 
-	if ((c != 'c' || c !='s') || (c != 'p' ||c != 'd'))
+	if ((c != 'c' && c !='s') && (c != 'p' &&c != 'd'))
 		return (1);
-	else if((c !='i' || c!='u') ||(c !='i' || c!='u'))
+	else if((c !='i' && c!='u') && (c !='i' && c!='u'))
 		return (1);
-	else if (c !='x' || c!='X')
+	else if (c !='x' && c!='X')
 		return (1);
 	flag.format_char = c;
 	return (0);
