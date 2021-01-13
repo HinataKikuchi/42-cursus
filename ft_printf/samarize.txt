@@ -19,7 +19,7 @@ https://www.k-cube.co.jp/wakaba/server/format.html
 	ex. -1 = FFFFFFFF(8桁)
 
 #フラグ一覧
-	-(左詰め)
+-(左詰め)
 0(0埋め)
 ##-と0は同時に使うとエラーが出ることがある。ここら辺要確認
 .
@@ -30,6 +30,10 @@ https://www.k-cube.co.jp/wakaba/server/format.html
 ##最小フィールド幅にはマイナスの値が入る可能性がある。
 ##最小フィールド幅はマイナスの記号がいくつ入っていても大丈夫。
 ##最小フィールド幅がINT_MAXの場合はリターンが-1で何も出力されない。	
+
+[フラグ]＝フラグ一覧を参照
+[最小フィールド幅]=
+
 
 #bonus
 l, ll, h, hh
