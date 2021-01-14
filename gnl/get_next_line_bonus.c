@@ -6,11 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 17:40:28 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/11 00:21:37 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/11 00:14:13 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int		get_next_line(int fd, char **line)
 {
