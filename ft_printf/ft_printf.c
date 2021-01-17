@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/13 20:11:16 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/17 23:33:10 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int		ft_printf(const char* format, ...)
 {
-	va_list		ap;
+	// va_list		ap;
 	// char		*s;
 	int			i;
 	int			j;
@@ -25,11 +25,13 @@ int		ft_printf(const char* format, ...)
 	j = 0;
 	// va_start(ap, format);
 	// s = va_arg(ap, char*);
-	while(format[i]!= '%' && format[i]!='\0')
-		i++;
-	write(1, format, i);
-	j = count_format(format, i);
-	write(1,&format[i + j], ft_strlen(&format[i + j]));
+	while(format[i + j]!='\0')
+	{
+		while (format[i + j] != '%' && format[i + j] != '\0')
+			i++;
+		write(1, format, i);
+		j += count_format(format, i);
+	}
 	// va_end(ap);
 	return(i);
 }
@@ -48,18 +50,18 @@ int		judge_format(char c)
 {
 	s_format flag;
 
-	if ((c != 'c' && c !='s') && (c != 'p' &&c != 'd'))
-		return (1);
-	else if((c !='i' && c!='u') && (c !='i' && c!='u'))
-		return (1);
-	else if (c !='x' && c!='X')
-		return (1);
+	if ((c == 'c' || c =='s') || (c == 'p' || c == 'd'))
+		return (0);
+	else if((c =='i' || c =='u') || (c =='i' || c =='u'))
+		return (0);
+	else if (c =='x' || c =='X')
+		return (0);
 	flag.format_char = c;
-	return (0);
+	return (1);
 }
 
 int main(void)
 {
-	ft_printf("abcd%s","abc");
+	ft_printf("abcd%s\n","abc");
 	return (0);
 }

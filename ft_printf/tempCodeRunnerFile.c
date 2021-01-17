@@ -1,1 +1,1 @@
-	// char		*s;
+#include "./libft/libft.h"
