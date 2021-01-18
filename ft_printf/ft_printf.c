@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/17 23:33:10 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/18 15:49:16 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,39 @@
 #include "./libft/libft.h"
 #include "./libft/ft_strlen.c"
 
-int		ft_printf(const char* format, ...)
+int		ft_printf(const char *format, ...)
 {
-	// va_list		ap;
+	va_list		ap;
 	// char		*s;
 	int			i;
-	int			j;
 
 	i = 0;
-	j = 0;
-	// va_start(ap, format);
+	va_start(ap, format);
 	// s = va_arg(ap, char*);
-	while(format[i + j]!='\0')
+	while (format[i] != '\0')
 	{
-		while (format[i + j] != '%' && format[i + j] != '\0')
-			i++;
-		write(1, format, i);
-		j += count_format(format, i);
+		if (format[i] == '%')
+			deal_format(format, ap, i);
+		write(1, &format[i], 1);
+		i++;
 	}
-	// va_end(ap);
 	return(i);
 }
 
-int count_format(const char *format, int i)
+void deal_format(const char *format, va_list ap, int i)
 {
-	int j;
+	int	j;
+	s_format x;
 
 	j = 0;
-	while(judge_format(format[i + j]) && format[i + j]!='\0')
+	while (judge_format(format[i + j]))
+	{
+		if (format[i + j] == '-' || (format[i + j] == '0' ||format[i + j] == '*'))
+			x.flagment[j] = format[i + j];
+		
 		j++;
-	return (j);
+	}
+	x.format_char = format[i + j];
 }
 
 int		judge_format(char c)

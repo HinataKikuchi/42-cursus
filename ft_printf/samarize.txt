@@ -41,3 +41,42 @@ l, ll, h, hh
 <戻り値>
 -1:ERROR
 出力した文字数
+
+<undefined behavior>
+0フラグとsの併用
+
+````````````````````````<code 2021/1/18>`````````````````````
+#include <stdio.h>
+int main(void)
+{
+printf("[%-*s]\n",2,"abcdef");
+printf("[%0*s]\n",2,"abcdef");
+printf("[%0*d]\n",2,12345);
+printf("[%-*d]\n",2,12345);
+printf("[%-*s]\n",6,"abcdef");
+printf("[%0*s]\n",6,"abcdef");
+printf("[%0*d]\n",6,12345);
+printf("[%-*d]\n",6,12345);
+return 0;
+}
+```````````````````````````````````````````````````````````````
+``````````````````````<gcc results 2021/1/18>``````````````````
+main.c:6:12: warning: flag '0' results in undefined behavior with 's' conversion specifier [-Wformat]
+        printf("[%0*s]\n",2,"abcdef");
+                 ~^~~
+main.c:10:12: warning: flag '0' results in undefined behavior with 's' conversion specifier [-Wformat]
+        printf("[%0*s]\n",6,"abcdef");
+                 ~^~~
+2 warnings generated.
+```````````````````````````````````````````````````````````````
+````````````````````````<results 2021/1/18>````````````````````
+[abcdef]
+[abcdef]
+[12345]
+[12345]
+[abcdef]
+[abcdef]
+[012345]
+[12345 ]
+```````````````````````````````````````````````````````````````
+
