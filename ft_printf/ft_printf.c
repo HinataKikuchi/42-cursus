@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/18 16:21:31 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/18 22:35:16 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			deal_format(format, ap, i + 1);
+			deal_format(format, i + 1);
 			
 		}
 		write(1, &format[i], 1);
@@ -54,21 +54,22 @@ void	write_target(const char *target, va_list ap, s_format x)
 ** save the formats to s_format
 */
 
-void deal_format(const char *format, va_list ap, int i)
+void deal_format(const char *format, int i)
 {
-	int	j;
-	s_format x;
+	int			j;
+	char		*buf;
+	s_format	x;
 
 	j = 0;
+	x.flagment = malloc(3 * sizeof(char));
 	while (judge_format(format[i + j]))
 	{
 		if (format[i + j] == '-' || (format[i + j] == '0' ||format[i + j] == '*'))
 			x.flagment[j] = format[i + j];
-		if (format[i + j] == '.')
-			x.min_field = ft_atoi(ft_substr(format,i + ft_strlen(x.flagment), j));
 		j++;
 	}
 	x.format_char = format[i + j];
+	x.format_num = ft_substr(format, i + ft_strlen(x.flagment), j);
 }
 
 /*
@@ -93,6 +94,6 @@ int		judge_format(char c)
 
 int main(void)
 {
-	ft_printf("abcd%s\n","abc");
+	ft_printf("%-0.5s\n","abc");
 	return (0);
 }
