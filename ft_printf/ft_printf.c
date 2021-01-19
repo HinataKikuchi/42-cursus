@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/18 22:35:16 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/19 18:57:21 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ int		ft_printf(const char *format, ...)
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
-		{
-			deal_format(format, i + 1);
-			
-		}
+			write_target(format, ap, deal_format(format, &i));
 		write(1, &format[i], 1);
 		i++;
 	}
@@ -46,7 +43,36 @@ int		ft_printf(const char *format, ...)
 
 void	write_target(const char *target, va_list ap, s_format x)
 {
-	
+	if (x.format_char == 'c')
+		write_character(ap, x);
+	else if (x.format_char == 's')
+	{
+
+	}
+	else if (x.format_char == 'p')
+	{
+
+	}
+	else if (x.format_char == 'd')
+	{
+
+	}
+	else if (x.format_char == 'i')
+	{
+
+	}
+	else if (x.format_char == 'u')
+	{
+
+	}
+	else if (x.format_char == 'x')
+	{
+
+	}
+	else if (x.format_char == 'X')
+	{
+
+	}
 }
 
 /*
@@ -54,22 +80,25 @@ void	write_target(const char *target, va_list ap, s_format x)
 ** save the formats to s_format
 */
 
-void deal_format(const char *format, int i)
+s_format deal_format(const char *format, int *i)
 {
 	int			j;
 	char		*buf;
 	s_format	x;
 
 	j = 0;
+	*i += 1;
 	x.flagment = malloc(3 * sizeof(char));
-	while (judge_format(format[i + j]))
+	while (judge_format(format[*i + j]))
 	{
-		if (format[i + j] == '-' || (format[i + j] == '0' ||format[i + j] == '*'))
-			x.flagment[j] = format[i + j];
+		if (format[*i + j] == '-' || (format[*i + j] == '0' ||format[i + j] == '*'))
+			x.flagment[j] = format[*i + j];
 		j++;
 	}
-	x.format_char = format[i + j];
-	x.format_num = ft_substr(format, i + ft_strlen(x.flagment), j);
+	x.format_char = format[*i + j];
+	x.format_num = ft_substr(format, *i + ft_strlen(x.flagment), j - ft_strlen(x.flagment));
+	*i += j;
+	return (x);
 }
 
 /*
@@ -94,6 +123,6 @@ int		judge_format(char c)
 
 int main(void)
 {
-	ft_printf("%-0.5s\n","abc");
+	ft_printf("%-0*.5c\n",'c');
 	return (0);
 }
