@@ -4,7 +4,7 @@
 
 # How's the project is going on?
 
-* libft -> ✅ already finished
+* <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/libft">libft</a> -> ✅ already finished
 * mini_ls -> ❎ Finished but not complete
 * gnl -> ✅ already finished
 * hello_node -> ➿ in progress
