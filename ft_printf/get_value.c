@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 19:48:44 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/19 19:49:23 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/19 20:03:00 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int		get_min_field(s_format x)
 		j++;
 	buf = ft_substr(x.format_num, 0, j);
 	j = ft_atoi(buf);
+	free(buf);
 	return (j);
 }
