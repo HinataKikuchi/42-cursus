@@ -5,7 +5,7 @@
 # How's the project is going on?
 
 * <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/libft">libft</a> -> ✅ already finished
-* mini_ls -> ❎ Finished but not complete
-* gnl -> ✅ already finished
-* hello_node -> ➿ in progress
-* ft_printf -> ➿ in progress
+* <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/mini_ls">mini_ls</a> -> ❎ Finished but not complete
+* <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/gnl">gnl</a> -> ✅ already finished
+* <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/hello_node">hello_node</a> -> ➿ in progress
+* <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/ft_printf">ft_printf</a> -> ➿ in progress
