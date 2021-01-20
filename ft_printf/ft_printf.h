@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:12:29 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/19 22:43:02 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/20 11:43:33 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF
 # include <stdarg.h>
 # include <unistd.h>
+# include "./libft/libft.h"
 
 typedef struct	t_format
 {
@@ -32,6 +33,7 @@ void		write_character(va_list ap, s_format x);
 int			get_min_field(s_format x);
 void		write_left_justified(int min_field, char c);
 void		fill_zero(int min_field, char c);
+void		fill_blanc(int min_field, char c);
 
 
 

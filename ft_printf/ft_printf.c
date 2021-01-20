@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/19 22:47:32 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/20 11:47:06 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "./libft/ft_atoi.c"
 #include "./libft/ft_bzero.c"
 #include "./libft/ft_isdigit.c"
+#include "./libft/ft_strchr.c"
 #include "ft_write_char.c"
 #include "get_value.c"
 
@@ -99,7 +100,7 @@ s_format deal_format(const char *format, int *i)
 	}
 	x.format_char = format[*i + j];
 	x.format_num = ft_substr(format, *i + ft_strlen(x.flagment), j - ft_strlen(x.flagment));
-	*i += j;
+	*i = *i + j + 1;
 	return (x);
 }
 
@@ -125,6 +126,6 @@ int		judge_format(char c)
 
 int main(void)
 {
-	ft_printf("%-0*.5c\n",'c');
+	ft_printf("[%5c]\n",'c');
 	return (0);
 }
