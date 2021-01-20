@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/20 20:00:29 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/20 23:27:08 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,17 @@ int		ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	int			i;
+	s_format	x;
 
 	i = 0;
 	va_start(ap, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
-			write_target(ap, deal_format(format, &i, ap));
+		{
+			x = deal_format(format, &i, ap);
+			write_target(ap, x);
+		}
 		write(1, &format[i], 1);
 		i++;
 	}
