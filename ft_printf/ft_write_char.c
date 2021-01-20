@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:24:21 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/20 18:14:52 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/20 19:32:31 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ void	write_character(va_list ap, s_format x)
 	char	c;
 	int		min_field;
 
+	c = ' ';
 	c = va_arg(ap, int);
-	get_min_field(&x);
+	if (!x.min)
+		get_min_field(&x);
 	min_field = x.min;
 	if (ft_strchr(x.flagment, '-'))
 		write_left_justified(min_field, c);

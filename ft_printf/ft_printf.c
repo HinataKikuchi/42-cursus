@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/20 18:22:53 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/20 20:00:29 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 // #include "./libft/ft_strchr.c"
 // #include "ft_write_char.c"
 // #include "get_value.c"
+// #include "ft_write_string.c"
 
 /*
 ** int		ft_printf(const char *format, ...)
@@ -37,21 +38,19 @@ int		ft_printf(const char *format, ...)
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
-			write_target(format, ap, deal_format(format, &i));
+			write_target(ap, deal_format(format, &i, ap));
 		write(1, &format[i], 1);
 		i++;
 	}
 	return(i);
 }
 
-void	write_target(const char *target, va_list ap, s_format x)
+void	write_target(va_list ap, s_format x)
 {
 	if (x.format_char == 'c')
 		write_character(ap, x);
 	else if (x.format_char == 's')
-	{
-
-	}
+		write_string(ap, x);
 	else if (x.format_char == 'p')
 	{
 
@@ -83,10 +82,9 @@ void	write_target(const char *target, va_list ap, s_format x)
 ** save the formats to s_format
 */
 
-s_format deal_format(const char *format, int *i)
+s_format deal_format(const char *format, int *i, va_list ap)
 {
 	int			j;
-	char		*buf;
 	s_format	x;
 
 	j = 0;
@@ -94,8 +92,10 @@ s_format deal_format(const char *format, int *i)
 	x.flagment = malloc(3 * sizeof(char));
 	while (judge_format(format[*i + j]))
 	{
-		if (format[*i + j] == '-' || (format[*i + j] == '0' ||format[*i + j] == '*'))
+		if (format[*i + j] == '-' || (format[*i + j] == '0'))
 			x.flagment[j] = format[*i + j];
+		else if (format[*i + j] == '*')
+			x.min = va_arg(ap, int);
 		j++;
 	}
 	x.format_char = format[*i + j];
@@ -111,7 +111,6 @@ s_format deal_format(const char *format, int *i)
 
 int		judge_format(char c)
 {
-	s_format flag;
 
 	if ((c == 'c' || c =='s') || (c == 'p' || c == 'd'))
 		return (0);
@@ -120,13 +119,16 @@ int		judge_format(char c)
 	else if (c == 'x' || c == 'X')
 		return (0);
 	else if (c == '%')
-	flag.format_char = c;
+	{
+		
+	}
 	return (1);
 }
 
 int main(void)
 {
-	printf("[%010.0c]\n", 'c');
-	ft_printf("[%010.0c]\n",'c');
+	// printf("[%0*.0c]\n", 10,'c');
+	ft_printf("[%0*.0c]\n", 10,'c');
+	
 	return (0);
 }

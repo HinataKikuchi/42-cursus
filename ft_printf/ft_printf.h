@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:12:29 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/20 18:12:11 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/20 20:01:21 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct	t_format
 
 int			ft_printf(const char *format, ...);
 int			judge_format(char c);
-s_format	deal_format(const char *target, int *i);
-void		write_target(const char *target, va_list ap, s_format x);
+s_format	deal_format(const char *target, int *i, va_list ap);
+void		write_target(va_list ap, s_format x);
 void		write_character(va_list ap, s_format x);
 void		get_min_field(s_format *x);
 void		get_min_and_ac(s_format *x);
@@ -39,7 +39,7 @@ void		get_min(s_format *x);
 void		write_left_justified(int min_field, char c);
 void		fill_zero(int min_field, char c);
 void		fill_blanc(int min_field, char c);
-
+void		write_string(va_list ap, s_format x);
 
 
 
