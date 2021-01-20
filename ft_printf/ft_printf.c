@@ -6,21 +6,21 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/20 11:47:06 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/20 18:22:53 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "./libft/libft.h"
-#include "./libft/ft_strlen.c"
-#include "./libft/ft_substr.c"
-#include "./libft/ft_calloc.c"
-#include "./libft/ft_atoi.c"
-#include "./libft/ft_bzero.c"
-#include "./libft/ft_isdigit.c"
-#include "./libft/ft_strchr.c"
-#include "ft_write_char.c"
-#include "get_value.c"
+// #include "./libft/ft_strlen.c"
+// #include "./libft/ft_substr.c"
+// #include "./libft/ft_calloc.c"
+// #include "./libft/ft_atoi.c"
+// #include "./libft/ft_bzero.c"
+// #include "./libft/ft_isdigit.c"
+// #include "./libft/ft_strchr.c"
+// #include "ft_write_char.c"
+// #include "get_value.c"
 
 /*
 ** int		ft_printf(const char *format, ...)
@@ -126,6 +126,7 @@ int		judge_format(char c)
 
 int main(void)
 {
-	ft_printf("[%5c]\n",'c');
+	printf("[%010.0c]\n", 'c');
+	ft_printf("[%010.0c]\n",'c');
 	return (0);
 }
