@@ -6,12 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/20 23:27:08 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/21 17:39:20 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "./libft/libft.h"
 // #include "./libft/ft_strlen.c"
 // #include "./libft/ft_substr.c"
 // #include "./libft/ft_calloc.c"
@@ -129,10 +128,13 @@ int		judge_format(char c)
 	return (1);
 }
 
-int main(void)
-{
-	// printf("[%0*.0c]\n", 10,'c');
-	ft_printf("[%0*.0c]\n", 10,'c');
-	
-	return (0);
-}
+// int main(void)
+// {
+// 	// printf("[%0*.0c]\n", 10,'c');
+// 	// ft_printf("[char filld with 0 %-0*.0c]\n", 10,'z');
+// 	// printf("[char filld with 0 %-0*.0c]\n", 10,'z');
+// 	char *s = "Hinata";
+// 	printf("%s",s);
+// 	ft_printf("%s",s);
+// 	return (0);
+// }

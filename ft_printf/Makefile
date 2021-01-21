@@ -1,25 +1,34 @@
-NAME	=	ft_printf.a
+NAME	=	libftprintf.a
+LIBFT = ${LIBFT_DIR}/libft.a
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
-SRCS	=	./libft/ft_strlen.c ft_printf.c ft_write_char.c \
-			get_value.c ft_printf.h libft/ft_substr.c\
-			libft/ft_atoi.c libft/ft_strchr.c\
-			libft/ft_calloc.c libft/ft_isdigit.c\
-			libft/ft_bzero.c ft_write_string.c\
-OBJS	= $(SRCS:.c=.o)
+LIBFT_DIR = libft
+SRCS	=	ft_printf.c\
+			get_value.c\
+			ft_write_char.c\
+			ft_write_string.c
+OBJS	= ${SRCS:.c=.o}
 
-%.o:%.c
-		$(CC) $(CFLAGS) -o $@ -c $<
+INCLUDE = -I./ -I./${LIBFT_DIR}
 
-all: $(NAME)
+LIBS  = -L${LIBFT_DIR} -lft
+.c.o:
+				${CC} ${CFLAGS} ${INCLUDE} -o $@ -c $<
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+all:			$(NAME)
 
-clean:;         $(RM) *.o
+${LIBFT}:		${LIBFT_DIR}/*.c
+				${MAKE} -C ${LIBFT_DIR}
 
-fclean:clean;		$(RM) $(NAME)
+${NAME}:		${OBJS} ${LIBFT}
+				ar rc ${NAME} ${OBJS}
 
-re:			fclean $(NAME)
+clean:;			$(RM) *.o
+				${MAKE} -C ${LIBFT_DIR}    clean
 
-.PHONY: re clean fclean all
+fclean:clean;	$(RM) $(NAME)
+				${MAKE} -C ${LIBFT_DIR} fclean
+
+re:				fclean $(NAME)
+
+.PHONY:			re clean fclean all

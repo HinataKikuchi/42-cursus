@@ -6,27 +6,13 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 19:48:44 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/20 18:08:59 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/21 17:55:03 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
 
-void		get_min_field(s_format *x)
-{
-	int		j;
-	int		i;
-	char	*buf;
-
-	j = 0;
-	if (ft_strchr(x->format_num, '.'))
-		get_min_and_ac(x);
-	else
-		get_min(x);
-}
-
-void	get_min_and_ac(s_format *x)
+static void	get_min_and_ac(s_format *x)
 {
 	int		j;
 	int		i;
@@ -45,7 +31,7 @@ void	get_min_and_ac(s_format *x)
 	free(buf);
 }
 
-void	get_min(s_format *x)
+static void	get_min(s_format *x)
 {
 	int		i;
 	char	*buf;
@@ -56,4 +42,12 @@ void	get_min(s_format *x)
 	buf = ft_substr(x->format_num, 0, i);
 	x->min = ft_atoi(buf);
 	free(buf);
+}
+
+void		get_min_field(s_format *x)
+{
+	if (ft_strchr(x->format_num, '.'))
+		get_min_and_ac(x);
+	else
+		get_min(x);
 }
