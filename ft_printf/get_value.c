@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 19:48:44 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/22 13:17:46 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/22 16:16:48 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static void	get_min(s_format *x)
 		i++;
 	buf = ft_substr(x->format_num, 0, i);
 	x->min = ft_atoi(buf);
+	x->ac = 0;
 	free(buf);
 }
 
