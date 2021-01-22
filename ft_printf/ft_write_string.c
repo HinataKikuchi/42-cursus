@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:24:24 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/21 17:58:23 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/22 13:46:06 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ static void	write_string_with_zero(char *s, s_format x)
 	size_t		i;
 
 	i = 0;
-	write(1, s, ft_strlen(s));
 	while(i < (size_t)x.min - ft_strlen(s))
 	{
 		write(1, "0", 1);
 		i++;
 	}	
+	write(1, s, ft_strlen(s));
 }
 
 void		write_string(va_list ap, s_format x)
@@ -56,7 +56,7 @@ void		write_string(va_list ap, s_format x)
 
 	s = va_arg(ap, char*);
 	get_min_field(&x);
-	if ((size_t)x.ac < ft_strlen(s))
+	if ((size_t)x.ac < ft_strlen(s) && x.ac)
 		write_string_with_ac(s, x);
 	else if(x.min)
 	{
@@ -65,4 +65,7 @@ void		write_string(va_list ap, s_format x)
 		else if(ft_strchr(x.flagment, '0'))
 			write_string_with_zero(s, x);
 	}
+	else
+		write(1, s, ft_strlen(s));
 }
+

@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 19:48:44 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/21 17:55:03 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/22 13:17:46 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	get_min_and_ac(s_format *x)
 	i = j;
 	while (x->format_num[i] != '\0')
 		i++;
-	buf = ft_substr(x->format_num, j, i - j);
+	buf = ft_substr(x->format_num, j + 1, i - j);
 	x->ac = ft_atoi(buf);
 	free(buf);
 }

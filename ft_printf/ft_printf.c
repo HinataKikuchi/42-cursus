@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/21 17:39:20 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/22 13:53:52 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 // #include "./libft/ft_bzero.c"
 // #include "./libft/ft_isdigit.c"
 // #include "./libft/ft_strchr.c"
-// #include "ft_write_char.c"
 // #include "get_value.c"
+// #include "ft_write_char.c"
 // #include "ft_write_string.c"
+
 
 /*
 ** int		ft_printf(const char *format, ...)
@@ -131,10 +132,8 @@ int		judge_format(char c)
 // int main(void)
 // {
 // 	// printf("[%0*.0c]\n", 10,'c');
-// 	// ft_printf("[char filld with 0 %-0*.0c]\n", 10,'z');
-// 	// printf("[char filld with 0 %-0*.0c]\n", 10,'z');
-// 	char *s = "Hinata";
-// 	printf("%s",s);
-// 	ft_printf("%s",s);
+// 	char *s = "hinata";
+// 	printf("[%07.07s]\n",s);
+// 	ft_printf("[%07.07s]\n",s);
 // 	return (0);
 // }
