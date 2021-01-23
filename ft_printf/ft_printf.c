@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/23 12:49:10 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/23 20:23:32 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,9 @@ void	write_target(va_list ap, s_format x)
 
 	}
 	else if (x.format_char == 'd')
-		write_digit(ap, x);
+	{
+		// write_digit(ap, x);
+	}
 	else if (x.format_char == 'i')
 	{
 

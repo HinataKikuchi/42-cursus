@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:12:29 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/23 12:49:23 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/23 19:36:05 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ s_format	deal_format(const char *target, int *i, va_list ap);
 void		get_min_field(s_format *x);
 void		write_character(va_list ap, s_format x);
 void		write_string(va_list ap, s_format x);
-void		write_digit(va_list ap, s_format x);
+// void		write_digit(va_list ap, s_format x);
+void		write_blank(int num);
+void		write_zero(int num);
 
 
 
