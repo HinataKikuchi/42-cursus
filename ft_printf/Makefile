@@ -7,7 +7,7 @@ SRCS	=	ft_printf.c\
 			ft_write_char.c\
 			ft_write_string.c\
 			ft_write_sp_zero.c\
-			# ft_write_digit.c
+			ft_write_digit.c
 OBJS	= ${SRCS:.c=.o}
 LIBFT = ${LIBFT_DIR}/libft.a
 

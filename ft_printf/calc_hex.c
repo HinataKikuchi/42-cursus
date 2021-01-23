@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 19:36:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/23 20:11:43 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/23 20:30:21 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int		ft_countdigits(int n)
 	j = 0;
 	while (n)
 	{
-		n /= 10;
+		n /= 16;
 		j++;
 	}
 	return (j);
@@ -36,12 +36,13 @@ static void		ft_intoa(char *ans, int tmp1, int j)
 {
 	int		tmp2;
 	char	tmp;
+	const char	hex_char[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
 	while (tmp1)
 	{
-		tmp2 = tmp1 % 10;
-		tmp1 = tmp1 / 10;
-		tmp = tmp2 + '0';
+		tmp2 = tmp1 % 16;
+		tmp1 = tmp1 / 16;
+		tmp = hex_char[tmp2];
 		*(ans + j - 1) = tmp;
 		j--;
 	}

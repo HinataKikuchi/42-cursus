@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/23 20:23:32 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/23 23:04:09 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	write_target(va_list ap, s_format x)
 	}
 	else if (x.format_char == 'd')
 	{
-		// write_digit(ap, x);
+		write_digit(ap, x);
 	}
 	else if (x.format_char == 'i')
 	{
@@ -94,7 +94,7 @@ s_format deal_format(const char *format, int *i, va_list ap)
 	j = 0;
 	*i += 1;
 	x.flagment = malloc(3 * sizeof(char));
-	x.flagment[0] = '\0';
+	ft_bzero(x.flagment, 3);
 	while (judge_format(format[*i + j]))
 	{
 		if (format[*i + j] == '-' || (format[*i + j] == '0'))
@@ -103,6 +103,7 @@ s_format deal_format(const char *format, int *i, va_list ap)
 			x.min = va_arg(ap, int);
 		j++;
 	}
+	x.flagment[j + 1] = '\0';
 	x.format_char = format[*i + j];
 	x.format_num = ft_substr(format, *i + ft_strlen(x.flagment), j - ft_strlen(x.flagment));
 	*i = *i + j + 1;
