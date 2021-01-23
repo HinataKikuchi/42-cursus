@@ -5,11 +5,11 @@
 <動作>
 #書式指定子一覧
 https://www.k-cube.co.jp/wakaba/server/format.html
-	%c(Character)
-	%s(String)
+〇	%c(Character)
+△	%s(String)
 	##精度の文字数分出力に注意。
-	%d(digit)
-	%i(≒d)
+〇	%d(digit)
+〇	%i(≒d)
 	%u(unsigned)
 
 	%p(pointer)
