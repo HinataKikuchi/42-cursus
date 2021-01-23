@@ -8,11 +8,11 @@ https://www.k-cube.co.jp/wakaba/server/format.html
 	%c(Character)
 	%s(String)
 	##精度の文字数分出力に注意。
-	%p(pointer)
 	%d(digit)
 	%i(≒d)
 	%u(unsigned)
 
+	%p(pointer)
 	%x(小文字の十六進数のマイナスの値)
 	ex. -1 = ffffffff(8桁)
 	%X(大文字の十六進数のマイナスの値)
@@ -33,7 +33,9 @@ https://www.k-cube.co.jp/wakaba/server/format.html
 
 [フラグ]＝フラグ一覧を参照
 [最小フィールド幅]=
-
+[精度]=「精度」は変換指定子によって意味が異なり、
+整数変換の場合、最低表示桁数を表し、足りない場合は0で埋められる。
+文字列変換だと文字数の意になってる
 
 #bonus
 l, ll, h, hh
