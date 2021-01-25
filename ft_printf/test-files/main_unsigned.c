@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:07:12 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/25 14:27:52 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/25 16:08:23 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,5 @@ int main (void)
 	printf("printf(\"[%%020.11u]\",d)\n");
 	printf("[%020.11u]\n",d);
 	ft_printf("[%020.11u]\n",d);
-		
+	
 }

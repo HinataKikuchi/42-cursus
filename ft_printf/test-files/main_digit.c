@@ -1,21 +1,22 @@
 #include <stdio.h>
 #include "../ft_printf.h"
-// #include "../libft/ft_strlen.c"
-// #include "../libft/ft_substr.c"
-// #include "../libft/ft_calloc.c"
-// #include "../libft/ft_atoi.c"
-// #include "../libft/ft_strlcpy.c"
-// #include "../libft/ft_itoa.c"
-// #include "../libft/ft_memcpy.c"
-// #include "../libft/ft_bzero.c"
-// #include "../libft/ft_isdigit.c"
-// #include "../libft/ft_strchr.c"
-// #include "../get_value.c"
-// #include "../ft_write_char.c"
-// #include "../ft_write_string.c"
-// #include "../ft_write_digit.c"
-// #include "../ft_write_sp_zero.c"
-// #include "../ft_printf.c"
+#include "../libft/ft_strlen.c"
+#include "../libft/ft_substr.c"
+#include "../libft/ft_calloc.c"
+#include "../libft/ft_atoi.c"
+#include "../libft/ft_strlcpy.c"
+#include "../libft/ft_itoa.c"
+#include "../libft/ft_memcpy.c"
+#include "../libft/ft_bzero.c"
+#include "../libft/ft_isdigit.c"
+#include "../libft/ft_strchr.c"
+#include "../get_value.c"
+#include "../ft_write_char.c"
+#include "../ft_write_string.c"
+#include "../ft_write_digit.c"
+#include "../ft_write_sp_zero.c"
+#include "../ft_printf.c"
+#include "../ft_write_unsigned.c"
 
 int main (void)
 {
@@ -108,4 +109,14 @@ int main (void)
 	printf("printf(\"[%%7.10d]\",d)\n");
 	printf("[%7.10d]\n",d);
 	ft_printf("[%7.10d]\n",d);
+	printf("printf(\"[%%010.07d]\",d)\n");
+	printf("[%010.07d]\n",d);
+	ft_printf("[%010.07d]\n",d);
+	printf("printf(\"[%%07.010d]\",d)\n");
+	printf("[%07.010d]\n",d);
+	ft_printf("[%07.010d]\n",d);
+	printf("printf(\"[%%020.11d]\",d)\n");
+	printf("[%020.11d]\n",d);
+	ft_printf("[%020.11d]\n",d);
+
 }

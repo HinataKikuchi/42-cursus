@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:25:05 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/23 23:47:27 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/25 16:38:46 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	write_with_min(char *d_s, s_format x)
 		write_blank((size_t)x.min - ft_strlen(d_s));
 		return ;
 	}
-	else if (ft_strchr(x.flagment, '0'))
+	else if (ft_strchr(x.flagment, '0') && !x.ac)
 		write_zero((size_t)x.min - ft_strlen(d_s));
 	else
 		write_blank((size_t)x.min - ft_strlen(d_s));
