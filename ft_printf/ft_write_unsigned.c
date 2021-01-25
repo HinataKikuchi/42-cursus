@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 00:02:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/25 16:39:48 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/25 17:45:17 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,38 +58,6 @@ static char			*ft_unsigned_itoa(unsigned int n)
 	return (ans);
 }
 
-static char	*make_unsigned_string(char *d_s, s_format x)
-{
-	char	*buf;
-	size_t	zero_len;
-	size_t	d_s_len;
-
-	buf = malloc(sizeof(char) * x.ac);
-	if (!buf)
-		return (NULL);
-	d_s_len = ft_strlen(d_s);
-	zero_len = (size_t)x.ac - d_s_len;
-	fill_zero(buf, zero_len);
-	ft_strlcpy(&buf[zero_len], d_s, d_s_len + 1);
-	buf[x.ac] = '\0';
-	return (buf);
-}
-
-static void	write_with_minimam(char *d_s, s_format x)
-{
-	if (ft_strchr(x.flagment, '-'))
-	{
-		write(1, d_s, ft_strlen(d_s));
-		write_blank((size_t)x.min - ft_strlen(d_s));
-		return ;
-	}
-	else if (ft_strchr(x.flagment, '0') && !x.ac)
-		write_zero((size_t)x.min - ft_strlen(d_s));
-	else
-		write_blank((size_t)x.min - ft_strlen(d_s));
-	write(1, d_s, ft_strlen(d_s));
-}
-
 void	write_unsigned(va_list ap, s_format x)
 {
 	unsigned int	ud;
@@ -100,12 +68,12 @@ void	write_unsigned(va_list ap, s_format x)
 	get_min_field(&x);
 	if (ft_strlen(ud_s) < (size_t)x.ac)
 	{
-		ud_s = make_unsigned_string(ud_s, x);
+		ud_s = make_string(ud_s, x);
 		if (!ud_s)
 			return ;
 	}
 	if (ft_strlen(ud_s) < (size_t)x.min)
-		write_with_minimam(ud_s, x);
+		write_with_min(ud_s, x);
 	else
 		write(1, ud_s, ft_strlen(ud_s));
 	free(ud_s);
