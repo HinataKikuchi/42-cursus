@@ -17,6 +17,8 @@
 #include "../ft_write_sp_zero.c"
 #include "../ft_printf.c"
 #include "../ft_write_unsigned.c"
+#include "../make_string.c"
+#include "../ft_write_small_hex.c"
 
 int main (void)
 {
@@ -118,5 +120,9 @@ int main (void)
 	printf("printf(\"[%%020.11d]\",d)\n");
 	printf("[%020.11d]\n",d);
 	ft_printf("[%020.11d]\n",d);
+	printf("printf(\"[%%-020.11d]\",d)\n");
+	printf("[%-020.11d]\n",d);
+	ft_printf("[%-020.11d]\n",d);
+
 
 }
