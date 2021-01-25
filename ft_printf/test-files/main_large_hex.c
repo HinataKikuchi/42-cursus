@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_small_hex.c                                   :+:      :+:    :+:   */
+/*   main_large_hex.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:51:22 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/25 19:23:04 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/25 19:02:37 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,25 @@
 
 int main (void)
 {
-	unsigned int	h = 4294967295;
+	int	h = 1000;
 
-	printf("printf(\"[%%x]\",h)\n");
-	printf("[%x]\n",h);
-	ft_printf("[%x]\n", h);
-	printf("printf(\"[%%10x]\",h)\n");
-	printf("[%10x]\n",h);
-	ft_printf("[%10x]\n",h);
-	printf("printf(\"[%%.10x]\",h)");
-	printf("[%.10x]\n",h);
-	ft_printf("[%.10x]\n",h);
-	printf("printf(\"[%%20.10x]\",h)\n");
-	printf("[%20.10x]\n",h);
-	ft_printf("[%20.10x]\n",h);
-	printf("printf(\"[%%020.10x]\",h)\n");
-	printf("[%020.10x]\n",h);
-	ft_printf("[%020.10x]\n",h);
-	printf("printf(\"[%%-20.10x]\",h)\n");
-	printf("[%-20.10x]\n",h);
-	ft_printf("[%-20.10x]\n",h);
+	printf("printf(\"[%%X]\",h)\n");
+	printf("[%X]\n",h);
+	ft_printf("[%X]\n", h);
+	printf("printf(\"[%%10X]\",h)\n");
+	printf("[%10X]\n",h);
+	ft_printf("[%10X]\n",h);
+	printf("printf(\"[%%.10X]\",h)\n");
+	printf("[%.10X]\n",h);
+	ft_printf("[%.10X]\n",h);
+	printf("printf(\"[%%20.10X]\",h)\n");
+	printf("[%20.10X]\n",h);
+	ft_printf("[%20.10X]\n",h);
+	printf("printf(\"[%%020.10X]\",h)\n");
+	printf("[%020.10X]\n",h);
+	ft_printf("[%020.10X]\n",h);
+	printf("printf(\"[%%-20.10X]\",h)\n");
+	printf("[%-20.10X]\n",h);
+	ft_printf("[%-20.10X]\n",h);
 	system("a.out");
 }

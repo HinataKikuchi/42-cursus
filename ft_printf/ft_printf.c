@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/25 17:35:18 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/25 19:01:37 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,7 @@ void	write_target(va_list ap, s_format x)
 	else if (x.format_char == 'x')
 		write_small_hex(ap, x);
 	else if (x.format_char == 'X')
-	{
-
-	}
+		write_large_hex(ap, x);
 }
 
 /*

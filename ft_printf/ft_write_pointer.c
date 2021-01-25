@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_write_large_hex.c                               :+:      :+:    :+:   */
+/*   ft_write_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/18 16:24:57 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/25 19:12:40 by hkikuchi         ###   ########.fr       */
+/*   Created: 2021/01/25 19:08:33 by hkikuchi          #+#    #+#             */
+/*   Updated: 2021/01/25 19:12:19 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	write_large_hex(va_list ap, s_format x)
+void	write_pointer(va_list ap, s_format x)
 {
-	unsigned int	h;
-	char			*h_s;
+	void	*p;
+	char	*p_s;
 
-	h = va_arg(ap, unsigned int);
-	h_s = ft_hex(h);
+	p = va_arg(ap, void*);
+	p_s = ft_hex(p);
 	get_min_field(&x);
-	if (ft_strlen(h_s) < (size_t)x.ac)
+	if (ft_strlen(p_s) < (size_t)x.ac)
 	{
-		h_s = make_string(h_s, x);
-		if (!h_s)
+		p_s = make_string(p_s, x);
+		if (!p_s)
 			return ;
 	}
-	if (ft_strlen(h_s) < (size_t)x.min)
-		write_with_min(h_s, x);
+	if (ft_strlen(p_s) < (size_t)x.min)
+		write_with_min(p_s, x);
 	else
-		write(1, h_s, ft_strlen(h_s));
+		write(1, p_s, ft_strlen(p_s));
 }

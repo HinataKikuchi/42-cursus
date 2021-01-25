@@ -8,15 +8,9 @@ int		ft_printf(const char *format, ...);
 
 int main (void)
 {
-	int p = 1;
-	ft_printf("%p", &p);
-	printf("%d\n",&p);
-}
-
-int		ft_printf(const char *format, ...)
-{
-	va_list		ap;
-
-	va_start(ap, format);
-	printf("%d\n",va_arg(ap, int));
+	char *p ="a";
+	printf("[%p]\n",p);
+	printf("[%10p]\n",p);
+	printf("[%.10p]\n",p);
+	printf("[%10.10p]\n",p);
 }
