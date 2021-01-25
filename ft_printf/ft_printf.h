@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:12:29 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/23 21:31:04 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/24 13:24:20 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void		get_min_field(s_format *x);
 void		write_character(va_list ap, s_format x);
 void		write_string(va_list ap, s_format x);
 void		write_digit(va_list ap, s_format x);
+void		write_unsigned(va_list ap, s_format x);
 void		write_blank(int num);
 void		write_zero(int num);
 
