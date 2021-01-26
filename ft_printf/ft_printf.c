@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/25 19:01:37 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/26 22:40:34 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int		ft_printf(const char *format, ...)
 		write(1, &format[i], 1);
 		i++;
 	}
+	free_struct(x);
 	return(i);
 }
 
@@ -117,4 +118,14 @@ int		judge_format(char c)
 		
 	}
 	return (1);
+}
+
+void	free_struct(s_format x)
+{
+	free(x.flagment);
+	x.flagment = NULL;
+	free(x.format_num);
+	x.format_num = NULL;
+	free(x.min_field);
+	x.min_field = NULL;
 }

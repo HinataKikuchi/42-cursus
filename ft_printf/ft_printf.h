@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:12:29 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/25 19:10:09 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/26 22:40:55 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void		write_unsigned(va_list ap, s_format x);
 void		write_small_hex(va_list ap, s_format x);
 void		write_large_hex(va_list ap, s_format x);
 void		write_pointer(va_list ap, s_format x);
+void		free_struct(s_format x);
 
 
 

@@ -124,5 +124,7 @@ int main (void)
 	printf("[%-020.11d]\n",d);
 	ft_printf("[%-020.11d]\n",d);
 
+	unsigned int u = 4294967295;
+	ft_printf("[%d]\n",u);
 
 }
