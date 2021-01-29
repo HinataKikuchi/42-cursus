@@ -1,26 +1,18 @@
-#include <stdio.h>
-#include "../ft_printf.h"
-#include "../libft/ft_strlen.c"
-#include "../libft/ft_substr.c"
-#include "../libft/ft_calloc.c"
-#include "../libft/ft_atoi.c"
-#include "../libft/ft_strlcpy.c"
-#include "../libft/ft_itoa.c"
-#include "../libft/ft_memcpy.c"
-#include "../libft/ft_bzero.c"
-#include "../libft/ft_isdigit.c"
-#include "../libft/ft_strchr.c"
-#include "../get_value.c"
-#include "../ft_write_char.c"
-#include "../ft_write_string.c"
-#include "../ft_write_digit.c"
-#include "../ft_write_sp_zero.c"
-#include "../ft_printf.c"
-#include "../ft_write_unsigned.c"
-#include "../make_string.c"
-#include "../ft_write_small_hex.c"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_digit.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/29 12:14:17 by hkikuchi          #+#    #+#             */
+/*   Updated: 2021/01/29 12:14:36 by hkikuchi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int main (void)
+#include "tester.h"
+
+void	main_digit(void)
 {
 	int d = 420000;
 	printf("printf(\"[%%d]\",d)\n");

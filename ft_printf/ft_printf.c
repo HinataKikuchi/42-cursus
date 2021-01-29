@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/27 17:05:58 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/29 16:06:51 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int		ft_printf(const char *format, ...)
 		write(1, &format[i], 1);
 		i++;
 	}
-	// free_struct(x);
+	free(x.flagment);
+	free(x.format_num);
 	return(i);
 }
 
@@ -80,8 +81,7 @@ s_format deal_format(const char *format, int *i, va_list ap)
 
 	j = 0;
 	*i += 1;
-	x.flagment = malloc(3 * sizeof(char));
-	ft_bzero(x.flagment, 3);
+	x.flagment = ft_calloc(3, sizeof(char));
 	while (judge_format(format[*i + j]))
 	{
 		if (format[*i + j] == '-' || (format[*i + j] == '0'))
@@ -116,14 +116,4 @@ int		judge_format(char c)
 		
 	}
 	return (1);
-}
-
-void	free_struct(s_format x)
-{
-	free(x.flagment);
-	x.flagment = NULL;
-	free(x.format_num);
-	x.format_num = NULL;
-	free(x.min_field);
-	x.min_field = NULL;
 }

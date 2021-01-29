@@ -1,7 +1,18 @@
-#include <stdio.h>
-#include "../ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_string.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/29 12:13:42 by hkikuchi          #+#    #+#             */
+/*   Updated: 2021/01/29 12:14:02 by hkikuchi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int main (void)
+#include "tester.h"
+
+void	main_string(void)
 {
 	char *s = "Hinata";
 	printf("__STRING__TEST__\n");

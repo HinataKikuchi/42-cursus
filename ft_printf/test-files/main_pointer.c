@@ -1,11 +1,18 @@
-#include <stdio.h>
-#include <unistd.h>
-# include <stdarg.h>
-#include <stdlib.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_pointer.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/29 12:17:36 by hkikuchi          #+#    #+#             */
+/*   Updated: 2021/01/29 12:18:42 by hkikuchi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "tester.h"
 
-int main (void)
+void	main_pointer(void)
 {
 	char *p ="a";
 	printf("printf(\"[%%p]\",p)\n");

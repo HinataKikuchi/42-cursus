@@ -6,14 +6,13 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 17:14:36 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/23 17:40:05 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/29 12:19:39 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "../ft_printf.h"
+#include "tester.h"
 
-int main (void)
+void	main_char(void)
 {
 	char c = 'A';
 

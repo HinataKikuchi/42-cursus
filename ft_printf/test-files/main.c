@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_write_small_hex.c                               :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 00:03:26 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/29 16:02:09 by hkikuchi         ###   ########.fr       */
+/*   Created: 2021/01/29 12:07:41 by hkikuchi          #+#    #+#             */
+/*   Updated: 2021/01/29 12:21:01 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "tester.h"
 
-void	write_small_hex(va_list ap, s_format x)
+int main (void)
 {
-	unsigned int	h;
-	char			*h_s;
+	main_char();
+	// main_string();
+	// main_digit();
+	// main_integer();
+	// main_unsigned();
+	// main_small_hex();
+	// main_large_hex();
+	// main_pointer();
 
-	h = va_arg(ap, unsigned int);
-	h_s = ft_small_hex(h);
-	get_min_field(&x);
-	if (ft_strlen(h_s) < (size_t)x.ac)
-	{
-		h_s = make_string(h_s, x);
-		if (!h_s)
-			return ;
-	}
-	if (ft_strlen(h_s) < (size_t)x.min)
-		write_with_min(h_s, x);
-	else
-		write(1, h_s, ft_strlen(h_s));
-	free(h_s);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:36:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/29 11:30:42 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/29 16:04:21 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ char	*make_string(char *d_s, s_format x)
 	fill_zero(buf, zero_len);
 	ft_strlcpy(&buf[zero_len], d_s, d_s_len + 1);
 	buf[x.ac] = '\0';
+	free(d_s);
 	return (buf);
 }
 
@@ -57,6 +58,7 @@ char	*make_pstring(char *d_s, s_format x)
 	fill_zero(&buf[2], zero_len);
 	ft_strlcpy(&buf[zero_len], d_s, d_s_len + 1);
 	buf[x.ac] = '\0';
+	free(d_s);
 	return (buf);
 }
 
@@ -71,5 +73,6 @@ char	*make_pointer_string(char *d_s)
 	buf[1] = 'x';
 	ft_strlcpy(&buf[2], d_s, d_s_len + 1);
 	buf[d_s_len + 2] = '\0';
+	free(d_s);
 	return (buf);
 }
