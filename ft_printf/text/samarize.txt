@@ -82,3 +82,25 @@ main.c:10:12: warning: flag '0' results in undefined behavior with 's' conversio
 [12345 ]
 ```````````````````````````````````````````````````````````````
 
+<2021/1/29>
+#leak対応
+o	main_char
+o	main_string
+o	main_digit
+o	main_integer
+o	main_unsigned
+o	main_small_hex
+o	main_large_hex
+o	main_pointer
+
+
+
+#戻り値対応
+X
+
+#null表示対応
+X
+
+#%dの.0または.のみの対応
+#%u``
+#%sの.0対応

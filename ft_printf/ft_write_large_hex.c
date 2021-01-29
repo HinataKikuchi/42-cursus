@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:24:57 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/28 18:44:15 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/29 16:23:24 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ void	write_large_hex(va_list ap, s_format x)
 		write_with_min(h_s, x);
 	else
 		write(1, h_s, ft_strlen(h_s));
+	free(h_s);
 }

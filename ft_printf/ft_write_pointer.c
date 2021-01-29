@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 19:08:33 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/29 11:46:40 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/29 16:17:03 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ void	write_pointer(va_list ap, s_format x)
 		write_with_min(p_s, x);
 	else
 		write(1, p_s, ft_strlen(p_s));
+	free(p_s);
 }

@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:24:24 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/23 20:22:44 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/29 16:40:46 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,6 @@ static void	write_string_with_ac(char *s, s_format x)
 		i++;
 	}
 }
-
-// static void	write_string_left_justified(char *s, s_format x)
-// {
-// 	write(1, s, ft_strlen(s));
-// 	write_blank(x.min - (int)ft_strlen(s));
-// }
-
-// static void	write_string_right_justified(char *s, s_format x)
-// {
-// 	write_blank(x.min - (int)ft_strlen(s));
-// 	write(1, s, ft_strlen(s));
-// }
-
-// static void	write_string_with_zero(char *s, s_format x)
-// {
-// 	write_zero(x.min - (int)ft_strlen(s));
-// 	write(1, s, ft_strlen(s));
-// }
 
 void		write_string(va_list ap, s_format x)
 {
