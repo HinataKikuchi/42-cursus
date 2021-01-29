@@ -9,7 +9,8 @@ SRCS	=	main_char.c\
 			main_small_hex.c\
 			main_large_hex.c\
 			main_pointer.c\
-			main.c
+			main.c\
+			main_null.c
 OBJS	= ${SRCS:.c=.o}
 
 .c.o:

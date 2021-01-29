@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 00:02:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/25 17:45:17 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/29 18:34:02 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,4 @@ void	write_unsigned(va_list ap, s_format x)
 	else
 		write(1, ud_s, ft_strlen(ud_s));
 	free(ud_s);
-
 }
