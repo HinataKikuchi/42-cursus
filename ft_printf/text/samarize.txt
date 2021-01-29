@@ -13,9 +13,9 @@ https://www.k-cube.co.jp/wakaba/server/format.html
 	%u(unsigned)
 
 	%p(pointer)
-	%x(小文字の十六進数のマイナスの値)
+〇	%x(小文字の十六進数のマイナスの値)
 	ex. -1 = ffffffff(8桁)
-	%X(大文字の十六進数のマイナスの値)
+〇	%X(大文字の十六進数のマイナスの値)
 	ex. -1 = FFFFFFFF(8桁)
 
 #フラグ一覧

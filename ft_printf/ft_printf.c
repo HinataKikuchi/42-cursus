@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/26 22:40:34 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/27 17:05:58 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		ft_printf(const char *format, ...)
 		write(1, &format[i], 1);
 		i++;
 	}
-	free_struct(x);
+	// free_struct(x);
 	return(i);
 }
 
@@ -57,9 +57,7 @@ void	write_target(va_list ap, s_format x)
 	else if (x.format_char == 's')
 		write_string(ap, x);
 	else if (x.format_char == 'p')
-	{
-
-	}
+		write_pointer(ap, x);
 	else if (x.format_char == 'd' || x.format_char == 'i')
 		write_digit(ap, x);
 	else if (x.format_char == 'u')

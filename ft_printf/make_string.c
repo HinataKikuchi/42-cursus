@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:36:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/25 18:23:54 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/29 10:24:39 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,4 @@ char	*make_string(char *d_s, s_format x)
 	buf[x.ac] = '\0';
 	return (buf);
 }
+
