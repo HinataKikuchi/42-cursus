@@ -6,13 +6,13 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 19:36:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/29 10:23:00 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/29 11:45:21 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		count_hex(unsigned long long h)
+static int		count_hex(unsigned long long h)
 {
 	int	i;
 
@@ -25,7 +25,7 @@ int		count_hex(unsigned long long h)
 	return (i);
 }
 
-char	*ft_small_hex(unsigned int h)
+char			*ft_small_hex(unsigned int h)
 {
 	char		*res;
 	int			h_size;
@@ -45,7 +45,7 @@ char	*ft_small_hex(unsigned int h)
 	return (res);
 }
 
-char	*ft_large_hex(unsigned int h)
+char			*ft_large_hex(unsigned int h)
 {
 	char		*res;
 	int			h_size;

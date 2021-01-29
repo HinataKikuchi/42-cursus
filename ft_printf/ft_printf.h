@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:12:29 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/28 18:42:44 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/29 11:44:55 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void		get_min_field(s_format *x);
 void		write_blank(int num);
 void		write_zero(int num);
 char		*ft_small_hex(unsigned int h);
+char		*ft_large_hex(unsigned int h);
+
 
 char		*make_string(char *d_s, s_format x);
 void		write_with_min(char *d_s, s_format x);
@@ -48,6 +50,8 @@ void		write_large_hex(va_list ap, s_format x);
 void		write_pointer(va_list ap, s_format x);
 void		free_struct(s_format x);
 char		*calc_pointer(unsigned long long p);
+char		*make_pstring(char *d_s, s_format x);
+char		*make_pointer_string(char *d_s);
 
 
 

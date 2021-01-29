@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:36:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/29 10:24:39 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/29 11:30:42 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,35 @@ char	*make_string(char *d_s, s_format x)
 	return (buf);
 }
 
+char	*make_pstring(char *d_s, s_format x)
+{
+	char	*buf;
+	size_t	zero_len;
+	size_t	d_s_len;
+
+	buf = malloc(sizeof(char) * x.ac + 2);
+	if (!buf)
+		return (NULL);
+	d_s_len = ft_strlen(d_s);
+	zero_len = (size_t)x.ac - d_s_len;
+	buf[0] = '0';
+	buf[1] = 'x';
+	fill_zero(&buf[2], zero_len);
+	ft_strlcpy(&buf[zero_len], d_s, d_s_len + 1);
+	buf[x.ac] = '\0';
+	return (buf);
+}
+
+char	*make_pointer_string(char *d_s)
+{
+	char	*buf;
+	size_t	d_s_len;
+
+	d_s_len = ft_strlen(d_s);
+	buf = malloc(sizeof(char) * (d_s_len + 3));
+	buf[0] = '0';
+	buf[1] = 'x';
+	ft_strlcpy(&buf[2], d_s, d_s_len + 1);
+	buf[d_s_len + 2] = '\0';
+	return (buf);
+}
