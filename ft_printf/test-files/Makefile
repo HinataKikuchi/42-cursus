@@ -1,6 +1,6 @@
 NAME	=	tester.a
 CC		=	clang
-CFLAGS	=	-Wall -Wextra -Werror
+# CFLAGS	=	-Wall -Wextra -Werror
 SRCS	=	main_char.c\
 			main_string.c\
 			main_digit.c\
@@ -12,10 +12,8 @@ SRCS	=	main_char.c\
 			main.c
 OBJS	= ${SRCS:.c=.o}
 
-INCLUDE = -I./
-
 .c.o:
-				${CC} ${CFLAGS} ${INCLUDE} -o $@ -c $<
+				${CC} ${CFLAGS} -o $@ -c $<
 
 all:			$(NAME)
 
