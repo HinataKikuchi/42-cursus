@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/01 18:59:19 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/01 19:18:43 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void		write_target(va_list ap, s_format x)
 ** save the formats to s_format
 */
 
-s_format	deal_format(const char *format,int *i, va_list ap)
+s_format	deal_format(const char *format, int *i, va_list ap)
 {
 	int			j;
 	s_format	x;
