@@ -6,28 +6,18 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/31 17:49:20 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/01 14:12:32 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-// #include "./libft/ft_strlen.c"
-// #include "./libft/ft_substr.c"
-// #include "./libft/ft_calloc.c"
-// #include "./libft/ft_atoi.c"
-// #include "./libft/ft_bzero.c"
-// #include "./libft/ft_isdigit.c"
-// #include "./libft/ft_strchr.c"
-// #include "get_value.c"
-// #include "ft_write_char.c"
-// #include "ft_write_string.c"
 
 /*
 ** int		ft_printf(const char *format, ...)
 ** write characters till '%' appears
 */
 
-int		ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	int			i;
@@ -35,7 +25,7 @@ int		ft_printf(const char *format, ...)
 
 	i = 0;
 	va_start(ap, format);
-	while (format[i] != '\0')
+	while (format[i] != '\0' && (size_t)i <= ft_strlen(format))
 	{
 		if (format[i] == '%')
 		{
@@ -47,10 +37,10 @@ int		ft_printf(const char *format, ...)
 	}
 	free(x.flagment);
 	free(x.format_num);
-	return(i);
+	return (i);
 }
 
-void	write_target(va_list ap, s_format x)
+void		write_target(va_list ap, s_format x)
 {
 	if (x.format_char == 'c')
 		write_character(ap, x);
@@ -73,7 +63,7 @@ void	write_target(va_list ap, s_format x)
 ** save the formats to s_format
 */
 
-s_format deal_format(const char *format, int *i, va_list ap)
+s_format	deal_format(const char *format,int *i, va_list ap)
 {
 	int			j;
 	s_format	x;
@@ -91,7 +81,8 @@ s_format deal_format(const char *format, int *i, va_list ap)
 	}
 	x.flagment[j + 1] = '\0';
 	x.format_char = format[*i + j];
-	x.format_num = ft_substr(format, *i + ft_strlen(x.flagment), j - ft_strlen(x.flagment));
+	x.format_num = ft_substr(format, *i + \
+		ft_strlen(x.flagment), j - ft_strlen(x.flagment));
 	*i = *i + j + 1;
 	return (x);
 }
@@ -101,18 +92,16 @@ s_format deal_format(const char *format, int *i, va_list ap)
 ** judge the format of c
 */
 
-int		judge_format(char c)
+int			judge_format(char c)
 {
-
-	if ((c == 'c' || c =='s') || (c == 'p' || c == 'd'))
+	if ((c == 'c' || c == 's') || (c == 'p' || c == 'd'))
 		return (0);
-	else if((c == 'i' || c =='u') || (c =='i' || c =='u'))
+	else if ((c == 'i' || c == 'u') || (c == 'i' || c == 'u'))
 		return (0);
 	else if (c == 'x' || c == 'X')
 		return (0);
 	else if (c == '%')
 	{
-		
 	}
 	return (1);
 }

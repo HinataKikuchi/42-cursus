@@ -23,3 +23,5 @@ gcc ./libft/ft_strlen.c ft_printf.c ft_write_char.c get_value.c ft_printf.h libf
 // #include "./ft_write_pointer.c"
 // #include "./make_string.c"
 // #include "./calc_hex.c"
+#include "./libft/ft_strdup.c"
+

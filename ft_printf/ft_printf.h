@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:12:29 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/29 11:44:55 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/01 14:03:20 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct	t_format
 	char	*format_num;
 	char	*min_field;
 	int		min;
-	char	accuracion;
 	int		ac;
 	char	format_char;
 }				s_format;
@@ -31,7 +30,7 @@ typedef struct	t_format
 int			ft_printf(const char *format, ...);
 int			judge_format(char c);
 void		write_target(va_list ap, s_format x);
-s_format	deal_format(const char *target, int *i, va_list ap);
+s_format	deal_format(const char *target,int *i, va_list ap);
 void		get_min_field(s_format *x);
 void		write_blank(int num);
 void		write_zero(int num);
