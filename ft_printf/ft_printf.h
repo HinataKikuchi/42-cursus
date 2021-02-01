@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:12:29 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/01 14:03:20 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/01 18:12:09 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 
 typedef struct	t_format
 {
-	char	*flagment;
-	char	*format_num;
-	char	*min_field;
-	int		min;
-	int		ac;
-	char	format_char;
+	char			*flagment;
+	char			*format_num;
+	char			*min_field;
+	int				min;
+	long long int	ac;
+	char			format_char;
 }				s_format;
 
 int			ft_printf(const char *format, ...);

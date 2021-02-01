@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 12:14:17 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/29 12:14:36 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/01 18:13:54 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,8 @@ void	main_digit(void)
 	printf("printf(\"[%%-020.11d]\",d)\n");
 	printf("[%-020.11d]\n",d);
 	ft_printf("[%-020.11d]\n",d);
+	printf("[%.30d]",-1);
+	ft_printf("");
 
 	unsigned int u = 4294967295;
 	ft_printf("[%d]\n",u);
