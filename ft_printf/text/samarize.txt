@@ -99,8 +99,8 @@ o	main_pointer
 X
 
 #null表示対応
-%s　はおｋ
-%p  △精度が0のときの対応
+%s	OK
+%p	OK
 
 #%dの.0または.のみの対応
 #%u``
