@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:36:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/01 00:53:15 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:52:21 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,14 @@ char	*make_pstring(char *d_s, s_format x)
 	size_t	zero_len;
 	size_t	d_s_len;
 
-	buf = malloc(sizeof(char) * x.ac + 2);
+	buf = calloc((x.ac + 2),sizeof(char));
 	if (!buf)
 		return (NULL);
 	d_s_len = ft_strlen(d_s);
 	zero_len = (size_t)x.ac - d_s_len;
-	buf[0] = '0';
-	buf[1] = 'x';
-	fill_zero(&buf[2], zero_len);
+	fill_zero(buf, zero_len);
 	ft_strlcpy(&buf[zero_len], d_s, d_s_len + 1);
-	buf[x.ac] = '\0';
+	buf[zero_len + d_s_len + 1] = '\0';
 	free(d_s);
 	return (buf);
 }
