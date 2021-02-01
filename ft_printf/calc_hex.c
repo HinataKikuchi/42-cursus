@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 19:36:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/29 11:45:21 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/01 00:37:49 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ char	*calc_pointer(unsigned long long p)
 
 	hex_char = "0123456789abcdef";
 	p_size = count_hex(p);
-	res = malloc(sizeof(char) * (p_size+1));
-	res[p_size+2] = '\0';
+	res = calloc((p_size+1), sizeof(char));
+	res[p_size+1] = '\0';
 	while (p)
 	{
 		p_size--;

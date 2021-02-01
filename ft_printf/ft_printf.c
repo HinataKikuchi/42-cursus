@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/29 16:06:51 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/31 17:49:20 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 // #include "get_value.c"
 // #include "ft_write_char.c"
 // #include "ft_write_string.c"
-
 
 /*
 ** int		ft_printf(const char *format, ...)

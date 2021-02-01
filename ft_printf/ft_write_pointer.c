@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 19:08:33 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/29 16:17:03 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/31 19:33:43 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ void	write_pointer(va_list ap, s_format x)
 	}
 	p_s = make_pointer_string(p_s);
 	if (ft_strlen(p_s) < (size_t)x.min)
+	{
 		write_with_min(p_s, x);
+		p_s = NULL;
+	}
 	else
 		write(1, p_s, ft_strlen(p_s));
 	free(p_s);

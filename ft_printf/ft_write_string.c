@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:24:24 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/29 16:40:46 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/31 18:45:14 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void		write_string(va_list ap, s_format x)
 	char	*s;
 
 	s = va_arg(ap, char*);
+	if (!s)
+		s = "(null)";
 	get_min_field(&x);
 	if ((size_t)x.ac < ft_strlen(s) && x.ac)
 		write_string_with_ac(s, x);

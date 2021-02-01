@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 12:17:36 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/29 19:36:27 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/01/31 19:14:16 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,4 +130,7 @@ void	main_pointer(void)
 	printf("printf(\"[%%30p]\",q)\n");
 	printf("[%30p]\n",q);
 	ft_printf("[%30p]\n",q);
+	printf("\n\n__NULL_TEST__\n");
+	printf("[%p]\n",NULL);
+	ft_printf("[%p]\n",NULL);
 }

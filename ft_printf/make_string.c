@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:36:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/29 16:04:21 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/01 00:53:15 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ char	*make_pointer_string(char *d_s)
 	size_t	d_s_len;
 
 	d_s_len = ft_strlen(d_s);
+	if (!d_s_len)
+		return (ft_strdup("0x0"));
 	buf = malloc(sizeof(char) * (d_s_len + 3));
 	buf[0] = '0';
 	buf[1] = 'x';
