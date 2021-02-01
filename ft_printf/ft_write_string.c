@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:24:24 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/01 15:29:39 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/01 15:32:22 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		write_string(va_list ap, s_format x)
 	s = va_arg(ap, char*);
 	s = (!s) ? ft_strdup("(null)") : ft_strdup(s);
 	get_min_field(&x);
-	if (!x.ac && !x.min)
+	if (!x.ac && !x.min && ft_strchr(x.format_num,'.'))
 	{
 		free(s);
 		return ;
