@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 19:48:44 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/02 17:07:18 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/02 18:14:09 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,24 @@ void		get_min_field(va_list ap, s_format *x)
 		get_min_and_ac(ap, x);
 	else
 		get_min(ap, x);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	unsigned int	i;
+	unsigned char	*s1_t;
+	unsigned char	*s2_t;
+
+	i = 0;
+	s1_t = (unsigned char*)s1;
+	s2_t = (unsigned char*)s2;
+	while (*s1_t != '\0' || *s2_t != '\0')
+	{
+		if (*s1_t != *s2_t)
+			return (*s1_t - *s2_t);
+		s1_t++;
+		s2_t++;
+		i++;
+	}
+	return (0);
 }

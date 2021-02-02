@@ -6,31 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:24:57 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/02 18:12:43 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/02 18:14:45 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static int	ft_strcmp(const char *s1, const char *s2)
-{
-	unsigned int	i;
-	unsigned char	*s1_t;
-	unsigned char	*s2_t;
-
-	i = 0;
-	s1_t = (unsigned char*)s1;
-	s2_t = (unsigned char*)s2;
-	while (*s1_t != '\0' || *s2_t != '\0')
-	{
-		if (*s1_t != *s2_t)
-			return (*s1_t - *s2_t);
-		s1_t++;
-		s2_t++;
-		i++;
-	}
-	return (0);
-}
 
 void	write_large_hex(va_list ap, s_format x)
 {
