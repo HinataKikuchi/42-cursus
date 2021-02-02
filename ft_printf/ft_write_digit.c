@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:25:05 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/02 17:33:22 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/02 18:12:34 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static int	ft_strcmp(const char *s1, const char *s2)
 	}
 	return (0);
 }
-
 
 void	write_digit(va_list ap, s_format x)
 {
