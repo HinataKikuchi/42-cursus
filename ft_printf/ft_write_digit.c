@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:25:05 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/02 17:09:34 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/02 17:33:22 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	write_digit(va_list ap, s_format x)
 	d_s = ft_itoa(d);
 	if (ft_strlen(d_s) < (size_t)x.ac)
 	{
-		d_s = make_string(d_s, x);
+		d_s = make_dstring(d_s, x, d);
 		if (!d_s)
 			return ;
 	}

@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:12:29 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/02 17:04:14 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/02 17:32:59 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void		write_pointer(va_list ap, s_format x);
 void		free_struct(s_format x);
 char		*calc_pointer(unsigned long long p);
 char		*make_pstring(char *d_s, s_format x);
+char		*make_dstring(char *d_s, s_format x, int d);
 char		*make_pointer_string(char *d_s);
 
 
