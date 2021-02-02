@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 00:03:26 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/29 16:02:09 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/02 15:47:52 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	write_small_hex(va_list ap, s_format x)
 
 	h = va_arg(ap, unsigned int);
 	h_s = ft_small_hex(h);
-	get_min_field(&x);
+	get_min_field(ap,&x);
 	if (ft_strlen(h_s) < (size_t)x.ac)
 	{
 		h_s = make_string(h_s, x);

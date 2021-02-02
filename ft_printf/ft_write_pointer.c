@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 19:08:33 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/31 19:33:43 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/02 15:47:48 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	write_pointer(va_list ap, s_format x)
 
 	p = va_arg(ap, void*);
 	p_s = calc_pointer((unsigned long long)p);
-	get_min_field(&x);
+	get_min_field(ap,&x);
 	if (ft_strlen(p_s) < (size_t)x.ac)
 	{
 		p_s = make_pstring(p_s, x);

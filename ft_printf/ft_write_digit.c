@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:25:05 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/01 15:56:11 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/02 15:47:41 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	write_digit(va_list ap, s_format x)
 	int		d;
 	char	*d_s;
 
-	get_min_field(&x);
+	get_min_field(ap,&x);
 	if (!x.min && !x.ac && ft_strchr(x.format_num, '.'))
 		return ;
 	d = va_arg(ap, int);

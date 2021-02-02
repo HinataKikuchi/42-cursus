@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/01 19:18:43 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/02 15:26:32 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,13 @@ s_format	deal_format(const char *format, int *i, va_list ap)
 	{
 		if (format[*i + j] == '-' || (format[*i + j] == '0'))
 			x.flagment[j] = format[*i + j];
-		else if (format[*i + j] == '*')
-		{
-			if (format[*i + j + 1] == '.')
-				x.min = va_arg(ap, int);
-			else
-				x.ac = va_arg(ap, int);
-		}
+		// else if (format[*i + j] == '*')
+		// {
+		// 	if (format[*i + j + 1] == '.')
+		// 		x.min = va_arg(ap, int);
+		// 	else
+		// 		x.ac = va_arg(ap, int);
+		// }
 		j++;
 	}
 	x.flagment[j + 1] = '\0';

@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:12:29 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/01 18:12:09 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/02 15:34:12 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			ft_printf(const char *format, ...);
 int			judge_format(char c);
 void		write_target(va_list ap, s_format x);
 s_format	deal_format(const char *target,int *i, va_list ap);
-void		get_min_field(s_format *x);
+void		get_min_field(va_list ap,s_format *x);
 void		write_blank(int num);
 void		write_zero(int num);
 char		*ft_small_hex(unsigned int h);
