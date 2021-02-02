@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/02 17:04:15 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/02 17:05:24 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int			ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			x = deal_format(format, &i, ap);
+			x = deal_format(format, &i);
 			write_target(ap, x);
 		}
 		write(1, &format[i], 1);
