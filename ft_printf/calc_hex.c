@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 19:36:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/03 14:27:46 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/03 14:35:50 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,14 @@ char			*ft_small_hex(unsigned int h)
 	hex_char = "0123456789abcdef";
 	h_size = count_hex(h);
 	res = malloc(sizeof(char) * h_size);
+	if (!res)
+		return (NULL);
 	res[h_size] = '\0';
 	if (!h_size)
+	{
+		free(res);
 		res = ft_strdup("0");
+	}
 	--h_size;
 	while (h)
 	{
@@ -56,9 +61,14 @@ char			*ft_large_hex(unsigned int h)
 	hex_char = "0123456789ABCDEF";
 	h_size = count_hex(h);
 	res = malloc(sizeof(char) * h_size);
+	if (!res)
+		return (NULL);
 	res[h_size] = '\0';
 	if (!h_size)
+	{
+		free(res);
 		res = ft_strdup("0");
+	}
 	--h_size;
 	while (h)
 	{
