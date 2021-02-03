@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 17:00:43 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/03 18:21:35 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/03 18:24:49 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	write_zero(int num)
 	}
 }
 
-static write_negative_with_zero(char *d_s, s_format x)
+static void write_negative_with_zero(char *d_s, s_format x)
 {
 	write(1, "-", 1);
 	write_zero(x.min - ft_strlen(d_s));
