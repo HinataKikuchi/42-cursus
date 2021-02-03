@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/03 15:04:45 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/03 17:44:29 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void		write_target(va_list ap, s_format x)
 		write_small_hex(ap, x);
 	else if (x.format_char == 'X')
 		write_large_hex(ap, x);
+	else if (x.format_char == '%')
+		write_character(ap, x);
 }
 
 /*
@@ -103,6 +105,7 @@ int			judge_format(char c)
 		return (0);
 	else if (c == '%')
 	{
+		return (0);
 	}
 	return (1);
 }

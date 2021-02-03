@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:24:21 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/02 15:47:36 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/03 17:45:08 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void		write_character(va_list ap, s_format x)
 	int		min_field;
 
 	c = ' ';
-	c = va_arg(ap, int);
+	if (x.format_char != '%')
+		c = va_arg(ap, int);
 	get_min_field(ap,&x);
 	min_field = x.min;
 	if (ft_strchr(x.flagment, '-'))
