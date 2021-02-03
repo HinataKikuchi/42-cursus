@@ -27,6 +27,10 @@
 
 int main(void)
 {
-	printf("p36 %.0u\n", 0);
-	ft_printf("p36 %.0u\n", 0);
+	printf("%%\n");
+	printf("Hello 42 school! %s\n", NULL);
+	printf("%010%\n");
+	ft_printf("%%\n");
+	ft_printf("Hello 42 school! %s\n", NULL);
+	ft_printf("%010%\n");
 }
