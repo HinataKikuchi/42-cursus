@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 19:48:44 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/02 18:14:09 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/03 15:43:05 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	get_min_and_ac(va_list ap, s_format *x)
 	while (x->format_num[j] != '.')
 		j++;
 	buf = ft_substr(x->format_num, 0, j);
-	if (x->format_num[j] == '*')
+	if (ft_strchr(buf,'*'))
 		x->min = va_arg(ap, int);
 	else
 		x->min = ft_atoi(buf);
@@ -31,7 +31,7 @@ static void	get_min_and_ac(va_list ap, s_format *x)
 	while (x->format_num[i] != '\0')
 		i++;
 	buf = ft_substr(x->format_num, j + 1, i - j);
-		if (x->format_num[j + 1] == '*')
+		if (ft_strchr(buf, '*'))
 		x->ac = va_arg(ap, int);
 	else
 		x->ac = ft_atoi(buf);

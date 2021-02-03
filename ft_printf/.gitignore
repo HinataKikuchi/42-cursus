@@ -3,3 +3,4 @@
 *.Identifier
 *.workspace
 a.out
+printf-tester

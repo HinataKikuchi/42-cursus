@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/02 17:05:24 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/03 15:04:45 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,11 @@ int			ft_printf(const char *format, ...)
 		write(1, &format[i], 1);
 		i++;
 	}
-	free(x.flagment);
-	free(x.format_num);
+	if (ft_strchr(format,'%'))
+	{
+		free(x.flagment);
+		free(x.format_num);
+	}
 	return (i);
 }
 
