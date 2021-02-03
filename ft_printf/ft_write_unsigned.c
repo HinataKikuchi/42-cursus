@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 00:02:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/02 15:48:00 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/03 17:37:55 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,11 @@ void	write_unsigned(va_list ap, s_format x)
 	unsigned int	ud;
 	char			*ud_s;
 
-	ud = va_arg(ap, unsigned int);
-	ud_s = ft_unsigned_itoa(ud);
 	get_min_field(ap,&x);
+	if (ft_strcmp(x.format_num,"0.0") == 0 || \
+	((ud = va_arg(ap, unsigned int)) == 0 && !x.min && !x.ac && ft_strchr(x.format_num,'.')))
+		return ;
+	ud_s = ft_unsigned_itoa(ud);
 	if (ft_strlen(ud_s) < (size_t)x.ac)
 	{
 		ud_s = make_string(ud_s, x);

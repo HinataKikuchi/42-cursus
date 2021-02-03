@@ -27,6 +27,6 @@
 
 int main(void)
 {
-	printf("pp [%.50d]\n", 10000);
-	ft_printf("pp [%.50d]\n", 10000);
+	printf("p36 %.0u\n", 0);
+	ft_printf("p36 %.0u\n", 0);
 }
