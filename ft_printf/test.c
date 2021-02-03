@@ -27,6 +27,6 @@
 
 int main(void)
 {
-	printf("ret = %d\n", ft_printf("%%p::[%010d]\n", -8473));
-	ft_printf("ret = %d\n", ft_printf("%%p::[%010d]\n", -8473));
+    printf("ret = %d\n", ft_printf("%%p::[%0100.50d]\n", -8473));
+    ft_printf("ret = %d\n", ft_printf("%%p::[%0100.50d]\n", -8473));
 }
