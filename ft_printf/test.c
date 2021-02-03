@@ -27,10 +27,6 @@
 
 int main(void)
 {
-	printf("%%\n");
-	printf("Hello 42 school! %s\n", NULL);
-	printf("%010%\n");
-	ft_printf("%%\n");
-	ft_printf("Hello 42 school! %s\n", NULL);
-	ft_printf("%010%\n");
+	printf("%.5d\n", -2372);
+	ft_printf("%.5d\n", -2372);
 }
