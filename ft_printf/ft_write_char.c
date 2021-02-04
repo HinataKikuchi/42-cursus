@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:24:21 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/04 15:00:04 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/04 15:04:54 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void		write_character(va_list ap, t_format *x)
 		write(1, &c, 1);
 		write_blank(min_field - 1);
 		x->word_count = (!min_field) ? 1 : min_field;
+		if (!c)
+			x->word_count -= 1;
 		return ;
 	}
 	else if (ft_strchr(x->flagment, '0'))
@@ -34,8 +36,7 @@ void		write_character(va_list ap, t_format *x)
 	else
 		write_blank(min_field -1);
 	write(1, &c, 1);
-	if (min_field)
-		x->word_count = min_field;
-	else
-		x->word_count = 1;
+	x->word_count = (min_field) ? min_field : 1 ;
+	if (!c)
+		x->word_count -= 1;
 }
