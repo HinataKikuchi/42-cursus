@@ -27,9 +27,13 @@
 
 int main(void)
 {
-printf("Hello 42 school! %s", NULL);
-ft_printf("Hello 42 school! %s", NULL);
-
+int a = printf("Hello 42 school! %s", NULL);
+printf("\n");
+int b = ft_printf("Hello 42 school! %s", NULL);
+printf("\na = %d, b =%d\n",a,b);
+a=printf("[%5.0s]\n", "Hello");
+b=ft_printf("[%5.0s]\n", "Hello");
+printf("a = %d, b =%d\n",a,b);
 	// int  ret;
 	// int ft_ret;
 	// ret = printf("a %.2147483644d\n", 10);
