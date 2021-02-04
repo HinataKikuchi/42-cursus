@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/04 12:27:08 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/04 15:30:05 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int			ft_printf(const char *format, ...)
 		}
 		write(1, &format[i], 1);
 		i++;
-		j++;
+		if (i < ft_strlen(format))
+			j++;
 	}
 	if (ft_strchr(format, '%'))
 		free_struct(&x);
