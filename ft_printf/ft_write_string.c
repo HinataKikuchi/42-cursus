@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:24:24 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/04 17:49:36 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/04 17:56:59 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		write_string(va_list ap, t_format *x)
 	}
 	if ((size_t)x->ac < ft_strlen(s) && x->ac)
 		s = cut_string(s, *x);
-	else if (!x->ac)
+	else if (!x->ac && !ft_strcmp(x->format_num,".0"))
 		s = ft_strdup("\0");
 	if (ft_strlen(s) < (size_t)x->min)
 		x->word_count =  write_s_with_min(s, x);

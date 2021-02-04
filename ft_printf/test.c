@@ -27,8 +27,8 @@
 
 int main(void)
 {
-	printf("ori = [%5.0s]\n", "Hello");
-	ft_printf("ft_ = [%5.0s]\n", "Hello");
+printf("Hello 42 school! %s", NULL);
+ft_printf("Hello 42 school! %s", NULL);
 
 	// int  ret;
 	// int ft_ret;
