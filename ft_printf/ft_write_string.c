@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:24:24 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/04 12:13:06 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/04 15:24:55 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void		write_string(va_list ap, t_format *x)
 	s = (!s) ? ft_strdup("(null)") : ft_strdup(s);
 	if (!x->ac && !x->min && ft_strchr(x->format_num,'.'))
 	{
+		x->word_count = 0;
 		free(s);
 		return ;
 	}

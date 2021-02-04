@@ -83,7 +83,7 @@ printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
 printf("case : [\"%%-1c\",'\\0']\n");
 ori_ret=printf("[%-1c]",'\0');
 printf("\n");
-ft__ret=ft_printf("[%-1c]",'\0');
+ft__ret=ft_printf("[%-10c]",'\0');
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
 
 return (0);
