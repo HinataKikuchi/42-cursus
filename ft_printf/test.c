@@ -27,6 +27,14 @@
 
 int main(void)
 {
-    printf("ret = %d\n", ft_printf("%%p::[%0100.50d]\n", -8473));
-    ft_printf("ret = %d\n", ft_printf("%%p::[%0100.50d]\n", -8473));
+	printf("ori = [%5.0s]\n", "Hello");
+	ft_printf("ft_ = [%5.0s]\n", "Hello");
+
+	// int  ret;
+	// int ft_ret;
+	// ret = printf("a %.2147483644d\n", 10);
+	// printf("\nret: %d\n", ret);
+	// ft_ret = ft_printf("a %.2147483644d\n", 10);
+	// printf("\nret: %d\n", ft_ret);
+
 }
