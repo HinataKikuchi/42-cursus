@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:36:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/03 18:08:58 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/04 11:39:13 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	fill_zero(void *s, size_t n)
 	}
 }
 
-char	*make_string(char *d_s, s_format x)
+char	*make_string(char *d_s, t_format x)
 {
 	char	*buf;
 	size_t	zero_len;
@@ -42,7 +42,7 @@ char	*make_string(char *d_s, s_format x)
 	return (buf);
 }
 
-char	*make_dstring(char *d_s, s_format x, int d)
+char	*make_dstring(char *d_s, t_format x, int d)
 {
 	char	*buf;
 	size_t	zero_len;
@@ -68,7 +68,7 @@ char	*make_dstring(char *d_s, s_format x, int d)
 		return make_string(d_s, x);
 }
 
-char	*make_pstring(char *d_s, s_format x)
+char	*make_pstring(char *d_s, t_format x)
 {
 	char	*buf;
 	size_t	zero_len;

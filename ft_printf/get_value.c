@@ -6,13 +6,13 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 19:48:44 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/03 15:43:05 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/04 11:39:05 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	get_min_and_ac(va_list ap, s_format *x)
+static void	get_min_and_ac(va_list ap, t_format *x)
 {
 	int		j;
 	int		i;
@@ -38,7 +38,7 @@ static void	get_min_and_ac(va_list ap, s_format *x)
 	free(buf);
 }
 
-static void	get_min(va_list ap, s_format *x)
+static void	get_min(va_list ap, t_format *x)
 {
 	int		i;
 	char	*buf;
@@ -55,7 +55,7 @@ static void	get_min(va_list ap, s_format *x)
 	free(buf);
 }
 
-void		get_min_field(va_list ap, s_format *x)
+void		get_min_field(va_list ap, t_format *x)
 {
 	if (ft_strchr(x->format_num, '.'))
 		get_min_and_ac(ap, x);

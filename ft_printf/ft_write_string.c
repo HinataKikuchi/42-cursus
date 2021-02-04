@@ -6,13 +6,13 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:24:24 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/02 16:21:14 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/04 12:13:06 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	*cut_string(char *s, s_format x)
+static char	*cut_string(char *s, t_format x)
 {
 	char *res;
 
@@ -23,38 +23,42 @@ static char	*cut_string(char *s, s_format x)
 	return (res);
 }
 
-static void	write_s_with_min(char *s, s_format x)
+static int	write_s_with_min(char *s, t_format *x)
 {
-	if (ft_strchr(x.flagment, '-'))
+	if (ft_strchr(x->flagment, '-'))
 	{
 		write(1, s, ft_strlen(s));
-		write_blank(x.min - (int)ft_strlen(s));
-		return ;
+		write_blank(x->min - (int)ft_strlen(s));
+		return (x->min);
 	}
-	else if (ft_strchr(x.flagment, '0'))
-		write_zero(x.min - (int)ft_strlen(s));
+	else if (ft_strchr(x->flagment, '0'))
+		write_zero(x->min - (int)ft_strlen(s));
 	else
-		write_blank(x.min - (int)ft_strlen(s));
+		write_blank(x->min - (int)ft_strlen(s));
 	write(1, s, ft_strlen(s));
+	return (x->min);
 }
 
-void		write_string(va_list ap, s_format x)
+void		write_string(va_list ap, t_format *x)
 {
 	char	*s;
 
-	get_min_field(ap, &x);
+	get_min_field(ap, x);
 	s = va_arg(ap, char*);
 	s = (!s) ? ft_strdup("(null)") : ft_strdup(s);
-	if (!x.ac && !x.min && ft_strchr(x.format_num,'.'))
+	if (!x->ac && !x->min && ft_strchr(x->format_num,'.'))
 	{
 		free(s);
 		return ;
 	}
-	if ((size_t)x.ac < ft_strlen(s) && x.ac)
-		s = cut_string(s, x);
-	if (ft_strlen(s) < (size_t)x.min)
-		write_s_with_min(s, x);
+	if ((size_t)x->ac < ft_strlen(s) && x->ac)
+		s = cut_string(s, *x);
+	if (ft_strlen(s) < (size_t)x->min)
+		x->word_count =  write_s_with_min(s, x);
 	else
+	{
 		write(1, s, ft_strlen(s));
+		x->word_count = ft_strlen(s);
+	}
 	free(s);
 }

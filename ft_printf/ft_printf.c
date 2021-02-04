@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/03 19:03:12 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/04 12:27:08 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,61 +17,69 @@
 ** write characters till '%' appears
 */
 
+static void		free_struct(t_format *x)
+{
+	free(x->flagment);
+	free(x->format_num);
+}
+
 int			ft_printf(const char *format, ...)
 {
-	va_list		ap;
 	int			i;
-	s_format	x;
+	int			j;
+	va_list		ap;
+	t_format	x;
 
 	i = 0;
+	j = 0;
+	x.word_count = 0;
 	va_start(ap, format);
 	while (format[i] != '\0' && (size_t)i <= ft_strlen(format))
 	{
 		if (format[i] == '%')
 		{
 			x = deal_format(format, &i);
-			write_target(ap, x);
+			write_target(ap, &x);
+			j+=x.word_count;
 		}
 		write(1, &format[i], 1);
 		i++;
+		j++;
 	}
-	if (ft_strchr(format,'%'))
-	{
-		free(x.flagment);
-		free(x.format_num);
-	}
-	return (i);
+	if (ft_strchr(format, '%'))
+		free_struct(&x);
+	return (j);
 }
 
-void		write_target(va_list ap, s_format x)
+void		write_target(va_list ap, t_format *x)
 {
-	if (x.format_char == 'c')
+	if (x->format_char == 'c')
 		write_character(ap, x);
-	else if (x.format_char == 's')
+	else if (x->format_char == 's')
 		write_string(ap, x);
-	else if (x.format_char == 'p')
+	else if (x->format_char == 'p')
 		write_pointer(ap, x);
-	else if (x.format_char == 'd' || x.format_char == 'i')
+	else if (x->format_char == 'd' || x->format_char == 'i')
 		write_digit(ap, x);
-	else if (x.format_char == 'u')
+	else if (x->format_char == 'u')
 		write_unsigned(ap, x);
-	else if (x.format_char == 'x')
+	else if (x->format_char == 'x')
 		write_small_hex(ap, x);
-	else if (x.format_char == 'X')
+	else if (x->format_char == 'X')
 		write_large_hex(ap, x);
-	else if (x.format_char == '%')
+	else if (x->format_char == '%')
 		write_character(ap, x);
 }
 
 /*
 **void deal_format(const char *format, va_list ap, int i)
-** save the formats to s_format
+** save the formats to t_format
 */
 
-s_format	deal_format(const char *format, int *i)
+t_format	deal_format(const char *format, int *i)
 {
 	int			j;
-	s_format	x;
+	t_format	x;
 
 	j = 0;
 	*i += 1;
@@ -104,8 +112,6 @@ int			judge_format(char c)
 	else if (c == 'x' || c == 'X')
 		return (0);
 	else if (c == '%')
-	{
 		return (0);
-	}
 	return (1);
 }
