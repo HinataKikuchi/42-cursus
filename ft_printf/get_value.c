@@ -6,11 +6,12 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 19:48:44 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/04 18:15:01 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/04 19:00:03 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
 
 static void	get_min_and_ac(va_list ap, t_format *x)
 {
@@ -26,15 +27,17 @@ static void	get_min_and_ac(va_list ap, t_format *x)
 		x->min = va_arg(ap, int);
 	else
 		x->min = ft_atoi(buf);
+	x->flagment = (x->min < 0) ? ft_strdup("-") : x->flagment;
 	i = j;
 	free(buf);
 	while (x->format_num[i] != '\0')
 		i++;
 	buf = ft_substr(x->format_num, j + 1, i - j);
-		if (ft_strchr(buf, '*'))
+	if (ft_strchr(buf, '*'))
 		x->ac = va_arg(ap, int);
 	else
 		x->ac = ft_atoi(buf);
+	x->min = (x->min < 0) ? (x->min *(-1)): x->min;
 	free(buf);
 }
 
@@ -52,6 +55,8 @@ static void	get_min(va_list ap, t_format *x)
 	else
 		x->min = ft_atoi(buf);
 	x->ac = 0;
+	x->flagment = (x->min < 0) ? ft_strdup("-") : x->flagment;
+	x->min = (x->min < 0) ? (x->min *(-1)): x->min;
 	free(buf);
 }
 

@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:12:29 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/04 12:37:32 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/04 18:33:23 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ typedef struct	s_format
 {
 	char			*flagment;
 	char			*format_num;
-	int				word_count;
-	int				min;
+	int	word_count;
+	int	min;
 	long long int	ac;
 	char			format_char;
 }				t_format;
@@ -36,7 +36,7 @@ void		write_blank(int num);
 void		write_zero(int num);
 char		*ft_small_hex(unsigned int h);
 char		*ft_large_hex(unsigned int h);
-
+int			ft_strcmp(const char *s1, const char *s2);
 
 char		*make_string(char *d_s, t_format x);
 char		*calc_pointer(unsigned long long p);
