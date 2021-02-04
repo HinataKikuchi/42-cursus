@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/04 17:51:53 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/04 19:27:37 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int			ft_printf(const char *format, ...)
 	}
 	if (ft_strchr(format, '%'))
 		free_struct(&x);
+	va_end(ap);
 	return (j);
 }
 

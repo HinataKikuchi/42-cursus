@@ -27,14 +27,8 @@
 
 int main(void)
 {
-	// printf("%d\n\n", printf("8chiffre 1 %*d chiffre 2 %*d\n\n", 42, 6, 6, 6));
-	// printf("%d\n\n", ft_printf("8chiffre 1 %*d chiffre 2 %*d\n\n", 42, 6, 6, 6));
-	// printf("%d\n\n", printf("1unsigned 1 %u unsigned 2 %u\n\n", 42, -42));
-	// printf("%d\n\n", ft_printf("1unsigned 1 %u unsigned 2 %u\n\n", 42, -42));
-	printf("neg1 [%*s]\n", -9, "coucou");
-	printf("neg2 [%*.*s]\n", -9, 4, "coucou");
-	printf("neg3 [%*s]\n", -9, NULL);
-	ft_printf("neg1 [%*s]\n", -9, "coucou");
-	ft_printf("neg2 [%*.*s]\n", -9, 4, "coucou");
-	ft_printf("neg3 [%*s]\n", -9, NULL);
+	// int ori = printf("***************%*s%*d**************%*u*************", 10, "coucou", 10, 10, -50, 20);
+	// printf("\nori = %d\n",ori);
+	// int ft = ft_printf("***************%*s%*d**************%*u*************", 10, "coucou", 10, 10, -50, 20);
+	// printf("\nft = %d\n",ft);
 }
