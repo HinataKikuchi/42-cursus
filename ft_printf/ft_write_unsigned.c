@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 00:02:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/04 11:38:59 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/04 18:22:58 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,10 @@ void	write_unsigned(va_list ap, t_format *x)
 	get_min_field(ap,x);
 	if (ft_strcmp(x->format_num,"0.0") == 0 || \
 	((ud = va_arg(ap, unsigned int)) == 0 && !x->min && !x->ac && ft_strchr(x->format_num,'.')))
+	{
+		x->word_count = 0;
 		return ;
+	}
 	ud_s = ft_unsigned_itoa(ud);
 	if (ft_strlen(ud_s) < (size_t)x->ac)
 	{
@@ -75,8 +78,8 @@ void	write_unsigned(va_list ap, t_format *x)
 			return ;
 	}
 	if (ft_strlen(ud_s) < (size_t)x->min)
-		write_with_min(ud_s, *x);
+		x->word_count = write_with_min(ud_s, *x);
 	else
-		write(1, ud_s, ft_strlen(ud_s));
+		x->word_count = write(1, ud_s, ft_strlen(ud_s));
 	free(ud_s);
 }
