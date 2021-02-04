@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/04 15:43:13 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/04 17:51:53 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int			ft_printf(const char *format, ...)
 			j+=x.word_count;
 		}
 		write(1, &format[i], 1);
-		if (i < ft_strlen(format))
+		if ((size_t)i < ft_strlen(format))
 			j++;
 		i++;
 	}
