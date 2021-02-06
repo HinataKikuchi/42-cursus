@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:25:05 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/04 17:23:52 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/05 08:37:42 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	write_digit(va_list ap, t_format *x)
 		x->word_count = 0;
 		return ;
 	}
-	d_s = ft_itoa(d);
+	d_s = (!x->ac && ft_strchr(x->format_num, '.') && !d) ? ft_strdup("\0") : ft_itoa(d);
 	ds_len = ft_strlen(d_s);
 	if (((d >= 0) && ds_len < (size_t)x->ac) || ((d < 0) && ds_len - 1 < (size_t)x->ac))
 	{
@@ -38,5 +38,6 @@ void	write_digit(va_list ap, t_format *x)
 		x->word_count = write_with_min(d_s, *x);
 	else
 		x->word_count = write(1, d_s, ds_len);
-	free(d_s);
+	if (x->ac || !ft_strchr(x->format_num, '.') || d)
+		free(d_s);
 }

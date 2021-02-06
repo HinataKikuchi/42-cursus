@@ -1,6 +1,6 @@
 NAME	=	libftprintf.a
 CC		=	clang
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address
 LIBFT_DIR = libft
 SRCS	=	ft_printf.c\
 			get_value.c\

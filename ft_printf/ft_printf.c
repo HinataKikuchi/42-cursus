@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/04 19:27:37 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/06 23:01:19 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,42 +16,6 @@
 ** int		ft_printf(const char *format, ...)
 ** write characters till '%' appears
 */
-
-static void		free_struct(t_format *x)
-{
-	free(x->flagment);
-	free(x->format_num);
-}
-
-int			ft_printf(const char *format, ...)
-{
-	int			i;
-	int			j;
-	va_list		ap;
-	t_format	x;
-
-	i = 0;
-	j = 0;
-	x.word_count = 0;
-	va_start(ap, format);
-	while (format[i] != '\0' && (size_t)i <= ft_strlen(format))
-	{
-		if (format[i] == '%')
-		{
-			x = deal_format(format, &i);
-			write_target(ap, &x);
-			j+=x.word_count;
-		}
-		write(1, &format[i], 1);
-		if ((size_t)i < ft_strlen(format))
-			j++;
-		i++;
-	}
-	if (ft_strchr(format, '%'))
-		free_struct(&x);
-	va_end(ap);
-	return (j);
-}
 
 void		write_target(va_list ap, t_format *x)
 {
@@ -72,6 +36,51 @@ void		write_target(va_list ap, t_format *x)
 	else if (x->format_char == '%')
 		write_character(ap, x);
 }
+static void		free_struct(t_format *x)
+{
+	free(x->flagment);
+	free(x->format_num);
+}
+
+/*
+** int		ft_printf(const char *format, ...)
+** write characters till '%' appears
+*/
+
+int			ft_printf(const char *format, ...)
+{
+	int			i;
+	int			j;
+	va_list		ap;
+	t_format	x;
+
+	i = 0;
+	j = 0;
+	x.word_count = 0;
+	va_start(ap, format);
+	while (format[i] != '\0' && (size_t)i <= ft_strlen(format))
+	{
+		if (format[i] == '%')
+		{
+			x = deal_format(format, &i);
+			write_target(ap, &x);
+			j+=x.word_count;
+		}
+		else
+		{
+			write(1, &format[i], 1);
+			if ((size_t)i < ft_strlen(format))
+				j++;
+			i++;
+		}
+	}
+	if (ft_strchr(format, '%'))
+		free_struct(&x);
+	va_end(ap);
+	return (j);
+
+}
+
 
 /*
 **void deal_format(const char *format, va_list ap, int i)
@@ -85,7 +94,8 @@ t_format	deal_format(const char *format, int *i)
 
 	j = 0;
 	*i += 1;
-	x.flagment = ft_calloc(3, sizeof(char));
+
+	x.flagment = ft_calloc(10, sizeof(char));
 	while (judge_format(format[*i + j]))
 	{
 		if (format[*i + j] == '-' || (format[*i + j] == '0'))

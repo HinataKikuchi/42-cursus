@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 19:48:44 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/04 19:00:03 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/05 12:00:37 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static void	get_min_and_ac(va_list ap, t_format *x)
 	else
 		x->ac = ft_atoi(buf);
 	x->min = (x->min < 0) ? (x->min *(-1)): x->min;
+	x->ac = (x->ac < 0) ? 0 : x->ac;
 	free(buf);
 }
 
