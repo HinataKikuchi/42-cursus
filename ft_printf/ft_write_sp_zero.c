@@ -6,13 +6,20 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 17:00:43 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/04 14:09:28 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/07 19:16:27 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	write_blank(int num)
+void	safe_free(void *ptr)
+{
+	free(ptr);
+	ptr = NULL;
+}
+
+
+int		write_blank(int num)
 {
 	int		i;
 
@@ -22,9 +29,13 @@ void	write_blank(int num)
 		write(1, " ", 1);
 		i++;
 	}
+	if (num > 0)
+		return (num);
+	else
+		return (0);
 }
 
-void	write_zero(int num)
+int		write_zero(int num)
 {
 	int		i;
 
@@ -34,6 +45,10 @@ void	write_zero(int num)
 		write(1, "0", 1);
 		i++;
 	}
+	if (num > 0)
+		return (num);
+	else
+		return (0);
 }
 
 static void write_negative_with_zero(char *d_s, t_format x)

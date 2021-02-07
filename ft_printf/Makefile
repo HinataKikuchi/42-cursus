@@ -14,7 +14,8 @@ SRCS	=	ft_printf.c\
 			ft_write_large_hex.c\
 			ft_write_sp_zero.c\
 			ft_write_pointer.c\
-			make_string.c
+			make_string.c\
+			format_deal.c
 OBJS	= ${SRCS:.c=.o}
 LIBFT = ${LIBFT_DIR}/libft.a
 

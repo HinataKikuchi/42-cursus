@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/06 23:01:19 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/07 19:24:25 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,6 @@ void		write_target(va_list ap, t_format *x)
 	else if (x->format_char == '%')
 		write_character(ap, x);
 }
-static void		free_struct(t_format *x)
-{
-	free(x->flagment);
-	free(x->format_num);
-}
 
 /*
 ** int		ft_printf(const char *format, ...)
@@ -62,7 +57,7 @@ int			ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			x = deal_format(format, &i);
+			x = format_deal(format, &i, ap);
 			write_target(ap, &x);
 			j+=x.word_count;
 		}
@@ -75,39 +70,9 @@ int			ft_printf(const char *format, ...)
 		}
 	}
 	if (ft_strchr(format, '%'))
-		free_struct(&x);
+	free(x.format_num);
 	va_end(ap);
 	return (j);
-
-}
-
-
-/*
-**void deal_format(const char *format, va_list ap, int i)
-** save the formats to t_format
-*/
-
-t_format	deal_format(const char *format, int *i)
-{
-	int			j;
-	t_format	x;
-
-	j = 0;
-	*i += 1;
-
-	x.flagment = ft_calloc(10, sizeof(char));
-	while (judge_format(format[*i + j]))
-	{
-		if (format[*i + j] == '-' || (format[*i + j] == '0'))
-			x.flagment[j] = format[*i + j];
-		j++;
-	}
-	x.flagment[j + 1] = '\0';
-	x.format_char = format[*i + j];
-	x.format_num = ft_substr(format, *i + \
-		ft_strlen(x.flagment), j - ft_strlen(x.flagment));
-	*i = *i + j + 1;
-	return (x);
 }
 
 /*
@@ -126,4 +91,12 @@ int			judge_format(char c)
 	else if (c == '%')
 		return (0);
 	return (1);
+}
+
+int			ft_isnum(char c)
+{
+	if ('1' <= c && c <= '9')
+		return (1);
+	else
+		return (0);
 }

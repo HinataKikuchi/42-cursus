@@ -23,7 +23,7 @@
 #include "./make_string.c"
 #include "./calc_hex.c"
 #include "./libft/ft_strdup.c"
-
+#include "./format_deal.c"
 
 int	main(void)
 {
@@ -35,56 +35,61 @@ ori_ret=printf("[%c]",'a');
 printf("\n");
 ft__ret=ft_printf("[%c]",'a');
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
+if(ori_ret != ft__ret)return(0);
 printf("case : [\"%%10c\",'a']\n");
 ori_ret=printf("[%10c]",'a');
 printf("\n");
 ft__ret=ft_printf("[%10c]",'a');
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
-printf("case : [\"%%1c\",'a']\n");
+if(ori_ret != ft__ret)return(0);printf("case : [\"%%1c\",'a']\n");
 ori_ret=printf("[%1c]",'a');
 printf("\n");
 ft__ret=ft_printf("[%1c]",'a');
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
-printf("case : [\"%%-10c\",'a']\n");
+if(ori_ret != ft__ret)return(0);printf("case : [\"%%-10c\",'a']\n");
 ori_ret=printf("[%-10c]",'a');
 printf("\n");
 ft__ret=ft_printf("[%-10c]",'a');
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
-printf("case : [\"%%-1c\",'a']\n");
+if(ori_ret != ft__ret)return(0);printf("case : [\"%%-1c\",'a']\n");
 ori_ret=printf("[%-1c]",'a');
 printf("\n");
 ft__ret=ft_printf("[%-1c]",'a');
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
-printf("case : [\"%%.c\",'a']\n");
+if(ori_ret != ft__ret)return(0);printf("case : [\"%%.c\",'a']\n");
 ori_ret=printf("[%.c]",'a');
 printf("\n");
 ft__ret=ft_printf("[%.c]",'a');
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
-printf("case : [\"%%c\",'\\0']\n");
+if(ori_ret != ft__ret)return(0);printf("case : [\"%%c\",'\\0']\n");
 ori_ret=printf("%c",'\0');
 printf("\n");
 ft__ret=ft_printf("%c",'\0');
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
+if(ori_ret != ft__ret)return(0);
 printf("case : [\"%%10c\",'\\0']\n");
 ori_ret=printf("%10c",'\0');
 printf("\n");
 ft__ret=ft_printf("%10c",'\0');
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
+if(ori_ret != ft__ret)return(0);
 printf("case : [\"%%-10c\",'\\0']\n");
 ori_ret=printf("%-10c",'\0');
 printf("\n");
 ft__ret=ft_printf("%-10c",'\0');
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
+if(ori_ret != ft__ret)return(0);
 printf("case : [\"%%1c\",'\\0']\n");
 ori_ret=printf("%1c",'\0');
 printf("\n");
 ft__ret=ft_printf("%1c",'\0');
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
+if(ori_ret != ft__ret)return(0);
 printf("case : [\"%%-1c\",'\\0']\n");
 ori_ret=printf("[%-1c]",'\0');
 printf("\n");
-ft__ret=ft_printf("[%-10c]",'\0');
+ft__ret=ft_printf("[%-1c]",'\0');
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
-
+if(ori_ret != ft__ret)return(0);
 return (0);
 }
