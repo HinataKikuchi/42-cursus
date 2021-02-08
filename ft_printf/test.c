@@ -84,6 +84,145 @@ int main(void)
 	char *s = "Hinata";
 	or = printf("[%s]\n",s);
 	ft = ft_printf("[%s]\n",s);
+
 	printf("or = %d\nft = %d\n",or, ft);
 	if (or != ft) return (0);
+	printf("\n__STRING_TEST__\n");
+	or = printf("[%%20.10s]=[%20.10s]\n",s);
+	ft = ft_printf("[%%20.10s]=[%20.10s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+	or = printf("[%%20.3s]=[%20.3s]\n",s);
+	ft = ft_printf("[%%20.3s]=[%20.3s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+	or = printf("[%%3.20s]=[%3.20s]\n",s);
+	ft = ft_printf("[%%3.20s]=[%3.20s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+	or = printf("[%%3.20s]=[%3.20s]\n",s);
+	ft = ft_printf("[%%3.20s]=[%3.20s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+	or = printf("[%%.3s]=[%.3s]\n",s);
+	ft = ft_printf("[%%.3s]=[%.3s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+	or = printf("[%%20.s]=[%20.s]\n",s);
+	ft = ft_printf("[%%20.s]=[%20.s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+	or = printf("[%%7.6s]=[%7.6s]\n",s);
+	ft = ft_printf("[%%7.6s]=[%7.6s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	or = printf("[%%20.3s]=[%20.3s]\n",s);
+	ft = ft_printf("[%%20.3s]=[%20.3s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+	or = printf("[%%3.20s]=[%3.20s]\n",s);
+	ft = ft_printf("[%%3.20s]=[%3.20s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+	or = printf("[%%.3s]=[%.3s]\n",s);
+	ft = ft_printf("[%%.3s]=[%.3s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	or = printf("[%%20.s]=[%20.s]\n",s);
+	ft = ft_printf("[%%20.s]=[%20.s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	printf("\n__ZERO_FLAG_TEST__\n");
+	or = printf("[%%020.10s]=[%020.10s]\n",s);
+	ft = ft_printf("[%%020.10s]=[%020.10s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	or = printf("[%%020.5s]=[%020.3s]\n",s);
+	ft = ft_printf("[%%020.5s]=[%020.3s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	or = printf("[%%05.20s]=[%03.20s]\n",s);
+	ft = ft_printf("[%%05.20s]=[%03.20s]\n",s);
+		printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	or = printf("[%%0.5s]=[%0.3s]\n",s);
+	ft = ft_printf("[%%0.5s]=[%0.3s]\n",s);
+		printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	or = printf("[%%020.s]=[%020.s]\n",s);
+	ft = ft_printf("[%%020.s]=[%020.s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	printf("\n__MINUS_FLAG_TEST__\n");
+	or = printf("[%%-20.10s]=[%-20.10s]\n",s);
+	ft = ft_printf("[%%-20.10s]=[%-20.10s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	or = printf("[%%-20.3s]=[%-20.3s]\n",s);
+	ft = ft_printf("[%%-20.3s]=[%-20.3s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	or = printf("[%%-3.20s]=[%-3.20s]\n",s);
+	ft = printf("[%%-3.20s]=[%-3.20s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	or = printf("[%%-.3s]=[%-.3s]\n",s);
+	ft = printf("[%%-.3s]=[%-.3s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	or = printf("[%%-20.s]=[%-20.s]\n",s);
+	ft = printf("[%%-20.s]=[%-20.s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	printf("\n__ZERO_AND_MINUS_FLAG_TEST__\n");
+	or = printf("[%%-020.10s]=[%-020.10s]\n",s);
+	ft = ft_printf("[%%-020.10s]=[%-020.10s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	or = printf("[%%-020.3s]=[%-020.3s]\n",s);
+	ft = ft_printf("[%%-020.3s]=[%-020.3s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	or = printf("[%%-03.20s]=[%-03.20s]\n",s);
+	ft = ft_printf("[%%-03.20s]=[%-03.20s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	or = printf("[%%-0.3s]=[%-0.3s]\n",s);
+	ft = ft_printf("[%%-0.3s]=[%-0.3s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	or = printf("[%%-020.s]=[%-020.s]\n",s);
+	ft = ft_printf("[%%-020.s]=[%-020.s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	printf("\n__NULL_TEST__\n");
+	s = NULL;
+	or = printf("[%%-020.s]=[%-020.s]\n",s);
+	ft = ft_printf("[%%-020.s]=[%-020.s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
+	or = printf("[%%.2s]=[%.2s]\n",s);
+	ft = ft_printf("[%%.2s]=[%.2s]\n",s);
+	printf("or = %d\nft = %d\n",or,ft);
+	if (or != ft) return (0);
+
 }
