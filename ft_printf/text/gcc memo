@@ -1,7 +1,8 @@
 gcc ./libft/ft_strlen.c ft_printf.c ft_write_char.c get_value.c ft_printf.h libft/ft_substr.c libft/ft_atoi.c libft/ft_strchr.c libft/ft_calloc.c libft/ft_isdigit.c libft/ft_bzero.c
 
-#include "ft_printf.h"
 #include <stdio.h>
+#include "ft_printf.h"
+#include "ft_printf.h"
 #include "./libft/ft_strlen.c"
 #include "./libft/ft_substr.c"
 #include "./libft/ft_calloc.c"
@@ -12,7 +13,6 @@ gcc ./libft/ft_strlen.c ft_printf.c ft_write_char.c get_value.c ft_printf.h libf
 #include "./libft/ft_bzero.c"
 #include "./libft/ft_isdigit.c"
 #include "./libft/ft_strchr.c"
-#include "./get_value.c"
 #include "./ft_write_char.c"
 #include "./ft_write_string.c"
 #include "./ft_write_digit.c"
@@ -22,7 +22,10 @@ gcc ./libft/ft_strlen.c ft_printf.c ft_write_char.c get_value.c ft_printf.h libf
 #include "./ft_write_small_hex.c"
 #include "./ft_write_large_hex.c"
 #include "./ft_write_pointer.c"
-#include "./make_string.c"
 #include "./calc_hex.c"
 #include "./libft/ft_strdup.c"
 #include "./format_deal.c"
+#include "./libft/ft_split.c"
+#include "./libft/ft_strtrim.c"
+#include "./ft_utoa.c"
+#include <limits.h>

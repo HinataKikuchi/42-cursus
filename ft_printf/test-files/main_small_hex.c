@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:51:22 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/09 11:08:36 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/09 13:34:49 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 #include "./libft/ft_bzero.c"
 #include "./libft/ft_isdigit.c"
 #include "./libft/ft_strchr.c"
-#include "./get_value.c"
 #include "./ft_write_char.c"
 #include "./ft_write_string.c"
 #include "./ft_write_digit.c"
@@ -31,7 +30,6 @@
 #include "./ft_write_small_hex.c"
 #include "./ft_write_large_hex.c"
 #include "./ft_write_pointer.c"
-#include "./make_string.c"
 #include "./calc_hex.c"
 #include "./libft/ft_strdup.c"
 #include "./format_deal.c"

@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 13:00:38 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/07 19:25:55 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/09 17:28:55 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ static int	get_format_num(const char *format, t_format *x, int *i, va_list ap)
 	tmp = ft_strchr(x->format_num, '.');
 	if (tmp)
 		format_split(x->format_num, x, tmp - x->format_num, ap);
+	else if (ft_strchr(x->format_num, '*'))
+		x->min = va_arg(ap, int);
 	else
 		x->min = ft_atoi((const char *)x->format_num);
 	return (++j);
@@ -77,6 +79,12 @@ t_format	format_deal(const char *format, int *i, va_list ap)
 	t_format	x;
 
 	*i += 1;
+	if (!ft_isdigit(format[*i]) && judge_format(format[*i])\
+	&& format[*i] != '*' && format[*i]!= '-' && format[*i] !='.')
+	{
+		x.format_char = '\0';
+		return (x);
+	}
 	x.zero_flag = 0;
 	x.minus_flag = 0;
 	x.min = 0;

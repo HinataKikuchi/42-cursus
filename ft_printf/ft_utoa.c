@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 09:01:15 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/09 09:03:25 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/09 13:31:18 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,21 @@ static void		ft_in_to_a(char *ans, unsigned int tmp1, int j)
 
 char			*ft_unsigned_itoa(unsigned int n)
 {
-	char	*ans;
-	int		j;
-	unsigned int		tmp1;
+	char			*ans;
+	int				j;
+	unsigned int	tmp1;
+	size_t			n_len;
 
-	ans = ft_calloc((ft_count_digits(n) + 1), sizeof(char));
+	if (!n)
+		return ft_strdup("0");
+	n_len = ft_count_digits(n);
+	ans = ft_calloc((n_len + 1), sizeof(char));
 	if (!ans)
 		return (NULL);
-	j = 0;
-	*ans = '0';
+	ans[0] = '0';
 	tmp1 = n;
-	j += ft_count_digits(n);
+	j = n_len;
 	ft_in_to_a(ans, tmp1, j);
+	ans[n_len] = '\0';
 	return (ans);
 }
