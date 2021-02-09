@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 13:00:38 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/09 17:28:55 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/09 19:53:15 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,9 @@ t_format	format_deal(const char *format, int *i, va_list ap)
 	}
 	*i += get_format_num(format, &x, i, ap);
 	if (x.min < 0)
+	{
 		x.minus_flag = 1;
+		x.min *= (-1);
+	}
 	return (x);
 }
