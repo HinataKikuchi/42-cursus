@@ -6,11 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 12:13:42 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/04 12:22:58 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/09 13:01:13 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include "ft_printf.h"
 #include "./libft/ft_strlen.c"
 #include "./libft/ft_substr.c"
 #include "./libft/ft_calloc.c"
@@ -34,6 +34,11 @@
 #include "./make_string.c"
 #include "./calc_hex.c"
 #include "./libft/ft_strdup.c"
+#include "./format_deal.c"
+#include "./libft/ft_split.c"
+#include "./libft/ft_strtrim.c"
+#include "./ft_utoa.c"
+#include <limits.h>
 
 
 

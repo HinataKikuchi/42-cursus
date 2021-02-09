@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:12:29 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/07 19:05:45 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/09 12:16:29 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,10 @@ int			write_zero(int num);
 char		*ft_small_hex(unsigned int h);
 char		*ft_large_hex(unsigned int h);
 int			ft_strcmp(const char *s1, const char *s2);
+char		*ft_unsigned_itoa(unsigned int n);
 
 char		*make_string(char *d_s, t_format x);
-char		*calc_pointer(unsigned long long p);
+char		*calc_pointer(unsigned long long p, t_format x);
 char		*make_pstring(char *d_s, t_format x);
 char		*make_pointer_string(char *d_s);
 int			ft_strcmp(const char *s1, const char *s2);

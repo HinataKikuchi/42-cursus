@@ -3,7 +3,6 @@ CC		=	clang
 CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address
 LIBFT_DIR = libft
 SRCS	=	ft_printf.c\
-			get_value.c\
 			calc_hex.c\
 			ft_write_char.c\
 			ft_write_string.c\
@@ -14,7 +13,7 @@ SRCS	=	ft_printf.c\
 			ft_write_large_hex.c\
 			ft_write_sp_zero.c\
 			ft_write_pointer.c\
-			make_string.c\
+			ft_utoa.c\
 			format_deal.c
 OBJS	= ${SRCS:.c=.o}
 LIBFT = ${LIBFT_DIR}/libft.a

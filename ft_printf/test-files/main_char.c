@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 17:14:36 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/03 23:15:56 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/09 13:04:53 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@
 #include "./make_string.c"
 #include "./calc_hex.c"
 #include "./libft/ft_strdup.c"
+#include "./format_deal.c"
+#include "./libft/ft_split.c"
+#include "./libft/ft_strtrim.c"
+#include "./ft_utoa.c"
+#include <limits.h>
 
 void	main(void)
 {

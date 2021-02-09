@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:25:05 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/07 21:41:19 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/09 10:05:19 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,13 +97,10 @@ void		write_digit(va_list ap, t_format *x)
 	size_t	ds_len;
 
 	d = va_arg(ap, int);
+	x->word_count = 0;
 	if (!d && !x->min && !x->ac && ft_strchr(x->format_num, '.'))
-	{
-		x->word_count = 0;
 		return ;
-	}
-	d_s = (x->ac == 0 && d == 0 && ft_strchr(x->format_num, '.'))\
-		? ft_strdup("") : ft_itoa(d);
+	d_s = (!x->ac && !d && ft_strchr(x->format_num, '.')) ? ft_strdup("") : ft_itoa(d);
 	ds_len = ft_strlen(d_s);
 	if (x->minus_flag)
 		x->word_count = d_with_mflag(d, d_s, *x, ds_len);

@@ -23,7 +23,8 @@
 #include "./make_string.c"
 #include "./calc_hex.c"
 #include "./libft/ft_strdup.c"
-
+#include "./format_deal.c"
+#include "./ft_utoa.c"
 
 int	main(void)
 {
@@ -36,51 +37,61 @@ ori_ret=printf("[%p]",str);
 printf("\n");
 ft__ret=ft_printf("[%p]",str);
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
+//if(ori_ret != ft__ret) return (0);
 printf("case : [\"%%15p\",str]\n");
 ori_ret=printf("[%15p]",str);
 printf("\n");
 ft__ret=ft_printf("[%15p]",str);
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
+//if(ori_ret != ft__ret) return (0);
 printf("case : [\"%%5p\",str]\n");
 ori_ret=printf("[%5p]",str);
 printf("\n");
 ft__ret=ft_printf("[%5p]",str);
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
+//if(ori_ret != ft__ret) return (0);
 printf("case : [\"%%-15p\",str]\n");
 ori_ret=printf("[%-15p]",str);
 printf("\n");
 ft__ret=ft_printf("[%-15p]",str);
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
+//if(ori_ret != ft__ret) return (0);
 printf("case : [\"%%-5p\",str]\n");
 ori_ret=printf("[%-5p]",str);
 printf("\n");
 ft__ret=ft_printf("[%-5p]",str);
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
+//if(ori_ret != ft__ret) return (0);
 printf("case : [\"%%p\",NULL]\n");
-ori_ret=printf("[%p]",NULL);
+ori_ret=printf("[%s]","0x0");
 printf("\n");
 ft__ret=ft_printf("%p",NULL);
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
+//if(ori_ret != ft__ret) return (0);
 printf("case : [\"%%15p\",NULL]\n");
 ori_ret=printf("[%15p]",NULL);
 printf("\n");
 ft__ret=ft_printf("[%15p]",NULL);
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
+//if(ori_ret != ft__ret) return (0);
 printf("case : [\"%%3p\",NULL]\n");
 ori_ret=printf("[%3p]",NULL);
 printf("\n");
 ft__ret=ft_printf("[%3p]",NULL);
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
+//if(ori_ret != ft__ret) return (0);
 printf("case : [\"%%-15p\",NULL]\n");
 ori_ret=printf("[%-15p]",NULL);
 printf("\n");
 ft__ret=ft_printf("[%-15p]",NULL);
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
+//if(ori_ret != ft__ret) return (0);
 printf("case : [\"%%-3p\",NULL]\n");
 ori_ret=printf("[%-3p]",NULL);
 printf("\n");
 ft__ret=ft_printf("[%-3p]",NULL);
 printf("\nori = %d\nft_ = %d\n",ori_ret,ft__ret);printf("\n");
+//if(ori_ret != ft__ret) return (0);
 
 return (0);
 }

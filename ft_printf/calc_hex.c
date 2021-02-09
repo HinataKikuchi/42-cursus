@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 19:36:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/03 14:35:50 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/09 13:06:16 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char			*ft_small_hex(unsigned int h)
 
 	hex_char = "0123456789abcdef";
 	h_size = count_hex(h);
-	res = malloc(sizeof(char) * h_size);
+	res = malloc(sizeof(char) * (h_size + 1));
 	if (!res)
 		return (NULL);
 	res[h_size] = '\0';
@@ -60,7 +60,7 @@ char			*ft_large_hex(unsigned int h)
 
 	hex_char = "0123456789ABCDEF";
 	h_size = count_hex(h);
-	res = malloc(sizeof(char) * h_size);
+	res = malloc(sizeof(char) * (h_size + 1));
 	if (!res)
 		return (NULL);
 	res[h_size] = '\0';
@@ -79,16 +79,21 @@ char			*ft_large_hex(unsigned int h)
 	return (res);
 }
 
-char	*calc_pointer(unsigned long long p)
+char	*calc_pointer(unsigned long long p, t_format x)
 {
 	char		*res;
 	int			p_size;
 	char		*hex_char;
 
+	if (!x.ac && !p && ft_strchr(x.format_num, '.'))
+		return (ft_strdup(""));
 	hex_char = "0123456789abcdef";
 	p_size = count_hex(p);
-	res = calloc((p_size+1), sizeof(char));
-	res[p_size+1] = '\0';
+	if (!p_size)
+		res = ft_strdup("0");
+	else
+		res = calloc((p_size+1), sizeof(char));
+	res[p_size] = '\0';
 	while (p)
 	{
 		p_size--;
