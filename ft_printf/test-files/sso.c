@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "ft_printf.h"
+#include "../ft_printf/ft_printf.h"
 
 #define RET_CHECK   if (ft__ret != ori_ret) printf("\nERROR  - ret error No. %d - \n\n",i);
 #define CASE        i++; printf("\n- case = %d -\n", i);
