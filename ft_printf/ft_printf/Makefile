@@ -1,6 +1,6 @@
 NAME	=	libftprintf.a
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror
 LIBFT_DIR = libft
 SRCS	=	ft_printf.c\
 			calc_hex.c\
@@ -14,6 +14,7 @@ SRCS	=	ft_printf.c\
 			ft_write_sp_zero.c\
 			ft_write_pointer.c\
 			ft_utoa.c\
+			ft_utils.c\
 			format_deal.c
 OBJS	= ${SRCS:.c=.o}
 LIBFT = ${LIBFT_DIR}/libft.a

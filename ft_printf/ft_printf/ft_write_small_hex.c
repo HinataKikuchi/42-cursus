@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 00:03:26 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/10 21:08:00 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/11 17:21:20 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,19 @@ static int	write_shex(char *h_s, t_format x, size_t hs_len)
 	return (res);
 }
 
+static int	write_shex_with_mflag(char *h_s, t_format x, size_t hs_len)
+{
+	int	res;
+
+	res = 0;
+	if ((size_t)x.ac > hs_len)
+		res += write_zero(x.ac - hs_len);
+	res += write(1, h_s, hs_len);
+	if (x.min > res)
+		res += write_blank(x.min - res);
+	return (res);
+}
+
 void		write_small_hex(va_list ap, t_format *x)
 {
 	unsigned int	h;
@@ -45,15 +58,14 @@ void		write_small_hex(va_list ap, t_format *x)
 		return ;
 	h_s = (!x->ac && !h && ft_strchr(x->format_num, '.')) ?\
 	ft_strdup("") : ft_small_hex(h);
+	if (!h_s)
+	{
+		x->word_count = (-1);
+		return ;
+	}
 	hs_len = ft_strlen(h_s);
 	if (x->minus_flag)
-	{
-		if ((size_t)x->ac > hs_len)
-			x->word_count += write_zero(x->ac - hs_len);
-		x->word_count += write(1, h_s, hs_len);
-		if (x->min > x->word_count)
-			x->word_count += write_blank(x->min - x->word_count);
-	}
+		x->word_count += write_shex_with_mflag(h_s, *x, hs_len);
 	else
 		x->word_count += write_shex(h_s, *x, hs_len);
 	free(h_s);

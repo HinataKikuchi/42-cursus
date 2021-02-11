@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 13:00:38 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/11 12:49:16 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/11 19:59:13 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,21 @@ static int	search_flag(t_format *x, int *i, const char *format)
 	return (*i);
 }
 
+static int	get_number(char *format_num,\
+				unsigned int start, size_t len, t_format *x)
+{
+	char	*tmp;
+	int		res;
+
+	res = 0;
+	tmp = ft_substr(format_num, start, len);
+	if (!tmp)
+		x->word_count = -1;
+	res = ft_atoi(tmp);
+	safe_free(tmp);
+	return (res);
+}
+
 static void	format_split(char *format_num, t_format *x, int dot_p, va_list ap)
 {
 	char	*tmp;
@@ -35,22 +50,13 @@ static void	format_split(char *format_num, t_format *x, int dot_p, va_list ap)
 	else if (format_num[0] == '*')
 		x->min = va_arg(ap, int);
 	else
-	{
-		tmp = ft_substr(format_num, 0, dot_p);
-		x->min = ft_atoi(tmp);
-		safe_free(tmp);
-	}
+		x->min = get_number(format_num, 0, dot_p, x);
 	if ((size_t)dot_p == ft_strlen(format_num))
 		x->ac = 0;
 	else if (format_num[dot_p + 1] == '*')
 		x->ac = va_arg(ap, int);
 	else
-	{
-		tmp = ft_substr(format_num, dot_p + 1, ft_strlen(format_num)\
-			- dot_p);
-		x->ac = ft_atoi(tmp);
-		safe_free(tmp);
-	}
+		x->ac = get_number(format_num, dot_p + 1, ft_strlen(format_num), x);
 }
 
 static int	get_format_num(const char *format, t_format *x, int *i, va_list ap)
@@ -63,6 +69,8 @@ static int	get_format_num(const char *format, t_format *x, int *i, va_list ap)
 		j++;
 	x->format_char = format[*i + j];
 	x->format_num = ft_substr(format, *i, j);
+	if (!x->format_num)
+		x->word_count = -1;
 	x->ac = 0;
 	tmp = ft_strchr(x->format_num, '.');
 	if (tmp)
@@ -72,21 +80,6 @@ static int	get_format_num(const char *format, t_format *x, int *i, va_list ap)
 	else
 		x->min = ft_atoi((const char *)x->format_num);
 	return (++j);
-}
-
-static void	deal_ilegular(t_format *x)
-{
-	if (x->min < 0)
-	{
-		x->minus_flag = 1;
-		x->min *= (-1);
-	}
-	if (x->ac < 0)
-	{
-		x->ac = 0;
-		safe_free(x->format_num);
-		x->format_num = ft_strdup("");
-	}
 }
 
 t_format	format_deal(const char *format, int *i, va_list ap)

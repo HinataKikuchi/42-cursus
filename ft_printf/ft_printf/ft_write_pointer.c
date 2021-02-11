@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 19:08:33 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/10 18:57:46 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/11 19:32:54 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,20 @@ static int	write_p(char *p_s, t_format x, size_t ps_len)
 	return (res);
 }
 
+static int	write_p_with_mflag(char p_s, t_format x, size_t ps_len)
+{
+	int res;
+
+	res = 0;
+	res += write(1, "0x", 2);
+	if ((size_t)x.ac > ps_len)
+		res += write_zero(x.ac - ps_len);
+	res += write(1, p_s, ps_len);
+	if (x.min > res)
+		res += write_blank(x.min - res);
+	return (res);
+}
+
 void		write_pointer(va_list ap, t_format *x)
 {
 	void	*p;
@@ -67,16 +81,14 @@ void		write_pointer(va_list ap, t_format *x)
 		return ;
 	}
 	p_s = calc_pointer((unsigned long long)p, *x);
+	if (!p_s)
+	{
+		x->word_count = -1;
+		return ;
+	}
 	ps_len = ft_strlen(p_s);
 	if (x->minus_flag)
-	{
-		x->word_count += write(1, "0x", 2);
-		if ((size_t)x->ac > ps_len)
-			x->word_count += write_zero(x->ac - ps_len);
-		x->word_count += write(1, p_s, ps_len);
-		if (x->min > x->word_count)
-			x->word_count += write_blank(x->min - x->word_count);
-	}
+		x->word_count += write_p_with_mflag(p_s, x, ps_len);
 	else
 		x->word_count += write_p(p_s, *x, ps_len);
 	safe_free(p_s);

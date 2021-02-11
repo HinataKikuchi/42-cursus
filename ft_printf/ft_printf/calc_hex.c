@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 19:36:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/10 20:59:10 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/11 19:35:34 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char			*ft_small_hex(unsigned int h)
 	if (!h_size)
 	{
 		free(res);
-		res = ft_strdup("0");
+		return (ft_strdup("0"));
 	}
 	--h_size;
 	while (h)
@@ -67,7 +67,7 @@ char			*ft_large_hex(unsigned int h)
 	if (!h_size)
 	{
 		free(res);
-		res = ft_strdup("0");
+		return (ft_strdup("0"));
 	}
 	--h_size;
 	while (h)
@@ -93,6 +93,8 @@ char			*calc_pointer(unsigned long long p, t_format x)
 		return (ft_strdup("0"));
 	else
 		res = calloc((p_size + 1), sizeof(char));
+	if (!res)
+		return (NULL);
 	res[p_size] = '\0';
 	while (p)
 	{
