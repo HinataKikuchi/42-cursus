@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:24:57 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/09 11:40:04 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/10 21:09:35 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ static int	write_lhex(char *h_s, t_format x, size_t hs_len)
 			res += write_blank(x.min - x.ac);
 		res += write_zero(x.ac - hs_len);
 	}
-	else
-		if (x.min > (int)hs_len)
-			res += (!ft_strchr(x.format_num, '.') && x.zero_flag) ? write_zero(x.min - hs_len) : write_blank(x.min - hs_len);
+	if ((!(x.ac > (int)hs_len)) && (x.min > (int)hs_len))
+		res += (!ft_strchr(x.format_num, '.') && x.zero_flag) ?\
+				write_zero(x.min - hs_len) : write_blank(x.min - hs_len);
 	res += write(1, h_s, hs_len);
 	return (res);
 }
 
-void	write_large_hex(va_list ap, t_format *x)
+void		write_large_hex(va_list ap, t_format *x)
 {
 	unsigned int	h;
 	char			*h_s;
@@ -38,9 +38,10 @@ void	write_large_hex(va_list ap, t_format *x)
 
 	x->word_count = 0;
 	h = va_arg(ap, unsigned int);
-	if (ft_strchr(x->format_num,'.') && !h && !x->min && !x->ac)
+	if (ft_strchr(x->format_num, '.') && !h && !x->min && !x->ac)
 		return ;
-	h_s = (!x->ac && !h && ft_strchr(x->format_num, '.')) ? ft_strdup("") : ft_large_hex(h);
+	h_s = (!x->ac && !h && ft_strchr(x->format_num, '.')) ?\
+			ft_strdup("") : ft_large_hex(h);
 	hs_len = ft_strlen(h_s);
 	if (x->minus_flag)
 	{

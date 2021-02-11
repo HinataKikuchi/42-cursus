@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/09 17:26:35 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/11 12:55:22 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,18 @@
 ** write characters till '%' appears
 */
 
-void		write_target(va_list ap, t_format *x)
+static int	ft_printf_percent(const char *format, int *i, va_list ap)
 {
-	if (x->format_char == 'c')
-		write_character(ap, x);
-	else if (x->format_char == 's')
-		write_string(ap, x);
-	else if (x->format_char == 'p')
-		write_pointer(ap, x);
-	else if (x->format_char == 'd' || x->format_char == 'i')
-		write_digit(ap, x);
-	else if (x->format_char == 'u')
-		write_unsigned(ap, x);
-	else if (x->format_char == 'x')
-		write_small_hex(ap, x);
-	else if (x->format_char == 'X')
-		write_large_hex(ap, x);
-	else if (x->format_char == '%')
-		write_character(ap, x);
-}
+	t_format x;
 
-/*
-** int		ft_printf(const char *format, ...)
-** write characters till '%' appears
-*/
+	x = format_deal(format, i, ap);
+	if (x.format_char != '\0')
+	{
+		write_target(ap, &x);
+		safe_free(x.format_num);
+	}
+	return (x.word_count);
+}
 
 int			ft_printf(const char *format, ...)
 {
@@ -51,26 +39,16 @@ int			ft_printf(const char *format, ...)
 
 	i = 0;
 	j = 0;
-	x.word_count = 0;
 	va_start(ap, format);
 	while (format[i] != '\0' && (size_t)i <= ft_strlen(format))
 	{
 		if (format[i] == '%')
-		{
-			x = format_deal(format, &i, ap);
-			if (x.format_char != '\0')
-			{
-				write_target(ap, &x);
-				safe_free(x.format_num);
-				j += x.word_count;
-			}
-		}
+			j += ft_printf_percent(format, &i, ap);
 		else
 		{
-			write(1, &format[i], 1);
 			if ((size_t)i < ft_strlen(format))
 				j++;
-			i++;
+			i += write(1, &format[i], 1);
 		}
 	}
 	va_end(ap);
@@ -94,6 +72,32 @@ int			judge_format(char c)
 		return (0);
 	return (1);
 }
+
+void		write_target(va_list ap, t_format *x)
+{
+	x->word_count = 0;
+	if (x->format_char == 'c')
+		write_character(ap, x);
+	else if (x->format_char == 's')
+		write_string(ap, x);
+	else if (x->format_char == 'p')
+		write_pointer(ap, x);
+	else if (x->format_char == 'd' || x->format_char == 'i')
+		write_digit(ap, x);
+	else if (x->format_char == 'u')
+		write_unsigned(ap, x);
+	else if (x->format_char == 'x')
+		write_small_hex(ap, x);
+	else if (x->format_char == 'X')
+		write_large_hex(ap, x);
+	else if (x->format_char == '%')
+		write_character(ap, x);
+}
+
+/*
+** int		ft_printf(const char *format, ...)
+** write characters till '%' appears
+*/
 
 int			ft_isnum(char c)
 {

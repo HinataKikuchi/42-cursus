@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 19:08:33 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/09 12:18:33 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/10 18:57:46 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void		write_pointer(va_list ap, t_format *x)
 	p = va_arg(ap, void*);
 	if (ft_strchr(x->format_num, '.') && !p && !x->ac && !x->min)
 	{
-		write(1, "0x", 2);
+		x->word_count += write(1, "0x", 2);
 		return ;
 	}
 	p_s = calc_pointer((unsigned long long)p, *x);

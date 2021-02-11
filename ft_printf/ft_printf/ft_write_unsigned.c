@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 00:02:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/09 10:50:14 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/10 21:13:04 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,14 @@ static int	write_ud(char *ud_s, t_format x, size_t uds_len)
 	else
 	{
 		if (x.min > (int)uds_len)
-			res +=(!ft_strchr(x.format_num, '.') && x.zero_flag) ? write_zero(x.min - uds_len) :write_blank(x.min - uds_len);
+			res += (!ft_strchr(x.format_num, '.') && x.zero_flag) ?\
+					write_zero(x.min - uds_len) : write_blank(x.min - uds_len);
 		res += write(1, ud_s, uds_len);
 	}
 	return (res);
 }
 
-void	write_unsigned(va_list ap, t_format *x)
+void		write_unsigned(va_list ap, t_format *x)
 {
 	unsigned int	ud;
 	char			*ud_s;
@@ -43,7 +44,8 @@ void	write_unsigned(va_list ap, t_format *x)
 	x->word_count = 0;
 	if (!ud && !x->min && !x->ac && ft_strchr(x->format_num, '.'))
 		return ;
-	ud_s = (!x->ac && !ud && ft_strchr(x->format_num, '.')) ? ft_strdup("") : ft_unsigned_itoa(ud);
+	ud_s = (!x->ac && !ud && ft_strchr(x->format_num, '.')) ?\
+			ft_strdup("") : ft_unsigned_itoa(ud);
 	uds_len = ft_strlen(ud_s);
 	if (x->minus_flag)
 	{

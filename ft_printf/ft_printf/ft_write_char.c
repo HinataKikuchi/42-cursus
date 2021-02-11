@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:24:21 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/07 22:17:29 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/10 21:02:50 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ void		write_character(va_list ap, t_format *x)
 	else if (x->zero_flag)
 		x->word_count += write_zero(x->min - 1);
 	else
-		x->word_count += write_blank(x->min -1);
+		x->word_count += write_blank(x->min - 1);
 	x->word_count += write(1, &c, 1);
 }

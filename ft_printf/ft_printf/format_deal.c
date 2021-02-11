@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 13:00:38 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/09 17:28:55 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/11 12:49:16 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,28 @@ static int	get_format_num(const char *format, t_format *x, int *i, va_list ap)
 	return (++j);
 }
 
+static void	deal_ilegular(t_format *x)
+{
+	if (x->min < 0)
+	{
+		x->minus_flag = 1;
+		x->min *= (-1);
+	}
+	if (x->ac < 0)
+	{
+		x->ac = 0;
+		safe_free(x->format_num);
+		x->format_num = ft_strdup("");
+	}
+}
+
 t_format	format_deal(const char *format, int *i, va_list ap)
 {
 	t_format	x;
 
 	*i += 1;
 	if (!ft_isdigit(format[*i]) && judge_format(format[*i])\
-	&& format[*i] != '*' && format[*i]!= '-' && format[*i] !='.')
+	&& format[*i] != '*' && format[*i] != '-' && format[*i] != '.')
 	{
 		x.format_char = '\0';
 		return (x);
@@ -92,15 +107,12 @@ t_format	format_deal(const char *format, int *i, va_list ap)
 	*i = search_flag(&x, i, format);
 	if (!judge_format(format[*i]))
 	{
-		x.min = 0;
-		x.ac = 0;
 		x.format_num = ft_strdup("\0");
 		x.format_char = format[*i];
 		*i += 1;
 		return (x);
 	}
 	*i += get_format_num(format, &x, i, ap);
-	if (x.min < 0)
-		x.minus_flag = 1;
+	deal_ilegular(&x);
 	return (x);
 }

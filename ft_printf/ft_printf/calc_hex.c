@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 19:36:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/09 13:06:16 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/10 20:59:10 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int		count_hex(unsigned long long h)
 	int	i;
 
 	i = 0;
-	while(h)
+	while (h)
 	{
 		i++;
 		h /= 16;
@@ -79,7 +79,7 @@ char			*ft_large_hex(unsigned int h)
 	return (res);
 }
 
-char	*calc_pointer(unsigned long long p, t_format x)
+char			*calc_pointer(unsigned long long p, t_format x)
 {
 	char		*res;
 	int			p_size;
@@ -90,9 +90,9 @@ char	*calc_pointer(unsigned long long p, t_format x)
 	hex_char = "0123456789abcdef";
 	p_size = count_hex(p);
 	if (!p_size)
-		res = ft_strdup("0");
+		return (ft_strdup("0"));
 	else
-		res = calloc((p_size+1), sizeof(char));
+		res = calloc((p_size + 1), sizeof(char));
 	res[p_size] = '\0';
 	while (p)
 	{

@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:25:05 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/09 15:48:59 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/10 21:03:45 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static int	write_d_ac(int d, char *d_s, t_format x, int ds_len)
 	write_zero(x.ac - ds_len);
 	res += (d < 0) ? write(1, &d_s[1], ds_len - 1) :\
 	write(1, d_s, ds_len);
-	return(res);
+	return (res);
 }
 
 static int	write_d(int d, char *d_s, t_format x, int ds_len)
@@ -100,7 +100,8 @@ void		write_digit(va_list ap, t_format *x)
 	x->word_count = 0;
 	if (!d && !x->min && !x->ac && ft_strchr(x->format_num, '.'))
 		return ;
-	d_s = (!x->ac && !d && ft_strchr(x->format_num, '.')) ? ft_strdup("") : ft_itoa(d);
+	d_s = (!x->ac && !d && ft_strchr(x->format_num, '.')) ?\
+			ft_strdup("") : ft_itoa(d);
 	ds_len = ft_strlen(d_s);
 	if (x->minus_flag)
 		x->word_count = d_with_mflag(d, d_s, *x, ds_len);

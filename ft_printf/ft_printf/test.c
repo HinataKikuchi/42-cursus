@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 16:11:23 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/10 17:27:44 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/10 18:56:28 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,16 +174,29 @@ int main (void)
 	// }
 	// printf(" --- Return : %d\n", printf("%p, %x, %p, %x, %p, %x, %p, %x", (void *)209590960, 209590960, (void *)207038912, 207038912, (void *)1, 1, NULL, 0)); //T347
 	// printf(" --- Return : %d\n", ft_printf("%p, %x, %p, %x, %p, %x, %p, %x", (void *)209590960, 209590960, (void *)207038912, 207038912, (void *)1, 1, NULL, 0)); //T347
-	a = 8;
-	while (a < 12) //
-	{
-		// printf(" --- Return : %d\n", printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
-		printf(" --- Return : %d\n", ft_printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
-		// printf(" --- Return : %d\n", printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
-		printf(" --- Return : %d\n", ft_printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
-		a++;
-	}
-	// a = f;
+// 	a = 8;
+// 	while (a < 12) //
+// 	{
+// 		// printf(" --- Return : %d\n", printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
+// 		printf(" --- Return : %d\n", ft_printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
+// 		// printf(" --- Return : %d\n", printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
+// 		printf(" --- Return : %d\n", ft_printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
+// 		a++;
+// 	}
+// 	p = NULL;
+// ft_printf("\np != NULL\n");
+// ft_printf("[%%.p]=[%.p]\n",p);
+// ft_printf("[%%.0p]=[%.0p]\n",p);
+// ft_printf("[%%0.p]=[%0.p]\n",p);
+// ft_printf("[%%0.0p]=[%0.0p]\n",p);
+// ft_printf("[%%0p]=[%0p]\n",p);
+// printf("\np != NULL\n");
+// ft_printf("[%%20.3p]=[%20.3p]\n",p);
+// ft_printf("[%%3.20p]=[%3.20p]\n",p);
+// ft_printf("[%%20.p]=[%20.p]\n",p);
+// ft_printf("[%%3.p]=[%3.p]\n",p);
+// ft_printf("[%%.20p]=[%.20p]\n",p);
+// a = f;
 	// b = g;
 	// printf(" --- Return : %d\n", printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c));
 	// printf(" --- Return : %d\n", ft_printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c));
@@ -227,5 +240,6 @@ int main (void)
 	// printf(" --- Return : %d\n", ft_printf("(null)"));
 	// printf(" --- Return : %d\n", printf(""));
 	// printf(" --- Return : %d\n", ft_printf(""));
-
+printf("return = %d\n", printf("%.p",NULL));
+printf("return = %d\n", ft_printf("%.p",NULL));
 }

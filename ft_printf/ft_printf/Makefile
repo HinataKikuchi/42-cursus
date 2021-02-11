@@ -1,5 +1,5 @@
 NAME	=	libftprintf.a
-CC		=	clang
+CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address
 LIBFT_DIR = libft
 SRCS	=	ft_printf.c\
