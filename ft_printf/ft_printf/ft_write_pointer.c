@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 19:08:33 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/11 19:32:54 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/11 20:23:20 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	write_p(char *p_s, t_format x, size_t ps_len)
 	return (res);
 }
 
-static int	write_p_with_mflag(char p_s, t_format x, size_t ps_len)
+static int	write_p_with_mflag(char *p_s, t_format x, size_t ps_len)
 {
 	int res;
 
@@ -88,7 +88,7 @@ void		write_pointer(va_list ap, t_format *x)
 	}
 	ps_len = ft_strlen(p_s);
 	if (x->minus_flag)
-		x->word_count += write_p_with_mflag(p_s, x, ps_len);
+		x->word_count += write_p_with_mflag(p_s, *x, ps_len);
 	else
 		x->word_count += write_p(p_s, *x, ps_len);
 	safe_free(p_s);

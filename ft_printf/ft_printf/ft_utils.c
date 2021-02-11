@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 19:39:34 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/11 19:58:10 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/11 21:02:10 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,19 +77,4 @@ void		deal_ilegular(t_format *x)
 		safe_free(x->format_num);
 		x->format_num = ft_strdup("");
 	}
-}
-
-static int		get_number(char *format_num,\
-				unsigned int start, size_t len, t_format *x)
-{
-	char	*tmp;
-	int		res;
-
-	res = 0;
-	tmp = ft_substr(format_num, start, len);
-	if (!tmp)
-		x->word_count = -1;
-	res = ft_atoi(tmp);
-	safe_free(tmp);
-	return (res);
 }

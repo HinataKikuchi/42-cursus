@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/11 19:42:10 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/11 20:51:05 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,14 @@ static int	ft_printf_percent(const char *format, int *i, int *j, va_list ap)
 	return (x.word_count);
 }
 
-static int	ft_printf_without_percent(const char *format,\
-								int *i, int *j, va_list ap)
+static int	ft_printf_without_percent(const char *format, int *i, int *j)
 {
 	int tmp;
 
-	tmp = 0;
-	if ((size_t)i < ft_strlen(format))
-		*j++;
+	if (*i < ft_strlen(format))
+		(*j)++;
 	tmp = write(1, &format[*i], 1);
-	if (tmp = (-1))
+	if (tmp == (-1))
 		return (-1);
 	*i += tmp;
 	return (tmp);
@@ -68,7 +66,7 @@ int			ft_printf(const char *format, ...)
 		if (format[i] == '%')
 			tmp = ft_printf_percent(format, &i, &j, ap);
 		else
-			tmp = ft_printf_without_percent(format, &i, &j, ap);
+			tmp = ft_printf_without_percent(format, &i, &j);
 		if (tmp == (-1))
 			return (-1);
 	}

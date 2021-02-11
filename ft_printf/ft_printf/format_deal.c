@@ -6,11 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 13:00:38 by hkikuchi          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/02/11 19:59:13 by hkikuchi         ###   ########.fr       */
-=======
-/*   Updated: 2021/02/09 19:53:15 by hkikuchi         ###   ########.fr       */
->>>>>>> b110a4096c69e7ea70fe32e5d29f7a3b7d3b3542
+/*   Updated: 2021/02/11 21:04:24 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +23,7 @@ static int	search_flag(t_format *x, int *i, const char *format)
 			x->minus_flag = 1;
 		*i += 1;
 	}
+	x->word_count = 0;
 	return (*i);
 }
 
@@ -47,8 +44,6 @@ static int	get_number(char *format_num,\
 
 static void	format_split(char *format_num, t_format *x, int dot_p, va_list ap)
 {
-	char	*tmp;
-
 	if (dot_p == 0)
 		x->min = 0;
 	else if (format_num[0] == '*')
@@ -110,14 +105,6 @@ t_format	format_deal(const char *format, int *i, va_list ap)
 		return (x);
 	}
 	*i += get_format_num(format, &x, i, ap);
-<<<<<<< HEAD
 	deal_ilegular(&x);
-=======
-	if (x.min < 0)
-	{
-		x.minus_flag = 1;
-		x.min *= (-1);
-	}
->>>>>>> b110a4096c69e7ea70fe32e5d29f7a3b7d3b3542
 	return (x);
 }
