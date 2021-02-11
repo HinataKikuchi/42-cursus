@@ -6,7 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 13:00:38 by hkikuchi          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2021/02/11 19:59:13 by hkikuchi         ###   ########.fr       */
+=======
+/*   Updated: 2021/02/09 19:53:15 by hkikuchi         ###   ########.fr       */
+>>>>>>> b110a4096c69e7ea70fe32e5d29f7a3b7d3b3542
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +110,14 @@ t_format	format_deal(const char *format, int *i, va_list ap)
 		return (x);
 	}
 	*i += get_format_num(format, &x, i, ap);
+<<<<<<< HEAD
 	deal_ilegular(&x);
+=======
+	if (x.min < 0)
+	{
+		x.minus_flag = 1;
+		x.min *= (-1);
+	}
+>>>>>>> b110a4096c69e7ea70fe32e5d29f7a3b7d3b3542
 	return (x);
 }
