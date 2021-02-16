@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/11 20:51:05 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/02/12 16:44:44 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	ft_printf_without_percent(const char *format, int *i, int *j)
 {
 	int tmp;
 
-	if (*i < ft_strlen(format))
+	if (*i < (int)ft_strlen(format))
 		(*j)++;
 	tmp = write(1, &format[*i], 1);
 	if (tmp == (-1))

@@ -1,0 +1,8 @@
+docker image build -t <image_name> .
+docker run  -p 80:8080 -it  <image_name>
+docker rm <ID>
+docker stop <ID>
+apt-get update
+apt-get install -y nginx
+apt-get install -y vim
+service nginx stop

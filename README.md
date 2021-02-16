@@ -4,8 +4,10 @@
 
 # How's the project is going on?
 
+**I'm im AGU now, so these subjects are stop now.**
+
 * <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/libft">libft</a> -> ✅ already finished
 * <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/mini_ls">mini_ls</a> -> ❎ Finished but not complete
 * <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/gnl">gnl</a> -> ✅ already finished
 * <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/hello_node">hello_node</a> -> ❎ Finished but not complete
-* <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/ft_printf">ft_printf</a> -> ➿ in progress
+* <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/ft_printf">ft_printf</a> ->✅ ~~maybe its ok?~~

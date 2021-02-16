@@ -1,0 +1,7 @@
+-----------------------------------------
+Argument    :  -f .\ft_write_char.c
+Current dir : U:/home/hkikuchi/42/cursus/ft_printf/ft_printf
+
+Input file  : ./ft_write_char.c
+Function    : void write_character(va_list ap, t_format *x)
+Output file : ./result_yFlowGen/ft_write_char.c/write_character.gml
