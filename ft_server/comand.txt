@@ -1,8 +1,43 @@
 docker image build -t <image_name> .
-docker run  -p 80:8080 -it  <image_name>
+docker run  -p 8080:80 -d  <image_name>
+-it実行
+-dバックグラウンド実行
+
 docker rm <ID>
 docker stop <ID>
 apt-get update
 apt-get install -y nginx
 apt-get install -y vim
-service nginx stop
+apt-get install -y php
+service nginx start
+service mysql start
+service mariadb start
+docker system prune
+docker container prune
+docker stop $!
+
+phpMyAdmin-5.0.4-all-languages
+latest-ja
+
+docker exec -it ft_server bash
+
+apt-get mariadb-server mariadb-client
+mysql_secure_installation(SQLの初期設定)
+mysql -u root -p mysql(MysQLに入る)
+
+service mysql start
+
+/etc/nginx/site-availableのindex htmlをコメントア .ウトした
+
+ないと、起動しているけど、もう一度設定を読み込ませる
+nginx -s reload
+
+etc/nginx/sites-availableとetc/nginx/sites-enabledがシンボリックリンクになってるので
+enabledの中にシンボリックリンクでファイルを持ってくる
+
+https://pswork.jp/wordpress/install-ubuntu-nginx/
+
+defaultファイルのindexの一番左にindex.php
+
+
+https://pswork.jp/wordpress/install-ubuntu-nginx/
