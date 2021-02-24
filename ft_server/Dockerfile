@@ -9,23 +9,24 @@ RUN set -ex;\
 	apt-get update;\
 	apt-get install -y --no-install-recommends openssl wget php-fpm nginx mariadb-server vim php-mysql
 
-##PHPMYADMIN##
-RUN mkdir -p /var/www/html/phpmyadmin
-RUN wget --no-check-certificate https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.tar.gz
-RUN tar -zxvf phpMyAdmin-5.0.4-all-languages.tar.gz -C /var/www/html/phpmyadmin
-
 ##WORDPRESS##
 RUN mkdir -p /var/www/html/wordpress
 RUN wget --no-check-certificate https://wordpress.org/latest.tar.gz
 RUN tar -zxvf latest.tar.gz -C /var/www/html/
 
-##CREATE SERTIFICATION##
-RUN mkdir /etc/nginx/certificate; \
-    openssl req -newkey rsa:4069 -x509 -nodes -days 365\
-    -subj "/C=JP/ST=Tokyo/L=Minatoku/O=42tokyo/OU=student/CN=hkikuchi"\
-    -keyout /etc/nginx/certificate/server.key\
-    -out /etc/nginx/certificate/server.crt;
+##PHPMYADMIN##
+RUN wget --no-check-certificate https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.tar.gz
+RUN tar -zxvf phpMyAdmin-5.0.4-all-languages.tar.gz -C /var/www/html
+RUN mv /var/www/html/phpMyAdmin-5.0.4-all-languages /var/www/html/phpmyadmin
 
+
+##CREATE SERTIFICATION##
+#RUN mkdir /etc/nginx/certificate; \
+#    openssl req -newkey rsa:4069 -x509 -nodes -days 365\
+#    -subj "/C=JP/ST=Tokyo/L=Minatoku/O=42tokyo/OU=student/CN=hkikuchi"\
+#    -keyout /etc/nginx/certificate/server.key\
+#    -out /etc/nginx/certificate/server.crt;
+ 
 ##ENTRYKIT##
 #ENV ENTRYKIT_VERSION 0.4.0
 #RUN mkdir /bin/entrykit && chmod +x /bin/entrykit
