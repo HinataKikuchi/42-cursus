@@ -52,4 +52,9 @@ COPY ./srcs/default.tmpl /etc/nginx/sites-available/default.tmpl
 RUN rm /etc/nginx/sites-enabled/default
 #make symbolicklink to sites-enable
 RUN ln -s /etc/nginx/sites-available/default.tmpl /etc/nginx/sites-enabled/default.tmpl
+RUN service mysql start && \
+mysql -e "create database wp_db;" && \
+mysql -e "create user 'wpuser'@'localhost' identified by 'P@ssw0rd';" && \
+mysql -e "grant all on wp_db.* to 'wpuser'@'localhost';" && \
+mysql -e "FLUSH PRIVILEGES;"
 CMD bash srcs/main.sh
