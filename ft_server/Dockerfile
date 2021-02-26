@@ -4,10 +4,10 @@ FROM debian:buster
 
 ##APPLICATIONS##
 #get applications by the commands billow
-#APPS  : wget, php(7.3)-fpm, nginx, vim, php-mysql, mariadb-server
+#APPS  :openssl, wget, php(7.3)-fpm, nginx, vim, php-mysql, mariadb-server
 RUN set -ex;\
-	apt-get update;\
-	apt-get install -y --no-install-recommends openssl wget php-fpm nginx mariadb-server vim php-mysql
+	apt-get update && apt-get install -y --no-install-recommends \
+	openssl wget php-fpm nginx mariadb-server vim php-mysql
 
 ##WORDPRESS##
 RUN mkdir -p /var/www/html/wordpress
@@ -21,21 +21,19 @@ RUN mv /var/www/html/phpMyAdmin-5.0.4-all-languages /var/www/html/phpmyadmin
 
 
 ##CREATE SERTIFICATION##
-#RUN mkdir /etc/nginx/certificate; \
-#    openssl req -newkey rsa:4069 -x509 -nodes -days 365\
-#    -subj "/C=JP/ST=Tokyo/L=Minatoku/O=42tokyo/OU=student/CN=hkikuchi"\
-#    -keyout /etc/nginx/certificate/server.key\
-#    -out /etc/nginx/certificate/server.crt;
+RUN mkdir /etc/nginx/certificate; \
+    openssl req -newkey rsa:4069 -x509 -nodes -days 365\
+    -subj "/C=JP/ST=Tokyo/L=Minatoku/O=42tokyo/OU=student/CN=hkikuchi"\
+    -keyout /etc/nginx/certificate/server.key\
+    -out /etc/nginx/certificate/server.crt;
  
 ##ENTRYKIT##
-#ENV ENTRYKIT_VERSION 0.4.0
-#RUN mkdir /bin/entrykit && chmod +x /bin/entrykit
-#RUN wget --no-check-certificate https://github.com/progrium/entrykit/releases/download/v${ENTRYKIT_VERSION}/entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz \
-#    && tar -zxvf entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz /bin/entrykit \
-#    && chmod +x /bin/entrykit \
-#    && entrykit --symlink \
-#    && rm entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz
-
+ENV ENTRYKIT_VERSION 0.4.0
+RUN wget --no-check-certificate https://github.com/progrium/entrykit/releases/download/v${ENTRYKIT_VERSION}/entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz \
+    && tar -xvzf entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz -C /bin/ \
+    && chmod +x /bin/entrykit \
+    && entrykit --symlink \
+    && rm entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz
 
 EXPOSE 8080
 
@@ -51,10 +49,18 @@ COPY ./srcs/default.tmpl /etc/nginx/sites-available/default.tmpl
 #rm symboliclink's file
 RUN rm /etc/nginx/sites-enabled/default
 #make symbolicklink to sites-enable
-RUN ln -s /etc/nginx/sites-available/default.tmpl /etc/nginx/sites-enabled/default.tmpl
+#RUN ln -s /etc/nginx/sites-available/default.tmpl /etc/nginx/sites-enabled/default.tmpl
+
+
+##QREATE SQL_DATA_BASE##
+#PASSWORD = P@ssw0rd
+#USER NAME = wpuser
+#DATA BASE NAME = wp_db
 RUN service mysql start && \
 mysql -e "create database wp_db;" && \
 mysql -e "create user 'wpuser'@'localhost' identified by 'P@ssw0rd';" && \
 mysql -e "grant all on wp_db.* to 'wpuser'@'localhost';" && \
 mysql -e "FLUSH PRIVILEGES;"
-CMD bash srcs/main.sh
+ENTRYPOINT ["render", "/etc/nginx/sites-available/default", "--", "bash", "./srcs/main.sh"]
+RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default.tmpl
+#CMD bash srcs/main.sh

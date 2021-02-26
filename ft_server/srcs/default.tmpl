@@ -16,16 +16,37 @@
 # Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
 ##
 
-# Default server configuration
-#
 server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 
+	server_name _;
+
+	root /var/www/html;
+	index index.php index.html;
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+	#
+	#	# With php-fpm (or other unix sockets):
+		fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+	#	# With php-cgi (or other tcp sockets):
+	#	fastcgi_pass 127.0.0.1:9000;
+	}
+
+	return 301 https://$host$request_uri;
+
+}
+#
+# Default server configuration
+#
+server {
+#	listen 80 default_server;
+#	listen [::]:80 default_server;
 	# SSL configuration
 	#
-	# listen 443 ssl default_server;
-	# listen [::]:443 ssl default_server;
+	 listen 443 ssl default_server;
+	 listen [::]:443 ssl default_server;
 	#
 	# Note: You should disable gzip for SSL traffic.
 	# See: https://bugs.debian.org/773332
@@ -44,12 +65,12 @@ server {
 	index index.php index.html index.htm index.nginx-debian.html;
 
 	server_name _;
-	autoindex on;
+	autoindex {{ var "AUTOINDEX" | default "off" }};
 
 	location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
+		try_files $uri $uri/ /index.php?$args;
 	}
 
 	# pass PHP scripts to FastCGI server
@@ -69,6 +90,8 @@ server {
 	#location ~ /\.ht {
 	#	deny all;
 	#}
+	ssl_certificate /etc/nginx/certificate/server.crt;
+	ssl_certificate_key /etc/nginx/certificate/server.key;
 }
 
 
