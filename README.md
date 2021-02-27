@@ -11,4 +11,5 @@
 * <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/gnl">gnl</a> -> ✅ already finished
 * <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/hello_node">hello_node</a> -> ❎ Finished but not complete
 * <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/ft_printf">ft_printf</a> ->✅ ~~maybe its ok?~~
-* <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/ft_server">ft_server</a> ->➿ In progress!
+* <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/ft_server">ft_server</a> ->✅ ~~maybe its ok?~~
+* <a href="https://github.com/HinataKikuchi/42-cursus/tree/master/cub3d">cub3d</a> ->➿ ~~in progress~~
