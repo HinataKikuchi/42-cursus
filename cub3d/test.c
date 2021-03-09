@@ -1,8 +1,10 @@
-#include <./minilibx-linux/mlx.h>
+#include "./minilibx-linux/mlx.h"
+#include <stdlib.h>
 
 int	main(void)
 {
-	void	*mlx;
-
-	mlx = mlx_init();
+	void *mlxptr;
+	mlxptr = mlx_init();
+	mlx_new_window(mlxptr, 1920, 1080, "Hello World!");
+	mlx_loop(mlxptr);
 }

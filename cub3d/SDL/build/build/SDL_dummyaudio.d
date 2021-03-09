@@ -1,0 +1,30 @@
+build/SDL_dummyaudio.lo: \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/audio/dummy/SDL_dummyaudio.c \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/audio/dummy/../../SDL_internal.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/audio/dummy/../../dynapi/SDL_dynapi.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/audio/dummy/../../dynapi/SDL_dynapi_overrides.h \
+ include/SDL_config.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_platform.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/begin_code.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/close_code.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_assert.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_config.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_log.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_stdinc.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_timer.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_error.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_audio.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_endian.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_mutex.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_thread.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_atomic.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_platform.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_rwops.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/audio/dummy/../SDL_audio_c.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/audio/dummy/../../SDL_internal.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/audio/dummy/SDL_dummyaudio.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/audio/dummy/../SDL_sysaudio.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_mutex.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_thread.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/audio/dummy/../../SDL_dataqueue.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/audio/dummy/.././SDL_audio_c.h

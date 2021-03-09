@@ -1,0 +1,19 @@
+build/SDL_rect.lo: \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/video/SDL_rect.c \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/video/../SDL_internal.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/video/../dynapi/SDL_dynapi.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/video/../dynapi/SDL_dynapi_overrides.h \
+ include/SDL_config.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_platform.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/begin_code.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/close_code.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_assert.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_config.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_log.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_stdinc.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_rect.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_error.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_pixels.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_endian.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_rwops.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/video/SDL_rect_c.h

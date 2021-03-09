@@ -1,0 +1,24 @@
+build/SDL_haptic.lo: \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/haptic/SDL_haptic.c \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/haptic/../SDL_internal.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/haptic/../dynapi/SDL_dynapi.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/haptic/../dynapi/SDL_dynapi_overrides.h \
+ include/SDL_config.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_platform.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/begin_code.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/close_code.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_assert.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_config.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_log.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_stdinc.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/haptic/SDL_syshaptic.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_haptic.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_error.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_joystick.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/haptic/SDL_haptic_c.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/haptic/../joystick/SDL_joystick_c.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/src/haptic/../joystick/../SDL_internal.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_gamecontroller.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_rwops.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_sensor.h \
+ /home/hkikuchi/42/cursus/cub3d/SDL/include/SDL_joystick.h

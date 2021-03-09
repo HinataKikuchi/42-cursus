@@ -6,16 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:29:16 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/12 16:44:44 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/03/01 13:41:33 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/*
-** int		ft_printf(const char *format, ...)
-** write characters till '%' appears
-*/
 
 static int	ft_printf_percent(const char *format, int *i, int *j, va_list ap)
 {

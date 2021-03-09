@@ -6,16 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 19:39:34 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/02/11 21:02:10 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/03/01 14:00:23 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/*
-** int		judge_format(char c)
-** judge the format of c
-*/
 
 int			judge_format(char c)
 {
@@ -50,11 +45,6 @@ void		write_target(va_list ap, t_format *x)
 	else if (x->format_char == '%')
 		write_character(ap, x);
 }
-
-/*
-** int		ft_printf(const char *format, ...)
-** write characters till '%' appears
-*/
 
 int			ft_isnum(char c)
 {
