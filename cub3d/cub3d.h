@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/03/09 18:47:45 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/03/09 19:44:25 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ typedef struct	s_cub
 
 
 int	get_R_value(int fd, t_cub *cub);
+int	get_NO_path(int fd, t_cub *cub);
 
 #endif
