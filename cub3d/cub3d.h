@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/03/09 19:44:25 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/03/12 19:36:51 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,11 @@ typedef struct	s_cub
 	char	*EA;
 
 	char *Sprite;
-	char *Floor;
-	char *Ceilling;
+	int		F[3];
+	int		C[3];
 }				t_cub;
 
-
-int	get_R_value(int fd, t_cub *cub);
-int	get_NO_path(int fd, t_cub *cub);
+int		get_cub_value(char *file_path, t_cub *cub);
+void	free_struct(t_cub *cub);
 
 #endif

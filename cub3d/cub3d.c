@@ -1,67 +1,134 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/11 14:02:10 by hkikuchi          #+#    #+#             */
+/*   Updated: 2021/03/12 20:12:47 by hkikuchi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <fcntl.h>
 #include "./gnl/get_next_line.h"
 #include "./libft/libft.h"
 #include "./cub3d.h"
-#include "./gnl/get_next_line.c"
-#include "./gnl/get_next_line_utils.c"
-#include "./libft/ft_isdigit.c"
-#include "./libft/ft_atoi.c"
-#include "./libft/ft_substr.c"
-#include "./libft/ft_calloc.c"
-#include "./libft/ft_strlen.c"
-#include "./libft/ft_bzero.c"
 
-int	get_R_value(int fd, t_cub *cub)
+static char	**cut_num(char *buf, t_cub *cub, char c)
 {
-	char	*buf;
+	char	**tmp;
+	int		i;
+	int		j;
+
+	i = 2;
+	j = 0;
+	while (ft_isdigit(buf[i]))
+		i++;
+	tmp = malloc(sizeof(char*) * 3);
+	tmp[0] = ft_substr(buf, 2, i - 2);
+	i++;
+	while (ft_isdigit(buf[i + j]))
+		j++;
+	tmp[1] = ft_substr(buf, i, j);
+	tmp[2] = ft_substr(buf, i + j + 1, ft_strlen(buf) - (i + j + 1));
+	return (tmp);
+}
+
+static int	get_fc_value(t_cub *cub, char *buf)
+{
+	int		res;
+	char	**tmp;
+	int		i;
+
+	tmp = cut_num(buf, cub, buf[0]);
+	i = 0;
+	while (i < 3)
+	{
+		if (buf[0] == 'F')
+			cub->F[i] = ft_atoi(tmp[i]);
+		else if (buf[0] == 'C')
+			cub->C[i] = ft_atoi(tmp[i]);
+		if (!tmp[i])
+			return (-1);
+		free(tmp[i]);
+		i++;
+	}
+	free(tmp);
+}
+
+static int	get_r_value(t_cub *cub, char *buf)
+{
+	int		buf_len;
 	char	*tmp;
 	int		res;
 	int		i;
 
+	buf_len = ft_strlen(buf);
 	i = 2;
-	res = get_next_line(fd, &buf);
-	while(ft_isdigit(buf[i]))
+	while (ft_isdigit(buf[i]))
 		i++;
-	tmp = ft_substr(buf, 2, i);
+	tmp = ft_substr(buf, 2, i - 2);
+	if (!tmp)
+		return (-1);
 	cub->R_x = ft_atoi(tmp);
+	if (!cub->R_x)
+		return (-1);
 	free(tmp);
-	tmp = ft_substr(buf, i + 1, ft_strlen(buf) - i - 1);
+	tmp = ft_substr(buf, i + 1, buf_len - 1);
+	if (!tmp)
+		return (-1);
 	cub->R_y = ft_atoi(tmp);
+	if (!cub->R_y)
+		return (-1);
 	free(tmp);
-	free(buf);
-	return (res);
+	return (1);
 }
 
-int	get_NO_path(int fd, t_cub *cub)
+int			get_path(int fd, t_cub *cub)
 {
 	char	*buf;
+	size_t	buf_len;
 	int		res;
 
-	res = get_next_line(fd, &buf);
-	cub->NO = ft_substr(buf, 3, ft_strlen(buf) - 3);
+	while (res = get_next_line(fd, &buf) && res != (-1))
+	{
+		buf_len = ft_strlen(buf);
+		if (ft_strnstr(buf, "NO", buf_len))
+			cub->NO = ft_substr(buf, 3, buf_len - 3);
+		else if (ft_strnstr(buf, "SO", buf_len))
+			cub->SO = ft_substr(buf, 3, buf_len - 3);
+		else if (ft_strnstr(buf, "WE", buf_len))
+			cub->WE = ft_substr(buf, 3, buf_len - 3);
+		else if (ft_strnstr(buf, "EA", buf_len))
+			cub->EA = ft_substr(buf, 3, buf_len - 3);
+		else if (buf[0] == 'S')
+			cub->Sprite = ft_substr(buf, 2, buf_len - 2);
+		free(buf);
+	}
 	free(buf);
-	return (res);
+	return (1);
 }
 
-
-int main (int argc, char **argv)
+int			get_cub_value(char *file_path, t_cub *cub)
 {
-	int fd;
-	int res;
-	t_cub cub;
+	int		res;
+	int		fd;
+	char	*buf;
 
-	if (argc > 2)
+	fd = open(file_path, O_RDONLY);
+	while (res = get_next_line(fd, &buf))
 	{
-		printf("ERROR");
-		return (0);
+		if (buf[0] == 'R')
+			get_r_value(cub, buf);
+		else if (buf[0] == 'F' || buf[0] == 'C')
+			get_fc_value(cub, buf);
+		free(buf);
 	}
-	// fd = open(argv[1],O_RDONLY);
-	fd = open("ex_cub.cub", O_RDONLY);
-	if ((res = get_R_value(fd,&cub))==-1)
-	{
-		printf("ERROR\n");
-		return (0);
-	}
-	printf("%d, %d\n",cub.R_x,cub.R_y);
+	free(buf);
+	close(fd);
+	fd = open(file_path, O_RDONLY);
+	get_path(fd, cub);
+	close(fd);
 }
