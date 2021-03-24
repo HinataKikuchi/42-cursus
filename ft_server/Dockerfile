@@ -7,7 +7,7 @@ FROM debian:buster
 #APPS  :openssl, wget, php(7.3)-fpm, nginx, vim, php-mysql, mariadb-server
 RUN set -ex;\
 	apt-get update && apt-get install -y --no-install-recommends \
-	openssl wget php-fpm nginx mariadb-server vim php-mysql
+	openssl wget php-fpm nginx mariadb-server vim php-mysql php-mbstring
 
 ##WORDPRESS##
 RUN mkdir -p /var/www/html/wordpress
@@ -15,9 +15,10 @@ RUN wget --no-check-certificate https://wordpress.org/latest.tar.gz
 RUN tar -zxvf latest.tar.gz -C /var/www/html/
 
 ##PHPMYADMIN##
-RUN wget --no-check-certificate https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.tar.gz
-RUN tar -zxvf phpMyAdmin-5.0.4-all-languages.tar.gz -C /var/www/html
-RUN mv /var/www/html/phpMyAdmin-5.0.4-all-languages /var/www/html/phpmyadmin
+ENV PHPMYADMIN_VERSION 5.0.4
+RUN wget --no-check-certificate https://files.phpmyadmin.net/phpMyAdmin/${PHPMYADMIN_VERSION}/phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.gz
+RUN tar -zxvf phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.gz -C /var/www/html
+RUN mv /var/www/html/phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages /var/www/html/phpmyadmin
 
 
 ##CREATE SERTIFICATION##
@@ -48,6 +49,7 @@ COPY srcs srcs
 COPY ./srcs/default.tmpl /etc/nginx/sites-available/default.tmpl
 #rm symboliclink's file
 RUN rm /etc/nginx/sites-enabled/default
+RUN mv ./srcs/config.inc.php /var/www/html/phpmyadmin
 #make symbolicklink to sites-enable
 #RUN ln -s /etc/nginx/sites-available/default.tmpl /etc/nginx/sites-enabled/default.tmpl
 
