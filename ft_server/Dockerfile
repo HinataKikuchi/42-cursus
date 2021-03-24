@@ -7,7 +7,7 @@ FROM debian:buster
 #APPS  :openssl, wget, php(7.3)-fpm, nginx, vim, php-mysql, mariadb-server
 RUN set -ex;\
 	apt-get update && apt-get install -y --no-install-recommends \
-	openssl wget php-fpm nginx mariadb-server vim php-mysql
+	openssl wget php-fpm nginx mariadb-server vim php-mysql php-mbstring
 
 ##WORDPRESS##
 RUN mkdir -p /var/www/html/wordpress
@@ -22,8 +22,8 @@ RUN mv /var/www/html/phpMyAdmin-5.0.4-all-languages /var/www/html/phpmyadmin
 
 ##CREATE SERTIFICATION##
 RUN mkdir /etc/nginx/certificate; \
-    openssl req -newkey rsa:4069 -x509 -nodes -days 365\
-    -subj "/C=JP/ST=Tokyo/L=Minatoku/O=42tokyo/OU=student/CN=hkikuchi"\
+    openssl req -newkey rsa:406 -x509 -nodes -days 365\
+    -subj "/C=JP/ST=Tokyo/L=Minatoku/O=42tokyo/OU=student/CN=localhost"\
     -keyout /etc/nginx/certificate/server.key\
     -out /etc/nginx/certificate/server.crt;
  
