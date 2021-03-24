@@ -23,7 +23,7 @@ RUN mv /var/www/html/phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages /var/www/htm
 
 ##CREATE SERTIFICATION##
 RUN mkdir /etc/nginx/certificate; \
-    openssl req -newkey rsa:406 -x509 -nodes -days 365\
+    openssl req -newkey rsa:4096 -x509 -nodes -days 365\
     -subj "/C=JP/ST=Tokyo/L=Minatoku/O=42tokyo/OU=student/CN=localhost"\
     -keyout /etc/nginx/certificate/server.key\
     -out /etc/nginx/certificate/server.crt;
