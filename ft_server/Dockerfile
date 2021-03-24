@@ -15,9 +15,10 @@ RUN wget --no-check-certificate https://wordpress.org/latest.tar.gz
 RUN tar -zxvf latest.tar.gz -C /var/www/html/
 
 ##PHPMYADMIN##
-RUN wget --no-check-certificate https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.tar.gz
-RUN tar -zxvf phpMyAdmin-5.0.4-all-languages.tar.gz -C /var/www/html
-RUN mv /var/www/html/phpMyAdmin-5.0.4-all-languages /var/www/html/phpmyadmin
+ENV PHPMYADMIN_VERSION 5.0.4
+RUN wget --no-check-certificate https://files.phpmyadmin.net/phpMyAdmin/${PHPMYADMIN_VERSION}/phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.gz
+RUN tar -zxvf phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.gz -C /var/www/html
+RUN mv /var/www/html/phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages /var/www/html/phpmyadmin
 
 
 ##CREATE SERTIFICATION##
@@ -48,6 +49,7 @@ COPY srcs srcs
 COPY ./srcs/default.tmpl /etc/nginx/sites-available/default.tmpl
 #rm symboliclink's file
 RUN rm /etc/nginx/sites-enabled/default
+RUN mv ./srcs/config.inc.php /var/www/html/phpmyadmin
 #make symbolicklink to sites-enable
 #RUN ln -s /etc/nginx/sites-available/default.tmpl /etc/nginx/sites-enabled/default.tmpl
 

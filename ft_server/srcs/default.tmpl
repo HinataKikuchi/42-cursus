@@ -65,7 +65,7 @@ server {
 	index index.php index.html index.htm index.nginx-debian.html;
 
 	server_name _;
-	autoindex {{ var "AUTOINDEX" | default "off" }};
+	autoindex {{ var "AUTOINDEX" | default "on" }};
 
 	location / {
 		# First attempt to serve request as file, then
