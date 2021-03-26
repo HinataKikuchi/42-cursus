@@ -6,15 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:02:10 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/03/12 20:12:47 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/03/26 19:45:17 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <fcntl.h>
-#include "./gnl/get_next_line.h"
-#include "./libft/libft.h"
-#include "./cub3d.h"
+#include "cub3d.h"
 
 static char	**cut_num(char *buf, t_cub *cub, char c)
 {
@@ -130,5 +126,8 @@ int			get_cub_value(char *file_path, t_cub *cub)
 	close(fd);
 	fd = open(file_path, O_RDONLY);
 	get_path(fd, cub);
+	close(fd);
+	fd = open(file_path, O_RDONLY);
+	get_map(file_path, cub);
 	close(fd);
 }
