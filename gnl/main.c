@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 17:25:42 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/10 23:12:33 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/03 14:34:25 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int main (/*int argc, char **argv*/void)
 	char	*line;
 	int		res;
 
-	// int fd = 0;
+	int fd = 0;
 	// int fd = open("test.txt",O_RDONLY);
-	int fd = open("64bit_paragraph.txt", O_RDONLY);
+	// int fd = open("64bit_paragraph.txt", O_RDONLY);
 	// (void)argc;
 	res = get_next_line(fd, &line);
 	while (res > 0)

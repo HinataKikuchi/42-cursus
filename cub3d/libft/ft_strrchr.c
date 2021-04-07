@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 16:38:39 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/26 17:16:56 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/07 20:04:09 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char *buf;
+	char	*buf;
 
 	buf = (char *)(s + ft_strlen(s));
 	while (buf != s)

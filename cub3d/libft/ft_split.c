@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:08:24 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/26 19:26:35 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/07 19:48:56 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static unsigned int	ft_count(char const *s, char c)
 	return (ans);
 }
 
-static char			**ft_splitcpy(char const *s, char c, char **ans)
+static char	**ft_splitcpy(char const *s, char c, char **ans)
 {
 	unsigned int	i;
 	int				j;
@@ -59,7 +59,7 @@ static char			**ft_splitcpy(char const *s, char c, char **ans)
 	return (ans);
 }
 
-static void			ft_free_col(char **ans, unsigned int i)
+static void	ft_free_col(char **ans, unsigned int i)
 {
 	unsigned int	n;
 
@@ -75,31 +75,31 @@ static void			ft_free_col(char **ans, unsigned int i)
 	free(ans);
 }
 
-static char			**ft_single_string(char const *s, char c)
+static char	**ft_single_string(char const *s, char c)
 {
 	char		**ans;
 	char		*str;
-	const char	c_string[2] = { c, '\0'};
+	const char	c_string[2] = {c, '\0'};
 
 	str = ft_strtrim(s, c_string);
 	if (!str)
 		return (NULL);
 	if (str[0] == '\0')
 	{
-		ans = (char **)malloc(sizeof(char*));
+		ans = (char **)malloc(sizeof(char *));
 		ans[0] = NULL;
 		free(str);
 	}
 	else
 	{
-		ans = (char **)malloc(2 * sizeof(char*));
+		ans = (char **)malloc(2 * sizeof(char *));
 		ans[0] = str;
 		ans[1] = NULL;
 	}
 	return (ans);
 }
 
-char				**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char			**ans;
 	unsigned int	i;
@@ -109,7 +109,7 @@ char				**ft_split(char const *s, char c)
 	i = 0;
 	if (ft_count(s, c) == 0)
 		return (ft_single_string(s, c));
-	ans = (char **)malloc((ft_count(s, c) + 2) * sizeof(char*));
+	ans = (char **)malloc((ft_count(s, c) + 2) * sizeof(char *));
 	if (ans == NULL)
 		return (NULL);
 	while (i < (ft_count(s, c) + 1))

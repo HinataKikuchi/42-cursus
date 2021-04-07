@@ -118,7 +118,7 @@ int main()
 	ft_printf("](ret = %d)\n", ret);
 
 
-	printf("\x1b[37mflag %%[05.]%%: [");
+	printf("\x1b[37mflag %105.]%%: [");
 	ret = printf("%05.%");
 	printf("](ret = %d)\n", ret);
 
@@ -177,21 +177,21 @@ int main()
 	ret = ft_printf("%-10c", 'A');
 	ft_printf("](ret = %d)\n", ret);
 
-	printf("\x1b[37mflag %%[INT_MAX]c: [");
-	ret = printf("%2147483647c", 'A');
-	printf("](ret = %d)\n", ret);
+	//printf("\x1b[37mflag %%[INT_MAX]c: [");
+	//ret = printf("%2147483647c", 'A');
+	//printf("](ret = %d)\n", ret);
 
-	ft_printf("\x1b[35mflag %%[INT_MAX]c: [");
-	ret = ft_printf("%2147483647c", 'A');
-	ft_printf("](ret = %d)\n", ret);
+	//ft_printf("\x1b[35mflag %%[INT_MAX]c: [");
+	//ret = ft_printf("%2147483647c", 'A');
+	//ft_printf("](ret = %d)\n", ret);
 
-	printf("\x1b[37mflag %%[INT_MAX + 1]c: [");
-	ret = printf("%2147483648c", 'A');
-	printf("](ret = %d)\n", ret);
+	//printf("\x1b[37mflag %%[INT_MAX + 1]c: [");
+	//ret = printf("%2147483648c", 'A');
+	//printf("](ret = %d)\n", ret);
 
-	ft_printf("\x1b[35mflag %%[INT_MAX + 1]c: [");
-	ret = ft_printf("%.2147483648c", 'A');
-	ft_printf("](ret = %d)\n", ret);
+	//ft_printf("\x1b[35mflag %%[INT_MAX + 1]c: [");
+	//ret = ft_printf("%.2147483648c", 'A');
+	//ft_printf("](ret = %d)\n", ret);
 
 	printf("\x1b[37mflag %%[-* ( = -10)]c: [");
 	ret = printf("%-*c", -10, 'A');
@@ -453,29 +453,29 @@ int main()
 
 	printf("\n\x1b[33m############## C A S E  %% D & I #################\n\n");
 
-	printf("\x1b[37mplain %%d(INT_MAX + 1): [");
-	ret = printf("%d", INT_MAX + 1);
-	printf("](ret = %d)\n", ret);
+	//printf("\x1b[37mplain %%d(INT_MAX + 1): [");
+	//ret = printf("%d", INT_MAX + 1);
+	//printf("](ret = %d)\n", ret);
 
-	ft_printf("\x1b[33mplain %%d(INT_MAX + 1): [");
-	ret = ft_printf("%d", INT_MAX + 1);
-	ft_printf("](ret = %d)\n", ret);
+	//ft_printf("\x1b[33mplain %%d(INT_MAX + 1): [");
+	//ret = ft_printf("%d", INT_MAX + 1);
+	//ft_printf("](ret = %d)\n", ret);
 
-	printf("\x1b[37mplain %%d(INT_MIN - 1): [");
-	ret = printf("%d", INT_MIN - 1);
-	printf("](ret = %d)\n", ret);
+	//printf("\x1b[37mplain %%d(INT_MIN - 1): [");
+	//ret = printf("%d", INT_MIN - 1);
+	//printf("](ret = %d)\n", ret);
 
-	ft_printf("\x1b[33mplain %%d(INT_MIN - 1): [");
-	ret = ft_printf("%d", INT_MIN - 1);
-	ft_printf("](ret = %d)\n", ret);
+	//ft_printf("\x1b[33mplain %%d(INT_MIN - 1): [");
+	//ret = ft_printf("%d", INT_MIN - 1);
+	//ft_printf("](ret = %d)\n", ret);
 
-	printf("\x1b[37mplain %%i: [");
-	ret = printf("%i", INT_MAX);
-	printf("](ret = %d)\n", ret);
+	//printf("\x1b[37mplain %%i: [");
+	//ret = printf("%i", INT_MAX);
+	//printf("](ret = %d)\n", ret);
 
-	ft_printf("\x1b[33mplain %%i: [");
-	ret = ft_printf("%i", INT_MAX);
-	ft_printf("](ret = %d)\n", ret);
+	//ft_printf("\x1b[33mplain %%i: [");
+	//ret = ft_printf("%i", INT_MAX);
+	//ft_printf("](ret = %d)\n", ret);
 
 	printf("\x1b[37mplain %%i: [");
 	ret = printf("%i", INT_MIN);
@@ -570,13 +570,13 @@ int main()
 	ret = ft_printf("%.10d", b);
 	ft_printf("](ret = %d)\n", ret);
 
-	printf("\x1b[37mflag %%.[INT_MAX + 1]d: [");
-	ret = printf("%.2147483647d", 12345);
-	printf("](ret = %d)\n", ret);
+	//printf("\x1b[37mflag %%.[INT_MAX + 1]d: [");
+	//ret = printf("%.2147483647d", 12345);
+	//printf("](ret = %d)\n", ret);
 
-	ft_printf("\x1b[33mflag %%.[INT_MAX + 1]d: [");
-	ret = ft_printf("%.2147483648d", 12345);
-	ft_printf("](ret = %d)\n", ret);
+	//ft_printf("\x1b[33mflag %%.[INT_MAX + 1]d: [");
+	//ret = ft_printf("%.2147483648d", 12345);
+	//ft_printf("](ret = %d)\n", ret);
 
 	printf("\x1b[37mflag %%[10.10]d: [");
 	ret = printf("%10.10d", a);

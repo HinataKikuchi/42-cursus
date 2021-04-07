@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkikuchi <hkikuchi@student.42tokyo.>       +#+  +:+       +#+        */
+/*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 12:48:30 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/26 19:25:21 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/07 19:51:53 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	ft_count_front(const char *s, char const *set)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (*(s + i) != '\0')
@@ -26,7 +26,7 @@ static size_t	ft_count_front(const char *s, char const *set)
 	return (i);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char		*ans;
 	size_t		i;
@@ -45,7 +45,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 			break ;
 		j--;
 	}
-	if (!(ans = (char *)ft_calloc(((j - i) + 1), sizeof(char))))
+	ans = (char *)ft_calloc(((j - i) + 1), sizeof(char));
+	if (!ans)
 		return (NULL);
 	ft_memcpy(ans, s1 + i, (j - i));
 	return (ans);

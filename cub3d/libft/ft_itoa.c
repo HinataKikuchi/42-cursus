@@ -6,15 +6,15 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 19:08:02 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/26 19:26:58 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/07 20:06:01 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_countdigits(int n)
+static int	ft_countdigits(int n)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	while (n)
@@ -25,14 +25,14 @@ static int		ft_countdigits(int n)
 	return (j);
 }
 
-static int		ft_judge_minimam(int n)
+static int	ft_judge_minimam(int n)
 {
 	if (n == -2147483648)
 		return (1);
 	return (0);
 }
 
-static void		ft_intoa(char *ans, int tmp1, int j)
+static void	ft_intoa(char *ans, int tmp1, int j)
 {
 	int		tmp2;
 	char	tmp;
@@ -47,14 +47,14 @@ static void		ft_intoa(char *ans, int tmp1, int j)
 	}
 }
 
-static char		*ft_min(char *ans)
+static char	*ft_min(char *ans)
 {
 	ft_memcpy(ans, "-2147483648", 11);
 	ans[11] = '\0';
 	return (ans);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*ans;
 	int		j;
