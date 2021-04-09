@@ -1,1 +1,6 @@
 gcc <program files> -lXext -lX11
+gcc test.c ./minilibx-linux/libmlx.a -lXext -lX11
+
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+sudo apt-get update && sudo apt-get install xorg libxext-dev zlib1g-dev
+gnome-terminal
