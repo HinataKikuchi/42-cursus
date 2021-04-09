@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 17:40:28 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/11 00:14:13 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/09 13:05:40 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	int			res;
 	static char	*save[MAX_ASIZE];

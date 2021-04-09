@@ -6,13 +6,14 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 17:40:28 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/11 00:21:37 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/09 13:18:16 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "../libft/libft.h"
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	int			res;
 	static char	*save[MAX_ASIZE];

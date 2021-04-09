@@ -6,21 +6,21 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 19:53:22 by hkikuchi          #+#    #+#             */
-/*   Updated: 2020/11/26 19:27:46 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/09 12:52:33 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <limits.h>
 
-static char		*ft_skip_blank(const char *nptr)
+static char	*ft_skip_blank(const char *nptr)
 {
 	while (('\t' <= *nptr && *nptr <= '\r') || *nptr == ' ')
 		nptr++;
-	return (char *)(nptr);
+	return ((char *)(nptr));
 }
 
-int				ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
 	unsigned long	ans;
 	int				sign;
@@ -29,7 +29,7 @@ int				ft_atoi(const char *nptr)
 	sign = 1;
 	ans = 0;
 	nptr = (const char *)ft_skip_blank(nptr);
-	sign = (*nptr == '-' ? -1 : 1);
+	sign = *nptr == '-' ? -1 : 1;
 	if (*nptr == '-' || *nptr == '+')
 		nptr++;
 	tmp = (char *)nptr;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/01/08 19:20:43 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/09 13:05:59 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	*ft_memchr(const void *buf, int ch, size_t n)
 	unsigned char	c;
 
 	i = 0;
-	b = (unsigned char*)buf;
+	b = (unsigned char *)buf;
 	c = (unsigned char)ch;
 	while (i < n)
 	{
