@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/03/26 19:45:48 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/14 18:10:51 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,21 @@ typedef struct	s_cub
 	int		map_col;
 }				t_cub;
 
+typedef struct	s_date
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+
+
 int		get_cub_value(char *file_path, t_cub *cub);
 void	free_struct(t_cub *cub);
 void	safe_free(void *p);
 int		get_map(char *file_path, t_cub *cub);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+
 
 #endif

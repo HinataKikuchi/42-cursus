@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 18:51:27 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/05 12:47:13 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/14 18:10:38 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,12 @@ void		free_struct(t_cub *cub)
 	cub->map_row--;
 	while ((cub->map_row) >= 0)
 		safe_free(cub->map[cub->map_row--]);
+}
+
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }
