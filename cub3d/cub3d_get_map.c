@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 14:41:08 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/03/26 19:37:30 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/15 18:12:31 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,24 @@
 
 static int	judge_map(char *buf)
 {
-	int	res;
+	int	i;
 
-	res = 0;
-	if (ft_strchr(buf, '1') || ft_strchr(buf, '0'))
-		res = 1;
-	if (ft_strchr(buf, 'R'))
-		res = 0;
-	else if (ft_strchr(buf, 'F'))
-		res = 0;
-	else if (ft_strchr(buf, 'C'))
-		res = 0;
-	return (res);
+	i = 0;
+	if (buf[i] == '\0')
+		return (0);
+	while(buf[i] != '\0')
+	{
+		if (buf[i] != ' ' && !ft_isdigit(buf[i]))
+			return (0);
+		i++;
+	}
+	if ((ft_strchr(buf, '1') || ft_strchr(buf, '0')))
+		return (1);
+	return (1);
+
 }
 
-static int	count_row(char *file_path)
+static int	count_row(char *file_path, int *map_col)
 {
 	int		i;
 	int		fd;
@@ -37,10 +40,14 @@ static int	count_row(char *file_path)
 
 	i = 0;
 	fd = open(file_path, O_RDONLY);
+	*map_col = 0;
 	while (res = get_next_line(fd, &buf) && res != -1)
 	{
 		if (judge_map(buf))
 			i++;
+		res = ft_strlen(buf);
+		if (res > *map_col)
+			*map_col = res;
 		safe_free(buf);
 	}
 	if (judge_map(buf))
@@ -61,7 +68,7 @@ int			get_map(char *file_path, t_cub *cub)
 	int		fd;
 
 	i = 0;
-	cub->map_row = count_row(file_path);
+	cub->map_row = count_row(file_path, &(cub->map_col));
 	fd = open(file_path, O_RDONLY);
 	if (cub->map_row == -1 || fd == -1)
 		return (-1);

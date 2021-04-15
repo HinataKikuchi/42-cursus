@@ -10,6 +10,21 @@ int	main(void)
 	void *winptr;
 	winptr = mlx_new_window(mlxptr, 500, 500, "Hello World!");
 
+	void *image_ptr;
+
+/*mlx_new_image*/
+	image_ptr = mlx_new_image(mlxptr, 100,100);
+	// void *image;
+
+
+// /*mlx_loop*/
+	mlx_loop(mlxptr);
+
+// /*mlx_destroy_window*/
+// 	mlx_destroy_window (mlxptr, winptr);
+}
+
+
 /*mlx_pixel_put*/
 	// int i;
 	// int j;
@@ -20,11 +35,7 @@ int	main(void)
 	// 		mlx_pixel_put(mlxptr, winptr, i, j, 0xDF865B);
 	// 	}
 	// }
-	void *image_ptr;
 
-/*mlx_new_image*/
-	image_ptr = mlx_new_image(mlxptr, 100,100);
-	// void *image;
 
 /*mlx_put_image_to_window*/
 
@@ -38,10 +49,3 @@ int	main(void)
 // 	int width;
 // 	image_ptr = mlx_xpm_file_to_image(mlxptr, "./textures/bluestone.xpm",&width,&height);
 // 	mlx_put_image_to_window(mlxptr, winptr ,image_ptr, 200, 200);
-
-// /*mlx_loop*/
-	mlx_loop(mlxptr);
-
-// /*mlx_destroy_window*/
-// 	mlx_destroy_window (mlxptr, winptr);
-}

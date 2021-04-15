@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/14 18:10:51 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/15 18:12:46 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "libft/libft.h"
 # include "gnl/get_next_line.h"
 
-typedef struct	s_cub
+typedef struct s_cub
 {
 	int		R_x;
 	int		R_y;
@@ -27,7 +27,7 @@ typedef struct	s_cub
 	char	*WE;
 	char	*EA;
 
-	char *Sprite;
+	char	*Sprite;
 	int		F[3];
 	int		C[3];
 
@@ -36,7 +36,7 @@ typedef struct	s_cub
 	int		map_col;
 }				t_cub;
 
-typedef struct	s_date
+typedef struct s_date
 {
 	void	*img;
 	char	*addr;
@@ -45,12 +45,12 @@ typedef struct	s_date
 	int		endian;
 }				t_data;
 
-
 int		get_cub_value(char *file_path, t_cub *cub);
 void	free_struct(t_cub *cub);
 void	safe_free(void *p);
 int		get_map(char *file_path, t_cub *cub);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		create_trgb(int t, int r, int g, int b);
 
 
 #endif
