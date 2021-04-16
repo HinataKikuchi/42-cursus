@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/16 18:43:15 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/16 20:04:39 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,17 @@
 # include <fcntl.h>
 # include "libft/libft.h"
 # include "gnl/get_next_line.h"
+# include "./minilibx-linux/mlx.h"
+# define A 97
+# define W 119
+# define S 115
+# define D 100
+# define DOWN 65364
+# define RIGHT 65363
+# define UP 65362
+# define LEFT 65361
+# define ESC 65307
+# define ENTER 32
 
 typedef struct s_cub
 {
@@ -58,6 +69,7 @@ void	safe_free(void *p);
 int		get_map(char *file_path, t_cub *cub);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		create_trgb(int t, int r, int g, int b);
+void	screen();
 
 
 #endif
