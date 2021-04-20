@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/16 20:04:39 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/20 19:52:48 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <math.h>
 # include "libft/libft.h"
 # include "gnl/get_next_line.h"
 # include "./minilibx-linux/mlx.h"
@@ -47,6 +48,12 @@ typedef struct s_cub
 	int		map_col;
 }				t_cub;
 
+typedef struct	s_win
+{
+	int	size_x;
+	int	size_y;
+}				t_win;
+
 typedef struct	s_vars
 {
 	void	*mlx;
@@ -70,6 +77,7 @@ int		get_map(char *file_path, t_cub *cub);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		create_trgb(int t, int r, int g, int b);
 void	screen();
-
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	get_screen_size(t_cub *cub, t_win win);
 
 #endif

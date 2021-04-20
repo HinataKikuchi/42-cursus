@@ -6,12 +6,13 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/09 13:19:41 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/20 19:56:59 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdio.h"
 #include "get_next_line.h"
+#include "../cub3d.h"
 
 size_t	ft_nstrlen(const char *s)
 {
@@ -72,25 +73,6 @@ char	*ft_strjoin_free(char *s1, char *s2)
 	return (ans);
 }
 
-char	*ft_strdup(const char *s)
-{
-	char		*ans;
-	size_t		i;
-	size_t		s_size;
-
-	s_size = ft_nstrlen(s);
-	ans = (char *)malloc((s_size + 1) * sizeof(char));
-	if (ans == NULL)
-		return (NULL);
-	i = 0;
-	while (i < s_size)
-	{
-		*(ans + i) = *(s + i);
-		i++;
-	}
-	ans[i] = '\0';
-	return (ans);
-}
 
 size_t	ft_strlcpy(char *buf1, const char *buf2, size_t n)
 {
