@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/20 19:52:48 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/21 17:31:28 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <math.h>
-# include "libft/libft.h"
-# include "gnl/get_next_line.h"
+# include "./libft/libft.h"
+# include "./gnl/get_next_line.h"
 # include "./minilibx-linux/mlx.h"
 # define A 97
 # define W 119

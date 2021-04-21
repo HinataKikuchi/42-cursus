@@ -6,13 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 18:46:48 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/20 19:56:59 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/21 17:47:08 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdio.h"
 #include "get_next_line.h"
-#include "../cub3d.h"
 
 size_t	ft_nstrlen(const char *s)
 {

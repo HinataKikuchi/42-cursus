@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:03:42 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/20 19:57:53 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/21 16:58:54 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		main (/*int argc, char **argv*/void)
 	vars.win = mlx_new_window(vars.mlx,600,600,"Hi!");
 	mlx_get_screen_size(vars.mlx, &win.size_x, &win.size_y);
 	get_screen_size(&cub, win);
-
+	printf("%d, %d\n",cub.R_x, cub.R_y);
 	mlx_loop(vars.mlx);
 }
 

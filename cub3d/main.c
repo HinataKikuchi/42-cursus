@@ -6,13 +6,11 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:03:42 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/16 20:05:31 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/21 18:24:46 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include <stdlib.h>
-#include "./minilibx-linux/mlx.h"
 // #include "./cub3d.c"
 // #include "./cub3d_utils.c"
 // #include "./cub3d_get_map.c"
@@ -30,8 +28,10 @@
 
 int		main (/*int argc, char **argv*/void)
 {
-	screen();
-
+	t_cub cub;
+	printf("%d\n",ft_atoi("100"));
+	get_cub_value("./test_maps/test2.cub", &cub);
+	printf("%d\n",cub.R_x);
 }
 
 /*keybound*/
