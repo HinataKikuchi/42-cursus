@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:03:42 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/21 18:24:46 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/22 19:19:03 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 
 int		main (/*int argc, char **argv*/void)
 {
-	t_cub cub;
+	 t_cub cub;
 	printf("%d\n",ft_atoi("100"));
 	get_cub_value("./test_maps/test2.cub", &cub);
 	printf("%d\n",cub.R_x);

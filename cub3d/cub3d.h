@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/21 17:31:28 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/22 18:23:59 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <math.h>
-# include "./libft/libft.h"
-# include "./gnl/get_next_line.h"
-# include "./minilibx-linux/mlx.h"
+# include "libft/libft.h"
+# include "gnl/get_next_line.h"
+# include "minilibx-linux/mlx.h"
 # define A 97
 # define W 119
 # define S 115
@@ -70,6 +70,18 @@ typedef struct s_date
 	int		endian;
 }				t_data;
 
+typedef struct	s_pos
+{
+	double posX;
+	double posY;
+	double dirX;
+	double dirY;
+	double planeX;
+	double planeY;
+	double moveSpeed;
+	double rotSpeed;
+}				t_pos;
+
 int		get_cub_value(char *file_path, t_cub *cub);
 void	free_struct(t_cub *cub);
 void	safe_free(void *p);
@@ -79,5 +91,9 @@ int		create_trgb(int t, int r, int g, int b);
 void	screen();
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	get_screen_size(t_cub *cub, t_win win);
+int		key_hook(int keycode, t_vars *vars);
+int		x_button(t_vars *vars);
+
+
 
 #endif

@@ -1,18 +1,5 @@
 #include "cub3d.h"
 
-static int	key_hook(int keycode, t_vars *vars)
-{
-	if (keycode == ESC)
-		mlx_destroy_window(vars->mlx, vars->win);
-	exit(0);
-}
-
-static int	x_button(t_vars *vars)
-{
-	mlx_destroy_window(vars->mlx, vars->win);
-	exit(0);
-}
-
 void	screen()
 {
 	/*TO_CHECK_*/
