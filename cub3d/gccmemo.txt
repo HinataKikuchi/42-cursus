@@ -6,3 +6,4 @@ sudo apt-get update && sudo apt-get install xorg libxext-dev zlib1g-dev
 gnome-terminal
 
 gcc main.c ./minilibx-linux/libmlx.a gnl/get_next_line.c gnl/get_next_line_utils.c cub3d_get_map.c cub3d.c cub3d_utils.c libft.a  -lXext -lX11
+gcc  libft.a write_screen.c cub3d_utils.c cub3d_color.c cub3d.c libmlx.a gnl/get_next_line.c gnl/get_next_line_utils.c cub3d_get_map.c -lXext -lX11 -lm

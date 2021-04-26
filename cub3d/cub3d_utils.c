@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 18:51:27 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/14 18:10:38 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/26 21:12:54 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,17 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
+}
+
+void	verLine(t_vars *vars, t_data *data, int x, int y1, int y2, int color)
+{
+	// my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
+    // mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
+	while (y1 <= y2)
+	{
+		my_mlx_pixel_put(data, x, y1, color);
+		// mlx_pixel_put(vars->mlx, vars->win, x, y1, color);
+		y1++;
+	}
+	mlx_put_image_to_window(vars->mlx, vars->win, data->img, 0, 0);
 }

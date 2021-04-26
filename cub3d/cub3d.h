@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/26 16:25:34 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/26 21:08:58 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	get_screen_size(t_cub *cub, t_win win);
 int		key_hook(int keycode, t_vars *vars);
 int		x_button(t_vars *vars);
+void	verLine(t_vars *vars, t_data *data, int x, int y1, int y2, int color);
 
 
 

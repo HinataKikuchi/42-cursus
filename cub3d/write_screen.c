@@ -30,15 +30,6 @@ double	cub_abs(double n)
 	return (n);
 }
 
-void	verLine(t_vars *vars, int x, int y1, int y2, int color)
-{
-	while (y1 <= y2)
-	{
-		mlx_pixel_put(vars->mlx, vars->win, x, y1, color);
-		y1++;
-	}
-}
-
 void	write_page(t_pos *pos)
 {
 	int i;
@@ -120,7 +111,10 @@ void	write_page(t_pos *pos)
 			color = create_trgb(0, pos->cub.F[0], pos->cub.F[1], pos->cub.F[2]);
 		if (side == 1)
 			color = color / 2;
-		verLine(&(pos->vars), i, drawStart, drawEnd, color);
+		t_data data;
+		data.img = mlx_new_image(pos->vars.mlx, pos->cub.R_x, pos->cub.R_y);
+		data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length, &data.endian);
+		verLine(&(pos->vars), &data, i, drawStart, drawEnd, color);
 		i++;
 	}
 }
