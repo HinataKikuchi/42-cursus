@@ -52,7 +52,7 @@ int	worldMap[24][24] = {
 							{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 						};
 
-void	verLine(t_info *info, int x, int y1, int y2, int color)
+void	verLine_(t_info *info, int x, int y1, int y2, int color)
 {
 	int	y;
 
@@ -163,9 +163,7 @@ void	calc(t_info *info)
 		
 		if (side == 1)
 			color = color / 2;
-
-		verLine(info, x, drawStart, drawEnd, color);
-		
+		verLine_(info, x, drawStart, drawEnd, color);
 		x++;
 	}
 }
@@ -180,7 +178,7 @@ int	main_loop(t_info *info)
 
 int	key_press(int key, t_info *info)
 {
-	if (key == UP)
+	if (key == UP || key == W)
 	{
 		if (!worldMap[(int)(info->posX + info->dirX * info->moveSpeed)][(int)(info->posY)])
 			info->posX += info->dirX * info->moveSpeed;
@@ -188,7 +186,7 @@ int	key_press(int key, t_info *info)
 			info->posY += info->dirY * info->moveSpeed;
 	}
 	//move backwards if no wall behind you
-	if (key == DOWN)
+	if (key == DOWN || key == S)
 	{
 		if (!worldMap[(int)(info->posX - info->dirX * info->moveSpeed)][(int)(info->posY)])
 			info->posX -= info->dirX * info->moveSpeed;
@@ -196,7 +194,7 @@ int	key_press(int key, t_info *info)
 			info->posY -= info->dirY * info->moveSpeed;
 	}
 	//rotate to the right
-	if (key == RIGHT)
+	if (key == RIGHT || key == D)
 	{
 		//both camera direction and camera plane must be rotated
 		double oldDirX = info->dirX;
@@ -207,7 +205,7 @@ int	key_press(int key, t_info *info)
 		info->planeY = oldPlaneX * sin(-info->rotSpeed) + info->planeY * cos(-info->rotSpeed);
 	}
 	//rotate to the left
-	if (key == LEFT)
+	if (key == LEFT || key == A)
 	{
 		//both camera direction and camera plane must be rotated
 		double oldDirX = info->dirX;

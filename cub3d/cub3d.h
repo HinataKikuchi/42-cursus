@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/26 21:08:58 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/26 21:47:05 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "libft/libft.h"
 # include "gnl/get_next_line.h"
 # include "minilibx-linux/mlx.h"
-# include "ft_printf/ft_printf.h"
 # define A 97
 # define W 119
 # define S 115
