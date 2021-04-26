@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/22 18:23:59 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/26 16:25:34 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "libft/libft.h"
 # include "gnl/get_next_line.h"
 # include "minilibx-linux/mlx.h"
+# include "ft_printf/ft_printf.h"
 # define A 97
 # define W 119
 # define S 115
@@ -61,7 +62,7 @@ typedef struct	s_vars
 }				t_vars;
 
 
-typedef struct s_date
+typedef struct s_data
 {
 	void	*img;
 	char	*addr;
@@ -80,6 +81,8 @@ typedef struct	s_pos
 	double planeY;
 	double moveSpeed;
 	double rotSpeed;
+	t_vars vars;
+	t_cub cub;
 }				t_pos;
 
 int		get_cub_value(char *file_path, t_cub *cub);
