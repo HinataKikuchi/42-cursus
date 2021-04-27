@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/26 21:47:05 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/27 22:43:09 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <math.h>
-# include "libft/libft.h"
-# include "gnl/get_next_line.h"
-# include "minilibx-linux/mlx.h"
+# include "./libft/libft.h"
+# include "./gnl/get_next_line.h"
+# include "./minilibx-linux/mlx.h"
 # define A 97
 # define W 119
 # define S 115
@@ -95,7 +95,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	get_screen_size(t_cub *cub, t_win win);
 int		key_hook(int keycode, t_vars *vars);
 int		x_button(t_vars *vars);
-void	verLine(t_vars *vars, t_data *data, int x, int y1, int y2, int color);
+void	verLine(t_pos *pos/*, t_data *data */,int x, int y1, int y2, int color);
 
 
 

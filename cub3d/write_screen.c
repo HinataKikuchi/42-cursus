@@ -1,4 +1,13 @@
 #include "cub3d.h"
+#include "libft/ft_isdigit.c"
+#include "libft/ft_substr.c"
+#include "libft/ft_strlen.c"
+#include "libft/ft_calloc.c"
+#include "libft/ft_atoi.c"
+#include "libft/ft_bzero.c"
+#include "libft/ft_strnstr.c"
+#include "libft/ft_strchr.c"
+#include "libft/ft_strdup.c"
 
 void	get_screen_size(t_cub *cub, t_win win)
 {
@@ -33,6 +42,7 @@ double	cub_abs(double n)
 void	write_page(t_pos *pos)
 {
 	int i;
+	// t_data data;
 
 	i = 0;
 	while (pos->cub.R_x > i)
@@ -111,12 +121,14 @@ void	write_page(t_pos *pos)
 			color = create_trgb(0, pos->cub.F[0], pos->cub.F[1], pos->cub.F[2]);
 		if (side == 1)
 			color = color / 2;
-		t_data data;
-		data.img = mlx_new_image(pos->vars.mlx, pos->cub.R_x, pos->cub.R_y);
-		data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length, &data.endian);
-		verLine(&(pos->vars), &data, i, drawStart, drawEnd, color);
+		// t_data data;
+		// data.img = mlx_new_image(pos->vars.mlx, pos->cub.R_x, pos->cub.R_y);
+		// data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length, &data.endian);
+		verLine(pos, /*&data,*/i, drawStart, drawEnd, color);
+		// mlx_put_image_to_window((pos->vars.mlx), (pos->vars.win), data.img, 0, 0);
 		i++;
 	}
+	// mlx_put_image_to_window((pos->vars.mlx), (pos->vars.win), data.img, 0, 0);
 }
 
 int	main_loop(t_pos *pos)
