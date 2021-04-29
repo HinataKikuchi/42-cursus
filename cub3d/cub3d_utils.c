@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 18:51:27 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/27 22:45:13 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/04/29 19:01:41 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,55 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 void	verLine(t_pos *pos,/*t_data *data,*/ int x, int y1, int y2, int color)
 {
-	// my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
-    // mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	// data->img = mlx_new_image(pos->vars.mlx, pos->cub.R_x, pos->cub.R_y);
-	// data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_length, &data->endian);
 	while (y1 <= y2)
 	{
-		// my_mlx_pixel_put(data, x, y1, color);
-		mlx_pixel_put(&pos->vars.mlx, &pos->vars.win, x, y1, color);
+		// my_mlx_pixel_put(&pos->img, x, y1, color);
+		mlx_pixel_put(pos->vars.mlx, pos->vars.win, x, y1, color);
 		y1++;
 	}
+}
+
+void	draw_img(t_pos *pos)
+{
+	for (int y = 0; y < pos->cub.R_y; y++)
+	{
+		for (int x = 0; x < pos->cub.R_x; x++)
+		{
+			printf("x = %d\ny = %d\n",x, y);
+			printf("y * pos->cub.R_x + x =%d\n", y * pos->cub.R_x + x);
+			fflush(stdout);
+			pos->img.val[y * pos->cub.R_x + x] = pos->cub.buf[y][x];
+			printf("x = %d\ny = %d\n",x, y);
+			printf("y * pos->cub.R_x + x =%d\n", y * pos->cub.R_x + x);
+			fflush(stdout);
+		}
+	}
+	mlx_put_image_to_window(pos->vars.mlx, pos->vars.win, pos->img.img, 0, 0);
+}
+
+void	load_img(t_pos *pos, int *texture, char *path, t_data *img)
+{
+	img->img = mlx_xpm_file_to_image(pos->vars.mlx, path, &img->img_width, &img->img_height);
+	img->val = (int *)mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);
+	for (int y = 0; y < img->img_height; y++)
+	{
+		for (int x = 0; x < img->img_width; x++)
+		{
+			texture[img->img_width * y + x] = img->val[img->img_width * y + x];
+		}
+	}
+	mlx_destroy_image(pos->vars.mlx, img->img);
+}
+
+void	load_tex(t_pos *pos)
+{
+	t_data	img;
+	load_img(pos, pos->cub.texture[0], "textures/eagle.xpm", &img);
+	load_img(pos, pos->cub.texture[1], "textures/wall_2.xpm", &img);
+	load_img(pos, pos->cub.texture[2], "textures/purplestone.xpm", &img);
+	load_img(pos, pos->cub.texture[3], "textures/wall_2.xpm", &img);
+	load_img(pos, pos->cub.texture[4], "textures/bluestone.xpm", &img);
+	load_img(pos, pos->cub.texture[5], "textures/wall_1.xpm", &img);
+	load_img(pos, pos->cub.texture[6], "textures/wood.xpm", &img);
+	load_img(pos, pos->cub.texture[7], "textures/wood.xpm", &img);
 }

@@ -42,11 +42,9 @@ double	cub_abs(double n)
 void	write_page(t_pos *pos)
 {
 	int i;
-	// t_data data;
 
 	i = 0;
-
-	while (pos->cub.R_x > i)
+	while (i < pos->cub.R_x)
 	{
 		double cameraX = 2 * i / (double)pos->cub.R_x - 1;
 		double rayDirX = pos->dirX + pos->planeX * cameraX;
@@ -115,23 +113,46 @@ void	write_page(t_pos *pos)
 		if (drawEnd >= pos->cub.R_y)
 			drawEnd = pos->cub.R_y - 1;
 
-		int color;
-		if (pos->cub.map[mapY][mapX] == '1')
-			color = create_trgb(0, pos->cub.C[0], pos->cub.C[1], pos->cub.C[2]);
+		int tex_n = (unsigned char)pos->cub.map[mapX][mapY] - '0';
+
+		// calculate value of wallX
+		double wallX;
+		if (side == 0)
+			wallX = pos->posY + perpWallDist * rayDirY;
 		else
-			color = create_trgb(0, pos->cub.F[0], pos->cub.F[1], pos->cub.F[2]);
-		if (side == 1)
-			color = color / 2;
-		verLine(pos, /*&data,*/i, drawStart, drawEnd, color);
+			wallX = pos->posX + perpWallDist * rayDirX;
+		wallX -= floor(wallX);
+
+		// x coordinate on the texture
+		int texX = (int)(wallX * (double)texWidth);
+		if (side == 0 && rayDirX > 0)
+			texX = texWidth - texX - 1;
+		if (side == 1 && rayDirY < 0)
+			texX = texWidth - texX - 1;
+
+		// How much to increase the texture coordinate perscreen pixel
+		double step = 1.0 * texHeight / lineHeight;
+		// Starting texture coordinate
+		double texPos = (drawStart - pos->cub.R_x / 2 + lineHeight / 2) * step;
+		while(drawStart < drawEnd)
+		{
+			int texY = (int)texPos & (texHeight - 1);
+			texPos += step;
+			int color = pos->cub.texture[tex_n][texHeight * texY + texX];
+			// make color darker for y-sides: R, G and B byte each divided through two with a "shift" and an "and"
+			if (side == 1)
+				color = (color >> 1) & 8355711;
+			pos->cub.buf[drawStart][i] = color;
+			drawStart++;
+		}
 		i++;
 	}
-
 }
 
 int	main_loop(t_pos *pos)
 {
 	write_page(pos);
-	// mlx_put_image_to_window(info->mlx, info->win, &info->img, 0, 0);
+	draw_img(pos);
 	return (0);
 }
 
@@ -181,7 +202,6 @@ int main(void)
 	pos.vars.mlx = mlx_init();
 	get_cub_value("./test_maps/test2.cub", &pos.cub);
 	printf("R_x = %d, R_y = %d\n",pos.cub.R_x,pos.cub.R_y);
-
 	pos.posX = 12;
 	pos.posY = 5;
 	pos.dirX = -1;
@@ -191,14 +211,38 @@ int main(void)
 	pos.moveSpeed = 0.05;
 	pos.rotSpeed = 0.05;
 
+	int i = 0;
+	int j = 0;
+	pos.cub.buf = malloc(sizeof(int*) * pos.cub.R_y);
+	if (!pos.cub.buf)
+		return (-1);
+	while(i < pos.cub.R_y)
+		pos.cub.buf[i++]=ft_calloc(sizeof(int), pos.cub.R_x);
+	i = 0;
+	j = 0;
+	pos.cub.texture = malloc(sizeof(int *) * 8);
+	if (!pos.cub.texture)
+		return (-1);
+	while (i < 8)
+	{
+		pos.cub.texture[i] = ft_calloc(sizeof(int),(texHeight * texWidth));
+		if (!pos.cub.texture[i])
+			return (-1);
+		i++;
+	}
+	i = 0;
+
+	load_tex(&pos);
 	pos.vars.win = mlx_new_window(pos.vars.mlx, pos.cub.R_x, pos.cub.R_y, "mlx");
-	pos.img.img = mlx_new_image(pos.vars.mlx, pos.cub.R_y, pos.cub.R_x);
-	pos.img.addr = mlx_get_data_addr(pos.img.img, &pos.img.bits_per_pixel, &pos.img.line_length, &pos.img.endian);
+
+	pos.img.img=mlx_new_image(pos.vars.mlx, pos.cub.R_x, pos.cub.R_y);
+	pos.img.val = (int*)mlx_get_data_addr(pos.img.img, &pos.img.bits_per_pixel, &pos.img.line_length, &pos.img.endian);
+
+	mlx_loop_hook(pos.vars.mlx, &main_loop, &pos);
 	mlx_hook(pos.vars.win, 33, 1L<<17, &x_button, &pos.vars);
 	mlx_hook(pos.vars.win, 2, 1L<<0, &key_hook, &pos.vars);
 	mlx_hook(pos.vars.win,2, 1L<<0, &key_press, &pos);
-	mlx_loop_hook(pos.vars.mlx, &main_loop, &pos);
-	mlx_put_image_to_window(pos.vars.mlx, pos.vars.win, pos.img.img, 0, 0);
-	// mlx_clear_window(pos.vars.mlx, pos.vars.win);
+
 	mlx_loop(pos.vars.mlx);
 }
+
