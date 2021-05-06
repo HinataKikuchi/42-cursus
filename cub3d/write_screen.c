@@ -188,8 +188,8 @@ int main(void)
 	pos.dirY = 0;
 	pos.planeX = 0;
 	pos.planeY = 0.66;
-	pos.moveSpeed = 0.05;
-	pos.rotSpeed = 0.05;
+	pos.moveSpeed = 0.005;
+	pos.rotSpeed = 0.005;
 
 	pos.vars.win = mlx_new_window(pos.vars.mlx, pos.cub.R_x, pos.cub.R_y, "mlx");
 	pos.img.img = mlx_new_image(pos.vars.mlx, pos.cub.R_y, pos.cub.R_x);

@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 18:51:27 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/29 19:01:41 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/04 16:45:14 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,7 @@ void	draw_img(t_pos *pos)
 	{
 		for (int x = 0; x < pos->cub.R_x; x++)
 		{
-			printf("x = %d\ny = %d\n",x, y);
-			printf("y * pos->cub.R_x + x =%d\n", y * pos->cub.R_x + x);
-			fflush(stdout);
 			pos->img.val[y * pos->cub.R_x + x] = pos->cub.buf[y][x];
-			printf("x = %d\ny = %d\n",x, y);
-			printf("y * pos->cub.R_x + x =%d\n", y * pos->cub.R_x + x);
-			fflush(stdout);
 		}
 	}
 	mlx_put_image_to_window(pos->vars.mlx, pos->vars.win, pos->img.img, 0, 0);
@@ -83,12 +77,7 @@ void	load_img(t_pos *pos, int *texture, char *path, t_data *img)
 void	load_tex(t_pos *pos)
 {
 	t_data	img;
-	load_img(pos, pos->cub.texture[0], "textures/eagle.xpm", &img);
-	load_img(pos, pos->cub.texture[1], "textures/wall_2.xpm", &img);
-	load_img(pos, pos->cub.texture[2], "textures/purplestone.xpm", &img);
-	load_img(pos, pos->cub.texture[3], "textures/wall_2.xpm", &img);
-	load_img(pos, pos->cub.texture[4], "textures/bluestone.xpm", &img);
-	load_img(pos, pos->cub.texture[5], "textures/wall_1.xpm", &img);
-	load_img(pos, pos->cub.texture[6], "textures/wood.xpm", &img);
-	load_img(pos, pos->cub.texture[7], "textures/wood.xpm", &img);
+	load_img(pos, pos->cub.texture[0], pos->cub.SO, &img);
+	load_img(pos, pos->cub.texture[1], pos->cub.NO, &img);
+	load_img(pos, pos->cub.texture[2], pos->cub.Sprite, &img);
 }
