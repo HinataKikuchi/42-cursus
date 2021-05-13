@@ -51,7 +51,6 @@ clean:;			$(RM) ./*.o
 fclean:clean;	$(RM) $(NAME)
 				${MAKE} -C ${LIBFT_DIR} fclean
 				$(MAKE) -C $(GNL_DIR) fclean
-				$(MAKE) -C $(MLX_DIR) fclean
 
 re:				fclean $(NAME)
 
