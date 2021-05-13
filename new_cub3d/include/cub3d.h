@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/13 16:15:22 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/13 23:43:41 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ int		get_cub_value(char *file_name, int argc, t_cub *cub, t_vars *var);
 void	free_struct(t_cub *cub);
 void	get_map(char *file_path, t_cub *cub);
 int		judge_map(char *buf);
+int		flood_fill(t_cub *cub, int x, int y);
 
 
 

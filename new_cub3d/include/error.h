@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 15:36:23 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/11 21:33:55 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/13 23:43:31 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # define MALLOC_ERROR 5
 # define MAP_VALUE_ERROR 6
 # define TOO_MANY_ARGS_IN_F_C 7
+# define GNL_ERROR 8
+# define INV_MAP 9
 
 void	write_error(int error_num, char *message);
 int	check_cub_file(char *s);

@@ -1,9 +1,10 @@
 #include "../../include/cub3d.h"
 
-void	get_R_value(char *buf, t_cub *cub)
+static void	get_R_value(char *buf, t_cub *cub)
 {
 	int		i;
 	char	**res;
+
 	if (ft_strchr(buf, '\t'))
 		res = ft_split(buf, '\t');
 	else
@@ -22,7 +23,7 @@ void	get_R_value(char *buf, t_cub *cub)
 	free(res);
 }
 
-char	**get_FC_value(char *buf, t_cub *cub)
+static char	**get_FC_value(char *buf, t_cub *cub)
 {
 	int		i;
 	int		j;
@@ -37,11 +38,11 @@ char	**get_FC_value(char *buf, t_cub *cub)
 		if (ft_isdigit(buf[i]))
 		{
 			j = 0;
-			while ((buf[i + j] == ',' || buf[i + j] == ' ' \
-			|| buf[i + j] == '\t') && buf[i + j] != '\0')
+			while ((buf[i + j] != ',' && buf[i + j] != ' ' \
+			&& buf[i + j] != '\t') && buf[i + j] != '\0')
 				j++;
 			tmp[k++] = ft_substr(buf, i, j);
-			i += j;
+			i = i + j;
 		}
 		if (k > 4)
 			write_error(TOO_MANY_ARGS_IN_F_C, "TOO_MANY_ARGS_IN_F_C");
@@ -51,7 +52,7 @@ char	**get_FC_value(char *buf, t_cub *cub)
 	return (tmp);
 }
 
-int	get_rfc_value(char *buf, t_cub *cub)
+static void	get_rfc_value(char *buf, t_cub *cub)
 {
 	size_t	buf_len;
 	char	**tmp;
@@ -66,28 +67,29 @@ int	get_rfc_value(char *buf, t_cub *cub)
 		tmp = get_FC_value(buf, cub);
 		if (!check_row(tmp, 3))
 			write_error(MAP_VALUE_ERROR, "MAP_VALUE_ERROR");
-		while (i < 3)
-			cub->F[i] = ft_atoi(tmp[i]);
+		cub->F[0] = ft_atoi(tmp[0]);
+		cub->F[1] = ft_atoi(tmp[1]);
+		cub->F[0] = ft_atoi(tmp[2]);
 	}
 	else if (ft_strnstr(buf, "C", buf_len))
 	{
 		tmp = get_FC_value(buf, cub);
-		while (i < 3)
-			cub->C[i] = ft_atoi(tmp[i]);
+		cub->C[0] = ft_atoi(tmp[0]);
+		cub->C[1] = ft_atoi(tmp[1]);
+		cub->C[2] = ft_atoi(tmp[2]);
 	}
 }
 
-int	judge_value(char *buf, t_cub *cub)
+static void	judge_value(char *buf, t_cub *cub)
 {
 	size_t	buf_len;
 	int		res;
 
 	res = 1;
-	cub->map_row = 0;
 	buf_len = ft_strlen(buf);
 	if (ft_strnstr(buf, "R", buf_len) || \
 	ft_strnstr(buf, "F", buf_len) || ft_strnstr(buf, "C", buf_len))
-		res = get_rfc_value(buf, cub);
+		get_rfc_value(buf, cub);
 	else if (ft_strnstr(buf, "NO", buf_len))
 		cub->NO = ft_substr(buf, 3, buf_len - 3);
 	else if (ft_strnstr(buf, "SO", buf_len))
@@ -99,9 +101,8 @@ int	judge_value(char *buf, t_cub *cub)
 	else if (buf[0] == 'S')
 		cub->Sprite = ft_substr(buf, 2, buf_len - 2);
 	else if (judge_map(buf))
-		cub->map_row += 1;
+		cub->map_row = cub->map_row + 1;
 	free(buf);
-	return (res);
 }
 
 int	get_cub_value(char *file_name, int argc, t_cub *cub, t_vars *var)
@@ -114,11 +115,12 @@ int	get_cub_value(char *file_name, int argc, t_cub *cub, t_vars *var)
 	check_file(file_name, argc);
 	fd = open(file_name, O_RDONLY);
 	res = get_next_line(fd, &buf);
+	cub->map_row = 0;
 	while (res)
 	{
-		res = judge_value(buf, cub);
-		if (!res)
-			return (res);
+		judge_value(buf, cub);
+		if (res == (-1))
+			write_error(GNL_ERROR, "GNL_ERROR");
 		res = get_next_line(fd, &buf);
 	}
 	free(buf);

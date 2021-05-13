@@ -50,14 +50,12 @@ void	get_map(char *file_path, t_cub *cub)
 	while (res)
 	{
 		if (judge_map(buf))
-		{
-			cub->map[i] = buf;
-			i++;
-		}
-		free(buf);
+			cub->map[i++] = buf;
+		else
+			safe_free(buf);
 		res = get_next_line(fd, &buf);
 	}
-	free(buf);
+	safe_free(buf);
 	close(fd);
 	cub->map[i] = NULL;
 	count_col(cub);
@@ -73,3 +71,5 @@ void	get_screen_size(t_cub *cub, t_vars *var)
 	if (cub->R_y > win.size_y || (cub->R_y < 1))
 		cub->R_y = win.size_y;
 }
+
+
