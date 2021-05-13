@@ -6,11 +6,12 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:02:10 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/04/15 18:13:33 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/06 19:38:10 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
 
 static char	**cut_num(char *buf, t_cub *cub, char c)
 {

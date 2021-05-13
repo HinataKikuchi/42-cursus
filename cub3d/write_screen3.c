@@ -5,9 +5,11 @@
 #include "libft/ft_calloc.c"
 #include "libft/ft_atoi.c"
 #include "libft/ft_bzero.c"
-#include "libft/ft_strnstr.c"
 #include "libft/ft_strchr.c"
 #include "libft/ft_strdup.c"
+#include "libft/ft_strnstr.c"
+#include "gnl/get_next_line.c"
+#include "gnl/get_next_line_utils.c"
 
 void	get_screen_size(t_cub *cub, t_win win)
 {
@@ -35,83 +37,121 @@ int	x_button(t_vars *vars)
 double	cub_abs(double n)
 {
 	if (n < 0)
-		return (n * (-1));
+		return (-n);
 	return (n);
 }
+
+// void	write_page(t_pos *pos)
+// {
+// 	int i;
+// 	int hit;
+// 	t_map	map;
+// 	int side;
+// 	int	tex_n;
+
+// 	i = 0;
+// 	while (i < pos->cub.R_x)
+// 	{
+// 		map = initial_map_data(*pos, i);
+// 		hit = 0;
+// 		set_step(&map, *pos);
+// 		while (hit == 0)
+// 			hit = get_hit(&map, *pos, &side);
+
+// 		judge_side(&map, *pos, side);
+
+// 		get_drawStart_drawEnd(&map, *pos);
+
+// 	if (map.mapX > pos->cub.map_col || map.mapY > pos->cub.map_row || map.mapY<0 || map.mapX < 0)
+// 	{
+// 		printf("%d, %d\n",map.mapX, map.mapY);
+// 		fflush(stdout);
+// 	}
+// 		tex_n = (unsigned char)pos->cub.map[map.mapY][map.mapY] - '0';
+// 		get_texX(&map, *pos, side);
+// 		write_texture(&map, pos, i, tex_n, side);
+// 		i++;
+// 	}
+// 	printf("mapX = %d, mapY = %d\n", map.mapX, map.mapY);
+// 	fflush(stdout);
+// }
 
 void	write_page(t_pos *pos)
 {
 	int i;
 
 	i = 0;
+	t_map map;
 	while (i < pos->cub.R_x)
 	{
-		double cameraX = 2 * i / (double)pos->cub.R_x - 1;
-		double rayDirX = pos->dirX + pos->planeX * cameraX;
-		double rayDirY = pos->dirY + pos->planeY * cameraX;
-		int mapX = (int)pos->posX;
-		int mapY = (int)pos->posY;
-		double sideDistX;
-		double sideDistY;
-		double deltaDistX = cub_abs(1 / rayDirX);
-		double deltaDistY = cub_abs(1 / rayDirY);
+		map = initial_map_data(*pos, i);
+
+		// if (map.rayDirX)
+		// 	map.deltaDistX = cub_abs(1 / map.rayDirX);
+		// else
+		// 	map.deltaDistX = 1;
+		// if (map.rayDirY)
+		// 	map.deltaDistY = cub_abs(1 / map.rayDirY);
+		// else
+		// 	map.deltaDistY = 1;
+
 		double perpWallDist;
 
-		int stepX;
-		int stepY;
+		// int stepX;
+		// int stepY;
 		int hit = 0;
 		int side;
-		if (rayDirX < 0)
-		{
-			stepX = -1;
-			sideDistX = (pos->posX - mapX) * deltaDistX;
-		}
-		else
-		{
-			stepX = 1;
-			sideDistX = (mapX + 1.0 - pos->posX) * deltaDistX;
-		}
-		if (rayDirY < 0)
-		{
-			stepY = -1;
-			sideDistY = (pos->posY - mapY) * deltaDistY;
-		}
-		else
-		{
-			stepY = 1;
-			sideDistY = (mapY + 1. - pos->posY) * deltaDistY;
-		}
-
+		set_step(&map, *pos);
+		// if (map.rayDirX < 0)
+		// {
+		// 	stepX = -1;
+		// 	map.sideDistX = (pos->posX - map.mapX) * map.deltaDistX;
+		// }
+		// else
+		// {
+		// 	stepX = 1;
+		// 	map.sideDistX = (map.mapX + 1.0 - pos->posX) * map.deltaDistX;
+		// }
+		// if (map.rayDirY < 0)
+		// {
+		// 	stepY = -1;
+		// 	map.sideDistY = (pos->posY - map.mapX) * map.deltaDistY;
+		// }
+		// else
+		// {
+		// 	stepY = 1;
+		// 	map.sideDistY = (map.mapX + 1. - pos->posY) * map.deltaDistY;
+		// }
 		while (hit == 0)
 		{
-			if (sideDistX < sideDistY)
+			if (map.sideDistX < map.sideDistY)
 			{
-				sideDistX += deltaDistX;
-				mapX += stepX;
+				map.sideDistX += map.deltaDistX;
+				map.mapX += map.stepX;
 				side = 0;
 			}
 			else
 			{
-				sideDistY += deltaDistY;
-				mapY += stepY;
+				map.sideDistY += map.deltaDistY;
+				map.mapX += map.stepY;
 				side = 1;
 			}
-			if (pos->cub.map[mapX][mapY] == '1')
+			if (pos->cub.map[map.mapX][map.mapX] == '1')
 				hit = 1;
 		}
 		if (side == 0)
 		{
-			if (rayDirX!=0)
-				perpWallDist = (mapX - pos->posX + (1 - stepX) / 2) / rayDirX;
+			if (map.rayDirX!=0)
+				perpWallDist = (map.mapX - pos->posX + (1 - map.stepX) / 2) / map.rayDirX;
 			else
-				perpWallDist = (mapX - pos->posX + (1 - stepX) / 2) / 0.001;
+				perpWallDist = (map.mapX - pos->posX + (1 - map.stepX) / 2) / 0.001;
 		}
 		else
 		{
-			if (rayDirY !=0)
-				perpWallDist = (mapY - pos->posY + (1 - stepY) / 2) / rayDirY;
+			if (map.rayDirY !=0)
+				perpWallDist = (map.mapX - pos->posY + (1 - map.stepY) / 2) / map.rayDirY;
 			else
-				perpWallDist = (mapY - pos->posY + (1 - stepY) / 2) / 0.001;
+				perpWallDist = (map.mapX - pos->posY + (1 - map.stepY) / 2) / 0.001;
 		}
 		// if (perpWallDist<=0)
 		// {
@@ -126,21 +166,21 @@ void	write_page(t_pos *pos)
 		int drawEnd = lineHeight / 2 + pos->cub.R_y / 2;
 		if (drawEnd >= pos->cub.R_y)
 			drawEnd = pos->cub.R_y - 1;
-		int tex_n = (unsigned char)pos->cub.map[mapX][mapY] - '0';
+		int tex_n = (unsigned char)pos->cub.map[map.mapX][map.mapX] - '0';
 
 		// calculate value of wallX
 		double wallX;
 		if (side == 0)
-			wallX = pos->posY + perpWallDist * rayDirY;
+			wallX = pos->posY + perpWallDist * map.rayDirY;
 		else
-			wallX = pos->posX + perpWallDist * rayDirX;
+			wallX = pos->posX + perpWallDist * map.rayDirX;
 		wallX -= floor(wallX);
 
 		// x coordinate on the texture
 		int texX = (int)(wallX * (double)texWidth);
-		if (side == 0 && rayDirX > 0)
+		if (side == 0 && map.rayDirX > 0)
 			texX = texWidth - texX - 1;
-		if (side == 1 && rayDirY < 0)
+		if (side == 1 && map.rayDirY < 0)
 			texX = texWidth - texX - 1;
 
 		// How much to increase the texture coordinate perscreen pixel
@@ -236,10 +276,9 @@ int main(void)
 	pos.vars.mlx = mlx_init();
 	get_cub_value("./test_maps/test.cub", &pos.cub);
 	printf("R_x = %d, R_y = %d\n",pos.cub.R_x,pos.cub.R_y);
-	printf("pos.cub.map_row = %d\npos->cub.map_col = %d",pos.cub.map_row, pos.cub.map_col);
-	pos.posX = 3;
-	pos.posY = 3;
-	pos.dirX = -1;
+	pos.posX = 5;
+	pos.posY = 5;
+	pos.dirX = 1;
 	pos.dirY = 0;
 	pos.planeX = 0;
 	pos.planeY = 0.66;
@@ -270,6 +309,7 @@ int main(void)
 	}
 	i = 0;
 	load_tex(&pos);
+
 	pos.vars.win = mlx_new_window(pos.vars.mlx, pos.cub.R_x, pos.cub.R_y, "mlx");
 
 	pos.img.img=mlx_new_image(pos.vars.mlx, pos.cub.R_x, pos.cub.R_y);

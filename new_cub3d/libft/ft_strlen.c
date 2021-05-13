@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 14:03:42 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/06 18:26:09 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/04 11:33:40 by hkikuchi          #+#    #+#             */
+/*   Updated: 2021/04/07 20:05:11 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "cub3d.h"
-#include <stdio.h>
+#include "libft.h"
 
-typedef struct s_test
+size_t	ft_strlen(const char *s)
 {
-	int a;
-}				t_test;
+	size_t	i;
 
-void write_a(t_test *test)
-{
-	test->a = 0;
+	i = 0;
+	while (*(s + i) != '\0')
+		i++;
+	return (i);
 }
-
-int		main (/*int argc, char **argv*/void)
-{
-	t_test test;
-
-	test.a = 100;
-	printf("test.a = %d\n",test.a);
-	write_a(&test);
-	printf("test.a = %d\n",test.a);
-}
-

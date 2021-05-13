@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 14:03:42 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/06 18:26:09 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/06 11:04:05 by hkikuchi          #+#    #+#             */
+/*   Updated: 2021/04/07 20:03:45 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "cub3d.h"
-#include <stdio.h>
+#include "libft.h"
 
-typedef struct s_test
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int a;
-}				t_test;
+	unsigned int	i;
+	unsigned char	*s1_t;
+	unsigned char	*s2_t;
 
-void write_a(t_test *test)
-{
-	test->a = 0;
+	i = 0;
+	s1_t = (unsigned char *)s1;
+	s2_t = (unsigned char *)s2;
+	while ((*s1_t != '\0' || *s2_t != '\0') && (i < n))
+	{
+		if (*s1_t != *s2_t)
+			return (*s1_t - *s2_t);
+		s1_t++;
+		s2_t++;
+		i++;
+	}
+	return (0);
 }
-
-int		main (/*int argc, char **argv*/void)
-{
-	t_test test;
-
-	test.a = 100;
-	printf("test.a = %d\n",test.a);
-	write_a(&test);
-	printf("test.a = %d\n",test.a);
-}
-

@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   cub_value.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 14:03:42 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/06 18:26:09 by hkikuchi         ###   ########.fr       */
+/*   Created: 2021/05/10 19:20:26 by hkikuchi          #+#    #+#             */
+/*   Updated: 2021/05/11 11:48:15 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "cub3d.h"
-#include <stdio.h>
+#ifndef CUB_VALUE_H
+# define CUB_VALUE_H
+# include "cub3d.h"
+# include "../gnl/get_next_line.h"
+# include <math.h>
 
-typedef struct s_test
-{
-	int a;
-}				t_test;
+// int		get_cub_value(char *file_path, t_cub *cub);
+// void	free_struct(t_cub *cub);
+// void	safe_free(void *p);
+// int		get_map(char *file_path, t_cub *cub);
 
-void write_a(t_test *test)
-{
-	test->a = 0;
-}
+// void	get_screen_size(t_cub *cub, t_win win);
 
-int		main (/*int argc, char **argv*/void)
-{
-	t_test test;
 
-	test.a = 100;
-	printf("test.a = %d\n",test.a);
-	write_a(&test);
-	printf("test.a = %d\n",test.a);
-}
 
+#endif

@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 14:03:42 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/06 18:26:09 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/04 10:55:02 by hkikuchi          #+#    #+#             */
+/*   Updated: 2021/04/07 20:04:53 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "cub3d.h"
-#include <stdio.h>
+#include "libft.h"
 
-typedef struct s_test
+void	*ft_memccpy(void *buf1, const void *buf2, int c, size_t n)
 {
-	int a;
-}				t_test;
+	unsigned int	i;
+	unsigned char	*b1;
+	unsigned char	*b2;
 
-void write_a(t_test *test)
-{
-	test->a = 0;
+	if (buf1 == NULL && buf2 == NULL)
+		return (NULL);
+	i = 0;
+	b1 = (unsigned char *)buf1;
+	b2 = (unsigned char *)buf2;
+	while (i < n)
+	{
+		*(b1 + i) = *(b2 + i);
+		if (*(b1 + i) == (unsigned char)c)
+			return ((void *)b1 + i + 1);
+		i++;
+	}
+	return (NULL);
 }
-
-int		main (/*int argc, char **argv*/void)
-{
-	t_test test;
-
-	test.a = 100;
-	printf("test.a = %d\n",test.a);
-	write_a(&test);
-	printf("test.a = %d\n",test.a);
-}
-

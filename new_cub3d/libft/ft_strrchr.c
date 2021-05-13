@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 14:03:42 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/06 18:26:09 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/05 16:38:39 by hkikuchi          #+#    #+#             */
+/*   Updated: 2021/04/07 20:04:09 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "cub3d.h"
-#include <stdio.h>
+#include "libft.h"
 
-typedef struct s_test
+char	*ft_strrchr(const char *s, int c)
 {
-	int a;
-}				t_test;
+	char	*buf;
 
-void write_a(t_test *test)
-{
-	test->a = 0;
+	buf = (char *)(s + ft_strlen(s));
+	while (buf != s)
+	{
+		if (*buf == (char)c)
+			return (buf);
+		buf--;
+	}
+	if (*buf == (char)c)
+		return (buf);
+	return (NULL);
 }
-
-int		main (/*int argc, char **argv*/void)
-{
-	t_test test;
-
-	test.a = 100;
-	printf("test.a = %d\n",test.a);
-	write_a(&test);
-	printf("test.a = %d\n",test.a);
-}
-

@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/10 14:27:09 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/13 16:15:22 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,17 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <math.h>
-# include "./libft/libft.h"
-// # include "./gnl/get_next_line.h"
-# include "./minilibx-linux/mlx.h"
+# include <stddef.h>
+# include "../libft/libft.h"
+# include "../minilibx-linux/mlx.h"
+# include "../gnl/get_next_line.h"
+# include "error.h"
+# include "cub_value.h"
+# include "cub_calc.h"
+# include "cub_key.h"
+# include "cub_utils.h"
 # define texHeight 64
 # define texWidth 64
-# define A 97
-# define W 119
-# define S 115
-# define D 100
-# define DOWN 65364
-# define RIGHT 65363
-# define UP 65362
-# define LEFT 65361
-# define ESC 65307
-# define ENTER 32
 
 typedef struct s_map
 {
@@ -51,20 +47,47 @@ typedef struct s_map
 	double	deltaDistX;
 	double	deltaDistY;
 
-	// double	perpWallDist;
+	double	perpWallDist;
 
-	// int		lineHeight;
+	int		lineHeight;
 
-	// int		drawStart;
-	// int		drawEnd;
+	int		drawStart;
+	int		drawEnd;
 
-	// double	step;
-	// double	texPos;
+	double	step;
+	double	texPos;
 
-	// int		texX;
-	// int		texY;
+	int		texX;
+	int		texY;
 }				t_map;
 
+typedef struct s_data
+{
+	void	*img;
+	int		*val;
+
+
+	int		line_length;
+	int		bits_per_pixel;
+	int		endian;
+	int		img_width;
+	int		img_height;
+
+	char	*addr;
+}				t_data;
+
+typedef struct	s_win
+{
+	int	size_x;
+	int	size_y;
+}				t_win;
+
+
+typedef struct	s_vars
+{
+	void	*mlx;
+	void	*win;
+}				t_vars;
 
 typedef struct s_cub
 {
@@ -86,34 +109,6 @@ typedef struct s_cub
 	int		**buf;
 }				t_cub;
 
-typedef struct	s_win
-{
-	int	size_x;
-	int	size_y;
-}				t_win;
-
-typedef struct	s_vars
-{
-	void	*mlx;
-	void	*win;
-}				t_vars;
-
-
-typedef struct s_data
-{
-	void	*img;
-	int		*val;
-
-
-	int		line_length;
-	int		bits_per_pixel;
-	int		endian;
-	int		img_width;
-	int		img_height;
-
-	char	*addr;
-}				t_data;
-
 typedef struct	s_pos
 {
 	double posX;
@@ -129,22 +124,22 @@ typedef struct	s_pos
 	t_data img;
 }				t_pos;
 
-int		get_cub_value(char *file_path, t_cub *cub);
+
+int		get_cub_value(char *file_name, int argc, t_cub *cub, t_vars *var);
 void	free_struct(t_cub *cub);
-void	safe_free(void *p);
-int		get_map(char *file_path, t_cub *cub);
+void	get_map(char *file_path, t_cub *cub);
+int		judge_map(char *buf);
+
+
+
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		create_trgb(int t, int r, int g, int b);
 void	screen();
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	get_screen_size(t_cub *cub, t_win win);
-int		key_hook(int keycode, t_vars *vars);
-int		x_button(t_vars *vars);
 void	verLine(t_pos *pos/*, t_data *data */,int x, int y1, int y2, int color);
 void	draw_img(t_pos *pos);
 void	load_img(t_pos *pos, int *texture, char *path, t_data *img);
 void	load_tex(t_pos *pos);
-double	cub_abs(double n);
 t_map	initial_map_data(t_pos pos, int x);
 void	set_step(t_map *map, t_pos pos);
 int	get_hit(t_map *map, t_pos pos, int *side);
@@ -152,5 +147,15 @@ void	judge_side(t_map *map, t_pos pos, int side);
 void	get_drawStart_drawEnd(t_map *map, t_pos pos);
 void	write_texture(t_map *map, t_pos *pos, int i, int tex_n, int side);
 void	get_texX(t_map *map, t_pos pos, int side);
+
+void	get_screen_size(t_cub *cub, t_vars *vars);
+int	key_press(int key_code, t_pos *pos);
+int	key_hook(int keycode, t_vars *vars);
+int	x_button(t_vars *vars);
+int	main_loop(t_pos *pos);
+
+double	cub_abs(double n);
+
+
 
 #endif

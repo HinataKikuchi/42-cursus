@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 14:03:42 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/06 18:26:09 by hkikuchi         ###   ########.fr       */
+/*   Created: 2020/11/03 19:08:51 by hkikuchi          #+#    #+#             */
+/*   Updated: 2021/04/07 20:06:15 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "cub3d.h"
-#include <stdio.h>
+#include "libft.h"
 
-typedef struct s_test
+void	*ft_memchr(const void *buf, int ch, size_t n)
 {
-	int a;
-}				t_test;
+	size_t			i;
+	unsigned char	*b;
+	unsigned char	c;
 
-void write_a(t_test *test)
-{
-	test->a = 0;
+	i = 0;
+	b = (unsigned char *)buf;
+	c = (unsigned char)ch;
+	while (i < n)
+	{
+		if (*(b + i) == c)
+			return ((void *)(b + i));
+		i++;
+	}
+	return (NULL);
 }
-
-int		main (/*int argc, char **argv*/void)
-{
-	t_test test;
-
-	test.a = 100;
-	printf("test.a = %d\n",test.a);
-	write_a(&test);
-	printf("test.a = %d\n",test.a);
-}
-

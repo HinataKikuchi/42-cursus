@@ -1,5 +1,5 @@
 #include "minilibx-linux/mlx.h"
-#include "cub3d.h"
+#include "include/cub3d.h"
 #include <math.h>
 #include <string.h>
 #include <stdio.h>
@@ -296,7 +296,7 @@ int	main(void)
 	info.dirX = -1.0;
 	info.dirY = 0.0;
 	info.planeX = 0.0;
-	info.planeY = 0.45;
+	info.planeY = 0.66;
 
 	for (int i = 0; i < height; i++)
 	{
