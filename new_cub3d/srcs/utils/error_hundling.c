@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 15:28:31 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/13 15:49:19 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/15 20:47:56 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ void	write_error(int error_num, char *message)
 		return ;
 	printf("ERROR : %s\n",message);
 	exit(0);
+}
+
+void	free_cub_exit(int error_num, char *message, t_cub *cub)
+{
+	free_cub_struct(error_num, cub);
+	write_error(error_num, message);
 }
 
 int	check_cub_file(char *s)

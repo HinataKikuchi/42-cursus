@@ -12,15 +12,13 @@ static void	get_R_value(char *buf, t_cub *cub)
 	if (!res)
 		write_error(MALLOC_ERROR, "MALLOC_ERROR");
 	if (!check_row(res, 3))
+	{
+		free_double_pointer(res);
 		write_error(MAP_VALUE_ERROR, "R_INFO_ERROR");
+	}
 	cub->R_x = ft_atoi(res[1]);
 	cub->R_y = ft_atoi(res[2]);
-	if (!cub->R_x || !cub->R_y)
-		write_error(MALLOC_ERROR, "MALLOC_ERROR");
-	i = 0;
-	while (res[i])
-		safe_free(res[i++]);
-	free(res);
+	free_double_pointer(res);
 }
 
 static char	**get_FC_value(char *buf, t_cub *cub)
@@ -33,6 +31,8 @@ static char	**get_FC_value(char *buf, t_cub *cub)
 	i = 0;
 	k = 0;
 	tmp = malloc(sizeof(char *) * 4);
+	if (!tmp)
+		write_error(MALLOC_ERROR, "MALLOC_ERROR");
 	while (buf[i] != '\0')
 	{
 		if (ft_isdigit(buf[i]))
@@ -59,24 +59,33 @@ static void	get_rfc_value(char *buf, t_cub *cub)
 	int		i;
 
 	buf_len = ft_strlen(buf);
-	i = 0;
 	if (ft_strnstr(buf, "R", buf_len))
 		get_R_value(buf, cub);
 	else if (ft_strnstr(buf, "F", buf_len))
 	{
 		tmp = get_FC_value(buf, cub);
 		if (!check_row(tmp, 3))
+		{
+			free_double_pointer(tmp);
 			write_error(MAP_VALUE_ERROR, "MAP_VALUE_ERROR");
-		cub->F[0] = ft_atoi(tmp[0]);
-		cub->F[1] = ft_atoi(tmp[1]);
-		cub->F[0] = ft_atoi(tmp[2]);
+		}
+		i = 0;
+		while (i < 3)
+			cub->F[i++] = ft_atoi(tmp[i]);
+		free_double_pointer(tmp);
 	}
 	else if (ft_strnstr(buf, "C", buf_len))
 	{
 		tmp = get_FC_value(buf, cub);
-		cub->C[0] = ft_atoi(tmp[0]);
-		cub->C[1] = ft_atoi(tmp[1]);
-		cub->C[2] = ft_atoi(tmp[2]);
+		if (!check_row(tmp, 3))
+		{
+			free_double_pointer(tmp);
+			write_error(MAP_VALUE_ERROR, "MAP_VALUE_ERROR");
+		}
+		i = 0;
+		while (i < 3)
+			cub->C[i++] = ft_atoi(tmp[i]);
+		free_double_pointer(tmp);
 	}
 }
 
@@ -123,9 +132,11 @@ int	get_cub_value(char *file_name, int argc, t_cub *cub, t_vars *var)
 			write_error(GNL_ERROR, "GNL_ERROR");
 		res = get_next_line(fd, &buf);
 	}
-	free(buf);
+	judge_value(buf, cub);
 	close(fd);
 	get_screen_size(cub, var);
 	get_map(file_name, cub);
+	check_map(cub);
+	get_pure_texture(cub);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/13 23:43:41 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/15 22:52:23 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ typedef struct s_cub
 	int		map_col;
 	int		**texture;
 	int		**buf;
+	int		position[2];
 }				t_cub;
 
 typedef struct	s_pos
@@ -129,7 +130,13 @@ int		get_cub_value(char *file_name, int argc, t_cub *cub, t_vars *var);
 void	free_struct(t_cub *cub);
 void	get_map(char *file_path, t_cub *cub);
 int		judge_map(char *buf);
-int		flood_fill(t_cub *cub, int x, int y);
+void	flood_fill(t_cub *cub, int x, int y, char **tmp_map);
+void	check_map(t_cub *cub);
+void	free_cub_struct(int error_num, t_cub *cub);
+void	free_cub_exit(int error_num, char *message, t_cub *cub);
+void	get_pure_texture(t_cub *cub);
+t_cub	cub_value(void);
+
 
 
 

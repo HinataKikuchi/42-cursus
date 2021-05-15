@@ -21,36 +21,35 @@ GNL			=	${GNL_DIR}/libgnl.a
 MLX			=	${MLX_DIR}/libmlx.a
 
 INCLUDE = -I./include -I./${LIBFT_DIR} -I./${GNL_DIR} -I./
-
 LIBS  = -L${LIBFT_DIR} -lft -L${GNL_DIR} -lgnl -L $(MLX_DIR) -lmlx -lX11 -lXext -lm
 
-.c.o:
-				${CC} ${INCLUDE} -o $@ -c $<
+%.o:%.c
+				@${CC} ${INCLUDE} -o $@ -c $<
+				@printf ">"
 
 all:			$(NAME)
 
 ${LIBFT}:		${LIBFT_DIR}/*.c
-				${MAKE} -C ${LIBFT_DIR}
+				@${MAKE} -C ${LIBFT_DIR}
 
 $(GNL):			$(GNL_DIR)/*.c
-				$(MAKE) -C $(GNL_DIR)
+				@$(MAKE) -C $(GNL_DIR)
 
 $(MLX):			$(MLX_DIR)/*.c
-				$(MAKE) -C $(MLX_DIR)
+				@$(MAKE) -C $(MLX_DIR)
 
 $(NAME): $(OBJS) $(LIBFT) $(GNL) $(MLX)
-				$(CC) $(INCLUDE) -o $@ $(OBJS) $(LIBS) $(INCLUDE)
+				@$(CC) $(INCLUDE) -o $@ $(OBJS) $(LIBS) $(INCLUDE)
 
-clean:;			$(RM) ./*.o
-				$(RM) $(UTILS_DIR)/*.o
-				$(RM) $(MAP_VALUE_DIR)/*.o
-				${MAKE} -C ${LIBFT_DIR} clean
-				$(MAKE) -C $(GNL_DIR) clean
-				$(MAKE) -C $(MLX_DIR) clean
+clean:;			@$(RM) ${OBJS}
+				@${MAKE} -C ${LIBFT_DIR} clean
+				@$(MAKE) -C $(GNL_DIR) clean
+				@$(MAKE) -C $(MLX_DIR) clean
 
-fclean:clean;	$(RM) $(NAME)
-				${MAKE} -C ${LIBFT_DIR} fclean
-				$(MAKE) -C $(GNL_DIR) fclean
+fclean:clean;	@$(RM) $(NAME)
+				@${MAKE} -C ${LIBFT_DIR} fclean
+				@$(MAKE) -C $(GNL_DIR) fclean
+				@$(MAKE) -C $(MLX_DIR) fclean
 
 re:				fclean $(NAME)
 

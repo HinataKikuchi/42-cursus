@@ -9,7 +9,7 @@ int	judge_map(char *buf)
 		return (0);
 	while (buf[i] != '\0')
 	{
-		if (buf[i] != ' ' && !ft_isdigit(buf[i]) && !ft_strchr("NWS", buf[i]))
+		if (buf[i] != ' ' && !ft_isdigit(buf[i]) && !ft_strchr("NWES", buf[i]))
 			return (0);
 		i++;
 	}
@@ -44,7 +44,7 @@ void	get_map(char *file_path, t_cub *cub)
 	fd = open(file_path, O_RDONLY);
 	cub->map = malloc(sizeof(char *) * (cub->map_row + 1));
 	if (!cub->map)
-		write_error(MALLOC_ERROR, "MALLOC_ERROR");
+		free_cub_exit(MAP_MALLOC_ERROR, "MAP_MALLOC_ERROR", cub);
 	res = get_next_line(fd, &buf);
 	i = 0;
 	while (res)
@@ -55,7 +55,10 @@ void	get_map(char *file_path, t_cub *cub)
 			safe_free(buf);
 		res = get_next_line(fd, &buf);
 	}
-	safe_free(buf);
+	if (buf[0] != '\0')
+		cub->map[i++] = buf;
+	else
+		safe_free(buf);
 	close(fd);
 	cub->map[i] = NULL;
 	count_col(cub);
@@ -72,4 +75,28 @@ void	get_screen_size(t_cub *cub, t_vars *var)
 		cub->R_y = win.size_y;
 }
 
+t_cub	cub_value(void)
+{
+	t_cub	res;
+	int		i;
 
+	res.R_x = 0;
+	res.R_y = 0;
+	res.NO = NULL;
+	res.SO = NULL;
+	res.WE = NULL;
+	res.EA = NULL;
+	res.Sprite = NULL;
+	i = 0;
+	while (i < 3)
+		res.F[i++] = 0;
+	i = 0;
+	while (i < 3)
+		res.C[i++] = 0;
+	res.map_col = 0;
+	res.map_row = 0;
+	i = 0;
+	while(i < 2)
+		res.position[i++] = 0;
+	return (res);
+}

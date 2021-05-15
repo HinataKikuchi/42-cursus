@@ -13,17 +13,18 @@ SRC		= ft_atoi.c ft_isascii.c ft_memchr.c ft_putchar_fd.c ft_strchr.c\
 OBJS	= $(SRC:.c=.o)
 
 %.o:%.c
-		$(CC) $(CFLAGS) -o $@ -c $<
+		@$(CC) $(CFLAGS) -o $@ -c $<
+		@printf ">"
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 
-clean:;         $(RM) *.o
+clean:;	@$(RM) *.o
 
-fclean:clean;		$(RM) $(NAME)
+fclean:clean;		@$(RM) $(NAME)
 
-re:			fclean $(NAME)
+re:			@fclean $(NAME)
 
 .PHONY: re clean fclean all
