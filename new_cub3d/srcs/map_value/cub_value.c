@@ -138,5 +138,6 @@ int	get_cub_value(char *file_name, int argc, t_cub *cub, t_vars *var)
 	get_map(file_name, cub);
 	check_map(cub);
 	get_pure_texture(cub);
+	check_texture_xpm(cub);
 	return (res);
 }

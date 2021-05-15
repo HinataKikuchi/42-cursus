@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/15 22:52:23 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/15 23:22:52 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,7 @@ void	free_cub_struct(int error_num, t_cub *cub);
 void	free_cub_exit(int error_num, char *message, t_cub *cub);
 void	get_pure_texture(t_cub *cub);
 t_cub	cub_value(void);
+void	check_texture_xpm(t_cub *cub);
 
 
 

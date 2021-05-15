@@ -41,7 +41,6 @@ int	check_extention(char *s, char *ext)
 		return (1);
 	else
 		return (INV_FILE);
-
 }
 
 void	check_texture_xpm(t_cub *cub)
@@ -49,10 +48,14 @@ void	check_texture_xpm(t_cub *cub)
 	char	*ext;
 
 	ext = ".xpm";
-	if (check_extention(cub->NO, ".xpm") == INV_FILE)
-	{
-
-	}
+	if (check_extention(cub->NO, ext) == INV_FILE)
+		write_error(NO_TEXTURE_ERROR, "NO_TEXTURE_ERROR");
+	if (check_extention(cub->SO, ext) == INV_FILE)
+		write_error(SO_TEXTURE_ERROR, "SO_TEXTURE_ERROR");
+	if (check_extention(cub->WE, ext) == INV_FILE)
+		write_error(WE_TEXTURE_ERROR, "WE_TEXTURE_ERROR");
+	if (check_extention(cub->EA, ext) == INV_FILE)
+		write_error(EA_TEXTURE_ERROR, "EA_TEXTURE_ERROR");
 }
 
 void	check_map(t_cub *cub)

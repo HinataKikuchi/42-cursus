@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 15:36:23 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/15 20:50:13 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/15 23:19:56 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
 # define NO_START_POS 10
 # define MLX_INIT_ERROR 11
 # define MAP_MALLOC_ERROR 12
+# define NO_TEXTURE_ERROR 13
+# define SO_TEXTURE_ERROR 14
+# define WE_TEXTURE_ERROR 15
+# define EA_TEXTURE_ERROR 16
 
 void	write_error(int error_num, char *message);
 int	check_cub_file(char *s);
