@@ -1,5 +1,5 @@
-#include "minilibx-linux/mlx.h"
-#include "include/cub3d.h"
+#include "../minilibx-linux/mlx.h"
+#include "../include/cub3d.h"
 #include <math.h>
 #include <string.h>
 #include <stdio.h>
@@ -208,14 +208,14 @@ void	calc(t_info *info)
 	}
 }
 
-int	main_loop(t_info *info)
+int	loop_main(t_info *info)
 {
 	calc(info);
 	draw(info);
 	return (0);
 }
 
-int	key_press(int key, t_info *info)
+int	key_action(int key, t_info *info)
 {
 	if (key == W || key == UP)
 	{
@@ -276,21 +276,21 @@ void	load_image(t_info *info, int *texture, char *path, t_img *img)
 void	load_texture(t_info *info)
 {
 	t_img	img;
-	load_image(info, info->texture[0], "textures/eagle.xpm", &img);
-	load_image(info, info->texture[1], "textures/wall_2.xpm", &img);
-	load_image(info, info->texture[2], "textures/purplestone.xpm", &img);
-	load_image(info, info->texture[3], "textures/wall_2.xpm", &img);
-	load_image(info, info->texture[4], "textures/bluestone.xpm", &img);
-	load_image(info, info->texture[5], "textures/wall_1.xpm", &img);
-	load_image(info, info->texture[6], "textures/wood.xpm", &img);
-	load_image(info, info->texture[7], "textures/wood.xpm", &img);
+
+	load_image(info, info->texture[0], "../textures/eagle.xpm", &img);
+	load_image(info, info->texture[1], "../textures/wall_2.xpm", &img);
+	load_image(info, info->texture[2], "../textures/purplestone.xpm", &img);
+	load_image(info, info->texture[3], "../textures/wall_2.xpm", &img);
+	load_image(info, info->texture[4], "../textures/bluestone.xpm", &img);
+	load_image(info, info->texture[5], "../textures/wall_1.xpm", &img);
+	load_image(info, info->texture[6], "../textures/wood.xpm", &img);
+	load_image(info, info->texture[7], "../textures/wood.xpm", &img);
 }
 
 int	main(void)
 {
 	t_info info;
 	info.mlx = mlx_init();
-
 	info.posX = 22.0;
 	info.posY = 11.5;
 	info.dirX = -1.0;
@@ -305,7 +305,6 @@ int	main(void)
 			info.buf[i][j] = 0;
 		}
 	}
-
 	if (!(info.texture = (int **)malloc(sizeof(int *) * 8)))
 		return (-1);
 	for (int i = 0; i < 8; i++)
@@ -313,6 +312,7 @@ int	main(void)
 		if (!(info.texture[i] = (int *)malloc(sizeof(int) * (texHeight * texWidth))))
 			return (-1);
 	}
+	
 	for (int i = 0; i < 8; i++)
 	{
 		for (int j = 0; j < texHeight * texWidth; j++)
@@ -320,8 +320,8 @@ int	main(void)
 			info.texture[i][j] = 0;
 		}
 	}
-	load_texture(&info);
 
+	load_texture(&info);
 	info.moveSpeed = 0.05;
 	info.rotSpeed = 0.05;
 
@@ -329,8 +329,8 @@ int	main(void)
 
 	info.img.img = mlx_new_image(info.mlx, width, height);
 	info.img.data = (int *)mlx_get_data_addr(info.img.img, &info.img.bpp, &info.img.size_l, &info.img.endian);
-	mlx_loop_hook(info.mlx, &main_loop, &info);
-	mlx_hook(info.win, 2, 1L<<0, &key_press, &info);
+	mlx_loop_hook(info.mlx, &loop_main, &info);
+	mlx_hook(info.win, 2, 1L<<0, &key_action, &info);
 
 	mlx_loop(info.mlx);
 }
