@@ -100,15 +100,15 @@ static void	judge_value(char *buf, t_cub *cub)
 	ft_strnstr(buf, "F", buf_len) || ft_strnstr(buf, "C", buf_len))
 		get_rfc_value(buf, cub);
 	else if (ft_strnstr(buf, "NO", buf_len))
-		cub->NO = ft_substr(buf, 3, buf_len - 3);
+		cub->NO = get_pure_texture(buf, "NO");
 	else if (ft_strnstr(buf, "SO", buf_len))
-		cub->SO = ft_substr(buf, 3, buf_len - 3);
+		cub->SO = get_pure_texture(buf, "SO");
 	else if (ft_strnstr(buf, "WE", buf_len))
-		cub->WE = ft_substr(buf, 3, buf_len - 3);
+		cub->WE = get_pure_texture(buf, "WE");
 	else if (ft_strnstr(buf, "EA", buf_len))
-		cub->EA = ft_substr(buf, 3, buf_len - 3);
+		cub->EA = get_pure_texture(buf, "EA");
 	else if (buf[0] == 'S')
-		cub->Sprite = ft_substr(buf, 2, buf_len - 2);
+		cub->Sprite = get_pure_texture(buf, "S");
 	else if (judge_map(buf))
 		cub->map_row = cub->map_row + 1;
 	free(buf);
@@ -137,7 +137,6 @@ int	get_cub_value(char *file_name, int argc, t_cub *cub, t_vars *var)
 	get_screen_size(cub, var);
 	get_map(file_name, cub);
 	check_map(cub);
-	get_pure_texture(cub);
 	check_texture_xpm(cub);
 	return (res);
 }
