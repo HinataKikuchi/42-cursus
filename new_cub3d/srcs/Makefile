@@ -9,6 +9,7 @@ MAP_VALUE_DIR	=./map_value
 SRCS		=	main.c \
 				cub_calc.c \
 				cub_key.c \
+				pos_calc.c \
 				utils/cub_key_hook.c \
 				utils/cub_utils.c \
 				utils/error_hundling.c \
