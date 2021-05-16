@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 15:36:23 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/15 23:19:56 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/16 14:53:45 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,13 @@
 # define SO_TEXTURE_ERROR 14
 # define WE_TEXTURE_ERROR 15
 # define EA_TEXTURE_ERROR 16
+# define TEXTURE_ERROR 17
+# define POS_TEX_MALLOC_ERROR 18
+# define CANNOT_OPEN_XPM 19
 
 void	write_error(int error_num, char *message);
-int	check_cub_file(char *s);
 void	check_file(char *s, int file_num);
+int	check_extention(char *s, char *ext);
 
 
 #endif
