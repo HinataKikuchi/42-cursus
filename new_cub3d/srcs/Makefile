@@ -7,12 +7,17 @@ MLX_DIR		=	../minilibx-linux
 UTILS_DIR	=	./utils
 MAP_VALUE_DIR	=./map_value
 SRCS		=	main.c \
+				cub_calc.c \
+				cub_key.c \
 				utils/cub_key_hook.c \
 				utils/cub_utils.c \
 				utils/error_hundling.c \
+				utils/pos_initiarize.c \
 				map_value/cub_map.c \
 				map_value/cub_value.c \
 				map_value/cub_texture.c \
+				map_value/cub_check.c
+
 
 OBJS		=	${SRCS:.c=.o}
 
@@ -55,5 +60,15 @@ re:				fclean $(NAME)
 
 test:$(NAME)
 				./$(NAME) ../test_maps/test2.cub
+
+MODEL_SRC = test_3.c
+MODEL_OBJ = $(MODEL_SRC:.c=.o)
+model:	$(MODEL_OBJ) $(MLX)
+		@$(CC) -I$(MLX_DIR) $(MODEL_OBJ) -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
+		@./a.out
+
+model_clean:;	$(RM) $(MODEL_OBJ)
+				@$(RM) ./a.out
+				@$(MAKE) -C $(MLX_DIR) clean
 
 .PHONY:			re clean fclean all
