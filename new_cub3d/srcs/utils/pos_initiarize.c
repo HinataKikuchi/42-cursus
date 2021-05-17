@@ -33,8 +33,8 @@ static void	load_texture(t_pos *pos)
 
 void	pos_set_value(t_pos *pos)
 {
-	pos->posX = 22.0;
-	pos->posY = 11.5;
+	pos->posX = pos->cub.position[0];
+	pos->posY = pos->cub.position[1];
 	pos->dirX = -1.0;
 	pos->dirY = 0.0;
 	pos->planeX = 0.0;
