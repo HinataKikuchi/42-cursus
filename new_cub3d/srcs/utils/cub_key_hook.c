@@ -15,9 +15,3 @@ int	x_button(t_vars *vars)
 	exit(0);
 }
 
-double	cub_abs(double n)
-{
-	if (n < 0)
-		return (n * (-1));
-	return (n);
-}
