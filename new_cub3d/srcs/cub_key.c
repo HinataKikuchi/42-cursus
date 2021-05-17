@@ -25,6 +25,11 @@ static void	key_Right(t_pos *pos)
 	pos->dirY = oldDirX * sin(-pos->rotSpeed) + pos->dirY * cos(-pos->rotSpeed);
 	pos->planeX = pos->planeX * cos(-pos->rotSpeed) - pos->planeY * sin(-pos->rotSpeed);
 	pos->planeX = oldplaneX * sin(-pos->rotSpeed) + pos->planeY * cos(-pos->rotSpeed);
+	// printf("rot speed = %d",);
+	// printf("dirX=%f dirY%f\n",pos->dirX, pos->dirY);
+	// printf("planeX=%f planeY=%f\n",pos->planeX, pos->planeY);
+	// exit(0);
+
 }
 
 static void	key_Left(t_pos *pos)
