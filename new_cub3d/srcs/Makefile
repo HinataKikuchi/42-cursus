@@ -10,10 +10,12 @@ SRCS		=	main.c \
 				cub_calc.c \
 				cub_key.c \
 				pos_calc.c \
+				cub_draw.c \
 				utils/cub_key_hook.c \
 				utils/cub_utils.c \
 				utils/error_hundling.c \
 				utils/pos_initiarize.c \
+				utils/cub_color.c \
 				map_value/cub_map.c \
 				map_value/cub_value.c \
 				map_value/cub_texture.c \
