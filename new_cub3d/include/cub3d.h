@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/16 21:14:34 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/17 23:30:18 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_map
 
 	double	step;
 	double	texPos;
+	int		tex_num;
 
 	int		texX;
 	int		texY;
@@ -78,7 +79,6 @@ typedef struct s_data
 {
 	void	*img;
 	int		*val;
-
 
 	int		line_length;
 	int		bits_per_pixel;
@@ -188,14 +188,26 @@ int	key_press(int key_code, t_pos *pos);
 int	key_hook(int keycode, t_vars *vars);
 int	x_button(t_vars *vars);
 
-
+/*
+** CALC POSITION
+*/
 int	main_loop(t_pos *pos);
 void	write_page(t_pos *pos);
 void	calc_pos_ini_val(t_map *map, t_pos *pos, int i);
+void	calc_step(t_map *map, t_pos *pos);
+int		calc_hit(t_map *map, t_pos *pos, int *side);
+void	calc_drawES(t_map *map, t_pos *pos, int *side);
+void	calc_texX(t_map *map, t_pos *pos, int *side);
+void	calc_texture(t_map *map, t_pos *pos, int x, int side);
+
+/*
+** UTILS
+*/
+int		create_trgb(int t, int r, int g, int b);
+double	cub_abs(double n);
 
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-int		create_trgb(int t, int r, int g, int b);
 void	screen();
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	verLine(t_pos *pos/*, t_data *data */,int x, int y1, int y2, int color);
@@ -209,7 +221,6 @@ void	write_texture(t_map *map, t_pos *pos, int i, int tex_n, int side);
 void	get_texX(t_map *map, t_pos pos, int side);
 
 
-double	cub_abs(double n);
 
 
 
