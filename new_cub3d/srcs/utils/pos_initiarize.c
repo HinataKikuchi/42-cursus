@@ -8,6 +8,8 @@ static void	load_image(t_pos *pos, int *texture, char *path, t_data *img)
 	i = 0;
 	j = 0;
 	img->img = mlx_xpm_file_to_image(pos->vars.mlx, path, &img->img_width, &img->img_height);
+	if (img->img_height > texHeight || img->img_width > texWidth)
+		free_pos_exit(OVER_TEX_SIZE, "OVER_TEX_SIZE", pos);
 	img->val = (int *)mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);
 	while (i < img->img_height)
 	{
@@ -19,6 +21,7 @@ static void	load_image(t_pos *pos, int *texture, char *path, t_data *img)
 		j = 0;
 		i++;
 	}
+	mlx_destroy_image(pos->vars.mlx, img->img);
 }
 
 static void	load_texture(t_pos *pos)
@@ -28,7 +31,8 @@ static void	load_texture(t_pos *pos)
 	load_image(pos, pos->cub.texture[0], pos->cub.NO, &data);
 	load_image(pos, pos->cub.texture[1], pos->cub.SO, &data);
 	load_image(pos, pos->cub.texture[2], pos->cub.EA, &data);
-	load_image(pos, pos->cub.texture[2], pos->cub.WE, &data);
+	load_image(pos, pos->cub.texture[3], pos->cub.WE, &data);
+	load_image(pos, pos->cub.texture[4], pos->cub.Sprite, &data);
 }
 
 void	pos_set_value(t_pos *pos)
@@ -39,8 +43,8 @@ void	pos_set_value(t_pos *pos)
 	pos->dirY = 0.0;
 	pos->planeX = 0.0;
 	pos->planeY = 0.66;
-	pos->moveSpeed = 0.05;
-	pos->rotSpeed = 0.05;
+	pos->moveSpeed = 0.1;
+	pos->rotSpeed = 0.1;
 }
 
 void	pos_initialize(t_pos *pos)
@@ -59,10 +63,10 @@ void	pos_initialize(t_pos *pos)
 		i++;
 	}
 	i = 0;
-	pos->cub.texture = ft_calloc(4, sizeof(int *));
+	pos->cub.texture = ft_calloc(texNUM + spriteNUM, sizeof(int *));
 	if(!pos->cub.texture)
 		free_pos_exit(POS_TEX_MALLOC_ERROR, "POS_TEXTURE_MALLOC_ERROR", pos);
-	while (i < texNUM)
+	while (i < (texNUM + spriteNUM))
 	{
 		pos->cub.texture[i] = (int *)ft_calloc((texWidth * texHeight), sizeof(int));
 		if(!pos->cub.texture[i])
