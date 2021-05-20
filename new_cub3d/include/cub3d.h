@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/17 23:30:18 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/18 18:28:53 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 # define texHeight 64
 # define texWidth 64
 # define texNUM 4
+# define spriteNUM 1
 
 typedef struct s_map
 {
@@ -196,8 +197,8 @@ void	write_page(t_pos *pos);
 void	calc_pos_ini_val(t_map *map, t_pos *pos, int i);
 void	calc_step(t_map *map, t_pos *pos);
 int		calc_hit(t_map *map, t_pos *pos, int *side);
-void	calc_drawES(t_map *map, t_pos *pos, int *side);
-void	calc_texX(t_map *map, t_pos *pos, int *side);
+void	calc_drawES(t_map *map, t_pos *pos, int side);
+void	calc_texX(t_map *map, t_pos *pos, int side);
 void	calc_texture(t_map *map, t_pos *pos, int x, int side);
 
 /*

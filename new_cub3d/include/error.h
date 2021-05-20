@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 15:36:23 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/16 14:53:45 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/20 10:45:12 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define TEXTURE_ERROR 17
 # define POS_TEX_MALLOC_ERROR 18
 # define CANNOT_OPEN_XPM 19
+# define OVER_TEX_SIZE 20
 
 void	write_error(int error_num, char *message);
 void	check_file(char *s, int file_num);
