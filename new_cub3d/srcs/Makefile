@@ -57,14 +57,13 @@ clean:;			@$(RM) ${OBJS}
 fclean:clean;	@$(RM) $(NAME)
 				@${MAKE} -C ${LIBFT_DIR} fclean
 				@$(MAKE) -C $(GNL_DIR) fclean
-				@$(MAKE) -C $(MLX_DIR) fclean
 
 re:				fclean $(NAME)
 
 test:$(NAME)
 				./$(NAME) ../test_maps/test2.cub
 
-MODEL_SRC = test_3.c
+MODEL_SRC = test_4.c
 MODEL_OBJ = $(MODEL_SRC:.c=.o)
 model:	$(MODEL_OBJ) $(MLX)
 		@$(CC) -I$(MLX_DIR) $(MODEL_OBJ) -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
