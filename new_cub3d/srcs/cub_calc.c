@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 19:42:40 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/18 00:07:54 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/18 12:25:00 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static t_map	map_initial_value(void)
 	t_map res;
 
 	res.cameraX = 0.;
-	res.rayDirX = 0.;
-	res.rayDirY = 0.;
+	res.rayDirX = 0.5;
+	res.rayDirY = 0.5;
 	res.mapX = 0;
 	res.mapY = 0;
 	res.stepX = 0;
@@ -56,9 +56,9 @@ void	write_page(t_pos *pos)
 		calc_step(&map, pos);
 		while (hit == 0)
 			hit = calc_hit(&map, pos, &side);
-		calc_drawES(&map, pos, &side);
-		calc_texX(&map, pos, &side);
-		calc_texture(&map, pos, i, &side);
+		calc_drawES(&map, pos, side);
+		calc_texX(&map, pos, side);
+		calc_texture(&map, pos, i, side);
 		i++;
 	}
 }
@@ -67,10 +67,6 @@ int	main_loop(t_pos *pos)
 {
 	write_page(pos);
 	draw_img(pos);
-	// 	// printf("rot speed = %d",);
-	// printf("dirX=%f dirY%f\n",pos->dirX, pos->dirY);
-	// printf("planeX=%f planeY=%f\n",pos->planeX, pos->planeY);
-	// // exit(0);
 	return (0);
 }
 
