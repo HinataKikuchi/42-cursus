@@ -9,8 +9,8 @@ void	calc_pos_ini_val(t_map *map, t_pos *pos, int i)
 	map->mapX = (int)pos->posX;
 	map->mapY = (int)pos->posY;
 
-	map->deltaDistX = cub_abs(1 / map->rayDirX);
-	map->deltaDistY = cub_abs(1 / map->rayDirY);
+	map->deltaDistX = fabs(1 / map->rayDirX);
+	map->deltaDistY = fabs(1 / map->rayDirY);
 }
 
 void	calc_step(t_map *map, t_pos *pos)
@@ -41,8 +41,8 @@ int	calc_hit(t_map *map, t_pos *pos, int *side)
 {
 	if (map->sideDistX < map-> sideDistY)
 	{
-		map->sideDistX = map->sideDistX + map->deltaDistX;
-		map->mapX = map->mapX + map->stepX;
+		map->sideDistX += map->deltaDistX;
+		map->mapX += map->stepX;
 		*side = 0;
 	}
 	else
@@ -57,9 +57,9 @@ int	calc_hit(t_map *map, t_pos *pos, int *side)
 		return (0);
 }
 
-void	calc_drawES(t_map *map, t_pos *pos, int *side)
+void	calc_drawES(t_map *map, t_pos *pos, int side)
 {
-	if (*side == 0)
+	if (side == 0)
 		map->perpWallDist = (map->mapX - pos->posX + (1 - map->stepX) / 2) / map->rayDirX;
 	else
 		map->perpWallDist = (map->mapY - pos->posY + (1 - map->stepY) / 2) / map->rayDirY;
@@ -71,25 +71,29 @@ void	calc_drawES(t_map *map, t_pos *pos, int *side)
 	map->drawEnd = map->lineHeight / 2 + pos->cub.R_y / 2;
 	if (map->drawEnd >= pos->cub.R_y)
 		map->drawEnd = pos->cub.R_y - 1;
-	if (*side == 0)
-		map->tex_num = 0;
-	else
-		map->tex_num = 1;
+	// if (map->stepY > 0 && map->stepX > 0)
+	// 	map->tex_num = 0;
+	// else if (map->stepY < 0 && map->stepX < 0)
+	// 	map->tex_num = 1;
+	// else if (map->stepX > 0 && map->stepY < 0)
+	// 	map->tex_num = 2;
+	// else
+	// 	map->tex_num = 3;
 }
 
-void	calc_texX(t_map *map, t_pos *pos, int *side)
+void	calc_texX(t_map *map, t_pos *pos, int side)
 {
 	double wallX;
 
-	if (*side == 0)
+	if (side == 0)
 		wallX = pos->posY + map->perpWallDist * map->rayDirY;
 	else
 		wallX = pos->posX + map->perpWallDist * map->rayDirX;
-	wallX = wallX - floor(wallX);
+	wallX -= floor(wallX);
 	map->texX = (int)(wallX * (double)texWidth);
-	if (*side == 0 && map->rayDirX > 0)
+	if (side == 0 && map->rayDirX > 0)
 		map->texX = texWidth - map->texX - 1;
-	if (*side == 0 && map->rayDirY < 0)
+	if (side == 0 && map->rayDirY < 0)
 		map->texX = texWidth - map->texX - 1;
 }
 
@@ -99,11 +103,11 @@ void	calc_texture(t_map *map, t_pos *pos, int x, int side)
 	int		color;
 
 	map->step = 1.0 * texHeight / map->lineHeight;
-	map->texPos = (map->drawStart - pos->cub.R_y / 2 + map->lineHeight / 2) * map->step;
+	map->texPos = (map->drawStart - (pos->cub.R_y / 2) + (map->lineHeight / 2)) * map->step;
 	y = 0;
 	while (y < map->drawStart)
 	{
-		pos->cub.buf[y][x] = create_trgb(1, pos->cub.F[0], pos->cub.F[1], pos->cub.F[2]);
+		pos->cub.buf[y][x] = create_trgb(1, pos->cub.C[0], pos->cub.C[1], pos->cub.C[2]);
 		y++;
 	}
 	while (y < map->drawEnd)
@@ -113,11 +117,12 @@ void	calc_texture(t_map *map, t_pos *pos, int x, int side)
 		color = pos->cub.texture[map->tex_num][texHeight * map->texY + map->texX];
 		if (side == 1)
 			color = (color >> 1) & 8355711;
-		pos->cub.buf[y++][x] = color;
+		pos->cub.buf[y][x] = color;
+		y++;
 	}
 	while (y < pos->cub.R_y)
 	{
-		pos->cub.buf[y][x] = create_trgb(1, pos->cub.C[0], pos->cub.C[1], pos->cub.F[2]);
+		pos->cub.buf[y][x] = create_trgb(1, pos->cub.F[0], pos->cub.F[1], pos->cub.F[2]);
 		y++;
 	}
 }
