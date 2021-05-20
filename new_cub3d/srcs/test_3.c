@@ -219,10 +219,14 @@ int	key_action(int key, t_info *info)
 {
 	if (key == W || key == UP)
 	{
+		printf("key = up\nbefore\n");
+		printf("posX = %f, posY = %f\n", info->posX, info->posY);
 		if (!worldMap[(int)(info->posX + info->dirX * info->moveSpeed)][(int)(info->posY)])
 			info->posX += info->dirX * info->moveSpeed;
 		if (!worldMap[(int)(info->posX)][(int)(info->posY + info->dirY * info->moveSpeed)])
 			info->posY += info->dirY * info->moveSpeed;
+		printf("\nposX = %f, posY = %f\n",info->posX, info->posY);
+		printf("\nposX = %f, posY = %f\n", info->posX, info->posY);
 	}
 	//move backwards if no wall behind you
 	if (key == S || key == DOWN)
@@ -231,10 +235,15 @@ int	key_action(int key, t_info *info)
 			info->posX -= info->dirX * info->moveSpeed;
 		if (!worldMap[(int)(info->posX)][(int)(info->posY - info->dirY * info->moveSpeed)])
 			info->posY -= info->dirY * info->moveSpeed;
+		printf("\nposX = %f, posY = %f\n",info->posX, info->posY);
 	}
 	//rotate to the right
 	if (key == D || key == RIGHT)
 	{
+		// printf("\nRight turn, before\n");
+		// printf("rotSpeed = %f\n",-info->rotSpeed);
+		// printf("dirX = %f, dirY = %f\n",info->dirX, info->dirY);
+		// printf("planeX = %f, planeY = %f\n",info->planeX, info->planeY);
 		//both camera direction and camera plane must be rotated
 		double oldDirX = info->dirX;
 		info->dirX = info->dirX * cos(-info->rotSpeed) - info->dirY * sin(-info->rotSpeed);
@@ -242,17 +251,27 @@ int	key_action(int key, t_info *info)
 		double oldPlaneX = info->planeX;
 		info->planeX = info->planeX * cos(-info->rotSpeed) - info->planeY * sin(-info->rotSpeed);
 		info->planeY = oldPlaneX * sin(-info->rotSpeed) + info->planeY * cos(-info->rotSpeed);
+		// printf("\nRight turn, after\n");
+		// printf("dirX = %f, dirY = %f\n",info->dirX, info->dirY);
+		// printf("planeX = %f, planeY = %f\n",info->planeX, info->planeY);
 	}
 	//rotate to the left
 	if (key == A || key == LEFT)
 	{
 		//both camera direction and camera plane must be rotated
+		printf("\nLeft turn, before\n");
+		printf("rotSpeed = %f\n",info->rotSpeed);
+		printf("dirX = %f, dirY = %f\n",info->dirX, info->dirY);
+		printf("planeX = %f, planeY = %f\n",info->planeX, info->planeY);
 		double oldDirX = info->dirX;
 		info->dirX = info->dirX * cos(info->rotSpeed) - info->dirY * sin(info->rotSpeed);
 		info->dirY = oldDirX * sin(info->rotSpeed) + info->dirY * cos(info->rotSpeed);
 		double oldPlaneX = info->planeX;
 		info->planeX = info->planeX * cos(info->rotSpeed) - info->planeY * sin(info->rotSpeed);
 		info->planeY = oldPlaneX * sin(info->rotSpeed) + info->planeY * cos(info->rotSpeed);
+		printf("\nLeft turn, after\n");
+		printf("dirX = %f, dirY = %f\n",info->dirX, info->dirY);
+		printf("planeX = %f, planeY = %f\n",info->planeX, info->planeY);
 	}
 	if (key == ESC)
 		exit(0);
