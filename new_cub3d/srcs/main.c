@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 15:24:38 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/16 21:35:29 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/18 18:21:36 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,11 @@ int	main(int argc, char **argv)
 	if (!pos.vars.mlx || !pos.vars.win)
 		free_cub_exit(MLX_WIN_ERROR, "MLX_WIN_ERROR", &pos.cub);
 	pos_initialize(&pos);
-	write_page(&pos);
-	// mlx_loop_hook(pos.vars.mlx, &main_loop, &pos);
-	// mlx_hook(pos.vars.win, 33, 1L<<17, &x_button, &pos.vars);
-	// mlx_hook(pos.vars.win, 2, 1L<<0, &key_hook, &pos.vars);
-	// mlx_hook(pos.vars.win,2, 1L<<0, &key_press, &pos);
-	// mlx_loop(pos.vars.mlx);
+	pos.cub.map[pos.cub.position[0]][pos.cub.position[1]] = '0';
+	// write_page(&pos);
+	mlx_loop_hook(pos.vars.mlx, &main_loop, &pos);
+	mlx_hook(pos.vars.win, 33, 1L<<17, &x_button, &pos.vars);
+	mlx_hook(pos.vars.win, 2, 1L<<0, &key_hook, &pos.vars);
+	mlx_hook(pos.vars.win,2, 1L<<0, &key_press, &pos);
+	mlx_loop(pos.vars.mlx);
 }

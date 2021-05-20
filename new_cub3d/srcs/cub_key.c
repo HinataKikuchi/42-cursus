@@ -14,32 +14,30 @@ static void	key_Down(t_pos *pos)
 		pos->posX -= pos->dirX * pos->moveSpeed;
 	if (pos->cub.map[(int)pos->posX][(int)(pos->posX - pos->dirX * pos->moveSpeed)] == '0')
 		pos->posY -= pos->dirY * pos->moveSpeed;
+
 }
 
 static void	key_Right(t_pos *pos)
 {
 	double oldDirX = pos->dirX;
-	double oldplaneX = pos->planeX;
-	/*Rotate matrix*/
 	pos->dirX = pos->dirX * cos(-pos->rotSpeed) - pos->dirY * sin(-pos->rotSpeed);
 	pos->dirY = oldDirX * sin(-pos->rotSpeed) + pos->dirY * cos(-pos->rotSpeed);
+	double oldplaneX = pos->planeX;
 	pos->planeX = pos->planeX * cos(-pos->rotSpeed) - pos->planeY * sin(-pos->rotSpeed);
-	pos->planeX = oldplaneX * sin(-pos->rotSpeed) + pos->planeY * cos(-pos->rotSpeed);
-	// printf("rot speed = %d",);
-	// printf("dirX=%f dirY%f\n",pos->dirX, pos->dirY);
-	// printf("planeX=%f planeY=%f\n",pos->planeX, pos->planeY);
-	// exit(0);
-
+	pos->planeY = oldplaneX * sin(-pos->rotSpeed) + pos->planeY * cos(-pos->rotSpeed);
 }
 
 static void	key_Left(t_pos *pos)
 {
-	double oldDirX = pos->dirX;
-	double oldplaneX = pos->planeX;
+	double oldDirX;
+	double oldplaneX;
+
+	oldDirX = pos->dirX;
 	pos->dirX = pos->dirX * cos(pos->rotSpeed) - pos->dirY * sin(pos->rotSpeed);
 	pos->dirY = oldDirX * sin(pos->rotSpeed) + pos->dirY * cos(pos->rotSpeed);
+	oldplaneX = pos->planeX;
 	pos->planeX = pos->planeX * cos(pos->rotSpeed) - pos->planeY * sin(pos->rotSpeed);
-	pos->planeY = oldplaneX * sin(pos->rotSpeed) + pos->planeY * sin(pos->rotSpeed);
+	pos->planeY = oldplaneX * sin(pos->rotSpeed) + pos->planeY * cos(pos->rotSpeed);
 }
 
 int		key_press(int key_code, t_pos *pos)
