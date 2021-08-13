@@ -34,6 +34,32 @@ static void	count_col(t_cub *cub)
 	}
 }
 
+static void	map_allocate(t_cub *cub)
+{
+	cub->map = malloc(sizeof(char *) * (cub->map_row + 1));
+	if (!cub->map)
+		free_cub_exit(MAP_MALLOC_ERROR, "MAP_MALLOC_ERROR", cub);
+}
+
+static char*	gnl_till_map(int fd, t_cub *cub)
+{
+	int	res;
+	char	*buf;
+
+	res = get_next_line(fd, &buf);
+	while (res && res != -1)
+	{
+		if (judge_map(buf))
+			return (buf);
+		safe_free (buf);
+		res = get_next_line(fd, &buf);
+	}
+	if (res == -1)
+		free_cub_exit(GNL_ERROR, "GNL_ERROR", cub);
+	else
+		free_cub_exit(INV_FILE, "INV_FILE", cub);
+}
+
 void	get_map(char *file_path, t_cub *cub)
 {
 	int		fd;
@@ -41,28 +67,35 @@ void	get_map(char *file_path, t_cub *cub)
 	int		i;
 	char	*buf;
 
-	fd = open(file_path, O_RDONLY);
-	cub->map = malloc(sizeof(char *) * (cub->map_row + 1));
-	if (!cub->map)
-		free_cub_exit(MAP_MALLOC_ERROR, "MAP_MALLOC_ERROR", cub);
-	res = get_next_line(fd, &buf);
 	i = 0;
-	while (res)
+	i = 0;
+	fd = open(file_path, O_RDONLY);
+	if (fd == -1)
+		free_cub_exit(OPEN_ERROR, "OPEN_ERROR", cub);
+	map_allocate(cub);
+	buf = gnl_till_map(fd, cub);
+	res = 1;
+	i = 0;
+	while (res != -1 && res)
 	{
 		if (judge_map(buf))
 			cub->map[i++] = buf;
+		else if (buf[0] == '\0')
+			free_cub_exit(INV_MAP, "INV_MAP", cub);
 		else
 			safe_free(buf);
 		res = get_next_line(fd, &buf);
 	}
-	if (buf[0] != '\0')
+	if (judge_map(buf))
 		cub->map[i++] = buf;
 	else
 		safe_free(buf);
-	close(fd);
 	cub->map[i] = NULL;
+	int j = 0;
+	close(fd);
 	count_col(cub);
 }
+
 
 void	get_screen_size(t_cub *cub, t_vars *var)
 {
@@ -75,24 +108,26 @@ void	get_screen_size(t_cub *cub, t_vars *var)
 		cub->R_y = win.size_y;
 }
 
-t_cub	cub_value(void)
+t_cub	cub_initialize(void)
 {
 	t_cub	res;
 	int		i;
 
-	res.R_x = 0;
-	res.R_y = 0;
+	res.R_x = -1;
+	res.R_y = -1;
 	res.NO = NULL;
 	res.SO = NULL;
 	res.WE = NULL;
 	res.EA = NULL;
 	res.Sprite = NULL;
+	res.sprite_num = 0;
+	res.sprite_num = 0;
 	i = 0;
 	while (i < 3)
-		res.F[i++] = 0;
+		res.F[i++] = -1;
 	i = 0;
 	while (i < 3)
-		res.C[i++] = 0;
+		res.C[i++] = -1;
 	res.map_col = 0;
 	res.map_row = 0;
 	i = 0;

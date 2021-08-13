@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 19:42:40 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/18 12:25:00 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/20 17:39:13 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	write_page(t_pos *pos)
 		calc_drawES(&map, pos, side);
 		calc_texX(&map, pos, side);
 		calc_texture(&map, pos, i, side);
+		pos->zBuffer[i] = map.perpWallDist;
 		i++;
 	}
 }

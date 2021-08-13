@@ -10,6 +10,7 @@ SRCS		=	main.c \
 				cub_calc.c \
 				cub_key.c \
 				pos_calc.c \
+				tex_calc.c \
 				cub_draw.c \
 				utils/cub_key_hook.c \
 				utils/cub_utils.c \

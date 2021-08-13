@@ -36,27 +36,26 @@ void	check_texture_xpm(t_cub *cub)
 		write_error(EA_TEXTURE_ERROR, "EA_TEXTURE_ERROR");
 }
 
-void	check_map(t_cub *cub)
+static char	**get_map_start(t_cub *cub, int *count)
 {
 	char	**tmp;
-	char	dir[4] = {'S', 'N', 'W', 'E'};
 	int	i;
 	int	j;
 
-	tmp = malloc(sizeof(char *) * cub->map_row + 1);
-	cub->position[0] = 0;
-	cub->position[1] = 0;
 	i = 0;
 	j = 0;
+
+	tmp = malloc(sizeof(char *) * cub->map_row + 1);
 	while (cub->map[i])
 	{
 		tmp[i] = ft_strdup(cub->map[i]);
 		while (j < ft_strlen(cub->map[i]))
 		{
-			if (ft_strchr(dir, cub->map[i][j]))
+			if (ft_strchr("SNWE", cub->map[i][j]))
 			{
 				cub->position[0] = i;
 				cub->position[1] = j;
+				(*count)++;
 			}
 			j++;
 		}
@@ -64,8 +63,24 @@ void	check_map(t_cub *cub)
 		i++;
 	}
 	tmp[i] = NULL;
+	return (tmp);
+}
+
+void	check_map(t_cub *cub)
+{
+	char	**tmp;
+	int		count;
+	int		cub_num;
+
+	count = 0;
+	tmp = get_map_start(cub, &count);
+	cub_num = count_all_sprite(cub->map);
+	cub->sprite = malloc(sizeof(t_sprite) * (cub_num + 1));
 	if (!cub->position[0] && !cub->position[1])
 		free_cub_exit(NO_START_POS, "NO_START_POS",cub);
-	flood_fill(cub, cub->position[0], cub->position[1], tmp);
+	if (count > 1)
+		free_cub_exit(SOMME_STARTS_ARE_EXIST, "SOMME_STARTS_ARE_EXIST", cub);
+	flood_fill(cub, cub->position[0], cub->position[1], tmp);\
+	printf("x=%dy=%d\n",cub->sprite[0].x, cub->sprite[0].y);
 	free_double_pointer(tmp);
 }

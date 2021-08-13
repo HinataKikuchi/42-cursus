@@ -5,6 +5,8 @@ static void	get_R_value(char *buf, t_cub *cub)
 	int		i;
 	char	**res;
 
+	if (cub->R_x != -1)
+		write_error(R_VALUE_EXIST_TWICE, "R_VALUE_EXIST_TWICE");
 	if (ft_strchr(buf, '\t'))
 		res = ft_split(buf, '\t');
 	else
@@ -63,6 +65,8 @@ static void	get_rfc_value(char *buf, t_cub *cub)
 		get_R_value(buf, cub);
 	else if (ft_strnstr(buf, "F", buf_len))
 	{
+		if (cub->F[0] != -1)
+			write_error(F_VALUE_EXIST_TWICE, "F_VALUE_EXIST_TWICE");
 		tmp = get_FC_value(buf, cub);
 		if (!check_row(tmp, 3))
 		{
@@ -76,6 +80,8 @@ static void	get_rfc_value(char *buf, t_cub *cub)
 	}
 	else if (ft_strnstr(buf, "C", buf_len))
 	{
+		if (cub->C[0] != -1)
+			write_error(C_VALUE_EXIST_TWICE, "C_VALUE_EXIST_TWICE");
 		tmp = get_FC_value(buf, cub);
 		if (!check_row(tmp, 3))
 		{
@@ -100,17 +106,17 @@ static void	judge_value(char *buf, t_cub *cub)
 	ft_strnstr(buf, "F", buf_len) || ft_strnstr(buf, "C", buf_len))
 		get_rfc_value(buf, cub);
 	else if (ft_strnstr(buf, "NO", buf_len))
-		cub->NO = get_pure_texture(buf, "NO");
+		cub->NO = get_pure_texture(buf, "NO", cub);
 	else if (ft_strnstr(buf, "SO", buf_len))
-		cub->SO = get_pure_texture(buf, "SO");
+		cub->SO = get_pure_texture(buf, "SO", cub);
 	else if (ft_strnstr(buf, "WE", buf_len))
-		cub->WE = get_pure_texture(buf, "WE");
+		cub->WE = get_pure_texture(buf, "WE", cub);
 	else if (ft_strnstr(buf, "EA", buf_len))
-		cub->EA = get_pure_texture(buf, "EA");
+		cub->EA = get_pure_texture(buf, "EA", cub);
 	else if (buf[0] == 'S')
-		cub->Sprite = get_pure_texture(buf, "S");
+		cub->Sprite = get_pure_texture(buf, "S", cub);
 	else if (judge_map(buf))
-		cub->map_row = cub->map_row + 1;
+		cub->map_row++;
 	free(buf);
 }
 

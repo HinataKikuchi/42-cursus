@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 15:36:23 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/20 10:45:12 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/20 13:09:15 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,19 @@
 # define POS_TEX_MALLOC_ERROR 18
 # define CANNOT_OPEN_XPM 19
 # define OVER_TEX_SIZE 20
+# define SOMME_STARTS_ARE_EXIST 21
+# define OPEN_ERROR 22
+# define R_VALUE_EXIST_TWICE 23
+# define F_VALUE_EXIST_TWICE 24
+# define C_VALUE_EXIST_TWICE 25
+# define NO_VALUE_EXIST_TWICE 26
+# define SO_VALUE_EXIST_TWICE 27
+# define EA_VALUE_EXIST_TWICE 28
+# define WE_VALUE_EXIST_TWICE 29
+# define SPRITE_EXIST_TWICE 30
+
+
+
 
 void	write_error(int error_num, char *message);
 void	check_file(char *s, int file_num);

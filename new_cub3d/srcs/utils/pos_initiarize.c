@@ -24,15 +24,32 @@ static void	load_image(t_pos *pos, int *texture, char *path, t_data *img)
 	mlx_destroy_image(pos->vars.mlx, img->img);
 }
 
+static int check_path(char *path, t_pos *pos)
+{
+	int fd;
+
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		free_pos_exit(OPEN_ERROR, "OPEN_ERROR", pos);
+	else
+		close(fd);
+	return (1);
+}
+
 static void	load_texture(t_pos *pos)
 {
 	t_data	data;
 
-	load_image(pos, pos->cub.texture[0], pos->cub.NO, &data);
-	load_image(pos, pos->cub.texture[1], pos->cub.SO, &data);
-	load_image(pos, pos->cub.texture[2], pos->cub.EA, &data);
-	load_image(pos, pos->cub.texture[3], pos->cub.WE, &data);
-	load_image(pos, pos->cub.texture[4], pos->cub.Sprite, &data);
+	if (check_path(pos->cub.NO, pos))
+		load_image(pos, pos->cub.texture[0], pos->cub.NO, &data);
+	if (check_path(pos->cub.SO, pos))
+		load_image(pos, pos->cub.texture[1], pos->cub.SO, &data);
+	if (check_path(pos->cub.EA, pos))
+		load_image(pos, pos->cub.texture[2], pos->cub.EA, &data);
+	if (check_path(pos->cub.WE, pos))
+		load_image(pos, pos->cub.texture[3], pos->cub.WE, &data);
+	if (check_path(pos->cub.Sprite, pos))
+		load_image(pos, pos->cub.texture[4], pos->cub.Sprite, &data);
 }
 
 void	pos_set_value(t_pos *pos)
@@ -47,7 +64,7 @@ void	pos_set_value(t_pos *pos)
 	pos->rotSpeed = 0.1;
 }
 
-void	pos_initialize(t_pos *pos)
+static void	pos_buf_malloc(t_pos *pos)
 {
 	int	i;
 
@@ -62,6 +79,12 @@ void	pos_initialize(t_pos *pos)
 			free_cub_exit(MALLOC_ERROR, "MALLOC_ERROR", &pos->cub);
 		i++;
 	}
+}
+
+static void	pos_tex_malloc(t_pos *pos)
+{
+	int	i;
+
 	i = 0;
 	pos->cub.texture = ft_calloc(texNUM + spriteNUM, sizeof(int *));
 	if(!pos->cub.texture)
@@ -73,6 +96,15 @@ void	pos_initialize(t_pos *pos)
 			free_pos_exit(POS_TEX_MALLOC_ERROR, "POS_TEXTURE_MALLOC_ERROR", pos);
 		i++;
 	}
+}
+
+void	pos_initialize(t_pos *pos)
+{
+	pos_buf_malloc(pos);
+	pos_tex_malloc(pos);
+	pos->zBuffer = ft_calloc(pos->cub.R_x, sizeof(double));
+	if (!pos->zBuffer)
+		free_pos_exit(MALLOC_ERROR, "MALLOC_ERROR", pos);
 	pos_set_value(pos);
 	load_texture(pos);
 	pos->img.img = mlx_new_image(pos->vars.mlx, pos->cub.R_x, pos->cub.R_y);

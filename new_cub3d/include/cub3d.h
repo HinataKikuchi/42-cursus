@@ -6,7 +6,7 @@
 /*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:02:18 by hkikuchi          #+#    #+#             */
-/*   Updated: 2021/05/18 18:28:53 by hkikuchi         ###   ########.fr       */
+/*   Updated: 2021/05/20 17:28:09 by hkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef struct s_map
 /*
 ** SAVE TEXTURE VALUES
 */
-typedef struct s_data
+typedef struct	s_data
 {
 	void	*img;
 	int		*val;
@@ -109,6 +109,16 @@ typedef struct	s_vars
 }				t_vars;
 
 /*
+** SPRITE INFOMATION
+*/
+typedef struct	s_sprite
+{
+	int	x;
+	int	y;
+	double	dist;
+}				t_sprite;
+
+/*
 ** SAVE CUB FILE'S VALUES
 */
 typedef struct s_cub
@@ -130,6 +140,8 @@ typedef struct s_cub
 	int		**texture;
 	int		**buf;
 	int		position[2];
+	int		sprite_num;
+	t_sprite	*sprite;
 }				t_cub;
 
 /*
@@ -137,24 +149,25 @@ typedef struct s_cub
 */
 typedef struct	s_pos
 {
-	double posX;
-	double posY;
-	double dirX;
-	double dirY;
-	double planeX;
-	double planeY;
-	double moveSpeed;
-	double rotSpeed;
-	t_vars vars;
-	t_cub cub;
-	t_data img;
+	double	posX;
+	double	posY;
+	double	dirX;
+	double	dirY;
+	double	planeX;
+	double	planeY;
+	double	moveSpeed;
+	double	rotSpeed;
+	double	*zBuffer;
+	t_vars	vars;
+	t_cub	cub;
+	t_data	img;
 }				t_pos;
 
 /*
 ** INITIARIZE VALUES FUNCTION
 */
 void	pos_initialize(t_pos *pos);
-t_cub	cub_value(void);
+t_cub	cub_initialize(void);
 
 /*
 ** FREE STRUCT FUNCTION
@@ -171,7 +184,7 @@ void	free_struct(t_cub *cub);
 int		get_cub_value(char *file_name, int argc, t_cub *cub, t_vars *var);
 void	get_map(char *file_path, t_cub *cub);
 void	pos_set_value(t_pos *pos);
-char	*get_pure_texture(char *s, char *prefix);
+char	*get_pure_texture(char *s, char *prefix, t_cub *cub);
 void	get_screen_size(t_cub *cub, t_vars *vars);
 
 /*
@@ -179,6 +192,7 @@ void	get_screen_size(t_cub *cub, t_vars *vars);
 */
 int		judge_map(char *buf);
 void	check_map(t_cub *cub);
+int		count_all_sprite(char **map);
 void	check_texture_xpm(t_cub *cub);
 void	flood_fill(t_cub *cub, int x, int y, char **tmp_map);
 
@@ -200,6 +214,12 @@ int		calc_hit(t_map *map, t_pos *pos, int *side);
 void	calc_drawES(t_map *map, t_pos *pos, int side);
 void	calc_texX(t_map *map, t_pos *pos, int side);
 void	calc_texture(t_map *map, t_pos *pos, int x, int side);
+
+/*
+** CALC SPRITE
+*/
+void	sprite_sort(t_pos *pos);
+
 
 /*
 ** UTILS
