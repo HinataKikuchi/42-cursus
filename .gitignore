@@ -1,6 +1,17 @@
+######
 .*
+
+###MEDIA###
 *.pdf
+*.png
+*.jpg
+
+###MOVED FILES FROM WINDOWS###
 *.Identifier
+
+###TMP###
 net_what*
 src_of_read_me
 
+a.out
+*.o
