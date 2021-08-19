@@ -13,5 +13,9 @@
 net_what*
 src_of_read_me
 
+###COMPILED FILES###
 a.out
 *.o
+
+###LIBRALIES###
+*minilibx*
